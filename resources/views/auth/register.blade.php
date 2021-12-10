@@ -4,59 +4,67 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            </div>
+            <x-input.wrapper>
+                <x-input.label for="name" value="{{ __('Name') }}" />
+                <x-input.text name="name" id="name" :value="old('name')" type="text" name="name" required />
+                <x-input.error for="name" />
+            </x-input.wrapper>
 
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
+            <x-input.wrapper>
+                <x-input.label for="email" value="{{ __('Email') }}" />
+                <x-input.text name="email" id="email" :value="old('email')" type="email" name="email" required />
+                <x-input.error for="email" />
+            </x-input.wrapper>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+            <x-input.wrapper>
+                <x-input.label for="password" value="{{ __('Password') }}" />
+                <x-input.text name="password" id="password" type="password" name="password" required
+                    autocomplete="current-password" />
+                <x-input.error for="password" />
+            </x-input.wrapper>
 
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+            <x-input.wrapper>
+                <x-input.label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-input.text name="password_confirmation" id="password_confirmation" type="password"
+                    name="password_confirmation" required autocomplete="new-password" />
+                <x-input.error for="password_confirmation" />
+            </x-input.wrapper>
+
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
+                <x-input.wrapper>
                     <x-jet-label for="terms">
                         <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
+                            <x-jet-checkbox name="terms" id="terms" />
 
                             <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
+                                I agree to the
+                                <x-link href="{{ route('terms.show') }}">Terms of Service</x-link> and
+                                <x-link href="{{ route('policy.show') }}">Privacy Policy</x-link>
                             </div>
                         </div>
                     </x-jet-label>
-                </div>
+                    @error('terms')
+                        <p class="text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </x-input.wrapper>
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
+                <x-anchor.white href="{{ route('login') }}">
+                    {{ __('Login') }}
+                </x-anchor.white>
 
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
-                </x-jet-button>
+                <div class="ml-2">
+                    <x-button.black type="submit">
+                        {{ __('Register') }}
+                    </x-button.black>
+                </div>
             </div>
         </form>
-
         @if (JoelButcher\Socialstream\Socialstream::show())
             <x-socialstream-providers />
         @endif

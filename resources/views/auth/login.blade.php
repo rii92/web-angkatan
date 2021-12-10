@@ -4,8 +4,6 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <x-jet-validation-errors class="mb-4" />
-
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
@@ -15,38 +13,52 @@
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+            <x-input.wrapper>
+                <x-input.label for="email" value="{{ __('Email') }}" />
+                <x-input.text name="email" id="email" :value="old('email')" type="email" name="email" required
+                    autofocus />
+                <x-input.error for="email" />
+            </x-input.wrapper>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
+            <x-input.wrapper>
+                <x-input.label for="password" value="{{ __('Password') }}" />
+                <x-input.text name="password" id="password" type="password" name="password" required
+                    autocomplete="current-password" />
+                <x-input.error for="password" />
+                <div>
+                    @if (Route::has('password.request'))
+                        <x-link class="text-sm" href="{{ route('password.request') }}">
+                            {{ __('Forgot your password?') }}
+                        </x-link>
+                    @endif
+                </div>
+            </x-input.wrapper>
 
-            <div class="block mt-4">
+            <x-input.wrapper>
                 <label for="remember_me" class="flex items-center">
-                    <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
+                    <x-jet-checkbox id="remember_me" name="remember" />
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </x-input.wrapper>
 
             <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
+                @if (Route::has('register'))
+                    <x-anchor.white href="{{ route('register') }}">
+                        {{ __('Register') }}
+                    </x-anchor.white>
                 @endif
 
-                <x-jet-button class="ml-4">
-                    {{ __('Login') }}
-                </x-jet-button>
+                <div class="ml-2">
+                    <x-button.black type="submit">
+                        {{ __('Log in') }}
+                    </x-button.black>
+                </div>
             </div>
         </form>
 
         @if (JoelButcher\Socialstream\Socialstream::show())
             <x-socialstream-providers />
         @endif
+
     </x-jet-authentication-card>
 </x-guest-layout>

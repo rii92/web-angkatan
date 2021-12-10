@@ -19,18 +19,17 @@
                 @csrf
 
                 <div>
-                    <x-jet-button type="submit">
-                        {{ __('Resend Verification Email') }}
-                    </x-jet-button>
+                    <x-button.black type="submit">
+                        {{ __('Send Verification Email') }}
+                    </x-button.black>
                 </div>
             </form>
 
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-
-                <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <x-button.white type="submit">
                     {{ __('Log Out') }}
-                </button>
+                </x-button.white>
             </form>
         </div>
     </x-jet-authentication-card>
