@@ -44,9 +44,9 @@
                                 @endif
                             </div>
                         @else
-                            <x-action-link href="{{ route('oauth.redirect', ['provider' => $provider]) }}">
+                            <x-anchor.white href="{{ route('oauth.redirect', ['provider' => $provider]) }}">
                                 {{ __('Connect') }}
-                            </x-action-link>
+                            </x-anchor.white>
                         @endif
                     </x-slot>
 
