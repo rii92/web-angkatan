@@ -27,7 +27,7 @@
                     $account = $this->accounts->where('provider', $provider)->first();
                 @endphp
 
-                <x-connected-account provider="{{ $provider }}" created-at="{{ $account->created_at ?? null }}">
+                <x-socialstream.connected-account provider="{{ $provider }}" created-at="{{ $account->created_at ?? null }}">
                     <x-slot name="action">
                         @if (! is_null($account))
                             <div class="flex items-center space-x-6">
@@ -50,7 +50,7 @@
                         @endif
                     </x-slot>
 
-                </x-connected-account>
+                </x-socialstream.connected-account>
             @endforeach
         </div>
 
