@@ -1,3 +1,3 @@
 <div class="uppercase font-bold text-xl">
-  APP NAME
+  ANGKATAN 60
 </div>

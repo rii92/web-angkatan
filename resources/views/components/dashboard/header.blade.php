@@ -1,4 +1,4 @@
-<header class="z-10 py-2 bg-white shadow-md dark:bg-gray-800">
+<header class="py-4 bg-white shadow-md dark:bg-gray-800 z-30">
     <div class="xl:container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
         <!-- Mobile hamburger -->
         <button
