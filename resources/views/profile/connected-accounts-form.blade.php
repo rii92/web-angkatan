@@ -1,4 +1,4 @@
-<x-jet-action-section>
+<x-card.form>
     <x-slot name="title">
         {{ __('Connected Accounts') }}
     </x-slot>
@@ -7,7 +7,7 @@
         {{ __('Manage and remove your connect accounts.') }}
     </x-slot>
 
-    <x-slot name="content">
+    <div>
         <h3 class="text-lg font-medium text-gray-900">
             @if (count($this->accounts) == 0)
                 {{ __('You have no connected accounts.') }}
@@ -38,9 +38,9 @@
                                 @endif
 
                                 @if (($this->accounts->count() > 1 || ! is_null($this->user->password)))
-                                    <x-jet-danger-button wire:click="confirmRemove({{ $account->id }})" wire:loading.attr="disabled">
+                                    <x-button.error wire:click="confirmRemove({{ $account->id }})" wire:loading.attr="disabled">
                                         {{ __('Remove') }}
-                                    </x-jet-danger-button>
+                                    </x-button.error>
                                 @endif
                             </div>
                         @else
@@ -74,5 +74,5 @@
                 </x-jet-danger-button>
             </x-slot>
         </x-jet-dialog-modal>
-    </x-slot>
-</x-jet-action-section>
+    </div>
+</x-card.form>
