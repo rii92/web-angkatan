@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage.home');
+    return view('homepage');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard.home');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('dashboard')->group(function(){
+    Route::get('', function () {
+        return view('dashboard.home');
+    })->name('dashboard');
+
+    Route::get('users', function () {
+        return view('dashboard.users');
+    })->name('dashboard.users');
+});

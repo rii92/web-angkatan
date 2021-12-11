@@ -44,6 +44,7 @@ class CreateUserFromProvider implements CreatesUserFromProvider
                 'email' => $providerUser->getEmail(),
             ]), function (User $user) use ($provider, $providerUser) {
                 $user->markEmailAsVerified();
+                $user->assignRole('users');
 
                 if (Socialstream::hasProviderAvatarsFeature() && Jetstream::managesProfilePhotos() && $providerUser->getAvatar()) {
                     $user->setProfilePhotoFromUrl($providerUser->getAvatar());

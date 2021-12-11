@@ -1,5 +1,5 @@
-<header class="py-4 bg-white shadow-md dark:bg-gray-800 z-30">
-    <div class="xl:container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+<header class="h-16 bg-white shadow-md">
+    <div class="xl:container flex items-center justify-between h-full px-6 mx-auto text-purple-600 ">
         <!-- Mobile hamburger -->
         <button
             class="p-1 mr-5 -ml-1 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800 text-gray-600"

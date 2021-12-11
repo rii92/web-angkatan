@@ -23,7 +23,9 @@
     <div class="flex h-screen bg-gray-100" :class="{ 'overflow-hidden': isSideMenuOpen }">
         @include('components.dashboard.sidebar')
         <div class="flex flex-col flex-1 overflow-x-hidden">
-            @include('components.dashboard.header')
+            <div class="z-10">
+                @include('components.dashboard.header')
+            </div>
             <main class="h-full overflow-y-auto">
                 <div class="xl:container px-3 py-8 md:px-6 mx-auto">
                     {{ $slot }}
