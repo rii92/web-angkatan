@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
         if (App::environment(['local', 'development'])) {
             $this->call([
+                AdminSeeder::class,
                 UsersSeeder::class
             ]);
         }
