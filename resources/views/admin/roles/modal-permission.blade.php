@@ -16,7 +16,7 @@
         </form>
 
         <x-table :theads="['permission', 'Action']" :overflow="false" max-height="max-h-96">
-            @forelse ($rolePermission as $permission)
+            @forelse ($rolePermissions as $permission)
             <tr class="border-b border-gray-200 hover:bg-blueGray-100 {{ $loop->even ? 'bg-gray-50' : '' }}">
                 <td class="py-3 px-6 text-center">
                     <small class="bg-green-500 text-xs p-1 px-3 rounded-full whitespace-nowrap text-white">{{

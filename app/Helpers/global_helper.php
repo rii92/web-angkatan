@@ -6,8 +6,8 @@ if (!function_exists('getRoleUser')) {
     /**
      * to get role of user
      *
-     * @param  string $permission
-     * @return bool
+     * @param  User $user
+     * @return string
      */
     function getRoleUser(User $user)
     {
