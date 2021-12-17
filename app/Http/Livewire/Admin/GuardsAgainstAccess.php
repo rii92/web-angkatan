@@ -13,8 +13,8 @@ trait GuardsAgainstAccess
      */
     public function initializeGuardsAgainstAccess()
     {
-        if (isset($this->role)) abort_unless(Auth::user()->hasRole($this->role), 401, 'Unauthorized');
+        if (isset($this->roleGuard)) abort_unless(Auth::user()->hasRole($this->roleGuard), 401, 'Unauthorized');
 
-        if (isset($this->permission)) abort_unless(Auth::user()->can($this->permission), 401, 'Unauthorized');
+        if (isset($this->permissionGuard)) abort_unless(Auth::user()->can($this->permissionGuard), 401, 'Unauthorized');
     }
 }

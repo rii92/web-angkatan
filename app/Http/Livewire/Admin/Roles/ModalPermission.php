@@ -11,7 +11,7 @@ class ModalPermission extends ModalComponent
 {
     use GuardsAgainstAccess;
 
-    private $permission = PERMISSION_AKSES_ADMINISTRATOR;
+    private $permissionGuard = PERMISSION_AKSES_ADMINISTRATOR;
 
     public $role_id;
     public $role;
