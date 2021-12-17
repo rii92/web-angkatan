@@ -1,7 +1,7 @@
 <div class="p-2 pb-3">
     <x-modal.header title="Update Permission Role {{ $role->name }}" bordered />
     <x-modal.body>
-        <p class="mb-2 text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, aperiam?</p>
+        <p class="mb-2 text-sm">{{ $role->description }}</p>
 
         <form wire:submit.prevent="addPermission">
             <div class="flex items-center mb-4">
@@ -24,8 +24,12 @@
                 </td>
                 <td class="py-3 px-6 text-center">
                     <div class="flex justify-center">
+                        @if ($role->name != ROLE_ADMIN)
                         <x-button.error class="text-sm" wire:click="revokePermission('{{ $permission }}')">
                             Revoke</x-button.error>
+                        @else
+                        -
+                        @endif
                     </div>
                 </td>
             </tr>

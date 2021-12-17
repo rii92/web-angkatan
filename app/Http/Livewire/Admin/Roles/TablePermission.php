@@ -18,7 +18,8 @@ class TablePermission extends DataTableComponent
                 ->searchable(),
             Column::make('Permission', 'name')
                 ->sortable()
-                ->searchable()
+                ->searchable(),
+            Column::make('Description', 'description')
         ];
     }
 

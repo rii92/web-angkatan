@@ -1,7 +1,13 @@
 @props(['role'])
 
-@if ($role == "admin")
-<x-badge.primary text="admin" />
+@if ($role == ROLE_ADMIN)
+<x-badge.primary text="Admin" />
+@elseif ($role == ROLE_BPH)
+<x-badge.success text="BPH" />
+@elseif ($role == ROLE_HUMAS)
+<x-badge.error text="Humas" />
+@elseif ($role == ROLE_AKADEMIK)
+<x-badge.warning text="Akademik" />
 @else
-<x-badge.success text="users" />
+<x-badge.secondary text="Mahasiswa" />
 @endif

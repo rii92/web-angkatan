@@ -11,7 +11,7 @@ class ModalRole extends ModalComponent
 {
     use GuardsAgainstAccess;
 
-    private $role = "admin";
+    private $role = ROLE_ADMIN;
 
     public $user;
     public $user_id;

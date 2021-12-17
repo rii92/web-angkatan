@@ -17,18 +17,22 @@ Route::get('/', function () {
     return view('without-login.homepage');
 })->name('home');
 
-Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'permission:' . PERMISSION_AKSES_ADMIN])->prefix('admin')->group(function () {
+
     Route::get('', function () {
         return view('admin.home');
     })->name('admin.dashboard');
 
-    Route::get('users', function () {
-        return view('admin.users');
-    })->name('admin.users');
+    Route::middleware('permission:' . PERMISSION_AKSES_ADMINISTRATOR)->group(function () {
+        Route::get('users', function () {
+            return view('admin.users');
+        })->name('admin.users');
 
-    Route::get('roles', function () {
-        return view('admin.roles');
-    })->name('admin.roles');
+        Route::get('roles', function () {
+            return view('admin.roles');
+        })->name('admin.roles');
+    });
+
 
     Route::prefix('konsultasi')->group(function () {
         Route::get('akademik', function () {

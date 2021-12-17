@@ -27,10 +27,7 @@ class Table extends DataTableComponent
                 ->sortable(),
             Column::make('Role')
                 ->format(function ($value, $column, $user) {
-                    if ($user->hasRole('admin')) $role = "admin";
-                    else $role = "user";
-
-                    return view('admin.users.column.role')->with('role', $role);
+                    return view('admin.users.column.role')->with('role', getRoleUser($user));
                 }),
             Column::make('Actions')
                 ->format(function ($value, $column, $row) {
@@ -50,9 +47,11 @@ class Table extends DataTableComponent
         return [
             'role' => Filter::make('Role User')
                 ->select([
-                    '' => 'Any',
-                    'users' => 'Regular Users',
-                    'admin' => 'Admin'
+                    '' => 'Semua',
+                    ROLE_ADMIN => 'Admin',
+                    ROLE_BPH => 'BPH',
+                    ROLE_HUMAS => 'Divisi Humas',
+                    ROLE_AKADEMIK => 'Divisi Akademik',
                 ]),
         ];
     }
