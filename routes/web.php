@@ -14,15 +14,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage');
-});
+    return view('without-login.homepage');
+})->name('home');
 
-Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('dashboard')->group(function(){
+Route::middleware(['auth:sanctum', 'verified', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('', function () {
-        return view('dashboard.home');
-    })->name('dashboard');
+        return view('admin.home');
+    })->name('admin.dashboard');
 
     Route::get('users', function () {
-        return view('dashboard.users');
-    })->name('dashboard.users');
+        return view('admin.users');
+    })->name('admin.users');
+
+    Route::get('roles', function () {
+        return view('admin.roles');
+    })->name('admin.roles');
+
+    Route::prefix('konsultasi')->group(function () {
+        Route::get('akademik', function () {
+            return view('admin.konsultasi-akademik');
+        })->name('admin.konsultasi-akademik');
+
+        Route::get('umum', function () {
+            return view('admin.konsultasi-umum');
+        })->name('admin.konsultasi-umum');
+    });
+
+    Route::get('sambat', function () {
+        return view('admin.sambat');
+    })->name('admin.sambat');
+
+    Route::get('pengumuman', function () {
+        return view('admin.pengumuman');
+    })->name('admin.pengumuman');
+
+    Route::get('berita', function () {
+        return view('admin.berita');
+    })->name('admin.berita');
 });

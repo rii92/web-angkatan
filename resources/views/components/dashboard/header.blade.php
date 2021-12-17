@@ -12,12 +12,12 @@
             </svg>
         </button>
         <div>
-            <h2 class="px-0 text-lg lg:text-xl font-semibold capitalize text-gray-600">
+            <h2 class="px-0 text-lg lg:text-xl font-semibold text-gray-600">
                 {{ $title }}
             </h2>
         </div>
         <ul class="flex items-center flex-shrink-0 space-x-6 ml-auto">
-          <x-dashboard.header-profile/>
+            <x-dashboard.header-profile />
         </ul>
     </div>
 </header>

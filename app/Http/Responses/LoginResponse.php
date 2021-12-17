@@ -8,7 +8,7 @@ class LoginResponse implements ContractsLoginResponse
 {
     public function toResponse($request)
     {
-        if (auth()->user()->hasRole('admin')) return redirect()->to('dashboard');
-        return redirect('/');
+        // if (auth()->user()->hasRole('admin')) return redirect()->to('admin');
+        return redirect()->intended('/');
     }
 }
