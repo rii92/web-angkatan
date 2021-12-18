@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             PermissionSeeder::class,
-            RoleSeeder::class
+            RoleSeeder::class,
+            ProvinsiSeeder::class,
+            KabupatenSeeder::class
         ]);
 
         if (App::environment(['local', 'development'])) {

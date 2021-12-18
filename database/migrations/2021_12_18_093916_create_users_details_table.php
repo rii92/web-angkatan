@@ -14,7 +14,7 @@ class CreateUsersDetailsTable extends Migration
     public function up()
     {
         Schema::create('users_details', function (Blueprint $table) {
-            $table->foreignId('user_id')->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->char('nim', 9)->nullable();
             $table->char('kelas', 4)->nullable();
             $table->string('no_hp', 14)->nullable();
@@ -22,7 +22,7 @@ class CreateUsersDetailsTable extends Migration
             $table->string('pa_divisi')->nullable();
             $table->string('pa_jabatan')->nullable();
             $table->timestamp('last_login')->nullable();
-            $table->timestamp('last_see_notifictaion')->nullable();
+            $table->timestamp('last_seen_notifictaion')->nullable();
             $table->smallInteger('alamat_provinsi', false, true)->nullable();
             $table->smallInteger('alamat_kabupaten', false, true)->nullable();
             $table->string('alamat_kecamatan', 30)->nullable();
