@@ -2,11 +2,13 @@
 
 namespace App\Http\Livewire\Admin\Users;
 
+use App\Constants\AppRoles;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
+use Illuminate\Support\Str;
 
 class Table extends DataTableComponent
 {
@@ -27,7 +29,7 @@ class Table extends DataTableComponent
                 ->sortable(),
             Column::make('Role')
                 ->format(function ($value, $column, $user) {
-                    return view('admin.users.column.role')->with('role', getRoleUser($user));
+                    return view('admin.users.column.role')->with('user', $user);
                 }),
             Column::make('Actions')
                 ->format(function ($value, $column, $row) {
@@ -38,7 +40,7 @@ class Table extends DataTableComponent
 
     public function query(): Builder
     {
-        return User::query()
+        return User::with('roles')
             ->when($this->getFilter('role'), fn ($query, $role) => $query->role($role));;
     }
 
@@ -47,11 +49,12 @@ class Table extends DataTableComponent
         return [
             'role' => Filter::make('Role User')
                 ->select([
-                    '' => 'Semua',
-                    ROLE_ADMIN => 'Admin',
-                    ROLE_BPH => 'BPH',
-                    ROLE_HUMAS => 'Divisi Humas',
-                    ROLE_AKADEMIK => 'Divisi Akademik',
+                    '' => 'All',
+                    AppRoles::ADMIN => Str::of(AppRoles::ADMIN)->upper(),
+                    AppRoles::BPH => Str::of(AppRoles::BPH)->upper(),
+                    AppRoles::HUMAS => Str::of(AppRoles::HUMAS)->upper(),
+                    AppRoles::AKADEMIK => Str::of(AppRoles::AKADEMIK)->upper(),
+                    AppRoles::USERS => Str::of(AppRoles::USERS)->upper(),
                 ]),
         ];
     }

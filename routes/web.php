@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Constants\AppPermissions;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,13 @@ Route::get('/', function () {
     return view('without-login.homepage');
 })->name('home');
 
-Route::middleware(['auth:sanctum', 'verified', 'permission:' . PERMISSION_AKSES_ADMIN])->prefix('admin')->group(function () {
+Route::middleware(['auth:sanctum', 'verified', "permission:".AppPermissions::DASHBOARD_ACCESS])->prefix('admin')->group(function () {
 
     Route::get('', function () {
         return view('admin.home');
     })->name('admin.dashboard');
 
-    Route::middleware('permission:' . PERMISSION_AKSES_ADMINISTRATOR)->group(function () {
+    Route::middleware("permission:".AppPermissions::ADMIN_ACCESS)->group(function () {
         Route::get('users', function () {
             return view('admin.users');
         })->name('admin.users');
@@ -32,7 +33,6 @@ Route::middleware(['auth:sanctum', 'verified', 'permission:' . PERMISSION_AKSES_
             return view('admin.roles');
         })->name('admin.roles');
     });
-
 
     Route::prefix('konsultasi')->group(function () {
         Route::get('akademik', function () {

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Constants\AppPermissions;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
@@ -14,14 +15,21 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        Permission::create([
-            'name' => PERMISSION_AKSES_ADMIN,
-            'description' => "Permission untuk akses /admin"
-        ]);
 
-        Permission::create([
-            'name' => PERMISSION_AKSES_ADMINISTRATOR,
-            'description' => "Permission untuk akses menu administrator (users dan roles)"
-        ]);
+        $permission = [
+            [
+                'name' => AppPermissions::DASHBOARD_ACCESS,
+                'description' => "Permission for access admin dashboard"
+            ],
+            [
+                'name' => AppPermissions::ADMIN_ACCESS,
+                'description' => "Permission to access administrator menu,such as manage users and roles"
+            ]
+        ];
+
+        foreach($permission as $permission)
+        {
+            Permission::create($permission);
+        }
     }
 }

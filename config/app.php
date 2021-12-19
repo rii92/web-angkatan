@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'id',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -233,6 +233,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // aliases for custom classess
+        'AppRoles' => App\Constants\AppRoles::class,
+        'AppPermissions' => App\Constants\AppPermissions::class,
 
     ],
 

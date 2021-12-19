@@ -1,3 +1,17 @@
 <div class="flex justify-center">
-    <x-column.role role="{{ $role }}" />
+    @if ($user->roles->pluck('name')->contains(AppRoles::ADMIN))
+        <x-badge.error text="Admin" />
+    @endif
+    @if ($user->roles->pluck('name')->contains(AppRoles::BPH))
+        <x-badge.primary text="BPH" />
+    @endif
+    @if ($user->roles->pluck('name')->contains(AppRoles::AKADEMIK))
+        <x-badge.black text="Akademik" />
+    @endif
+    @if ($user->roles->pluck('name')->contains(AppRoles::HUMAS))
+        <x-badge.warning text="Humas" />
+    @endif
+    @if ($user->roles->pluck('name')->contains(AppRoles::USERS))
+        <x-badge.success text="Mahasiswa" />
+    @endif
 </div>

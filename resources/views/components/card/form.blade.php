@@ -16,11 +16,6 @@
                 {{ $slot }}
             </div>
         </div>
-    
-        {{-- action --}}
-        <div class="mt-5">
-    
-        </div>
     </div>
     
 </div>

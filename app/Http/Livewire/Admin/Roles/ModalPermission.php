@@ -2,7 +2,10 @@
 
 namespace App\Http\Livewire\Admin\Roles;
 
-use App\Http\Livewire\Admin\GuardsAgainstAccess;
+use Exception;
+use App\Constants\AppPermissions;
+use App\Constants\AppRoles;
+use App\Http\Livewire\GuardsAgainstAccess;
 use LivewireUI\Modal\ModalComponent;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -11,17 +14,26 @@ class ModalPermission extends ModalComponent
 {
     use GuardsAgainstAccess;
 
-    private $permissionGuard = PERMISSION_AKSES_ADMINISTRATOR;
+    private $permissionGuard = AppPermissions::ADMIN_ACCESS;
 
-    public $role_id;
     public $role;
-    public $all_permission;
-    public $permissionToAdd;
+    public $role_id;
+
+    public $all_permissions;
+    public $rolePermissions;
+    public $permission;
 
     public function mount()
     {
         $this->role = Role::find($this->role_id);
-        $this->all_permission = Permission::get();
+        $this->refreshPermissions();
+    }
+
+    public function refreshPermissions()
+    {
+        $this->all_permissions = Permission::all()->pluck('name');
+        $this->rolePermissions = $this->role->permissions->pluck('name');
+        $this->all_permissions = $this->all_permissions->diff($this->rolePermissions);
     }
 
     /**
@@ -31,16 +43,15 @@ class ModalPermission extends ModalComponent
      */
     public function addPermission()
     {
-        if ($this->permissionToAdd) {
-            try {
-                $this->role->givePermissionTo($this->permissionToAdd);
-                $this->emit('success', 'Permission berhasil ditambah');
-                $this->reset('permissionToAdd');
-            } catch (\Exception $e) {
-                $this->emit('success', 'Permission gagal ditambahkan');
-            }
-        } else
-            $this->emit('error', 'Silahkan pilih permission');
+        try {
+            $this->role->givePermissionTo($this->permission);
+            $this->emit('success', "Success add new permission");
+            $this->reset('permission');
+        } catch (\Exception $e) {
+            $this->emit('error', "Failed to add a new permission");
+        } finally {
+            $this->refreshPermissions();
+        }
     }
 
     /**
@@ -52,26 +63,22 @@ class ModalPermission extends ModalComponent
     public function revokePermission($permission)
     {
         try {
+            if ($this->role->name == AppRoles::ADMIN) {
+                if ($permission == AppPermissions::ADMIN_ACCESS) throw new Exception("Failed to remove");
+                if ($permission == AppPermissions::DASHBOARD_ACCESS) throw new Exception("Failed to remove");
+            }
+
             $this->role->revokePermissionTo($permission);
-            $this->emit('success', 'Permission berhasil direvoke');
+            $this->emit('success', "Success revoke {$permission}");
         } catch (\Exception $e) {
-            $this->emit('error', 'Permission gagal direvoke');
+            $this->emit('error', 'Failed to revoke permission');
+        } finally {
+            $this->refreshPermissions();
         }
     }
 
     public function render()
     {
-        // get all permission of role
-        $rolePermissions = $this->role->getPermissionNames();
-
-        // get only permission that the role doesn't already have
-        $permissions = $this->all_permission->filter(function ($p, $key) use ($rolePermissions) {
-            return !$rolePermissions->contains($p->name);
-        });
-
-        return view('admin.roles.modal-permission', [
-            'rolePermissions' => $rolePermissions,
-            'permissions' => $permissions
-        ]);
+        return view('admin.roles.modal-permission');
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Constants\AppPermissions;
+use App\Constants\AppRoles;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -21,6 +23,6 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('patrickstar')
         ]);
 
-        $user->assignRole(ROLE_ADMIN);
+        $user->assignRole([AppRoles::ADMIN, AppRoles::USERS])->givePermissionTo(AppPermissions::ADMIN_ACCESS);
     }
 }

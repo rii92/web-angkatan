@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Str;
 
 class TablePermission extends DataTableComponent
 {
@@ -17,6 +18,9 @@ class TablePermission extends DataTableComponent
                 ->sortable()
                 ->searchable(),
             Column::make('Permission', 'name')
+                ->format(function ($value, $column, $row) {
+                    return Str::of($row->name)->replace('_', ' ')->title();
+                })
                 ->sortable()
                 ->searchable(),
             Column::make('Description', 'description')

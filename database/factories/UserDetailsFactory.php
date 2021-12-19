@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Provinsi;
+use App\Models\Location;
 use App\Models\UserDetails;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -34,17 +34,14 @@ class UserDetailsFactory extends Factory
         }
         $kelas = '4' . $jurusan . $nomor_kelas;
 
-        $provinsi = Provinsi::inRandomOrder()->first();
-        $kabupaten = $this->faker->randomElement($provinsi->kabupaten->pluck('kab_id')->toArray());
         return [
             'nim' => $nim,
             'kelas' => $kelas,
             'no_hp' => $this->faker->numerify('08##########'),
-            'jenis_kelamin' => $this->faker->randomElement(['Perempuan', 'Laki-Laki']),
-            'alamat_provinsi' => $provinsi->prov_id,
-            'alamat_kabupaten' => $kabupaten,
-            'alamat_lengkap_rumah' => $this->faker->address(),
-            'alamat_lengkap_kos' => $this->faker->address(),
+            'jenis_kelamin' => $this->faker->randomElement(['L', 'P']),
+            'location_id' => Location::pluck('id')->random(),
+            'alamat_rumah' => $this->faker->address(),
+            'alamat_kos' => $this->faker->address(),
             'skripsi_dosbing' => $this->faker->name(),
             'skripsi_judul' => $this->faker->sentence(10),
             'skripsi_metode' => $this->faker->sentence(4),

@@ -10,55 +10,34 @@ class UserDetails extends Model
     use HasFactory;
 
     protected $table = 'users_details';
-    protected $guarded = [];
-    public $timestamps = false;
 
-    protected $dates = [
-        'last_login',
-        'last_seen_notification',
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'jenis_kelamin_value',
     ];
 
     /**
-     * accessor to translate code jenis kelamin
+     * Get the URL to the user's profile photo.
      *
-     * @return void
+     * @return string
      */
-    public function getJenisKelaminAttribute($jenisKelamin)
+    public function getJenisKelaminValueAttribute()
     {
-        if ($jenisKelamin)
-            return $jenisKelamin == "P" ? 'Perempuan' : 'Laki-Laki';
-        return $jenisKelamin;
+        if ($this->jenis_kelamin == 'P') return "Perempuan";
+        return "Laki-Laki";
     }
 
     /**
-     * mutator to translate code jenis kelamin
+     * 1 on 1 realationship to Location model
      *
-     * @param  mixed $jenisKelamin
-     * @return void
+     * @var array
      */
-    public function setJenisKelaminAttribute($jenisKelamin)
+    public function location()
     {
-        if ($jenisKelamin)
-            $this->attributes['jenis_kelamin'] = $jenisKelamin == 'Laki-Laki' ? 'L' : 'P';
-    }
-
-    /**
-     * one to many dengan tabel kabupaten
-     *
-     * @return void
-     */
-    public function kabupaten()
-    {
-        return $this->hasOne(Kabupaten::class, 'kab_id', 'alamat_kabupaten');
-    }
-
-    /**
-     * one to many dengan tabel provinsi
-     *
-     * @return void
-     */
-    public function provinsi()
-    {
-        return $this->hasOne(Provinsi::class, 'prov_id', 'alamat_provinsi');
+        return $this->belongsTo(Location::class);
     }
 }

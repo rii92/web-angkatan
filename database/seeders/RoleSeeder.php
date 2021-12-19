@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Constants\AppPermissions;
+use App\Constants\AppRoles;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 
@@ -14,31 +16,30 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
+        Role::create([
+            'name' => AppRoles::USERS,
+            'description' => "Role for all users"
+        ]);
+
         $roles = [
             [
-                'name' => ROLE_ADMIN,
+                'name' => AppRoles::ADMIN,
                 "description" => "Role untuk admin yang punya akses ke semua halaman. Hanya dimiliki oleh anak TI"
             ],
             [
-                'name' => ROLE_BPH,
+                'name' => AppRoles::BPH,
                 "description" => "Role untuk seluruh BPH, punya akses kesemua halaman kecuali halaman administrator"
             ],
             [
-                'name' => ROLE_AKADEMIK,
+                'name' => AppRoles::AKADEMIK,
                 "description" => "Role untuk anak angkatan divisi akademik, khususnya untuk menu konsultasi akademik"
             ],
             [
-                'name' => ROLE_HUMAS,
+                'name' => AppRoles::HUMAS,
                 "description" => "Role untuk anak angkatan divisi humas, khususnya untuk menu konsultasi umum dan sambat"
             ]
         ];
 
-        foreach ($roles as $role) {
-            $r = Role::create($role);
-            $r->givePermissionTo(PERMISSION_AKSES_ADMIN);
-
-            if ($role['name'] == ROLE_ADMIN)
-                $r->givePermissionTo(PERMISSION_AKSES_ADMINISTRATOR);
-        }
+        foreach ($roles as $role) Role::create($role)->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
     }
 }
