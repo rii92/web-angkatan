@@ -78,6 +78,11 @@ class User extends Authenticatable
         return $this->getPhotoUrl();
     }
 
+    /**
+     * one to one relationship with table users_details
+     *
+     * @return void
+     */
     public function details()
     {
         return $this->hasOne(UserDetails::class);

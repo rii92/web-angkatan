@@ -40,6 +40,7 @@
                     <div class="flex items-center ml-6">
                         <!-- Settings Dropdown -->
                         @auth
+                        @livewire('mahasiswa.notification')
                         <div class="ml-3 relative">
                             <x-jet-dropdown align="right" width="48">
                                 <x-slot name="trigger">
