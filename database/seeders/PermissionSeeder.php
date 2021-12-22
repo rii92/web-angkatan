@@ -24,6 +24,10 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::ADMIN_ACCESS,
                 'description' => "Permission to access administrator menu,such as manage users and roles"
+            ],
+            [
+                'name' => AppPermissions::MEETING_MANAGEMENT,
+                'description' => "Permission to access meeting management menu, to create, update, and delete new meeting"
             ]
         ];
 

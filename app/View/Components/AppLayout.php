@@ -6,6 +6,12 @@ use Illuminate\View\Component;
 
 class AppLayout extends Component
 {
+
+    public $title;
+
+    public function __construct($title = "Title") {
+        $this->title = $title;
+    }
     /**
      * Get the view / contents that represents the component.
      *

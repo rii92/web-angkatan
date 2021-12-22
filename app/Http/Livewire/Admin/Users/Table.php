@@ -41,21 +41,14 @@ class Table extends DataTableComponent
     public function query(): Builder
     {
         return User::with('roles')
-            ->when($this->getFilter('role'), fn ($query, $role) => $query->role($role));;
+            ->when($this->getFilter('role'), fn ($query, $role) => $query->role($role));
     }
 
     public function filters(): array
     {
         return [
             'role' => Filter::make('Role User')
-                ->select([
-                    '' => 'All',
-                    AppRoles::ADMIN => Str::of(AppRoles::ADMIN)->upper(),
-                    AppRoles::BPH => Str::of(AppRoles::BPH)->upper(),
-                    AppRoles::HUMAS => Str::of(AppRoles::HUMAS)->upper(),
-                    AppRoles::AKADEMIK => Str::of(AppRoles::AKADEMIK)->upper(),
-                    AppRoles::USERS => Str::of(AppRoles::USERS)->upper(),
-                ]),
+                ->select(array_merge(['' => 'All'], AppRoles::allRoles()))
         ];
     }
 }

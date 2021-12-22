@@ -41,5 +41,10 @@ class RoleSeeder extends Seeder
         ];
 
         foreach ($roles as $role) Role::create($role)->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
+
+        Role::create([
+            'name' => AppRoles::MEMBER,
+            'description' => "Role for all pa members"
+        ]);
     }
 }

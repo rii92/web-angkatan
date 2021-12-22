@@ -14,4 +14,7 @@
     @if ($role == AppRoles::USERS)
         <x-badge.success text="Mahasiswa" />
     @endif
+    @if ($role == AppRoles::MEMBER)
+        <x-badge.secondary text="Pengurus Akademik" />
+    @endif
 </div>

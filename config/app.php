@@ -237,6 +237,7 @@ return [
         // aliases for custom classess
         'AppRoles' => App\Constants\AppRoles::class,
         'AppPermissions' => App\Constants\AppPermissions::class,
+        'AppMeetings' => App\Constants\AppMeetings::class,
 
     ],
 

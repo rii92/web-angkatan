@@ -6,6 +6,7 @@ use App\Models\Location;
 use App\Models\UserDetails;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Address extends Component
 {
@@ -66,10 +67,8 @@ class Address extends Component
     {
         $search = '%' . $this->kabupaten . '%';
 
-        $this->locations = $this->kabupaten !== ''
-            ? Location::where(function ($query) use ($search) {
-                $query->where('kabupaten', 'ilike', $search);
-            })->limit(3)->get()
+        $this->locations = Str::of($this->kabupaten)->trim()->isNotEmpty()
+            ? Location::where('kabupaten', 'like', $search)->limit(3)->get()
             : [];
 
         return view('profile.address');
