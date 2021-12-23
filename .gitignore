@@ -6,6 +6,7 @@
 .env
 .env.backup
 .phpunit.result.cache
+deploy.sh
 docker-compose.override.yml
 Homestead.json
 Homestead.yaml
@@ -13,3 +14,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.backup
+/.docker/volumes

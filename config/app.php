@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -238,6 +239,9 @@ return [
         'AppRoles' => App\Constants\AppRoles::class,
         'AppPermissions' => App\Constants\AppPermissions::class,
         'AppMeetings' => App\Constants\AppMeetings::class,
+
+        // debug bar
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
 
     ],
 
