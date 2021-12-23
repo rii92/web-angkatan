@@ -19,7 +19,7 @@ class CreateMeetingsTable extends Migration
             $table->text('description')->nullable();
             $table->string('token', 64)->unique();
             $table->boolean('is_open')->default(true);
-            $table->dateTimeTz('started_at')->useCurrent();
+            $table->dateTimeTz('started_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
