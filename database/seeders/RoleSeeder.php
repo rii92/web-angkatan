@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create([
+        Role::updateOrCreate([
             'name' => AppRoles::USERS,
             'description' => "Role for all users"
         ]);
@@ -40,9 +40,13 @@ class RoleSeeder extends Seeder
             ]
         ];
 
-        foreach ($roles as $role) Role::create($role)->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
+        foreach ($roles as $role) {
+            $newRole = Role::updateOrCreate($role);
+            $role['name'] == AppRoles::ADMIN ? $newRole->givePermissionTo(array_keys(AppPermissions::allPermissions())) :
+                $newRole->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
+        }
 
-        Role::create([
+        Role::updateOrCreate([
             'name' => AppRoles::MEMBER,
             'description' => "Role for all pa members"
         ]);

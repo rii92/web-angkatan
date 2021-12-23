@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Constants\AppRoles;
 use App\Models\User;
 use App\Models\UserDetails;
-use App\Models\UserNotification;
 use Illuminate\Database\Seeder;
 
 class UsersSeeder extends Seeder

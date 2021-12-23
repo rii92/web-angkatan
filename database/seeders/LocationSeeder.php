@@ -22,7 +22,7 @@ class LocationSeeder extends Seeder
 
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if (!$firstline) {
-                Location::create([
+                Location::updateOrCreate([
                     "kabupaten" => $data['2'],
                     "provinsi" => $data['3'],
                 ]);    

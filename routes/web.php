@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Models\Announcement;
 use App\Models\Meeting;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -68,9 +69,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return view('admin.sambat');
         })->name('admin.sambat');
 
-        Route::get('pengumuman', function () {
-            return view('admin.pengumuman');
-        })->name('admin.pengumuman');
+        Route::prefix('announcement')->middleware("permission:" . AppPermissions::ANNOUNCEMENT_MANAGEMENT)->group(function () {
+            Route::get('', function () {
+                return view('admin.announcement');
+            })->name('admin.announcement.table');
+
+            Route::get('add', function () {
+                return view('admin.announcement.add-edit', ['title' => 'Add Announcement']);
+            })->name('admin.announcement.add');
+
+            Route::get('{announcement}', function (Announcement $announcement) {
+                return view('admin.announcement.add-edit', ['title' => 'Edit Announcement', 'id' => $announcement->id]);
+            })->name('admin.announcement.edit');
+        });
 
         Route::get('berita', function () {
             return view('admin.berita');

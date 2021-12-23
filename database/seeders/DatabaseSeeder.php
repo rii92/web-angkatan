@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionSeeder::class,
             RoleSeeder::class,
-            LocationSeeder::class
         ]);
 
         if (App::environment(['local', 'development'])) {
             $this->call([
+                LocationSeeder::class,
                 AdminSeeder::class,
                 UsersSeeder::class
             ]);

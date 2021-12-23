@@ -28,12 +28,15 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::MEETING_MANAGEMENT,
                 'description' => "Permission to access meeting management menu, to create, update, and delete new meeting"
+            ],
+            [
+                'name' => AppPermissions::ANNOUNCEMENT_MANAGEMENT,
+                'description' => "Permission to access announcement management menu, to create, update, and delete new announcement"
             ]
         ];
 
-        foreach($permission as $permission)
-        {
-            Permission::create($permission);
+        foreach ($permission as $permission) {
+            Permission::updateOrCreate($permission);
         }
     }
 }

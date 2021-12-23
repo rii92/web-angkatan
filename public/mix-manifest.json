@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/livewire-handler.js": "/js/livewire-handler.js",
+    "/js/editor.js": "/js/editor.js",
     "/css/app.css": "/css/app.css"
 }

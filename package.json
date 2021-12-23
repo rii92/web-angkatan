@@ -24,6 +24,7 @@
         "tailwindcss": "^2.2.2"
     },
     "dependencies": {
+        "@toast-ui/editor": "^2.5.4",
         "notyf": "^3.10.0"
     }
 }
