@@ -21,12 +21,12 @@ class Table extends DataTableComponent
             Column::make('name')
                 ->searchable()
                 ->sortable()
-                ->format(function ($value, $column, $row) {
-                    return Str::limit($row->description, 40);
+                ->format(function ($value) {
+                    return Str::limit($value, 40);
                 }),
             Column::make('description')
-                ->format(function ($value, $column, $row) {
-                    return Str::limit($row->description, 20);
+                ->format(function ($value) {
+                    return Str::limit($value, 40);
                 }),
             Column::make('Open', 'is_open')
                 ->format(function ($value) {
