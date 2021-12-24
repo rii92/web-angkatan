@@ -7,30 +7,18 @@ on:
 jobs:
   deploy-to-server:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SERVER_AUTHORIZATION: ${{ secrets.SERVER_AUTHORIZATION }}
+      SERVER_URL: ${{ secrets.SERVER_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Pull From Remote Repository
         run: ./.github/scripts/deploy-script.sh pull-repository
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SERVER_AUTHORIZATION: ${{ secrets.SERVER_AUTHORIZATION }}
-          SERVER_URL: ${{ secrets.SERVER_URL }}
       - name: Backup Existing Database
         run: ./.github/scripts/deploy-script.sh backup
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SERVER_AUTHORIZATION: ${{ secrets.SERVER_AUTHORIZATION }}
-          SERVER_URL: ${{ secrets.SERVER_URL }}
       - name: Run Migration & Seeder
         run: ./.github/scripts/deploy-script.sh migration
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SERVER_AUTHORIZATION: ${{ secrets.SERVER_AUTHORIZATION }}
-          SERVER_URL: ${{ secrets.SERVER_URL }}
       - name: Clear Cache
         run: ./.github/scripts/deploy-script.sh clear-cache
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SERVER_AUTHORIZATION: ${{ secrets.SERVER_AUTHORIZATION }}
-          SERVER_URL: ${{ secrets.SERVER_URL }}

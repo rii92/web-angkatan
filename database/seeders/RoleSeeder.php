@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::updateOrCreate([
+        Role::create([
             'name' => AppRoles::USERS,
             'description' => "Role for all users"
         ]);
