@@ -1,5 +1,5 @@
 <form wire:submit.prevent="handleForm">
-    <x-modal.header title="Hapus Data" />
+    <x-modal.header title="Delete Meeting" />
     <x-modal.body>
         Apakah anda yakin menghapus meeting ini?
     </x-modal.body>

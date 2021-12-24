@@ -1,5 +1,5 @@
 <div>
-    <x-modal.header title="Delete & Update Status Memeber" />
+    <x-modal.header title="Delete or Update Status Memeber" />
     <x-modal.body>
         <form wire:submit.prevent="handleStatus">
             <x-input.wrapper>

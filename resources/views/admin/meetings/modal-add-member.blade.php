@@ -1,5 +1,5 @@
 <div>
-    <x-modal.header title="Update Role dan Permission" bordered />
+    <x-modal.header title="Add New Meeting Member" bordered />
     <x-modal.body>
         <form wire:submit.prevent="handleForm">
             <x-input.wrapper x-data="{search : false}">

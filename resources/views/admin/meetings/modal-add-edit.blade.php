@@ -1,5 +1,5 @@
 <form wire:submit.prevent="handleForm" class="mb-4">
-    <x-modal.header title="Update Role dan Permission" bordered />
+    <x-modal.header title="{{ $meeting_id ? __('Update Meeting') : __('Add a New Meeting') }}" bordered />
     <x-modal.body>
         <x-input.wrapper>
             <x-input.label for="meeting.name" value="{{ __('Meetings Name') }}" />
