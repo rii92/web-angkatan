@@ -43,6 +43,8 @@ class ModalPermission extends ModalComponent
      */
     public function addPermission()
     {
+        $this->validate(['permission' => 'required']);
+        
         try {
             $this->role->givePermissionTo($this->permission);
             $this->emit('success', "Success add new permission");

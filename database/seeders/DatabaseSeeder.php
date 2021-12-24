@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         if (App::environment(['local', 'development'])) {
             $this->call([
                 LocationSeeder::class,
+                MahasiswaSeeder::class,
                 AdminSeeder::class,
                 UsersSeeder::class
             ]);

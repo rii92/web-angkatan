@@ -2,27 +2,33 @@
     <x-modal.header title="Update Role dan Permission" bordered />
     <x-modal.body>
         <form wire:submit.prevent="handleForm" class="mb-4">
-            <div class="grid grid-cols-5 mb-4 gap-y-2">
+            <div class="grid md:grid-cols-3 grid-cols-2 gap-y-2">
                 @foreach ($all_roles as $item)
                     <x-input.checkbox wire:model="roles" value="{{ $item }}" text="{{ $item }}"
                         :disabled="$item == 'users'" />
                 @endforeach
             </div>
-            <div class="flex justify-end">
-                <x-button.primary type="submit" >Update Role</x-button.primary>
+            <div class="flex justify-end mt-4">
+                <x-button.primary type="submit">Update Role</x-button.primary>
             </div>
         </form>
 
         <form wire:submit.prevent="addPermission">
-            <div class="flex items-center mb-4">
-                <x-input.select wire:model.defer="permission">
-                    <option>Pilih Permission</option>
-                    @foreach ($all_permissions as $permission)
-                        <option value="{{ $permission }}">{{ Str::of($permission)->replace('_', ' ')->title() }}</option>
-                    @endforeach
-                </x-input.select>
-                <x-button.success class="whitespace-nowrap ml-2" type="submit">Add Permission</x-button.success>
-            </div>
+            <x-input.wrapper class="mb-4">
+                <x-input.label for="role" value="Or add permission" />
+                <div class="flex items-center">
+                    <x-input.select wire:model.defer="permission">
+                        <option value="">Pilih Permission</option>
+                        @foreach ($all_permissions as $permission)
+                            <option value="{{ $permission }}">
+                                {{ Str::of($permission)->replace('_', ' ')->title() }}
+                            </option>
+                        @endforeach
+                    </x-input.select>
+                    <x-button.success class="whitespace-nowrap ml-2" type="submit">Add Permission</x-button.success>
+                </div>
+                <x-input.error for="permission" />
+            </x-input.wrapper>
         </form>
 
         <x-table :theads="['permission', 'Action']" :overflow="false" max-height="max-h-96">

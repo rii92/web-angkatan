@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
     public function run()
     {
         // mahasiswa lainnya
-        User::factory()->count(400)->has(UserDetails::factory(), 'details')->create()->each(function (User $user) {
+        User::factory()->count(50)->has(UserDetails::factory(), 'details')->create()->each(function (User $user) {
             $user->assignRole(AppRoles::USERS);
         });
     }

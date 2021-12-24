@@ -48,6 +48,8 @@ class ModalRole extends ModalComponent
      */
     public function addPermission()
     {
+        $this->validate(['permission' => 'required']);
+        
         try {
             $this->user->givePermissionTo($this->permission);
             $this->emit('success', "Success add new permission to {$this->user->name}");

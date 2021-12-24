@@ -14,6 +14,12 @@
     @if ($user->roles->pluck('name')->contains(AppRoles::USERS))
         <x-badge.success text="Mahasiswa" />
     @endif
+    @if ($user->roles->pluck('name')->contains(AppRoles::ALUMNI))
+        <x-badge.success text="Alumni" />
+    @endif
+    @if ($user->roles->pluck('name')->contains(AppRoles::D3_61))
+        <x-badge.success text="D3 61" />
+    @endif
     @if ($user->roles->pluck('name')->contains(AppRoles::MEMBER))
         <x-badge.secondary text="Pengurus Akademik" />
     @endif

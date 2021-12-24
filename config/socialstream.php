@@ -45,8 +45,9 @@ return [
     */
 
     'features' => [
-        Features::createAccountOnFirstLogin(),
+        // Features::createAccountOnFirstLogin(),
         // Features::generateMissingEmails(),
+        // Features::loginOnRegistration(),
         Features::rememberSession(),
         Features::providerAvatars(),
     ],

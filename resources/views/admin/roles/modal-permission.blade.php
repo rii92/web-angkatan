@@ -4,15 +4,21 @@
         <p class="mb-2 text-sm">{{ $role->description }}</p>
 
         <form wire:submit.prevent="addPermission">
-            <div class="flex items-center mb-4 justify-center">
-                <x-input.select wire:model.defer="permission">
-                    <option>Pilih Permission</option>
-                    @foreach ($all_permissions as $permission)
-                        <option value="{{ $permission }}">{{ Str::of($permission)->replace('_', ' ')->title() }}</option>
-                    @endforeach
-                </x-input.select>
-                <x-button.success class="whitespace-nowrap ml-2" type="submit">Add Permission</x-button.success>
-            </div>
+            <x-input.wrapper class="mb-4">
+                <x-input.label for="role" value="Or add permission" />
+                <div class="flex items-center">
+                    <x-input.select wire:model.defer="permission">
+                        <option value="">Pilih Permission</option>
+                        @foreach ($all_permissions as $permission)
+                            <option value="{{ $permission }}">
+                                {{ Str::of($permission)->replace('_', ' ')->title() }}
+                            </option>
+                        @endforeach
+                    </x-input.select>
+                    <x-button.success class="whitespace-nowrap ml-2" type="submit">Add Permission</x-button.success>
+                </div>
+                <x-input.error for="permission" />
+            </x-input.wrapper>
         </form>
 
         <x-table :theads="['permission', 'Action']" :overflow="false" max-height="max-h-96">

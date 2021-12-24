@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
             'description' => "Role for all users"
         ]);
 
+
         $roles = [
             [
                 'name' => AppRoles::ADMIN,
@@ -37,7 +38,7 @@ class RoleSeeder extends Seeder
             [
                 'name' => AppRoles::HUMAS,
                 "description" => "Role untuk anak angkatan divisi humas, khususnya untuk menu konsultasi umum dan sambat"
-            ]
+            ],
         ];
 
         foreach ($roles as $role) {
@@ -46,9 +47,22 @@ class RoleSeeder extends Seeder
                 $newRole->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
         }
 
-        Role::updateOrCreate([
-            'name' => AppRoles::MEMBER,
-            'description' => "Role for all pa members"
-        ]);
+        // don't have acccess to admin menu
+        $roles = [
+            [
+                'name' => AppRoles::MEMBER,
+                "description" => "Role untuk seluruh anak angkatan"
+            ],
+            [
+                'name' => AppRoles::ALUMNI,
+                "description" => "Role untuk anak D3 angkatan 60 yang sudah lulus, mereka hanya bisa sambat tidak bisa konsultasi"
+            ],
+            [
+                'name' => AppRoles::D3_61,
+                "description" => "Role untuk anak D3 angkatan 61, mereka hanya bisa update informasi skripsi aja"
+            ]
+        ];
+
+        foreach ($roles as $role) Role::updateOrCreate($role);
     }
 }
