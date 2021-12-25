@@ -16,6 +16,10 @@ class TableMember extends DataTableComponent
 
     public $meeting_id;
 
+    public array $bulkActions = [
+        'bulkDelete' => 'Delete Selected',
+    ];
+
     public function columns(): array
     {
         return [
@@ -49,5 +53,20 @@ class TableMember extends DataTableComponent
             'status' => Filter::make('Status')
                 ->select(array_merge(['' => 'All'], AppMeetings::allStatus()))
         ];
+    }
+
+    public function bulkDelete()
+    {
+        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Please select data");
+
+        try {
+            $count = $this->selectedRowsQuery->count();
+            $this->selectedRowsQuery()->delete();
+            $this->emit('success', "Success delete {$count} rows");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings wrong, I can feel it");
+        } finally {
+            return $this->emit('reloadComponents', 'admin.meetings.table');
+        }
     }
 }
