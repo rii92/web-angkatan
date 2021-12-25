@@ -21,6 +21,6 @@
         <x-badge.success text="D3 61" />
     @endif
     @if ($user->roles->pluck('name')->contains(AppRoles::MEMBER))
-        <x-badge.secondary text="Pengurus Akademik" />
+        <x-badge.secondary text="Pengurus Angkatan" />
     @endif
 </div>
