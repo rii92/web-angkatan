@@ -53,11 +53,11 @@
                                     </x-slot>
 
                                     <x-slot name="content">
-                                        @role(AppPermissions::DASHBOARD_ACCESS)
+                                        @can(AppPermissions::DASHBOARD_ACCESS)
                                             <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
                                                 {{ __('Halaman Admin') }}
                                             </x-jet-dropdown-link>
-                                        @endrole
+                                        @endcan
 
                                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                             {{ __('Profile') }}
