@@ -11,10 +11,6 @@ class Meeting extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $dates = [
-        'started_at'
-    ];
-
     protected $casts = [
         'started_at'  => 'datetime:Y-m-d\TH:i'
     ];

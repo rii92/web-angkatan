@@ -55,13 +55,13 @@
 
         <x-input.wrapper>
             <x-input.label for="name" value="{{ __('Name') }}" />
-            <x-input.text id="name" wire:model.defer="state.name" type="text" autocomplete="name" />
+            <x-input.text id="name" value="{{ $state['name'] }}" type="text" autocomplete="name" disabled />
             <x-input.error for="name" />
         </x-input.wrapper>
 
         <x-input.wrapper>
             <x-input.label for="email" value="{{ __('Email') }}" />
-            <x-input.text id="email" wire:model.defer="state.email" type="email" />
+            <x-input.text id="email" value="{{ $state['email'] }}" type="email" disabled />
             <x-input.error for="email" />
         </x-input.wrapper>
 

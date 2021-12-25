@@ -22,8 +22,7 @@
 
         <x-input.wrapper class="relative" x-data="{search : false}">
             <x-input.label for="kabupaten" value="Search Kabupaten" />
-            <x-input.text id="kabupaten" placeholder="Kota Metro" wire:model="kabupaten"
-                x-on:input="search = true" />
+            <x-input.text id="kabupaten" placeholder="Kota Metro" wire:model="kabupaten" x-on:input="search = true" />
             {{-- dropdown auto search. limit search 3 items, because modal is overflow:hidden --}}
             @if ($kabupaten)
                 <ul x-show="search" @click.away="search = false"
@@ -46,7 +45,7 @@
         </x-input.wrapper>
 
         <div class="flex justify-end mt-6 items-center">
-            <span class="mr-3 text-sm" wire:loading>Saving...</span>
+            <span class="mr-3 text-sm" wire:loading wire:target="handleForm">Saving...</span>
 
             <x-button.black type="submit" wire:loading.attr="disabled">
                 {{ __('Save') }}

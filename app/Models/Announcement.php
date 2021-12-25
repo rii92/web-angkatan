@@ -11,10 +11,6 @@ class Announcement extends Model
 
     protected $guarded = [];
 
-    protected $dates = [
-        'published_at'
-    ];
-
     protected $casts = [
         'published_at'  => 'datetime:Y-m-d\TH:i'
     ];
