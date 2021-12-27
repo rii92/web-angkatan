@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Builder;
 */
 
 Route::get('/', function () {
-    return view('without-login.homepage');
+    return view('homepage.index');
 })->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

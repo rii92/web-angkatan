@@ -40,4 +40,9 @@ class UserDetails extends Model
     {
         return $this->belongsTo(Location::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
