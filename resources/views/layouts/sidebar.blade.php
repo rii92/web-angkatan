@@ -3,9 +3,7 @@
     class="z-10 hidden w-64 overflow-y-auto bg-white xl:block flex-shrink-0 border-r border-gray-100 shadow-md scroll-style">
     <div class="pb-5 text-gray-500">
         <div class="flex items-center h-16">
-            <div class="pl-6">
-                <x-logo.text />
-            </div>
+            <x-logo.text class="ml-5" />
         </div>
 
         <div class="border-t border-gray-200 pb-5"></div>
@@ -25,9 +23,7 @@
     x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
     @keydown.escape="closeSideMenu" x-cloak>
     <div class="py-4 text-gray-500">
-        <a class="ml-6 flex" href="#">
-            <x-logo.text />
-        </a>
+        <x-logo.text class="ml-5" />
 
         <ul class="mt-3" id="mobile-sidebar">
             {{ $slot }}

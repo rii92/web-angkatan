@@ -38,6 +38,7 @@ class MahasiswaSeeder extends Seeder
             ]);
 
             $details = [
+                'nim' => $data[2],
                 'kelas' => $data[0],
                 'skripsi_dosbing' => $data[3],
                 'pa_divisi' => $data[4],
@@ -46,7 +47,7 @@ class MahasiswaSeeder extends Seeder
             $user->details()->create($details);
 
             $angkatan = $data[6];
-            
+
             if ($angkatan == '61') $user->assignRole(AppRoles::D3_61);
             else if (($angkatan == '60') && ($details['kelas'] == 'Alum')) $user->assignRole(AppRoles::ALUMNI);
             else $user->assignRole(AppRoles::USERS);

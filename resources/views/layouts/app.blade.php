@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> {{ ucfirst($title) }} | {{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="/img/logo_angkatan.png" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -31,9 +32,7 @@
                     <div class="flex">
                         <!-- Logo -->
                         <div class="flex-shrink-0 flex items-center">
-                            <a href="/">
-                                Angkatan 60
-                            </a>
+                            <x-logo.text />
                         </div>
                     </div>
 
@@ -66,8 +65,9 @@
                                         <!-- Authentication -->
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
-                                            <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                                this.closest('form').submit();">
+                                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                                                    this.closest('form').submit();">
                                                 {{ __('Log Out') }}
                                             </x-jet-dropdown-link>
                                         </form>
@@ -84,15 +84,6 @@
             </div>
         </nav>
 
-
-        <!-- Page Heading -->
-        @if (isset($header))
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-        @endif
 
         <!-- Page Content -->
         <main>
