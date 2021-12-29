@@ -10,14 +10,14 @@
     <form wire:submit.prevent="setPassword">
         <x-input.wrapper>
             <x-input.label for="password" value="{{ __('New Password') }}" />
-            <x-input.text id="password" type="password" wire:model.defer="state.password" required
+            <x-input.password id="password" type="password" wire:model.defer="state.password" required
                 autocomplete="new-password" />
             <x-input.error for="password" />
         </x-input.wrapper>
 
         <x-input.wrapper>
             <x-input.label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-            <x-input.text id="password_confirmation" type="password" wire:model.defer="state.password_confirmation"
+            <x-input.password id="password_confirmation" type="password" wire:model.defer="state.password_confirmation"
                 required autocomplete="new-password" />
             <x-input.error for="password_confirmation" />
         </x-input.wrapper>

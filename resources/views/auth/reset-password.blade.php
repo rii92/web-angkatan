@@ -17,13 +17,13 @@
 
             <x-input.wrapper>
                 <x-input.label for="password" value="{{ __('Password') }}" />
-                <x-input.text name="password" id="password"  type="password" name="password" required autocomplete="new-password"/>
+                <x-input.password name="password" id="password"  type="password" name="password" required autocomplete="new-password"/>
                 <x-input.error for="password"/>
             </x-input.wrapper>
 
             <x-input.wrapper>
                 <x-input.label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input.text name="password_confirmation" id="password_confirmation"  type="password" name="password_confirmation" required autocomplete="new-password"/>
+                <x-input.password name="password_confirmation" id="password_confirmation"  type="password" name="password_confirmation" required autocomplete="new-password"/>
                 <x-input.error for="password_confirmation"/>
             </x-input.wrapper>
 

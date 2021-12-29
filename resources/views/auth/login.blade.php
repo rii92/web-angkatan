@@ -22,7 +22,7 @@
 
             <x-input.wrapper>
                 <x-input.label for="password" value="{{ __('Password') }}" />
-                <x-input.text name="password" id="password" type="password" name="password" required
+                <x-input.password name="password" id="password" type="password" required
                     autocomplete="current-password" />
                 <x-input.error for="password" />
                 <div>
