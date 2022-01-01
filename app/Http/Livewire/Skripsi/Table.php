@@ -16,6 +16,10 @@ class Table extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make('Actions')
+                ->format(function ($value, $column, $row) {
+                    return view('skripsi.column.actions')->with('user', $row);
+                })->excludeFromSelectable(),
             Column::make('details.nim')
                 ->searchable()
                 ->excludeFromSelectable(),
@@ -41,10 +45,6 @@ class Table extends DataTableComponent
             Column::make('variabel independen', 'details.skripsi_variabel_independent')
                 ->searchable()
                 ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
-            Column::make('Actions')
-                ->format(function ($value, $column, $row) {
-                    return view('skripsi.column.actions')->with('user', $row);
-                })->excludeFromSelectable(),
         ];
     }
 

@@ -3,7 +3,7 @@
     class="z-10 hidden w-64 overflow-y-auto bg-white xl:block flex-shrink-0 border-r border-gray-100 shadow-md scroll-style">
     <div class="pb-5 text-gray-500">
         <div class="flex items-center h-16">
-            <x-logo.text class="ml-5" />
+            <x-logo.full class="ml-5" />
         </div>
 
         <div class="border-t border-gray-200 pb-5"></div>
@@ -23,7 +23,7 @@
     x-transition:leave-end="opacity-0 transform -translate-x-20" @click.away="closeSideMenu"
     @keydown.escape="closeSideMenu" x-cloak>
     <div class="py-4 text-gray-500">
-        <x-logo.text class="ml-5" />
+        <x-logo.full class="ml-5" />
 
         <ul class="mt-3" id="mobile-sidebar">
             {{ $slot }}

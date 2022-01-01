@@ -32,7 +32,7 @@
                     <div class="flex">
                         <!-- Logo -->
                         <div class="flex-shrink-0 flex items-center">
-                            <x-logo.text />
+                            <x-logo.full />
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                                             @csrf
                                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                                    this.closest('form').submit();">
+                                                                                                        this.closest('form').submit();">
                                                 {{ __('Log Out') }}
                                             </x-jet-dropdown-link>
                                         </form>

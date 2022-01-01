@@ -1,7 +1,9 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <a href="{{ route('home') }}">
+                <x-logo.image width="20" height="20" />
+            </a>
         </x-slot>
 
         @if (session('status'))

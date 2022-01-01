@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
                 LocationSeeder::class,
                 MahasiswaSeeder::class,
                 AdminSeeder::class,
-                UsersSeeder::class
+                UsersSeeder::class,
+                DetailSkripsiSeeder::class
             ]);
         }
     }

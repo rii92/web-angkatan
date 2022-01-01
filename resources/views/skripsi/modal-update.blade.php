@@ -10,13 +10,14 @@
 
         <x-input.wrapper>
             <x-input.label for="user_details.skripsi_judul" value="{{ __('Judul Skripsi') }}" />
-            <x-input.text id="user_details.skripsi_judul" wire:model.defer="user_details.skripsi_judul" type="text" />
+            <x-input.textarea id="user_details.skripsi_judul" wire:model.defer="user_details.skripsi_judul" rows="3" />
             <x-input.error for="user_details.skripsi_judul" />
         </x-input.wrapper>
 
         <x-input.wrapper>
             <x-input.label for="user_details.skripsi_metode" value="{{ __('Metode Penelitian') }}" />
-            <x-input.text id="user_details.skripsi_metode" wire:model.defer="user_details.skripsi_metode" type="text" />
+            <x-input.textarea id="user_details.skripsi_metode" wire:model.defer="user_details.skripsi_metode"
+                rows="3" />
             <x-input.error for="user_details.skripsi_metode" />
         </x-input.wrapper>
 
@@ -33,7 +34,7 @@
                 wire:model.defer="user_details.skripsi_variabel_independent" rows="4" />
             <x-input.error for="user_details.skripsi_variabel_independent" />
         </x-input.wrapper>
-            
+
     </x-modal.body>
     <x-modal.footer>
         <span class="mr-3 text-sm" wire:loading>Saving...</span>
