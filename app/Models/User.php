@@ -92,4 +92,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(MeetingMember::class);
     }
+
+    public function sambat()
+    {
+        return $this->hasMany(Sambat::class);
+    }
+
+    public function sambat_comment()
+    {
+        return $this->hasMany(SambatComment::class);
+    }
+
+    public function sambat_vote()
+    {
+        return $this->hasMany(SambatVote::class);
+    }
 }
