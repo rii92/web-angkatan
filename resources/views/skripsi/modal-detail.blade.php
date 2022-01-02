@@ -1,6 +1,6 @@
 <div>
     <x-modal.header title="Detail Skripsi" bordered />
-    <x-modal.body>
+    <x-modal.body class="mx-0">
         <x-description-list title="Nama" class="bg-gray-50">
             {{ $user_details->user->name }} ({{ $user_details->nim }})
         </x-description-list>

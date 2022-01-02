@@ -1,6 +1,6 @@
 @props(['theads', 'overflow' => 'true', 'maxHeight' => ''])
 
-<div {{ $attributes->merge(['class' => 'scroll-style mb-5']) }}>
+<div {{ $attributes->merge(['class' => 'mb-5']) }}>
     <div class="overflow-auto {{ $maxHeight }}">
         <table class="{{ $overflow == true ? 'min-w-max' : ''  }} w-full table-auto">
             <thead>

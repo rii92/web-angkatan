@@ -20,13 +20,13 @@ class Table extends DataTableComponent
                 ->format(function ($value, $column, $row) {
                     return view('skripsi.column.actions')->with('user', $row);
                 })->excludeFromSelectable(),
-            Column::make('details.nim')
+            Column::make('NIM', 'details.nim')
                 ->searchable()
                 ->excludeFromSelectable(),
             Column::make('name')
                 ->searchable()
                 ->excludeFromSelectable(),
-            Column::make('details.kelas')
+            Column::make('Kelas', 'details.kelas')
                 ->searchable()
                 ->excludeFromSelectable(),
             Column::make('Dosen Pembimbing', 'details.skripsi_dosbing')
@@ -36,13 +36,13 @@ class Table extends DataTableComponent
                 ->searchable()
                 ->excludeFromSelectable()
                 ->format(fn ($value) => view('skripsi.column.text')->with('value', $value)),
-            Column::make('metode', 'details.skripsi_metode')
+            Column::make('Metode', 'details.skripsi_metode')
                 ->searchable()
                 ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
-            Column::make('variabel dependen', 'details.skripsi_variabel_dependent')
+            Column::make('Variabel Dependen', 'details.skripsi_variabel_dependent')
                 ->searchable()
                 ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
-            Column::make('variabel independen', 'details.skripsi_variabel_independent')
+            Column::make('Variabel Independen', 'details.skripsi_variabel_independent')
                 ->searchable()
                 ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
         ];

@@ -6,7 +6,7 @@
         <div @click="show = !show" x-show="show">
             <x-icons.eye-open />
         </div>
-        <div @click="show = !show" x-show="!show">
+        <div @click="show = !show" x-show="!show" x-cloak>
             <x-icons.eye-close />
         </div>
     </div>

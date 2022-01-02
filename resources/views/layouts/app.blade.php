@@ -25,7 +25,7 @@
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-100">
-        <nav class="bg-white border-b border-gray-100">
+        <nav class="bg-white border-b border-gray-500 shadow-sm">
             <!-- Primary Navigation Menu -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
@@ -66,8 +66,7 @@
                                         <form method="POST" action="{{ route('logout') }}">
                                             @csrf
                                             <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                                                        this.closest('form').submit();">
+                                                onclick="event.preventDefault();this.closest('form').submit();">
                                                 {{ __('Log Out') }}
                                             </x-jet-dropdown-link>
                                         </form>
