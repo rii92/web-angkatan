@@ -15,6 +15,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                'poppins': ['Poppins'],
+                'archivo-narrow': ['Archivo Narrow']
             },
             colors: {
                 violet: colors.violet,
@@ -29,6 +31,11 @@ module.exports = {
                 sky: colors.sky,
                 fuchsia: colors.fuchsia,
                 blueGray: colors.blueGray,
+                'main': '#1B3C41',
+                'darker': '#0B282D',
+                'lighter': '#428893',
+                'subtle': '#BDE2E8',
+                'light-4': '#F7F2EF'
             },
             maxHeight: {
                 'custom': '90vh',

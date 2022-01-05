@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap">
     @livewireStyles
 
     <!-- Scripts -->
@@ -20,8 +22,8 @@
     @stack('styles')
 </head>
 
-<body class="font-sans antialiased">
-    <div class="flex h-screen bg-gray-100" :class="{ 'overflow-hidden': isSideMenuOpen }">
+<body class="font-archivo-narrow antialiased ">
+    <div class="flex h-screen bg-light-4" :class="{ 'overflow-hidden': isSideMenuOpen }">
         @include('components.dashboard.sidebar')
         <div class="flex flex-col flex-1 overflow-x-hidden">
             <div class="z-10">
