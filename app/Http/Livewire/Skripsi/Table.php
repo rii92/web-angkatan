@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Skripsi;
 
 use App\Constants\AppRoles;
+use App\Exports\SkripsiExport;
 use App\Models\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -12,6 +13,10 @@ class Table extends DataTableComponent
 {
 
     public bool $columnSelect = true;
+
+    public array $bulkActions = [
+        'exportSelected' => 'Export Excel',
+    ];
 
     public function columns(): array
     {
@@ -51,5 +56,22 @@ class Table extends DataTableComponent
     public function query()
     {
         return User::role([AppRoles::USERS, AppRoles::D3_61])->with('details');
+    }
+
+    /**
+     * export to xlsx file
+     *
+     * @return void
+     */
+    public function exportSelected()
+    {
+        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Pilih Row Terlebih Dahulu");
+
+        try {
+            return (new SkripsiExport($this->selectedRowsQuery()))->download("Data-Skripsi " . now()->format('d-M-Y H-i') . ".xlsx");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings Wrong, I can feel It");
+        }
+        
     }
 }

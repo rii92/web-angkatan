@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Users;
 
 use App\Constants\AppRoles;
+use App\Exports\UsersDetailsExport;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -11,6 +12,10 @@ use Rappasoft\LaravelLivewireTables\Views\Filter;
 
 class Table extends DataTableComponent
 {
+
+    public array $bulkActions = [
+        'exportSelected' => 'Export Excel',
+    ];
 
     public function columns(): array
     {
@@ -50,4 +55,21 @@ class Table extends DataTableComponent
                 ->select(array_merge(['' => 'All'], AppRoles::allRoles()))
         ];
     }
+
+     /**
+     * export to xlsx file
+     *
+     * @return void
+     */
+    public function exportSelected()
+    {
+        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Pilih Row Terlebih Dahulu");
+
+        try {
+            return (new UsersDetailsExport($this->selectedRowsQuery()))->download("Data-User " . now()->format('d-M-Y H-i') . ".xlsx");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings Wrong, I can feel It");
+        }
+    }
+    
 }

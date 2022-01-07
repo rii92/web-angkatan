@@ -16,4 +16,8 @@ RUN set -ex \
 	&& docker-php-ext-install pgsql pdo_pgsql \
 	&& apk del postgresql-dev
 
+RUN set -ex \
+	&& apk add libzip-dev zip libsodium-dev bzip2-dev  \
+	&& docker-php-ext-install bz2 sodium zip
+
 CMD ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]
