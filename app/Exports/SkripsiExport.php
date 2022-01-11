@@ -2,13 +2,12 @@
 
 namespace App\Exports;
 
+use App\Exports\Sheets\SkripsiPerJurusan;
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class SkripsiExport implements FromQuery, WithHeadings, WithMapping
+class SkripsiExport implements WithMultipleSheets
 {
     use Exportable;
 
@@ -19,36 +18,17 @@ class SkripsiExport implements FromQuery, WithHeadings, WithMapping
         $this->selectedRowQuery = $selectedRowQuery;
     }
 
-    public function query()
+    /**
+     * @return array
+     */
+    public function sheets(): array
     {
-        return $this->selectedRowQuery;
-    }
+        $sheets = [];
 
-    public function map($row): array
-    {
-        return [
-            $row->details->nim,
-            $row->name,
-            $row->details->kelas,
-            $row->details->skripsi_dosbing,
-            $row->details->skripsi_judul,
-            $row->details->skripsi_metode,
-            $row->details->skripsi_variabel_dependent,
-            $row->details->skripsi_variabel_independent,
-        ];
-    }
+        foreach (["SD", "SI", "SK", "SE", "D3"] as $jurusan) {
+            $sheets[]  = new SkripsiPerJurusan($this->selectedRowQuery->clone(), $jurusan);
+        }
 
-    public function headings(): array
-    {
-        return [
-            'NIM',
-            'Nama',
-            'Kelas',
-            'Dosen Pembimbing',
-            'Judul',
-            'Metode',
-            'Variabel Dependen',
-            'Variabel Independen'
-        ];
+        return $sheets;
     }
 }

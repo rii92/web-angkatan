@@ -72,6 +72,5 @@ class Table extends DataTableComponent
         } catch (\Throwable $th) {
             return $this->emit('error', "Somethings Wrong, I can feel It");
         }
-        
     }
 }
