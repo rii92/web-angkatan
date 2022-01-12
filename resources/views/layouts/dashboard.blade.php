@@ -24,9 +24,7 @@
 
 <body class="antialiased ">
     <div class="flex h-screen bg-light-4" :class="{ 'overflow-hidden': isSideMenuOpen }">
-        <div class="relative z-20">
-            @include('components.dashboard.sidebar')
-        </div>
+        @include('components.dashboard.sidebar')
         <div class="flex flex-col flex-1 overflow-x-hidden">
             <div class="z-20 shadow-md">
                 @include('components.dashboard.header')

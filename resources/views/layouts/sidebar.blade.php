@@ -1,5 +1,5 @@
 <!-- Desktop sidebar -->
-<aside class="z-10 hidden w-72 font-poppins overflow-y-auto bg-white xl:block flex-shrink-0 border-r border-gray-100 shadow-md">
+<aside class="z-20 hidden w-72 font-poppins overflow-y-auto bg-white xl:block flex-shrink-0 border-r border-gray-100 shadow-md">
     <div class="pb-5 text-gray-500">
         <div class="flex items-center h-16">
             <x-logo.full class="ml-5" />
