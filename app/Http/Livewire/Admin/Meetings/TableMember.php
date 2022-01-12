@@ -18,13 +18,18 @@ class TableMember extends DataTableComponent
 
     public array $bulkActions = [
         'bulkDelete' => 'Delete Selected',
+        "bulkUpdate('" . AppMeetings::PRESENT . "')" => 'Update Hadir',
+        "bulkUpdate('" . AppMeetings::HAS_PERMISSION . "')" => 'Update Izin',
+        "bulkUpdate('" . AppMeetings::NOT_PRESENT . "')" => 'Update Tidak Hadir'
     ];
 
     public function columns(): array
     {
         return [
             Column::make('nama', 'user.name')
-                ->format(fn ($value, $column, $row) => $row->user->name),
+                ->searchable(),
+            Column::make('email', 'user.email')
+                ->searchable(),
             Column::make('kehadiran', 'attend_at')
                 ->sortable()
                 ->format(function ($value, $column, $row) {
@@ -57,12 +62,39 @@ class TableMember extends DataTableComponent
 
     public function bulkDelete()
     {
-        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Please select data");
+        $count = $this->selectedRowsQuery->count();
+        if (!$count) return $this->emit('error', "Please select row first");
 
         try {
-            $count = $this->selectedRowsQuery->count();
             $this->selectedRowsQuery()->delete();
+            $this->resetBulk();
             $this->emit('success', "Success delete {$count} rows");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings wrong, I can feel it");
+        } finally {
+            return $this->emit('reloadComponents', 'admin.meetings.table');
+        }
+    }
+
+    public function bulkUpdate($status)
+    {
+        $count = $this->selectedRowsQuery->count();
+        if (!$count) return $this->emit('error', "Please select row first");
+
+        try {
+            switch ($status) {
+                case AppMeetings::PRESENT:
+                    $this->selectedRowsQuery()->update(['status' => AppMeetings::PRESENT]);
+                    break;
+                case AppMeetings::NOT_PRESENT:
+                    $this->selectedRowsQuery()->update(['status' => AppMeetings::NOT_PRESENT]);
+                    break;
+                default:
+                    $this->selectedRowsQuery()->update(['status' => AppMeetings::HAS_PERMISSION]);
+                    break;
+            }
+            $this->resetBulk();
+            $this->emit('success', "Success update {$count} rows");
         } catch (\Throwable $th) {
             return $this->emit('error', "Somethings wrong, I can feel it");
         } finally {

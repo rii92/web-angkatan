@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @auth
-                <x-card.base title="Isi datanya dulu yok">
+                <x-card.base title="Isi datanya dulu ya">
                     @slot('aside')
                         @hasanyrole(AppRoles::USERS . '|' . AppRoles::D3_61)
                             <div class="flex items-center">

@@ -22,14 +22,14 @@
     @stack('styles')
 </head>
 
-<body class="font-archivo-narrow antialiased ">
+<body class="antialiased ">
     <div class="flex h-screen bg-light-4" :class="{ 'overflow-hidden': isSideMenuOpen }">
         @include('components.dashboard.sidebar')
         <div class="flex flex-col flex-1 overflow-x-hidden">
-            <div class="z-10">
+            <div class="z-20 shadow-md">
                 @include('components.dashboard.header')
             </div>
-            <main class="h-full overflow-y-auto">
+            <main class="h-full overflow-y-auto font-archivo-narrow">
                 <div class="xl:container px-3 py-8 md:px-6 mx-auto">
                     {{ $slot }}
                 </div>
