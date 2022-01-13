@@ -87,4 +87,27 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return view('admin.berita');
         })->name('admin.berita');
     });
+
+    Route::prefix('user')->group(function () {
+
+        Route::get('', function () {
+            return redirect()->route('user.skripsi');
+        })->name('user');
+
+        Route::get('konsultasi-umum', function () {
+            return view('mahasiswa.konsultasi-umum');
+        })->name('user.konsultasi-umum');
+
+        Route::get('konsultasi-akademik', function () {
+            return view('mahasiswa.konsultasi-akademik');
+        })->name('user.konsultasi-akademik');
+
+        Route::get('sambat', function () {
+            return view('mahasiswa.sambat');
+        })->name('user.sambat');
+
+        Route::get('skripsi', function () {
+            return view('mahasiswa.skripsi');
+        })->name('user.skripsi');
+    });
 });

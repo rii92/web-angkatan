@@ -5,7 +5,7 @@
     'relative ml-5 flex items-center transition rounded-tl-xl rounded-bl-xl'
     ])>
 
-    <a class="inline-flex items-center w-full px-5 py-3" {{ $attributes->merge(['href']) }}>
+    <a class="inline-flex items-center w-full px-5 py-3 text-sm font-semibold" {{ $attributes->merge(['href']) }}>
         <div class="w-6 flex justify-center">
             {{ $icon }}
         </div>

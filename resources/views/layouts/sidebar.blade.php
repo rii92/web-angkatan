@@ -6,7 +6,7 @@
         </div>
 
         <div class="flex items-center bg-subtle rounded-tr-xl rounded-br-xl px-5 py-3 mr-5 mt-3 mb-5">
-            <img class="h-16 w-16 rounded-full object-cover bg-lighter mr-3" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+            <img class="h-14 w-14 rounded-full object-cover bg-lighter mr-3" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
             <span class="font-semibold text-lighter">Halo, {{ Auth::user()->name }}</span>
         </div>
 

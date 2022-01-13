@@ -24,12 +24,16 @@
 
 <body class="antialiased ">
     <div class="flex h-screen bg-light-4" :class="{ 'overflow-hidden': isSideMenuOpen }">
+        @if(strpos(\Request::route()->getName(), 'admin.') === 0)
         @include('components.dashboard.sidebar')
+        @else
+        @include('components.dashboard.sidebar-user')
+        @endif
         <div class="flex flex-col flex-1 overflow-x-hidden">
             <div class="z-20 shadow-md">
                 @include('components.dashboard.header')
             </div>
-            <main class="z-10 h-full overflow-y-auto font-archivo-narrow">
+            <main class="z-10 h-full overflow-y-auto font-sans">
                 <div class="xl:container px-3 py-8 md:px-6 mx-auto">
                     {{ $slot }}
                 </div>
