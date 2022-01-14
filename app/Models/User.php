@@ -107,4 +107,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(SambatVote::class);
     }
+
+    public function session()
+    {
+        return $this->hasOne(Session::class)->latestOfMany();
+    }
 }
