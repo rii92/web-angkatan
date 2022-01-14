@@ -33,6 +33,30 @@ Finally, run your project
 php artisan serve
 ```
 
-## Note
+## Email Notifications
 
-There are 2 role right now, users and admin. All new users will be given users role automatically, and for admin you must be admin to add another admin. You can use default admin account `test@mail.com` and password `patrickstar` to add another admin, just for **DEVELOPMENT**. Don't add any secret like google_id, google_client, etc to this repo.
+If you want send email notifications, use like this
+
+```php
+$user->notify(new EmailNotifications((new MailMessage)
+            ->subject("PA60 - Title")
+            ->greeting("Halloo Name")
+            ->line('The to the notification.')
+            ->action('Notification Action', route('home'))
+            ->line('Haloo!')));
+```
+
+Just notify `$user` with `EmailNotifications` with `MailMessage` object. All email will be queue on database and will be delivered in 2 minutes interval. You can generate custom email you want by adding to MailMessage object
+
+| function   | description                                |
+| ---------- | ------------------------------------------ |
+| subject    | Add email subject                          |
+| greeting   | Email greetings, if null it just say Hello |
+| line       | Add one line text to email                 |
+| action     | Button, required title and route           |
+| salutation | Salutations text                           |
+
+
+For complete function, you can see at [SimpleMessage](./vendor/laravel/framework/src/Illuminate/Notifications/Messages/SimpleMessage.php). If you want to add custom email, you can extends `EmailNotification` class and add your format to it.
+
+> For subject, please use this format "`PA60 - Email Subject`"
