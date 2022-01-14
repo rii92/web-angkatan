@@ -14,7 +14,7 @@ class SambatVote extends Model
         return $this->belongsTo(Sambat::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

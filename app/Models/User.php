@@ -95,15 +95,15 @@ class User extends Authenticatable
 
     public function sambat()
     {
-        return $this->hasMany(Sambat::class);
+        return $this->hasMany(Sambat::class, 'user_id', 'id');
     }
 
-    public function sambat_comment()
+    public function sambat_comments()
     {
-        return $this->hasMany(SambatComment::class);
+        return $this->hasMany(SambatComment::class, 'user_id', 'id');
     }
 
-    public function sambat_vote()
+    public function sambat_votes()
     {
         return $this->hasMany(SambatVote::class);
     }

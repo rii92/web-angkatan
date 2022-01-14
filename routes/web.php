@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('homepage.index');
 })->name('home');
 
+Route::get('/sambat', function () {
+    return view('sambat.sambat');
+})->name('sambat');
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('forms/{uuid}', function ($uuid) {
