@@ -39,6 +39,22 @@ class RoleSeeder extends Seeder
                 'name' => AppRoles::HUMAS,
                 "description" => "Role untuk anak angkatan divisi humas, khususnya untuk menu konsultasi umum dan sambat"
             ],
+            [
+                'name' => AppRoles::KOOR,
+                "description" => "Role untuk anak angkatan yang jadi koor, khususnya untuk menu konsultasi umum dan sambat"
+            ],
+            [
+                'name' => AppRoles::EO,
+                "description" => "Role untuk anak angkatan divisi EO, khususnya untuk menu konsultasi umum dan sambat"
+            ],
+            [
+                'name' => AppRoles::DANUS,
+                "description" => "Role untuk anak angkatan divisi danus, khususnya untuk menu konsultasi umum dan sambat"
+            ],
+            [
+                'name' => AppRoles::PUBDOK,
+                "description" => "Role untuk anak angkatan divisi pubdok, khususnya untuk menu konsultasi umum dan sambat"
+            ],
         ];
 
         foreach ($roles as $role) {
