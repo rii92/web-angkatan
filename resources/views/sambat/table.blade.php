@@ -12,10 +12,10 @@
             <div class="flex justify-between mb-8">
                 <h2 class="text-2xl font-semibold">Sambat</h2>
                 @if (!$is_admin)
-                    <button 
-                    onclick="Livewire.emit('openModal', 'sambat.create-sambat')" 
+                    <a 
+                    href="{{ route('user.sambat.add') }}"
                     class="py-1 text-base font-medium text-white duration-300 bg-orange-400 hover:-translate-y-1 hover:scale-105 rounded-xl drop-shadow-2xl px-7"
-                    >Buat Sambatan</button>
+                    >Buat Sambatan</a>
                 @endif
             </div>
             @foreach ($sambat as $s)
@@ -25,7 +25,7 @@
                     <div class="grid items-center grid-flow-col grid-cols-4 md:gap-4">
                         <div class="flex flex-col col-span-2">
                             <h3 class="font-semibold">{{ $s->is_anonim ? "Anonim" : $s->users->name}}</h3>
-                            <h3 class="mb-2 font-normal">{{ $s->description }}</h3>
+                            <h3 class="mb-2 font-normal">{!! $s->description !!}</h3>
                             <p class="font-normal text-yellow-400 mb-7">{{ $s->created_at }}</p>
                         </div>
                         <div>

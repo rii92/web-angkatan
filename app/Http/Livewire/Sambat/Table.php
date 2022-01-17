@@ -14,7 +14,12 @@ class Table extends Component
 
     public $search, $is_admin;
     public $limitPerPage = 5;
-    protected $queryString = ['search'];
+    protected $updatedQueryString = ['search', ['except' => '']];
+
+    public function mount()
+    {
+        $this->search = request()->query('search', $this->search);
+    }
 
     public function render()
     {

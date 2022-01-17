@@ -9,12 +9,24 @@
                         <p class="font-normal text-yellow-400">{{ $sambat->created_at }}</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <button><x-icons.thumbs-up-white></x-icons.thumbs-up-white></button>
-                        <p class="font-semibold">10</p>
-                        <button><x-icons.thumbs-down-white></x-icons.thumbs-down-white></button>
+                        <button id="is_upvote"><x-icons.thumbs-up-white></x-icons.thumbs-up-white></button>
+                        <?php
+                                $upvote = 0;
+                                $downvote = 0;
+    
+                                foreach ($sambat->sambat_vote as $vote) {
+                                    if ($vote->is_upvote == 1) {
+                                        $upvote++;
+                                    } else {
+                                        $downvote++;
+                                    }
+                                }
+                            ?>
+                            <p class="ml-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
+                        <button id="is_downvote"><x-icons.thumbs-down-white></x-icons.thumbs-down-white></button>
                     </div>
                 </div>
-                <p class="leading-normal text-gray-700 mb-4">{{ $sambat->description }}</p>
+                <p class="leading-normal text-gray-700 font-normal text-base mb-4">{!! $sambat->description !!}</p>
 
                 @foreach ($sambat->tags as $t)
                     <x-badge.secondary text="{{ $t->name }}"></x-badge.secondary>               
@@ -36,12 +48,10 @@
             {{ $sambat_comment->links() }}
         </div>
 
-        <form action="POST">
-            <div class="relative text-gray-700">
-                <input class="w-full h-10 pl-3 pr-8 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" placeholder="Apa komentarmu?" name="description"/>
-                <button wire:click.prevent="store()" type="submit" class="transition duration-300 absolute inset-y-0 right-0 flex items-center px-4 font-bold text-white bg-indigo-600 rounded-r-lg hover:bg-indigo-500 focus:bg-indigo-700">Komentar</button>
-            </div>
-        </form>
+        <div class="relative text-gray-700">
+            <input class="w-full h-10 pl-3 pr-8 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" placeholder="Apa komentarmu?" id="description"/>
+            <button onclick="Livewire.emit('submitComment', document.getElementById('description').value);" type="submit" class="transition duration-300 absolute inset-y-0 right-0 flex items-center px-4 font-bold text-white bg-indigo-600 rounded-r-lg hover:bg-indigo-500 focus:bg-indigo-700">Komentar</button>
+        </div>
 
     </x-modal.body>
     <x-modal.footer>

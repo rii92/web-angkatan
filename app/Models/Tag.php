@@ -11,8 +11,10 @@ class Tag extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['name'];
+
     public function sambat()
     {
-        return $this->belongsToMany(Sambat::class, 'sambat_tags', 'tag_id', 'sambat_id');
+        return $this->belongsToMany(Sambat::class, SambatTag::class);
     }
 }

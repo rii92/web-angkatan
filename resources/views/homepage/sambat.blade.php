@@ -1,0 +1,1 @@
+@livewire('sambat.sambat', ['tag_id' => $tag_id ?? null, 'user_id' => $user_id ?? null])

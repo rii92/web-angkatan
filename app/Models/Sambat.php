@@ -19,7 +19,7 @@ class Sambat extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'sambat_tags', 'sambat_id', 'tag_id');
+        return $this->belongsToMany(Tag::class, SambatTag::class);
     }
 
     public function sambat_comment()
