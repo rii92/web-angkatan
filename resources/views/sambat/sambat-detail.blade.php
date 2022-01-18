@@ -36,11 +36,18 @@
 
         <h2 class="mb-2">Komentar</h2>
         @foreach ($sambat_comment as $sc)
-            <div class="p-4">
+        <div class="flex flex-row justify-between p-4">
+            <div>
                 <h2 class="font-semibold">{{ $sc->name }}</h2>
                 <p class="font-normal text-yellow-400 mb-4">{{ $sc->created_at }}</p>
-                <p class="">{{ $sc->description }}</p>
-            </div>    
+                <p>{{ $sc->description }}</p>
+            </div>
+            @if ($sc->user_id == Auth::user()->id)
+                <div>
+                    <x-button.error onclick="Livewire.emit('delete', {{ $sc->id }});"><x-icons.trash></x-icons.trash></x-button.error>
+                </div>
+            @endif    
+        </div>
             <hr>
         @endforeach
 

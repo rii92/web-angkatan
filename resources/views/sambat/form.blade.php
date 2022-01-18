@@ -1,20 +1,10 @@
-<form wire:submit.prevent="handleForm" class="bg-white m-9 p-9 drop-shadow-2xl rounded-2xl" id="form" enctype="multipart/form-data">
+<form wire:submit.prevent="handleForm" class="bg-white m-9 p-9 drop-shadow-2xl rounded-2xl" id="form">
     <div class="flex flex-col">
         <div class="flex justify-between items-center">
             <div class="mb-8">
                 <label class="block mb-1 font-semibold" for="">Tag</label>
                 <input wire:model.defer="tag" class="rounded-lg bg-green-200 text-gray-500" type="text" placeholder="Masukan Tag">
-            </div>
-    
-        </div>
-    
-        <div class="mb-8">
-            <label class="block mb-1 font-semibold">Pilih Gambar</label>
-            <input input wire:model="image" type="file">
-            {{-- <input input wire:model="image" type="file" class="hover:-translate-y-1 hover:scale-105 duration-300 py-1 text-base font-semibold text-white bg-orange-400 rounded-xl drop-shadow-2xl px-7" /> --}}
-            @if ($image)
-                <img src="{{ $image->temporaryUrl() }}" alt="" height="200">
-            @endif
+            </div>  
         </div>
     
         <div class="mb-5">

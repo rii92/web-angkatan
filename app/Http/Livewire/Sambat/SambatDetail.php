@@ -14,7 +14,7 @@ class SambatDetail extends ModalComponent
 {
     public $sambat_id, $description, $is_upvote, $vote;
     public Sambat $sambat;
-    protected $listeners = ['submitComment' => 'store'];
+    protected $listeners = ['submitComment' => 'store', 'delete' => 'deleteComment'];
 
     use WithPagination;
 
@@ -27,7 +27,7 @@ class SambatDetail extends ModalComponent
     public function rules()
     {
         return [
-            'sambat_comments.description' => 'required'
+            'description' => 'required'
         ];
     }
 
@@ -60,6 +60,13 @@ class SambatDetail extends ModalComponent
         $comment->save();
 
         $this->resetCommentForm();
+        $this->emit('reloadComponents', 'sambat.sambat-detail');
+    }
+
+    public function deleteComment($comment_id)
+    {
+        DB::table('sambat_comments')->where('id', '=', $comment_id)->delete();
+
         $this->emit('reloadComponents', 'sambat.sambat-detail');
     }
 

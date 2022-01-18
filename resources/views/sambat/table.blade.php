@@ -20,40 +20,51 @@
             </div>
             @foreach ($sambat as $s)
                 <div 
-                class="px-3 py-8 transition duration-300 ease-in-out rounded-md hover:bg-emerald-900 hover:drop-shadow-lg hover:text-white hover:-translate-y-1 hover:scale-105 hover:cursor-pointer"
-                onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $s->id]) }})">
+                class="px-3 py-8 transition duration-300 ease-in-out rounded-md hover:bg-emerald-900 hover:drop-shadow-lg hover:text-white hover:-translate-y-1 hover:scale-105 ">
                     <div class="grid items-center grid-flow-col grid-cols-4 md:gap-4">
-                        <div class="flex flex-col col-span-2">
-                            <h3 class="font-semibold">{{ $s->is_anonim ? "Anonim" : $s->users->name}}</h3>
-                            <h3 class="mb-2 font-normal">{!! $s->description !!}</h3>
-                            <p class="font-normal text-yellow-400 mb-7">{{ $s->created_at }}</p>
-                        </div>
-                        <div>
-                            @foreach ($s->tags as $t)
-                                <x-badge.secondary text="{{ $t->name }}"></x-badge.secondary>               
-                            @endforeach
-                        </div>
-                        <div class="flex flex-row items-center px-2">
-                            <x-icons.thumbs-up-white></x-icons.thumbs-up-white>
-                            <?php
-                                $upvote = 0;
-                                $downvote = 0;
-    
-                                foreach ($s->sambat_vote as $vote) {
-                                    if ($vote->is_upvote == 1) {
-                                        $upvote++;
-                                    } else {
-                                        $downvote++;
+                        <div class="col-span-3 grid items-center grid-flow-col grid-cols-4 md:gap-4 hover:cursor-pointer"
+                        onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $s->id]) }})">
+                        <img class="object-cover w-full rounded-full mr-2" src="{{ $s->users->profile_photo_url }}" alt="{{$s->users->name }}" /></a>
+                            <div class="flex flex-col col-span-2">
+                                <h3 class="font-semibold">{{$s->users->name}}</h3>
+                                <h3 class="mb-2 font-normal">{!! $s->description !!}</h3>
+                                <p class="font-normal text-yellow-400 mb-7">{{ $s->created_at }}</p>
+                            </div>
+                            <div>
+                                @foreach ($s->tags as $t)
+                                    <x-badge.secondary text="{{ $t->name }}"></x-badge.secondary>               
+                                @endforeach
+                            </div>
+                            <div class="flex flex-row items-center px-2">
+                                <x-icons.thumbs-up-white></x-icons.thumbs-up-white>
+                                <?php
+                                    $upvote = 0;
+                                    $downvote = 0;
+        
+                                    foreach ($s->sambat_vote as $vote) {
+                                        if ($vote->is_upvote == 1) {
+                                            $upvote++;
+                                        } else {
+                                            $downvote++;
+                                        }
                                     }
-                                }
-                            ?>
-                            <p class="ml-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
+                                ?>
+                                <p class="ml-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
+                            </div>
                         </div>
-                        {{-- <div>
-                            <button 
-                            class="px-6 py-3 mr-0 font-semibold text-white transition duration-300 bg-sky-900 rounded-xl drop-shadow-2xl bg-slate-800 hover:bg-orange-400"
-                            onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $s->id]) }})">Lihat</button>
-                        </div> --}}
+                        <div class="flex flex-col md:flex-row col-span-2">
+                            @if ($s->user_id == Auth::user()->id)
+                                <x-anchor.success class="mb:2 md:ml-2" href="{{ route('user.sambat.edit', $s) }}">
+                                    Edit
+                                </x-anchor.success>
+                            @endif
+                            @if ($s->user_id == Auth::user()->id || AppRoles::ADMIN)
+                                <x-button.error class="mb:2 md:ml-2"
+                                    onclick="Livewire.emit('openModal', 'sambat.modal-delete', {{ json_encode(['sambat_id' => $s->id]) }})"
+                                    ><span>Delete</span>
+                                </x-button.error>
+                            @endif
+                        </div>
                     </div>
                 </div>       
                 <hr>
