@@ -14,6 +14,8 @@ class TableMember extends DataTableComponent
     public string $defaultSortColumn = 'id';
     public string $defaultSortDirection = 'desc';
 
+    public bool $columnSelect = true;
+
     public $meeting_id;
 
     public array $bulkActions = [
@@ -27,36 +29,40 @@ class TableMember extends DataTableComponent
     {
         return [
             Column::make('nama', 'user.name')
-                ->searchable(),
+                ->searchable()
+                ->excludeFromSelectable(),
             Column::make('email', 'user.email')
-                ->searchable(),
+                ->searchable()
+                ->excludeFromSelectable(),
             Column::make('kehadiran', 'attend_at')
                 ->sortable()
-                ->format(function ($value, $column, $row) {
-                    return $row->attend_at ? $row->attend_at->format('d M Y h:i A') : null;
-                }),
+                ->format(fn ($value, $column, $row) => $row->attend_at ? $row->attend_at->format('d M Y h:i A') : null)
+                ->excludeFromSelectable(),
             Column::make('status')
-                ->format(function ($value) {
-                    return view('admin.meetings.column.status-member')->with('status', $value);
-                }),
+                ->excludeFromSelectable()
+                ->format(fn ($value) => view('admin.meetings.column.status-member')->with('status', $value)),
+            Column::make('notes')
+                ->format(fn ($value) => view('admin.meetings.column.text')->with('value', $value)),
             Column::make('Action')
-                ->format(function ($value, $column, $row) {
-                    return view('admin.meetings.column.action-member')->with('meeting_member', $row);
-                }),
+                ->excludeFromSelectable()
+                ->format(fn ($value, $column, $row) => view('admin.meetings.column.action-member')->with('meeting_member', $row)),
         ];
     }
 
     public function query(): Builder
     {
         return MeetingMember::where('meeting_id', $this->meeting_id)
-            ->when($this->getFilter('status'), fn ($query, $status) => $query->where('status', $status));
+            ->when($this->getFilter('status'), fn ($query, $status) => $query->where('status', $status))
+            ->when($this->getFilter('notes'), fn ($query, $notes) => $query->whereNotNull('notes'));
     }
 
     public function filters(): array
     {
         return [
             'status' => Filter::make('Status')
-                ->select(array_merge(['' => 'All'], AppMeetings::allStatus()))
+                ->select(array_merge(['' => 'All'], AppMeetings::allStatus())),
+            'notes' => Filter::make('Notes')
+                ->select(['' => 'All', 'notes' => 'With Notes'])
         ];
     }
 

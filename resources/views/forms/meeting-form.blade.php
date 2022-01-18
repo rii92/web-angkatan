@@ -7,6 +7,12 @@
                 <x-input.error for="meetingMember.attend_at" />
             </x-input.wrapper>
 
+            <x-input.wrapper>
+                <x-input.label for="meetingMember.notes" value="{{ __('Your notes for this meeting') }}" />
+                <x-input.textarea wire:model.defer="meetingMember.notes" id="notes" rows="3" />
+                <x-input.error for="meetingMember.notes" />
+            </x-input.wrapper>
+
             <div class="flex justify-end">
                 <x-button.black type="submit">
                     Submit
