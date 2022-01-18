@@ -1,4 +1,4 @@
-<div class="flex justify-center">
+<div class="flex justify-start">
     @if ($user->roles->pluck('name')->contains(AppRoles::ADMIN))
         <x-badge.error text="Admin" />
     @endif
