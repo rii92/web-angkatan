@@ -36,7 +36,7 @@ class TableMember extends DataTableComponent
                 ->excludeFromSelectable(),
             Column::make('kehadiran', 'attend_at')
                 ->sortable()
-                ->format(fn ($value, $column, $row) => $row->attend_at ? $row->attend_at->format('d M Y h:i A') : null)
+                ->format(fn ($value, $column, $row) => $row->attend_at ? $row->attend_at->format('h:i A') : null)
                 ->excludeFromSelectable(),
             Column::make('status')
                 ->excludeFromSelectable()
