@@ -241,6 +241,7 @@ return [
         'AppRoles' => App\Constants\AppRoles::class,
         'AppPermissions' => App\Constants\AppPermissions::class,
         'AppMeetings' => App\Constants\AppMeetings::class,
+        'AppProker' => App\Constants\AppProker::class,
 
         // debug bar
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,

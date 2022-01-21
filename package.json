@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "@toast-ui/editor": "^2.5.4",
-        "notyf": "^3.10.0"
+        "aos": "^2.3.4",
+        "notyf": "^3.10.0",
+        "swiper": "^7.4.1"
     }
 }

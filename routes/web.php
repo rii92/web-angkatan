@@ -17,9 +17,27 @@ use Illuminate\Database\Eloquent\Builder;
 |
 */
 
+// Route::get('/', function () {
+//     return view('guest.index');
+// })->name('home');
+
+/** Route landing page */
+
 Route::get('/', function () {
-    return view('homepage.index');
+    return view('guest.landingpage');
 })->name('home');
+
+Route::get('/informasi', function () {
+    return view('guest.informasi');
+})->name('informasi');
+
+Route::get('/sambat', function () {
+    return view('guest.sambat');
+})->name('sambat');
+
+Route::get('/konsultasi', function () {
+    return view('guest.konsultasi');
+})->name('konsultasi');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 

@@ -16,7 +16,8 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 'poppins': ['Poppins'],
-                'archivo-narrow': ['Archivo Narrow']
+                'archivo-narrow': ['Archivo Narrow'],
+                'holiday-free': ['HolidayFree']
             },
             colors: {
                 violet: colors.violet,
