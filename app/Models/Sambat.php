@@ -27,13 +27,13 @@ class Sambat extends Model
         return $this->hasMany(SambatComment::class);
     }
 
-    public function sambat_image()
-    {
-        return $this->hasMany(SambatImage::class);
-    }
-
     public function sambat_vote()
     {
         return $this->hasMany(SambatVote::class);
+    }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
