@@ -50,7 +50,7 @@ class Form extends Component
             $this->sambat->tags()->attach($tag);
 
             if ($this->sambat_id) return $this->emit('success', "Sambatanmu berhasil diubah!");
-            return redirect()->route('sambat')->with('message', 'Sambatanmu berhasil dibuat!');
+            return $this->emit('success', "Sambatanmu berhasil dibuat!");
 
         } catch (\Exception $e) {
             $this->emit('error', "Maaf, sambatanmu gagal dibuat" . $e);
