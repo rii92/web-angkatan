@@ -26,7 +26,7 @@
                         <button id="is_downvote"><x-icons.thumbs-down-white></x-icons.thumbs-down-white></button>
                     </div>
                 </div>
-                <p class="leading-normal text-gray-700 font-normal text-base mb-4">{!! $sambat->description !!}</p>
+                <p class="leading-normal text-gray-700 font-normal text-base mb-4">{!! Str::markdown($sambat->description) !!}</p>
 
                 @foreach ($sambat->tags as $t)
                     <x-badge.secondary text="{{ $t->name }}"></x-badge.secondary>               

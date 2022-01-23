@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                             <div class="px-10 py-8 rounded-lg bg-amber-200">
-                                <p class="mb-1">{{ $ts->description }}</p>
+                                <p class="mb-1">{!! Str::markdown($ts->description) !!}</p>
                                 <button 
                                 onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $ts->id]) }})"
                                 class="inline-block px-6 py-3 mr-0 font-semibold text-right text-white transition duration-300 bg-sky-900 rounded-xl drop-shadow-2xl bg-slate-800 hover:bg-orange-400">Lihat</button>
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                             <div class="px-10 py-8 rounded-lg bg-amber-200">
-                                <p class="mb-1">{{ $us->description }}</p>
+                                <p class="mb-1">{!! Str::markdown($us->description) !!}</p>
                                 <button 
                                 onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $us->id]) }})"
                                 class="inline-block px-6 py-3 mr-0 font-semibold text-right text-white transition duration-300 bg-sky-900 rounded-xl drop-shadow-2xl bg-slate-800 hover:bg-orange-400">Lihat</button>
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                             <div class="px-10 py-8 rounded-lg bg-amber-200">
-                                <p class="mb-1">{{ $s->description }}</p>
+                                <p class="mb-1">{!! Str::markdown($s->description) !!}</p>
                                 <button 
                                 onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $s->id]) }})"
                                 class="inline-block px-6 py-3 mr-0 font-semibold text-right text-white transition duration-300 bg-sky-900 rounded-xl drop-shadow-2xl bg-slate-800 hover:bg-orange-400">Lihat</button>
