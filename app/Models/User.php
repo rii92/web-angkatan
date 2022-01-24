@@ -93,17 +93,22 @@ class User extends Authenticatable
         return $this->hasMany(MeetingMember::class);
     }
 
+    public function konsul()
+    {
+        return $this->hasMany(Konsul::class);
+    }
+
     public function sambat()
     {
-        return $this->hasMany(Sambat::class);
+        return $this->hasMany(Sambat::class, 'user_id', 'id');
     }
 
-    public function sambat_comment()
+    public function sambat_comments()
     {
-        return $this->hasMany(SambatComment::class);
+        return $this->hasMany(SambatComment::class, 'user_id', 'id');
     }
 
-    public function sambat_vote()
+    public function sambat_votes()
     {
         return $this->hasMany(SambatVote::class);
     }

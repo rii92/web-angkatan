@@ -32,6 +32,18 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::ANNOUNCEMENT_MANAGEMENT,
                 'description' => "Permission to access announcement management menu, to create, update, and delete new announcement"
+            ],
+            [
+                'name' => AppPermissions::MAKE_KONSULTASI,
+                'description' => "Permission to make a new konsultasi, either konsultasi umum or konsultasi skripsi"
+            ],
+            [
+                'name' => AppPermissions::REPLY_KONSULTASI_AKADEMIK,
+                'description' => "Permission to reply konsultasi akademik and manage it"
+            ],
+            [
+                'name' => AppPermissions::REPLY_KONSULTASI_UMUM,
+                'description' => "Permission to reply konsultasi umum and manage it"
             ]
         ];
 

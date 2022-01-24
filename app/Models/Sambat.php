@@ -9,12 +9,15 @@ class Sambat extends Model
 {
     use HasFactory;
 
-    public function user()
+    protected $table = 'sambat';
+    protected $fillable = ['user_id', 'description', 'is_anonim'];
+
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function tag()
+    public function tags()
     {
         return $this->belongsToMany(Tag::class, 'sambat_tags', 'sambat_id', 'tag_id');
     }

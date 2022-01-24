@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
 use App\Models\Announcement;
+use App\Models\Konsul;
 use App\Models\Meeting;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -73,15 +74,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             })->name('admin.meetings.details');
         });
 
-        Route::prefix('konsultasi')->group(function () {
-            Route::get('akademik', function () {
-                return view('admin.konsultasi-akademik');
-            })->name('admin.konsultasi-akademik');
+        Route::prefix('konsultasi')
+            ->middleware("permission:" . AppPermissions::REPLY_KONSULTASI_AKADEMIK . '|' . AppPermissions::REPLY_KONSULTASI_UMUM)
+            ->group(function () {
+                Route::get('akademik', function () {
+                    return view('admin.konsultasi', ['catagory' => 'akademik']);
+                })->name('admin.konsultasi.akademik');
 
-            Route::get('umum', function () {
-                return view('admin.konsultasi-umum');
-            })->name('admin.konsultasi-umum');
-        });
+                Route::get('umum', function () {
+                    return view('admin.konsultasi', ['catagory' => 'umum']);
+                })->name('admin.konsultasi.umum');
+
+                Route::get('{konsul}', function (Konsul $konsul) {
+                    return view('admin.konsultasi', ['konsul' => $konsul]);
+                })->name('admin.konsultasi.chat');
+            });
 
         Route::get('sambat', function () {
             return view('admin.sambat');
@@ -112,13 +119,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return redirect()->route('user.skripsi');
         })->name('user');
 
-        Route::get('konsultasi-umum', function () {
-            return view('mahasiswa.konsultasi-umum');
-        })->name('user.konsultasi-umum');
+        Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)
+            ->prefix('konsultasi')
+            ->group(function () {
+                Route::get('umum', function () {
+                    return view('mahasiswa.konsultasi', ['catagory' => 'umum']);
+                })->name('user.konsultasi.umum');
 
-        Route::get('konsultasi-akademik', function () {
-            return view('mahasiswa.konsultasi-akademik');
-        })->name('user.konsultasi-akademik');
+                Route::get('akademik', function () {
+                    return view('mahasiswa.konsultasi', ['catagory' => 'akademik']);
+                })->name('user.konsultasi.akademik');
+
+                Route::get('create/{category}', function ($catagory) {
+                    return view('admin.konsultasi', ['create' => true, 'catagory' => $catagory]);
+                })->name('user.konsultasi.create');
+            });
 
         Route::get('sambat', function () {
             return view('mahasiswa.sambat');

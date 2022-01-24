@@ -16,11 +16,11 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::updateOrCreate([
+        $role = Role::updateOrCreate([
             'name' => AppRoles::USERS,
             'description' => "Role for all users"
         ]);
-
+        $role->givePermissionTo(AppPermissions::MAKE_KONSULTASI);
 
         $roles = [
             [
@@ -61,6 +61,21 @@ class RoleSeeder extends Seeder
             $newRole = Role::updateOrCreate($role);
             $role['name'] == AppRoles::ADMIN ? $newRole->givePermissionTo(array_keys(AppPermissions::allPermissions())) :
                 $newRole->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
+
+            if ($role['name'] == AppRoles::AKADEMIK) $newRole->givePermissionTo(AppPermissions::REPLY_KONSULTASI_AKADEMIK);
+            if ($role['name'] == AppRoles::HUMAS) $newRole->givePermissionTo(AppPermissions::REPLY_KONSULTASI_UMUM);
+
+            if ($role['name'] == AppRoles::BPH) $newRole->givePermissionTo([
+                AppPermissions::ANNOUNCEMENT_MANAGEMENT,
+                AppPermissions::MEETING_MANAGEMENT
+            ]);
+
+            if (($role['name'] == AppRoles::BPH) || ($role['name'] == AppRoles::KOOR))
+                $newRole->givePermissionTo([
+                    AppPermissions::DASHBOARD_ACCESS,
+                    AppPermissions::REPLY_KONSULTASI_UMUM,
+                    AppPermissions::REPLY_KONSULTASI_AKADEMIK,
+                ]);
         }
 
         // don't have acccess to admin menu
@@ -79,6 +94,8 @@ class RoleSeeder extends Seeder
             ]
         ];
 
-        foreach ($roles as $role) Role::updateOrCreate($role);
+        foreach ($roles as $role) {
+            Role::updateOrCreate($role);
+        }
     }
 }
