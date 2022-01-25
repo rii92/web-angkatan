@@ -27,7 +27,7 @@
                         <img class="object-cover w-full rounded-full mr-2" src="{{ $s->users->profile_photo_url }}" alt="{{$s->users->name }}" /></a>
                             <div class="flex flex-col col-span-2">
                                 <h3 class="font-semibold">{{$s->users->name}}</h3>
-                                <h3 class="prose mb-2 font-normal">{!! Str::markdown($s->description) !!}</h3>
+                                <h3 class="prose mb-2 font-normal hover:text-white">{!! Str::markdown($s->description) !!}</h3>
                                 <p class="font-normal text-yellow-400 mb-7">{{ $s->created_at }}</p>
                             </div>
                             <div>

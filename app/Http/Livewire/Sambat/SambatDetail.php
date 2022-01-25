@@ -12,7 +12,7 @@ use LivewireUI\Modal\ModalComponent;
 
 class SambatDetail extends ModalComponent
 {
-    public $sambat_id, $description, $is_upvote, $vote;
+    public $sambat_id, $description, $vote, $user_id;
     public Sambat $sambat;
     protected $listeners = ['submitComment' => 'store', 'delete' => 'deleteComment'];
 
@@ -22,6 +22,7 @@ class SambatDetail extends ModalComponent
     {
         $this->sambat = Sambat::where('id', $this->sambat_id)->first();
         $this->vote = new SambatVote();
+        $this->user_id = Auth::user()->id;
     }
 
     public function rules()
@@ -34,18 +35,12 @@ class SambatDetail extends ModalComponent
     public function render()
     {
         return view('sambat.sambat-detail',[
-            'sambat_comment' => DB::table('sambat_comments')
-                                ->join('users', 'sambat_comments.user_id', '=', 'users.id')
-                                ->select('sambat_comments.*', 'users.name')
-                                ->where('sambat_id', $this->sambat_id)
+            'sambat_comment' => SambatComment::where('sambat_id', $this->sambat_id)
                                 ->orderBy('created_at')
-                                ->paginate(2)
+                                ->paginate(2),
+            'is_voted' => SambatVote::where('user_id', Auth::user()->id)
+                                    ->where('sambat_id', $this->sambat_id)->first()
         ]);
-    }
-
-    private function resetCommentForm()
-    {
-        $this->description = '';
     }
 
     public function store($description)
@@ -59,7 +54,7 @@ class SambatDetail extends ModalComponent
         $comment->user_id = Auth::user()->id;
         $comment->save();
 
-        $this->resetCommentForm();
+        $this->description = '';
         $this->emit('reloadComponents', 'sambat.sambat-detail');
     }
 
@@ -70,22 +65,37 @@ class SambatDetail extends ModalComponent
         $this->emit('reloadComponents', 'sambat.sambat-detail');
     }
 
-    public function vote()
+    public function vote($is_upvote)
     {
         try {
-            $this->vote->user_id = Auth::user()->id;
-            $this->vote->sambat_id = $this->sambat_id;
-            $this->vote->is_upvote = $this->is_upvote;
-            $this->vote->created_at = $this->vote->created_at ?? now();
-    
-            $this->vote->save();
+            $voting = SambatVote::where('sambat_id', $this->sambat_id)
+                        ->where('user_id', Auth::user()->id)
+                        ->first();
+            if($voting){
+                if($voting->is_upvote == $is_upvote){
+                    SambatVote::where('id', $voting->id)
+                    ->where('sambat_id', $this->sambat_id)
+                    ->where('user_id', $this->user_id)
+                    ->delete();
+                } else {
+                    SambatVote::where('id', $voting->id)
+                    ->where('sambat_id', $this->sambat_id)
+                    ->where('user_id', $this->user_id)
+                    ->update(['is_upvote' => $is_upvote]);
+                }
+            }else{
+                $this->vote->user_id = Auth::user()->id;
+                $this->vote->sambat_id = $this->sambat_id;
+                $this->vote->is_upvote = $is_upvote;
+        
+                $this->vote->save();
+            }
 
-            if ($this->sambat_id) return $this->emit('success', "Sambatanmu berhasil diubah!");
-            return redirect()->route('sambat')->with('message', 'Sambatanmu berhasil dibuat!');
 
+            $this->emit('reloadComponents', 'sambat.sambat-detail');
             
         } catch (\Exception $e) {
-            $this->emit('error', "Maaf, sambatanmu gagal dibuat" . $e);
+            $this->emit('error', "Maaf, vote gagal");
         }
     }
 } 

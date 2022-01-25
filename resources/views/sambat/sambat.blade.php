@@ -129,10 +129,10 @@
                                 onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $s->id]) }})"
                                 class="inline-block px-6 py-3 mr-0 font-semibold text-right text-white transition duration-300 bg-sky-900 rounded-xl drop-shadow-2xl bg-slate-800 hover:bg-orange-400">Lihat</button>
                             </div>
-                        </div>          
-                    @endforeach 
-            @endif
-            
+                        </div>        
+                    @endforeach
+                    <div class="m-10">{{$sambat->links()}} </div>
+            @endif     
         </div>
     </div>
 </body>

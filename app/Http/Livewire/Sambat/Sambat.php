@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Sambat;
 
 use App\Models\Sambat as ModelsSambat;
+use App\Models\SambatComment;
 use App\Models\Tag;
 use App\Models\User;
 use Livewire\Component;
@@ -26,7 +27,7 @@ class Sambat extends Component
             return view('sambat.sambat', [
                 'tag' => $this->search === null ? Tag::find([$this->tag_id]) : 
                 ModelsSambat::where('description','like', '%' . $this->search . '%')
-                ->get(),
+                ->latest()->paginate(5),
                 'tags' => $tags,
                 'tag_id' => $this->tag_id
             ]);
@@ -36,16 +37,16 @@ class Sambat extends Component
                     'user' => $this->search === null ? 
                     User::find([$this->user_id]) :
                     ModelsSambat::where('description','like', '%' . $this->search . '%')
-                    ->get(),
+                    ->latest()->paginate(5),
                     'tags' => $tags,
                     'user_id' => $this->user_id
                 ]);
             } else{
                 return view('sambat.sambat', [
                     'sambat' => $this->search === null ?
-                    ModelsSambat::all() :
+                    ModelsSambat::latest()->paginate(5) :
                     ModelsSambat::where('description','like', '%' . $this->search . '%')
-                    ->get(),
+                    ->latest()->paginate(5),
                     'tags' => $tags,
                     'search' => $this->search
                 ]);

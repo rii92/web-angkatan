@@ -5,29 +5,43 @@
             <div class="px-6 py-4">
                 <div class="flex flex-row justify-between mb-4">
                     <div>
-                        <h4 class="text-xl font-semibold tracking-tight text-gray-800">{{ $sambat->is_anonim == 1 ? "Anonim" : $sambat->users->name }}</h4>
+                        <h4 class="text-xl font-semibold tracking-tight text-gray-800">{{ $sambat->users->name }}</h4>
                         <p class="font-normal text-yellow-400">{{ $sambat->created_at }}</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <button id="is_upvote"><x-icons.thumbs-up-white></x-icons.thumbs-up-white></button>
+                        <button wire:click="vote({{1}})" id="is_upvote">
+                            @if (isset($is_voted) and $is_voted->is_upvote == 1 )
+                                <x-icons.thumbs-up-black></x-icons.thumbs-up-black>
+                            @else
+                                <x-icons.thumbs-up-white></x-icons.thumbs-up-white>
+                            @endif
+                        </button>
                         <?php
                                 $upvote = 0;
                                 $downvote = 0;
-    
-                                foreach ($sambat->sambat_vote as $vote) {
-                                    if ($vote->is_upvote == 1) {
-                                        $upvote++;
-                                    } else {
-                                        $downvote++;
+
+                                if($sambat->sambat_vote){
+                                    foreach ($sambat->sambat_vote as $vote) {
+                                        if ($vote->is_upvote == 1) {
+                                            $upvote++;
+                                        } else {
+                                            $downvote++;
+                                        }
                                     }
                                 }
                             ?>
                             <p class="ml-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
-                        <button id="is_downvote"><x-icons.thumbs-down-white></x-icons.thumbs-down-white></button>
+                        <button wire:click="vote({{0}})"  id="is_downvote">
+                            @if (isset($is_voted) and $is_voted->is_upvote == 0)
+                                <x-icons.thumbs-down-black></x-icons.thumbs-down-black>
+                            @else
+                                <x-icons.thumbs-down-white></x-icons.thumbs-down-white>
+                            @endif
+                        </button>
                     </div>
                 </div>
                 <p class="leading-normal text-gray-700 font-normal text-base mb-4">{!! Str::markdown($sambat->description) !!}</p>
-
+                {{dump($is_voted)}}
                 @foreach ($sambat->tags as $t)
                     <x-badge.secondary text="{{ $t->name }}"></x-badge.secondary>               
                 @endforeach
@@ -38,7 +52,7 @@
         @foreach ($sambat_comment as $sc)
         <div class="flex flex-row justify-between p-4">
             <div>
-                <h2 class="font-semibold">{{ $sc->name }}</h2>
+                <h2 class="font-semibold">{{ $sc->sambat->users->name }}</h2>
                 <p class="font-normal text-yellow-400 mb-4">{{ $sc->created_at }}</p>
                 <p>{{ $sc->description }}</p>
             </div>
@@ -67,3 +81,9 @@
         </x-button.secondary>
     </x-modal.footer>
 </div>
+
+@push('scripts')
+<script>
+    const voting = (is_upvote) => Livewire.vote(is_upvote);
+</script>
+@endpush
