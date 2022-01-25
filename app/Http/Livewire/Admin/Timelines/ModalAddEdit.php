@@ -49,13 +49,12 @@ class ModalAddEdit extends ModalComponent
         try {
             $this->timeline->save();
 
-            $this->emit('success', "Success to add new timelines");
+            $this->emit('success', "Your data has been recorded");
         } catch (\Exception $e) {
-            // $this->emit('error', "Failed to add new timelines");
-            $this->emit('error', $e->getMessage());
+            $this->emit('error', "Somethings Wrong, I can feel it");
         } finally {
-            $this->emit('closeModal');
             $this->emit('reloadComponents', 'admin.timelines.table');
+            $this->emit('closeModal');
         }
     }
 
