@@ -21,8 +21,12 @@
             <div id="editor" wire:ignore></div>
         </div>
 
-        <div class="flex items-center mb-8">        
-            <input wire:model.defer="is_anonim" type="checkbox" value="1" class="mr-2 rounded-sm">
+        <div class="flex items-center mb-8">
+            @if ($sambat->is_anonim == 1)
+                <input wire:model.defer="is_anonim" type="checkbox" value="1" class="mr-2 rounded-sm" checked>
+            @else
+                <input wire:model.defer="is_anonim" type="checkbox" value="1" class="mr-2 rounded-sm">
+            @endif
             <label class="font-medium" for="">Anonim</label>
         </div>
     
@@ -40,7 +44,7 @@
                 el: document.querySelector('#editor'),
                 previewStyle: 'tab',
                 height: '500px',
-                initialValue : @this.description
+                initialValue : "{!! $sambat->description !!}"
             });
         });
     </script>

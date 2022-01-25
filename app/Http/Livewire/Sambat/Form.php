@@ -19,7 +19,6 @@ class Form extends Component
 
     protected $rules = [
         'is_anonim' => 'required|boolean',
-         // ,,,, dst
     ];
 
     public function mount()

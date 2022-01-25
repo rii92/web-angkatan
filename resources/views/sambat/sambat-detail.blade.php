@@ -41,7 +41,6 @@
                     </div>
                 </div>
                 <p class="leading-normal text-gray-700 font-normal text-base mb-4">{!! Str::markdown($sambat->description) !!}</p>
-                {{dump($is_voted)}}
                 @foreach ($sambat->tags as $t)
                     <x-badge.secondary text="{{ $t->name }}"></x-badge.secondary>               
                 @endforeach
