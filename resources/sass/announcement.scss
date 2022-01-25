@@ -1,0 +1,44 @@
+.announcement {
+    @apply text-gray-100 font-sans;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-poppins text-orange-400;
+    }
+
+    code {
+        @apply text-sky-300;
+    }
+
+    a,
+    blockquote {
+        @apply text-blue-300;
+    }
+
+    pre {
+        @apply bg-blueGray-700;
+    }
+
+    strong {
+        @apply text-gray-100 font-bold;
+    }
+
+    hr {
+        @apply border-blueGray-700;
+    }
+
+    img {
+        @apply mx-auto;
+    }
+
+    table {
+        @apply block w-full overflow-x-auto table-auto;
+    }
+
+    th {
+        @apply text-orange-400;
+    }
+}

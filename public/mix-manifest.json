@@ -1,9 +1,11 @@
 {
-    "/js/app.js": "/js/app.js?id=5113950804e9133804b1",
-    "/js/livewire-handler.js": "/js/livewire-handler.js?id=f4ce10852aacb1bd74bf",
+    "/js/app.js": "/js/app.js?id=bb4ba8f4e69b266417ef",
+    "/js/livewire-handler.js": "/js/livewire-handler.js?id=722402b8823c179800c1",
     "/js/calendar.js": "/js/calendar.js?id=96485f56e56ebec5c587",
-    "/js/editor.js": "/js/editor.js?id=04877f8882efd0c7b2aa",
-    "/js/aos.js": "/js/aos.js?id=f31d0d5c61b78061aedd",
-    "/js/swiper.js": "/js/swiper.js?id=4eb8ca78dde56f6a8a5d",
-    "/css/app.css": "/css/app.css?id=e72b555733a26d18cd8a"
+    "/js/editor.js": "/js/editor.js?id=d76359a84d04ddef6313",
+    "/js/aos.js": "/js/aos.js?id=4cf072826740b8dfdff7",
+    "/js/swiper.js": "/js/swiper.js?id=2d18ec6e6e22f4b78eb8",
+    "/css/app.css": "/css/app.css?id=9fee798635af1addfe47",
+    "/css/announcement.css": "/css/announcement.css?id=0049cb0e4e28916f867e",
+    "/css/animation.css": "/css/animation.css?id=89354ebb019813257a6c"
 }

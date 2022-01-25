@@ -5,7 +5,7 @@
 
     {{-- Fasilitas --}}
     <section>
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <x-landingpage.fasilitas href="{{ route('konsultasi') }}" title="Konsultasi">
                     <x-slot name="icon">
@@ -21,7 +21,7 @@
                     <x-slot name="description">Sudahi skripsimu, mari sambat bersamaku. Jangan lupa sambat.</x-slot>
                 </x-landingpage.fasilitas>
 
-                <x-landingpage.fasilitas href="{{ route('informasi') }}" title="Informasi">
+                <x-landingpage.fasilitas href="{{ route('announcement') }}" title="Informasi">
                     <x-slot name="icon">
                         <x-icons.speakerphone stroke-width=".5" width="70" height="70" />
                     </x-slot>
@@ -34,28 +34,26 @@
 
 
     @if (App::environment(['local', 'development']))
-        <!-- program kerja -->
-        <section>
-            <div class="bg-main py-16">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <h2 class="text-center font-bold font-poppins text-white tracking-wider mb-14">
-                        <div class="text-3xl mb-1">PROGRAM KERJA</div>
-                        <div class="text-xl">PENGURUS TINGKAT IV - 2021/2022
-                    </h2>
-                    <div class="swiper prokerSwiper">
-                        <div class="swiper-wrapper mb-16">
-                            @foreach (AppProker::all() as $proker)
-                                <x-landingpage.proker title="{{ $proker['title'] }}" src="{{ $proker['src'] }}"
-                                    description="{{ $proker['description'] }}" />
-                            @endforeach
-                        </div>
-                        <div class="swiper-pagination"></div>
+    <!-- program kerja -->
+    <section>
+        <div class="bg-main py-16">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <h2 class="text-center font-bold font-poppins text-white tracking-wider mb-14">
+                    <div class="text-3xl mb-1">PROGRAM KERJA</div>
+                    <div class="text-xl">PENGURUS TINGKAT IV - 2021/2022
+                </h2>
+                <div class="swiper prokerSwiper">
+                    <div class="swiper-wrapper mb-16">
+                        @foreach (AppProker::all() as $proker)
+                        <x-landingpage.proker title="{{ $proker['title'] }}" src="{{ $proker['src'] }}" description="{{ $proker['description'] }}" />
+                        @endforeach
                     </div>
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
-        </section>
-        <!-- akhir program kerja -->
-
+        </div>
+    </section>
+    <!-- akhir program kerja -->
         <!-- timeline -->
         <section>
             <div class="bg-white py-16">
@@ -70,12 +68,13 @@
                     @livewire('guest.landing.timeline')
                 </div>
             </div>
-        </section>
-        <!-- akhir timeline -->
+        </div>
+    </section>
+    <!-- akhir timeline -->
     @endif
 
     @push('scripts')
-        <script src="{{ mix('js/aos.js') }}" defer></script>
-        <script src="{{ mix('js/swiper.js') }}" defer></script>
+    <script src="{{ mix('js/aos.js') }}" defer></script>
+    <script src="{{ mix('js/swiper.js') }}" defer></script>
     @endpush
 </x-app-layout>

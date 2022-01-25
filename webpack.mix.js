@@ -21,6 +21,8 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/aos.js", "public/js")
     .js("resources/js/swiper.js", "public/js")
     .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/animation.scss', 'public/css')
+    .sass('resources/sass/announcement.scss', 'public/css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],

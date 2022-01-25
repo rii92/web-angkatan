@@ -27,9 +27,15 @@ Route::get('/', function () {
     return view('guest.landingpage');
 })->name('home');
 
-Route::get('/informasi', function () {
-    return view('guest.informasi');
-})->name('informasi');
+Route::prefix('informasi')->group(function () {
+    Route::get('', function () {
+        return view('guest.announcement');
+    })->name('announcement');
+
+    Route::get('{announcement}', function (Announcement $announcement) {
+        return view('guest.announcement.details', ['announcement' => $announcement]);
+    })->name('announcement.details');
+});
 
 Route::get('/sambat', function () {
     return view('guest.sambat');
