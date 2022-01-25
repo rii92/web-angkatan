@@ -16,6 +16,7 @@ mix.disableNotifications();
 
 mix.js("resources/js/app.js", "public/js")
     .js("resources/js/livewire-handler.js", "public/js")
+    .js("resources/js/calendar.js", "public/js")
     .js("resources/js/editor.js", "public/js")
     .js("resources/js/aos.js", "public/js")
     .js("resources/js/swiper.js", "public/js")

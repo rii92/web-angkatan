@@ -18,15 +18,16 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^14.0.1",
-        "resolve-url-loader": "^4.0.0",
+        "resolve-url-loader": "^5.0.0",
         "sass": "^1.44.0",
         "sass-loader": "^12.4.0",
         "tailwindcss": "^2.2.2"
     },
     "dependencies": {
         "@toast-ui/editor": "^2.5.4",
-        "aos": "^2.3.4",
+        "dateformat": "^5.0.2",
         "notyf": "^3.10.0",
+        "aos": "^2.3.4",
         "swiper": "^7.4.1"
     }
 }

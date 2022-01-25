@@ -73,6 +73,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             })->name('admin.meetings.details');
         });
 
+        Route::middleware("permission:" . AppPermissions::TIMELINE_MANAGEMENT)
+            ->get('timelines', function () {
+                return view('admin.timelines');
+            })->name('admin.timelines.table');
+
         Route::prefix('konsultasi')->group(function () {
             Route::get('akademik', function () {
                 return view('admin.konsultasi-akademik');
@@ -100,10 +105,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 return view('admin.announcement.add-edit', ['title' => 'Edit Announcement', 'id' => $announcement->id]);
             })->name('admin.announcement.edit');
         });
-
-        Route::get('berita', function () {
-            return view('admin.berita');
-        })->name('admin.berita');
     });
 
     Route::prefix('user')->group(function () {

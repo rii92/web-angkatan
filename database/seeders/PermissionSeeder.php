@@ -32,6 +32,10 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::ANNOUNCEMENT_MANAGEMENT,
                 'description' => "Permission to access announcement management menu, to create, update, and delete new announcement"
+            ],
+            [
+                'name' => AppPermissions::TIMELINE_MANAGEMENT,
+                'description' => "Permission to access timeline management menu, to create, update, and delete new timeline"
             ]
         ];
 

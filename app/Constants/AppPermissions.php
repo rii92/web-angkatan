@@ -8,6 +8,7 @@ class AppPermissions
     const ADMIN_ACCESS = 'admin_access';
     const MEETING_MANAGEMENT = 'manage_meeting';
     const ANNOUNCEMENT_MANAGEMENT = 'manage_announcement';
+    const TIMELINE_MANAGEMENT = 'manage_timeline';
 
     public static function allPermissions()
     {
@@ -15,7 +16,8 @@ class AppPermissions
             self::DASHBOARD_ACCESS => 'Dashboard Access',
             self::ADMIN_ACCESS => 'Admin Access',
             self::MEETING_MANAGEMENT => 'Manage Meetings',
-            self::ANNOUNCEMENT_MANAGEMENT => 'Manage Announcements'
+            self::ANNOUNCEMENT_MANAGEMENT => 'Manage Announcements',
+            self::TIMELINE_MANAGEMENT => 'Manage Timeline'
         ];
     }
 }

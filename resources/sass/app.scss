@@ -91,3 +91,12 @@
 .swiper-slide-active img {
     @apply w-60 h-60 mt-0;
 }
+
+
+$colors : "green", "red", "blue", "orange", "yellow", "purple", "lime", "pink";
+
+@each $color in $colors{
+    .calendar-#{$color}{
+        @apply bg-#{$color}-500;
+    }
+}
