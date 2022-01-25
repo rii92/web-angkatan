@@ -1,9 +1,9 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/livewire-handler.js": "/js/livewire-handler.js",
-    "/js/calendar.js": "/js/calendar.js",
-    "/js/editor.js": "/js/editor.js",
-    "/js/aos.js": "/js/aos.js",
-    "/js/swiper.js": "/js/swiper.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=5113950804e9133804b1",
+    "/js/livewire-handler.js": "/js/livewire-handler.js?id=f4ce10852aacb1bd74bf",
+    "/js/calendar.js": "/js/calendar.js?id=96485f56e56ebec5c587",
+    "/js/editor.js": "/js/editor.js?id=04877f8882efd0c7b2aa",
+    "/js/aos.js": "/js/aos.js?id=f31d0d5c61b78061aedd",
+    "/js/swiper.js": "/js/swiper.js?id=4eb8ca78dde56f6a8a5d",
+    "/css/app.css": "/css/app.css?id=e72b555733a26d18cd8a"
 }

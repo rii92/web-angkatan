@@ -65,6 +65,10 @@
                         <div class="text-xl">TINGKAT IV ANGKATAN 60 - 2021/2022 </div>
                     </h2>
                 </div>
+
+                <div class="mt-10">
+                    @livewire('guest.landing.timeline')
+                </div>
             </div>
         </section>
         <!-- akhir timeline -->

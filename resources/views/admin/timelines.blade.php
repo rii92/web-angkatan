@@ -10,7 +10,4 @@
         @endslot
         @livewire('admin.timelines.table')
     </x-card.base>
-    <div class="mt-10">
-        @livewire('homepage.landing.timeline')
-    </div>
 </x-dashboard-layout>

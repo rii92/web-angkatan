@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Homepage\Landing;
+namespace App\Http\Livewire\Guest\Landing;
 
 use App\Models\Timeline as ModelsTimeline;
 use Livewire\Component;
