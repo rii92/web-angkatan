@@ -1,6 +1,6 @@
 @props(['title' => 'KEMBANG', 'subtitle' => 'Kabinet Enam Puluh Berkembang', 'description' => 'Mengabdi, Penuh Dedikasi, Integritas, Tanpa Batas'])
 
-<div class="hero pb-80 pt-36">
+<div class="hero pb-80 pt-36 h-screen">
     <div class="animate fadeInUp">
         <h1>
             <div class="font-poppins font-bold text-6xl lg:text-8xl md:text-7xl text-center text-main">

@@ -9,22 +9,22 @@ class AppProker
         return [
             [
                 'title' => "Konsultasi Skripsi",
-                'description' => "Join us for the digital engagement event of the year bringing together 50,000+ developers, product leaders and visionaries to talk about the future of customer engagement.",
+                'description' => "Konsultasi semua masalah, kebingungan, dan bantuan skripsi",
                 'src' => null
             ],
             [
                 'title' => "Konsultasi Umum",
-                'description' => "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+                'description' => "Konsultasi apapun yang anda mau",
                 'src' => null
             ],
             [
                 'title' => "Webinar Series",
-                'description' => "Join us for the digital engagement event of the year reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has",
+                'description' => "Webinar angkatan 60 dengan topik-topik terkece dan termantul",
                 'src' => null
             ],
             [
                 'title' => "Malam 60",
-                'description' => "It is a long established fact that a reader bringing together 50,000+ developers, product leaders and visionaries to talk about the future of customer engagement.",
+                'description' => "Malem lah ya pokoknya",
                 'src' => null
             ],
         ];
