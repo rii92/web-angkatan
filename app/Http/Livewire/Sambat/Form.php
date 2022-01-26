@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Sambat;
 
+use App\Models\Image;
 use App\Models\Sambat;
 use App\Models\SambatImage;
 use App\Models\Tag;
@@ -12,14 +13,13 @@ use Livewire\WithFileUploads;
 
 class Form extends Component
 {
+    use WithFileUploads;
+
+    public $image;
     public $tag, $description, $sambat_id, $sambat;
     public $is_anonim = 0;
 
     protected $listeners = ['submitForm' => 'handleForm'];
-
-    protected $rules = [
-        'is_anonim' => 'required|boolean',
-    ];
 
     public function mount()
     {
@@ -30,7 +30,12 @@ class Form extends Component
     {
         $this->sambat->description = $description;
 
-        $this->validate();
+        $this->validate([
+            'image' => 'image|max:1024',
+        ]);
+
+        $url = $this->image->store('image');
+
         try {
             $tag_create = Tag::firstOrCreate([
                 'name' => $this->tag
@@ -43,6 +48,13 @@ class Form extends Component
     
             $this->sambat->save();
             $this->sambat->tags()->attach($tag);
+            
+            $pict = new Image();
+            $pict->url = $url;
+            $pict->imageable_id = $this->sambat->id;
+            $pict->imageable_type = Sambat::class;
+            $pict->save();
+            
 
             if ($this->sambat_id) return $this->emit('success', "Sambatanmu berhasil diubah!");
             return $this->emit('success', "Sambatanmu berhasil dibuat!");

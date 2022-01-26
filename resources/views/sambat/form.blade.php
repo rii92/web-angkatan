@@ -16,6 +16,22 @@
             </ul>
         </div>
 
+        @if ($image)
+            Photo Preview:
+            <div class="grid grid-cols-2">
+                <div class="m-1">
+                    <img class="max-h-12 max-w-12" src="{{ $image->temporaryUrl() }}" alt="{{ $image->temporaryUrl() }}">
+                </div>
+            </div>
+        @endif
+
+        <div class="mb-3">
+            <label>Pilih Gambar</label>
+            <input type="file" wire:model="image">
+            <div wire:loading wire:target="image">Uploading...</div>
+            @error('image') <span class="error">{{ $message }}</span> @enderror
+        </div>
+
         <div class="mb-5">
             <label class="block mb-1 font-semibold" for="">Deskripsi</label>
             <div id="editor" wire:ignore></div>
