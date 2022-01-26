@@ -44,7 +44,7 @@
                 el: document.querySelector('#editor'),
                 previewStyle: 'tab',
                 height: '500px',
-                initialValue : "{!! $sambat->description !!}"
+                initialValue : "{{ $sambat->description }}"
             });
         });
     </script>

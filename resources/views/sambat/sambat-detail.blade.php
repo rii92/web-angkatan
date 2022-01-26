@@ -9,13 +9,6 @@
                         <p class="font-normal text-yellow-400">{{ $sambat->created_at }}</p>
                     </div>
                     <div class="flex flex-col items-center">
-                        <button wire:click="vote({{1}})" id="is_upvote">
-                            @if (isset($is_voted) and $is_voted->is_upvote == 1 )
-                                <x-icons.thumbs-up-black></x-icons.thumbs-up-black>
-                            @else
-                                <x-icons.thumbs-up-white></x-icons.thumbs-up-white>
-                            @endif
-                        </button>
                         <?php
                                 $upvote = 0;
                                 $downvote = 0;
@@ -29,15 +22,31 @@
                                         }
                                     }
                                 }
-                            ?>
-                            <p class="ml-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
-                        <button wire:click="vote({{0}})"  id="is_downvote">
-                            @if (isset($is_voted) and $is_voted->is_upvote == 0)
-                                <x-icons.thumbs-down-black></x-icons.thumbs-down-black>
-                            @else
-                                <x-icons.thumbs-down-white></x-icons.thumbs-down-white>
-                            @endif
-                        </button>
+                        ?>
+                        @if (Auth::check())
+                            <button wire:click="vote({{1}})" id="is_upvote">
+                                @if (isset($is_voted) and $is_voted->is_upvote == 1 )
+                                    <x-icons.thumbs-up-black></x-icons.thumbs-up-black>
+                                @else
+                                    <x-icons.thumbs-up-white></x-icons.thumbs-up-white>
+                                @endif
+                            </button>
+                            
+                                <p class="my-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
+                            <button wire:click="vote({{0}})"  id="is_downvote">
+                                @if (isset($is_voted) and $is_voted->is_upvote == 0)
+                                    <x-icons.thumbs-down-black></x-icons.thumbs-down-black>
+                                @else
+                                    <x-icons.thumbs-down-white></x-icons.thumbs-down-white>
+                                @endif
+                            </button>
+                        @else
+                            <div class="flex flex-row items-center">
+                                <x-icons.thumbs-up-white></x-icons.thumbs-up-white>
+                                <p class="ml-1 text-xl font-bold">{{ $upvote - $downvote }}</p>
+                            </div>
+                        @endif
+                        
                     </div>
                 </div>
                 <p class="leading-normal text-gray-700 font-normal text-base mb-4">{!! Str::markdown($sambat->description) !!}</p>
@@ -48,30 +57,34 @@
         </div>
 
         <h2 class="mb-2">Komentar</h2>
-        @foreach ($sambat_comment as $sc)
+        @forelse ($sambat_comment as $sc)
         <div class="flex flex-row justify-between p-4">
             <div>
                 <h2 class="font-semibold">{{ $sc->sambat->users->name }}</h2>
                 <p class="font-normal text-yellow-400 mb-4">{{ $sc->created_at }}</p>
                 <p>{{ $sc->description }}</p>
             </div>
-            @if ($sc->user_id == Auth::user()->id)
+            @if (Auth::check() and $sc->user_id == Auth::user()->id)
                 <div>
                     <x-button.error onclick="Livewire.emit('delete', {{ $sc->id }});"><x-icons.trash></x-icons.trash></x-button.error>
                 </div>
             @endif    
         </div>
             <hr>
-        @endforeach
+        @empty
+            <h1 class="text-center">Belum ada komentar di sambatan ini...</h1>
+        @endforelse
 
         <div class="mb-2">
             {{ $sambat_comment->links() }}
         </div>
 
-        <div class="relative text-gray-700">
-            <input class="w-full h-10 pl-3 pr-8 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" placeholder="Apa komentarmu?" id="description"/>
-            <button onclick="Livewire.emit('submitComment', document.getElementById('description').value);" type="submit" class="transition duration-300 absolute inset-y-0 right-0 flex items-center px-4 font-bold text-white bg-indigo-600 rounded-r-lg hover:bg-indigo-500 focus:bg-indigo-700">Komentar</button>
-        </div>
+        @if (Auth::check())
+            <div class="relative text-gray-700">
+                <input class="w-full h-10 pl-3 pr-8 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" placeholder="Apa komentarmu?" id="description"/>
+                <button onclick="Livewire.emit('submitComment', document.getElementById('description').value);" type="submit" class="transition duration-300 absolute inset-y-0 right-0 flex items-center px-4 font-bold text-white bg-indigo-600 rounded-r-lg hover:bg-indigo-500 focus:bg-indigo-700">Komentar</button>
+            </div>
+        @endif
 
     </x-modal.body>
     <x-modal.footer>

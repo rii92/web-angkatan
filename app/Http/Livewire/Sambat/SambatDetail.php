@@ -12,7 +12,7 @@ use LivewireUI\Modal\ModalComponent;
 
 class SambatDetail extends ModalComponent
 {
-    public $sambat_id, $description, $vote, $user_id;
+    public $sambat_id, $description, $vote;
     public Sambat $sambat;
     protected $listeners = ['submitComment' => 'store', 'delete' => 'deleteComment'];
 
@@ -22,7 +22,6 @@ class SambatDetail extends ModalComponent
     {
         $this->sambat = Sambat::where('id', $this->sambat_id)->first();
         $this->vote = new SambatVote();
-        $this->user_id = Auth::user()->id;
     }
 
     public function rules()
@@ -34,12 +33,17 @@ class SambatDetail extends ModalComponent
 
     public function render()
     {
+        $is_voted = null;
+        if(Auth::check()){
+            $is_voted = SambatVote::where('user_id', Auth::user()->id)
+            ->where('sambat_id', $this->sambat_id)->first();
+        }
+
         return view('sambat.sambat-detail',[
             'sambat_comment' => SambatComment::where('sambat_id', $this->sambat_id)
                                 ->orderBy('created_at')
                                 ->paginate(2),
-            'is_voted' => SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $this->sambat_id)->first()
+            'is_voted' => $is_voted
         ]);
     }
 
@@ -75,12 +79,12 @@ class SambatDetail extends ModalComponent
                 if($voting->is_upvote == $is_upvote){
                     SambatVote::where('id', $voting->id)
                     ->where('sambat_id', $this->sambat_id)
-                    ->where('user_id', $this->user_id)
+                    ->where('user_id', Auth::user()->id)
                     ->delete();
                 } else {
                     SambatVote::where('id', $voting->id)
                     ->where('sambat_id', $this->sambat_id)
-                    ->where('user_id', $this->user_id)
+                    ->where('user_id', Auth::user()->id)
                     ->update(['is_upvote' => $is_upvote]);
                 }
             }else{

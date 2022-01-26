@@ -36,4 +36,10 @@ class Sambat extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+        $query->where('description', 'like', $term);
+    }
 }
