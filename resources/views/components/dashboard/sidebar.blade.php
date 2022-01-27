@@ -46,8 +46,8 @@
 
         <x-dashboard.sidebar-label value="Konsultasi dan Sambat" />
         @can(AppPermissions::REPLY_KONSULTASI_UMUM)
-            <x-dashboard.sidebar-item menu="Konsultasi Umum" href="{{ route('admin.konsultasi.umum') }}"
-                :active="request()->routeIs('admin.konsultasi.umum')">
+            <x-dashboard.sidebar-item menu="Konsultasi Umum" href="{{ route('admin.konsultasi.umum.table') }}"
+                :active="request()->routeIs('admin.konsultasi.umum.*')">
                 @slot('icon')
                     <x-icons.chat stroke-width="2.0" width="22" height="22" />
                 @endslot
@@ -55,8 +55,8 @@
         @endcan
 
         @can(AppPermissions::REPLY_KONSULTASI_AKADEMIK)
-            <x-dashboard.sidebar-item menu="Konsultasi Akademik" href="{{ route('admin.konsultasi.akademik') }}"
-                :active="request()->routeIs('admin.konsultasi.akademik')">
+            <x-dashboard.sidebar-item menu="Konsultasi Akademik" href="{{ route('admin.konsultasi.akademik.table') }}"
+                :active="request()->routeIs('admin.konsultasi.akademik.*')">
                 @slot('icon')
                     <x-icons.academic stroke-width="2.0" width="22" height="22" />
                 @endslot

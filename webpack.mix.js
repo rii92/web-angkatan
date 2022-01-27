@@ -20,6 +20,7 @@ mix.js("resources/js/app.js", "public/js")
     .js("resources/js/aos.js", "public/js")
     .js("resources/js/swiper.js", "public/js")
     .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/chat.scss', 'public/css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],

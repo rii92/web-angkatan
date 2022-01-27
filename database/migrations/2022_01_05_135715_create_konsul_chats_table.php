@@ -21,6 +21,7 @@ class CreateKonsulChatsTable extends Migration
             $table->foreignIdFor(Konsul::class);
             $table->text('chat');
             $table->string('type');
+            $table->boolean('is_admin');
             $table->boolean('is_seen')->default(false);
             $table->timestamps();
         });

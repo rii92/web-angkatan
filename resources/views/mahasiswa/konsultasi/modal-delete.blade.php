@@ -1,13 +1,13 @@
 <form wire:submit.prevent="handleForm">
-    <x-modal.header title="Publish Announcement" bordered />
+    <x-modal.header title="Delete Konsultasi" />
     <x-modal.body>
-        Apakah anda yakin untuk publish announcement ini sekarang?
+        Apakah anda yakin menghapus konsultasi ini?
     </x-modal.body>
     <x-modal.footer bordered>
         <div class="ml-2">
-            <x-button.success type="submit">
-                Publish Now
-            </x-button.success>
+            <x-button.error type="submit">
+                Delete
+            </x-button.error>
         </div>
         <div class="ml-2">
             <x-button.secondary wire:click="$emit('closeModal')">

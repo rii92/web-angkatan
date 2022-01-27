@@ -19,9 +19,9 @@ class CreateKonsulTable extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->string('title');
-            $table->string('text');
-            $table->string('name');
-            $table->string('catagory');
+            $table->text('description');
+            $table->string('category');
+            $table->string('name')->nullable();
             $table->string('status')->nullable()->default(AppKonsul::STATUS_WAIT);
             $table->text('note')->nullable();
             $table->boolean('is_publish')->nullable()->default(false);

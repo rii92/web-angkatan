@@ -12,19 +12,19 @@ class Konsul extends Model
     protected $table = 'konsul';
     protected $guarded = [];
 
-    public function scopeAkademik()
+    public function scopeKonsulType($query, $category)
     {
-        return $this->where('catagory', AppKonsul::TYPE_AKADEMIK);
-    }
-
-    public function scopeUmum()
-    {
-        return $this->where('category', AppKonsul::TYPE_UMUM);
+        return $query->where('category', $category);
     }
 
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function userdetails()
+    {
+        return $this->hasOne(UserDetails::class, 'user_id', 'user_id');
     }
 
     public function chat()
@@ -35,5 +35,18 @@ class Konsul extends Model
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * mendapat jumlah pesan yang belum dibaca dari suatu konsultasi
+     *
+     * @return void
+     */
+    public function unreadMessageCount()
+    {
+        $count = $this->status == AppKonsul::STATUS_WAIT ? 1 : 0;
+        // masih ada kondisi lain lagi nanti
+
+        return $count;
     }
 }

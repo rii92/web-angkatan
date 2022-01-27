@@ -1,42 +1,49 @@
-@php
-if (!isset($catagory)) {
-    $type = ['title' => 'Chat Konsultasi | ' . $konsul->title, 'type' => 1];
-} elseif (isset($create)) {
-    $type = ['title' => 'Buat Konsultasi ' . ucwords($catagory), 'type' => 2];
-} else {
-    $type = ['title' => 'Konsultasi ' . ucwords($catagory), 'type' => 3];
-}
-@endphp
+<x-dashboard-layout title="{{ $title }}">
+    @if ($menu == 'table')
+        <x-card.base title="Konsultasi List">
+            @slot('aside')
+                <div class="flex items-center">
+                    <x-anchor.success href="{{ route('user.konsultasi.' . $category . '.add') }}">
+                        <x-icons.plus stroke-width="2.5" width="16" height="16" />
+                        <span class="ml-2">Konsultasi {{ ucwords($category) }}</span>
+                    </x-anchor.success>
+                </div>
+            @endslot
 
-<x-dashboard-layout title="{{ $type['title'] }}">
-    <x-card.base>
-        @slot('aside')
-            <div class="flex items-center">
-                <x-anchor.success href="{{ route('user.konsultasi.create', $catagory) }}">
-                    <x-icons.plus stroke-width="2.5" width="16" height="16" />
-                    <span class="ml-2">Konsultasi {{ ucwords($catagory) }}</span>
-                </x-anchor.success>
-            </div>
-        @endslot
+            @livewire('mahasiswa.konsultasi.table', ['category'=> $category])
 
-        @switch($type['type'])
-            @case(1) @livewire('konsultasi.form',
-                ['konsul_id'=>$konsul->id])
-            @break
-            @case(2) @livewire('konsultasi.form',
-                ['catagory'=>$catagory])
-            @break
-            @case(3) @livewire('konsultasi.table', ['is_admin' =>
-                0,'catagory'=>$catagory])
-            @break
-        @endswitch
+            <p class="text-gray-400 text-sm mt-3 leading-tight">
+                Data konsultasi masih dapat kamu edit dan hapus selama statusnya masih
+                <x-badge.warning text="{{ AppKonsul::STATUS_WAIT }}" class="mr-0" />Jika statusnya sudah
+                berubah maka hanya konseler yang bisa menghapusnya
+            </p>
 
-        @if (session('message'))
-            @push('scripts')
-                <script>
-                    Livewire.emit('success', "{{ session('message') }}")
-                </script>
-            @endpush
-        @endif
-    </x-card.base>
+        </x-card.base>
+    @endif
+
+    @if ($menu == 'add-edit')
+        <x-card.base title="{{ $subtitle }}">
+            @livewire('mahasiswa.konsultasi.form', ['category' => $category, 'konsul_id' => $konsul_id ?? null])
+        </x-card.base>
+    @endif
+
+    @if ($menu == 'room')
+        @livewire('mahasiswa.konsultasi.discussion-room', ['konsul' => $konsul_id]);
+    @endif
+
+    @if (session('message'))
+        @push('scripts')
+            <script>
+                Livewire.emit('success', "{{ session('message') }}")
+            </script>
+        @endpush
+    @endif
+
+    @if (session('error'))
+        @push('scripts')
+            <script>
+                Livewire.emit('error', "{{ session('error') }}")
+            </script>
+        @endpush
+    @endif
 </x-dashboard-layout>
