@@ -45,8 +45,32 @@
                         parent.scrollTop += scrollBot;
                     }
                 }
+            }
+        </script>
 
+        <script>
+            let chatEditor;
+            const submitFormChat = () => Livewire.emit('submitFormChat', chatEditor ? chatEditor.getMarkdown() : '');
+            const clearChatEditor = () => chatEditor.setMarkdown('');
+            Livewire.on("clearChatEditor", clearChatEditor);
+
+            const openChatEditor = () => {
+                setTimeout(() => {
+                    chatEditor = new Editor({
+                        el: document.querySelector('#chat-editor'),
+                        previewStyle: 'tab',
+                        height: '250px',
+                        toolbarItems: ['heading', 'bold', 'italic', 'strike', 'divider',
+                            'hr',
+                            'quote',
+                            'divider',
+                            'ul', 'ol', 'task', 'indent', 'outdent', 'divider', 'table',
+                            'link',
+                            'divider', 'code', 'codeblock'
+                        ],
+                    });
+                    clearChatEditor();
+                }, 1);
             }
         </script>
     @endpush
-</div>

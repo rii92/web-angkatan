@@ -86,7 +86,6 @@ class Form extends Component
             $this->konsul->name = $this->konsul->is_anonim ?  "Anonim_{$this->konsul->id}" : $user->name;
             $this->konsul->save();
 
-            // dd('masuk');
 
             // biar ga ribet ketika edit, tagnya di detach semua aja dulu terus diinput lagi
             $this->konsul->tags()->detach();

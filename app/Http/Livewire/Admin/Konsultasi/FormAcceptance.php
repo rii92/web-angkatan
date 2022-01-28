@@ -64,7 +64,8 @@ class FormAcceptance extends Component
         try {
             $this->konsul->update([
                 'status' => $this->status,
-                'note' => $this->note
+                'note' => $this->note,
+                'acc_rej_at' => now()
             ]);
 
             $this->sendNotification();

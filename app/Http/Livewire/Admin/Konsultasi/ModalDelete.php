@@ -25,10 +25,11 @@ class ModalDelete extends ModalComponent
         if (auth()->user()->can($permission)) {
             try {
                 $konsul->tags()->detach();
+                $konsul->chats()->detach();
                 $konsul->delete();
 
                 $title = Str::limit($konsul->title, 40);
-                $message = "Konsultasimu yang berjudul <b>{$title}</b> dihapus karena {$this->alasan}.";
+                $message = "Konsultasimu yang berjudul <b>{$title}</b> dihapus konseler karena {$this->alasan}.";
                 User::find($konsul->user_id)->notify(new BellNotification($message));
 
                 $this->emit('success', "Success delete konsultasi");
