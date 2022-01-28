@@ -10,7 +10,16 @@ class Sambat extends Model
     use HasFactory;
 
     protected $table = 'sambat';
-    protected $fillable = ['user_id', 'description', 'is_anonim'];
+
+    protected $fillable = [
+        'user_id',
+        'description',
+        'is_anonim'
+    ];
+
+    protected $attributes = [
+        'is_anonim' => false
+    ];
 
     public function users()
     {

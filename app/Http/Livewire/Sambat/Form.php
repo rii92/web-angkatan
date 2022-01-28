@@ -4,68 +4,99 @@ namespace App\Http\Livewire\Sambat;
 
 use App\Models\Image;
 use App\Models\Sambat;
-use App\Models\SambatImage;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 
 class Form extends Component
 {
     use WithFileUploads;
 
-    public $image;
-    public $tag, $description, $sambat_id, $sambat;
-    public $is_anonim = 0;
+    public Sambat $sambat;
 
-    protected $listeners = ['submitForm' => 'handleForm'];
+    public $image, $tags;
 
-    public function mount()
+    protected $listeners = [
+        'submitForm' => 'handleForm'
+    ];
+
+    public function rules()
     {
-        $this->sambat = $this->sambat_id ? Sambat::find($this->sambat_id) : new Sambat();
+        return [
+            'sambat.description' => 'required',
+            'sambat.is_anonim' => 'required|boolean',
+            'sambat.user_id' => 'required',
+            'image' => 'nullable|image|max:1024',
+            'tags' => 'nullable|array',
+            'tags.*' => 'required'
+        ];
+    }
+
+    public function mount(Sambat $sambat)
+    {
+        $this->sambat = $sambat ?? new Sambat();
+        $this->tags = $this->sambat->id ? $this->sambat->tags->pluck('name') : collect([]);
+    }
+
+    public function addTags()
+    {
+        try {
+            $this->tags =  $this->tags->push('');
+        } catch (\Exception $e) {
+            $this->emit('error', $e->getMessage());
+        }
+    }
+
+    public function removeTags($index)
+    {
+        try {
+            $this->tags =  $this->tags->forget($index);
+        } catch (\Exception $e) {
+            $this->emit('error', $e->getMessage());
+        }
     }
 
     public function handleForm($description)
     {
         $this->sambat->description = $description;
+        $this->sambat->user_id = Auth::user()->id;
 
-        $this->validate([
-            'image' => 'image|max:1024',
-        ]);
-
-        $url = $this->image->store('image');
+        $this->validate();
 
         try {
-            $tag_create = Tag::firstOrCreate([
-                'name' => $this->tag
-            ]);
-            $tag = Tag::find([$tag_create->id]);
-            if($this->sambat_id) $this->sambat->tags()->detach($tag);
-    
-            $this->sambat->user_id = Auth::user()->id;
-            $this->sambat->is_anonim = $this->is_anonim;
-    
+
             $this->sambat->save();
-            $this->sambat->tags()->attach($tag);
-            
-            $pict = new Image();
-            $pict->url = $url;
-            $pict->imageable_id = $this->sambat->id;
-            $pict->imageable_type = Sambat::class;
-            $pict->save();
-            
 
-            if ($this->sambat_id) return $this->emit('success', "Sambatanmu berhasil diubah!");
-            return $this->emit('success', "Sambatanmu berhasil dibuat!");
+            // image
+            if ($this->image) {
+                $image = $this->sambat->image ?? new Image([
+                    'imageable_id' => $this->sambat->id,
+                    'imageable_type' => Sambat::class
+                ]);
+                $image->url = $this->image->storePublicly('image', ['disk' => 'public']);
 
+                $this->sambat->image()->save($image);
+            }
+
+            // remove all tags and assign new
+            $this->sambat->tags()->detach();
+            foreach ($this->tags as $item) {
+                $tag = Tag::firstOrCreate(['name' => $item]);
+                $this->sambat->tags()->attach($tag);
+            }
+
+            return $this->emit('success', "Mantap, udah nyambat!!");
         } catch (\Exception $e) {
-            $this->emit('error', "Maaf, sambatanmu gagal dibuat");
+            $this->emit('error', "Waduh gagal nyambat!!");
         }
     }
 
     public function render()
     {
-        return view('sambat.form');
+        return view('sambat.form')
+            ->layout('layouts.dashboard', [
+                'title' => $this->sambat->id ? "Update Sambat" : "Buat Sambat"
+            ]);
     }
 }

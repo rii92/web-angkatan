@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Http\Livewire\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
 use App\Models\Sambat;
@@ -125,14 +126,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 return view('mahasiswa.sambat');
             })->name('user.sambat');
 
-            Route::get('add', function () {
-                return view('sambat.add-edit', ['title' => 'Buat Sambatan']);
-            })->name('user.sambat.add');
-
-            Route::get('{sambat}', function (Sambat $sambat) {
-                return view('sambat.add-edit', ['title' => 'Ubah Sambatan', 'id' => $sambat->id]);
-            })->name('user.sambat.edit');
-
+            Route::get('add', SambatForm::class)->name('user.sambat.add');
+            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit');
             
         });
 
