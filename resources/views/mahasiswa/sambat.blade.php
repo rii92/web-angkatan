@@ -1,3 +1,3 @@
 <x-dashboard-layout title="Sambat">
-    @livewire('sambat.table', ['is_admin' => 0])
+    @livewire('sambat.table', ['user_id' => auth()->id()])
 </x-dashboard-layout>
