@@ -27,8 +27,8 @@ class Table extends Component
     {
 
         $this->sambats = $this->user_id
-            ? Sambat::where('user_id', $this->user_id)
-            : Sambat::query();
+            ? Sambat::where('user_id', $this->user_id)->with('tags', 'image', 'user')
+            : Sambat::with('tags', 'image');
 
         $this->sambats = Str::of($this->search)->trim()->isNotEmpty()
             ? $this->sambats->where('description', 'like', '%' . $this->search . '%')

@@ -25,19 +25,9 @@ Route::get('/', function () {
     return view('homepage.index');
 })->name('home');
 
-Route::prefix('sambat')->group(function (){
-    Route::get('', function () {
-        return view('homepage.sambat');
-    })->name('sambat');
-
-    Route::get('tag/{tag}', function (Tag $tag) {
-        return view('homepage.sambat', ['tag_id' => $tag->id]);
-    });
-
-    Route::get('user/{user}', function (User $user) {
-        return view('homepage.sambat', ['user_id' => $user->id]);
-    });
-});
+Route::get('sambat', function () {
+    return view('homepage.sambat');
+})->name('sambat');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
@@ -120,15 +110,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return view('mahasiswa.konsultasi-akademik');
         })->name('user.konsultasi-akademik');
 
-        Route::prefix('sambat')->group(function ()
-        {
+        Route::prefix('sambat')->group(function () {
             Route::get('', function () {
                 return view('mahasiswa.sambat');
             })->name('user.sambat');
 
             Route::get('add', SambatForm::class)->name('user.sambat.add');
             Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit');
-            
         });
 
         Route::get('skripsi', function () {

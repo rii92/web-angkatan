@@ -1461,6 +1461,9 @@ select{
 .max-w-6xl{
 	max-width: 72rem;
 }
+.max-w-sm{
+	max-width: 24rem;
+}
 .flex-1{
 	flex: 1 1 0%;
 }
@@ -1541,6 +1544,9 @@ select{
 }
 .flex-wrap{
 	flex-wrap: wrap;
+}
+.items-start{
+	align-items: flex-start;
 }
 .items-end{
 	align-items: flex-end;

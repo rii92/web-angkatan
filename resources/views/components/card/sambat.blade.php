@@ -1,15 +1,15 @@
-<div title="{{ $sambat->users->name }}"
+<div title="{{ $sambat->user->name }}"
     class="block md:flex flex-row-reverse pb-2 md:pb-4 mb-4 border-b border-gray-200 ">
     {{-- body --}}
     <div class="flex-1 py-4 px-2 md:ml-2 hover:bg-gray-50 transition duration-100">
         <div class="flex items-center pb-2  ">
             <div class="w-10 h-10">
-                <img class="object-cover w-full rounded-full mr-2" src="{{ $sambat->users->profile_photo_url }}"
-                    alt="{{ $sambat->users->name }}" />
+                <img class="object-cover w-full rounded-full mr-2" src="{{ $sambat->user->profile_photo_url }}"
+                    alt="{{ $sambat->user->name }}" />
             </div>
             <div class="ml-2">
                 <div class="font-bold text-sm text-gray-600">
-                    {{ $sambat->users->name }}
+                    {{ $sambat->user->name }}
                 </div>
                 <div class="text-xs">
                     {{ $sambat->created_at }}
@@ -21,8 +21,15 @@
                 <x-badge.black text="{{ $tag->name }}" />
             @endforeach
         </div>
-        <div class="prose">
-            {!! Str::markdown($sambat->description) !!}
+        <div>
+            <div class="prose">
+                @if ($sambat->image)
+                    <div class="mb-2">
+                        <img src="{{ Storage::disk('public')->url($sambat->image->url) }}" alt="{{ $sambat->id }}">
+                    </div>
+                @endif
+                {!! Str::markdown($sambat->description) !!}
+            </div>
         </div>
     </div>
     {{-- side --}}
@@ -38,7 +45,7 @@
                 <x-icons.arrow-down class="w-4 h-4" />
             </x-button.white>
             <x-button.white title="comment"
-                onclick="Livewire.emit('openModal', 'sambat.sambat-detail', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                onclick="Livewire.emit('openModal', 'sambat.details', {{ json_encode(['sambat_id' => $sambat->id]) }})"
                 class="ml-2 mt-0 md:ml-0 md:mt-2">
                 <x-icons.chat class="w-4 h-4" />
             </x-button.white>

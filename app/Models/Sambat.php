@@ -21,7 +21,7 @@ class Sambat extends Model
         'is_anonim' => false
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
@@ -36,7 +36,7 @@ class Sambat extends Model
         return $this->hasMany(SambatComment::class);
     }
 
-    public function sambat_vote()
+    public function votes()
     {
         return $this->hasMany(SambatVote::class);
     }
