@@ -17,7 +17,7 @@ class UserDetails extends Model
      * @var array
      */
     protected $appends = [
-        'jenis_kelamin_value',
+        'jenis_kelamin_value', 'jurusan'
     ];
 
     /**
@@ -44,5 +44,10 @@ class UserDetails extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getJurusanAttribute()
+    {
+        return substr($this->kelas, 1, 2);
     }
 }

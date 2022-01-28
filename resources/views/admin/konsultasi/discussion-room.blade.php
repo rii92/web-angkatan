@@ -7,7 +7,7 @@
         <p class="mt-2 text-sm">
             <span>{{ $konsul->name }}</span>
             @if ($konsul->is_anonim)
-                <span>(Jurusan {{ substr($konsul->userdetails->kelas, 1, 2) ?? '' }})</span>
+                <span>(Jurusan {{ $konsul->userdetails->jurusan ?? '' }})</span>
             @else
                 <span>({{ $konsul->userdetails->nim ?? '' }}/{{ $konsul->userdetails->kelas ?? '' }})</span>
             @endif

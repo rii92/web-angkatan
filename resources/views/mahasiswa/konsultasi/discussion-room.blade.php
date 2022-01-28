@@ -80,7 +80,8 @@
                             Publish
                         </x-anchor.success>
 
-                        <x-anchor.secondary wire:click="openRoom" class="ml-2">
+                        {{-- idk if I use wire:click in one case it doest'n work --}}
+                        <x-anchor.secondary onclick="Livewire.emit('openRoom')" class="ml-2">
                             Buka Lagi Konsultasi
                         </x-anchor.secondary>
                     </div>
@@ -92,6 +93,10 @@
                         <x-anchor.error wire:click="unpublishKonsultasi">
                             Unpublish
                         </x-anchor.error>
+                        <x-anchor.secondary href="{{ route('user.konsultasi.' . $konsul->category . '.table') }}"
+                            class="ml-2">
+                            Back
+                        </x-anchor.secondary>
                     </div>
                 @endif
             @endif

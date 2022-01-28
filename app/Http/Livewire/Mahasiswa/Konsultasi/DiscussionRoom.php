@@ -10,6 +10,7 @@ use Livewire\Component;
 class DiscussionRoom extends Component
 {
     public $konsul;
+    protected $listeners = ['openRoom'];
 
     public function mount($konsul)
     {

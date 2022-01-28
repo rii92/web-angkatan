@@ -30,10 +30,10 @@ class AppKonsul
     {
         if ($returnAssocArray)
             return [
-                self::STATUS_WAIT => "Menunggu",
-                self::STATUS_REJECT => "Ditolak",
-                self::STATUS_PROGRESS => "Dalam Proses",
-                self::STATUS_DONE => "Selesai"
+                self::STATUS_WAIT => "Wait",
+                self::STATUS_REJECT => "Reject",
+                self::STATUS_PROGRESS => "Progress",
+                self::STATUS_DONE => "Done"
             ];
         return [self::STATUS_WAIT, self::STATUS_REJECT, self::STATUS_PROGRESS, self::STATUS_DONE];
     }

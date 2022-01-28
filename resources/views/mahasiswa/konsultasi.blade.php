@@ -3,6 +3,9 @@
         <x-card.base title="Konsultasi List">
             @slot('aside')
                 <div class="flex items-center">
+                    <x-icons.refresh
+                        class="text-gray-500 cursor-pointer transform transition-transform duration-1000 hover:rotate-180 mr-2"
+                        onclick="Livewire.emit('reloadComponents', 'mahasiswa.konsultasi.table')" />
                     <x-anchor.success href="{{ route('user.konsultasi.' . $category . '.add') }}">
                         <x-icons.plus stroke-width="2.5" width="16" height="16" />
                         <span class="ml-2">Konsultasi {{ ucwords($category) }}</span>
