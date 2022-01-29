@@ -35,13 +35,13 @@
     {{-- side --}}
     <div class="w-16 py-2 ml-2 md:ml-0 md:py-4 flex justify-start md:border-r border-gray-200">
         <div class="flex md:flex-col items-center">
-            <x-button.white title="upvote" wire:click="upvote">
+            <x-button.white title="upvote" wire:click="upvote({{$sambat->id}})">
                 <x-icons.arrow-up class="w-4 h-4" />
             </x-button.white>
             <div class="text-xs my-2 mx-2">
-                10
+                {{$votes_sum}}
             </div>
-            <x-button.white title="downvote" wire:click="downvote">
+            <x-button.white title="downvote" wire:click="downvote({{$sambat->id}})">
                 <x-icons.arrow-down class="w-4 h-4" />
             </x-button.white>
             <x-button.white title="comment"
