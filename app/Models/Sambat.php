@@ -10,9 +10,18 @@ class Sambat extends Model
     use HasFactory;
 
     protected $table = 'sambat';
-    protected $fillable = ['user_id', 'description', 'is_anonim'];
 
-    public function users()
+    protected $fillable = [
+        'user_id',
+        'description',
+        'is_anonim'
+    ];
+
+    protected $attributes = [
+        'is_anonim' => false
+    ];
+
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
@@ -27,7 +36,7 @@ class Sambat extends Model
         return $this->hasMany(SambatComment::class);
     }
 
-    public function sambat_vote()
+    public function votes()
     {
         return $this->hasMany(SambatVote::class);
     }

@@ -1,70 +1,111 @@
-<form wire:submit.prevent="handleForm" class="bg-white m-9 p-9 drop-shadow-2xl rounded-2xl" id="form">
-    <div class="flex flex-col justify-between">
-        <div class="flex flex-col md:flex-row md:justify-between items-center justify-start">
-            <div class="flex flex-col mb-8">
-                <label class="block mb-1 font-semibold" for="">Tag</label>
-                <div class="flex flex-row">
-                   <input wire:model.defer="tag" class="rounded-lg bg-green-200 text-gray-500" type="text" placeholder="Masukan Tag" id="inputTag">
-                </div>
-            </div>  
-            <ul class="flex flex-row flex-wrap m-4" id="listTags">
-                @if ($sambat->id)
-                    @foreach ($sambat->tags as $tag)
-                        <li value="{{ $tag->name }}" class="inline p-2 bg-gray-200 rounded-xl mr-2 listTag">{{ $tag->name }}</li>
-                    @endforeach
-                @endif
-            </ul>
-        </div>
+<div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+    <x-card.form title="Mari Nyambat">
+        @slot('description')
+            Pusing sama skripsi? pusing sama kuliah? mari nyambat
+        @endslot
+        <form wire:submit.prevent="handleForm">
 
-        @if ($image)
-            Photo Preview:
-            <div class="grid grid-cols-2">
-                <div class="m-1">
-                    <img class="max-h-12 max-w-12" src="{{ $image->temporaryUrl() }}" alt="{{ $image->temporaryUrl() }}">
+            <x-input.wrapper>
+                <x-input.label for="tags" value="{{ __('Tags') }}" />
+                @forelse ($tags as $key => $item)
+                    <div>
+                        <div class="flex items-center my-2">
+                            <x-input.text wire:model="tags.{{ $key }}" type="text" />
+                            <x-button.error class="ml-2" wire:click="removeTags({{ $key }})">
+                                <span class="hidden md:block">Remove</span>
+                                <span class="md:hidden">
+                                    <x-icons.delete class="w-8 h-8" />
+                                </span>
+                            </x-button.error>
+                        </div>
+                        <x-input.error for="tags.{{ $key }}" />
+                    </div>
+                @empty
+                    <div>
+                        <div class="flex items-center my-2">
+                            <x-input.text wire:model="tags.0" type="text" />
+                        </div>
+                        <x-input.error for="tags.0" />
+                    </div>
+                @endforelse
+                <x-button.success wire:click="addTags">
+                    Add Tags
+                </x-button.success>
+                <x-input.error for="tags" />
+            </x-input.wrapper>
+
+
+            <div x-data="{ 'image' : 'Choose File', photoPreview: null }">
+                <x-input.wrapper>
+                    <x-input.label for="image" value="{{ __('Image') }}" />
+                    <div class="w-full">
+                        <input type="file" id="image" class="hidden" x-ref="image" wire:model="image"
+                            x-on:change="
+                            image = $refs.image.files[0].name;
+                            const reader = new FileReader();
+                            reader.onload = (e) => {
+                                photoPreview = e.target.result;
+                            };
+                            reader.readAsDataURL($refs.image.files[0]);
+                            " />
+                        <div class="flex divide-x-1 border rounded-md shadow-sm border-gray-300 justify-between">
+                            <span class="text-gray-400 text-sm p-2 overflow-hidden whitespace-nowrap" x-text="image">
+                            </span>
+                            <x-button.success x-on:click.prevent="$refs.image.click()">
+                                File
+                            </x-button.success>
+                        </div>
+                    </div>
+                    <x-input.error for="image" />
+                </x-input.wrapper>
+
+                @if ($sambat->image)
+                    <div class="aspect-w-3 aspect-h-2 mt-1" x-show="!photoPreview">
+                        <img src="{{ Storage::disk('public')->url($sambat->image->url) }}" alt="{{ $sambat->id }}">
+                    </div>
+                @endif
+
+                <div class="aspect-w-3 aspect-h-2 mt-1" x-show="photoPreview">
+                    <div class="bg-cover bg-center" x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                    </div>
                 </div>
             </div>
-        @endif
 
-        <div class="mb-3">
-            <label>Pilih Gambar</label>
-            <input type="file" wire:model="image">
-            <div wire:loading wire:target="image">Uploading...</div>
-            @error('image') <span class="error">{{ $message }}</span> @enderror
-        </div>
+            <x-input.wrapper>
+                <x-input.checkbox wire:model.defer="sambat.is_anonim" id="anonim" text="Anonim" />
+                <x-input.error for="sambat.is_anonim" />
+            </x-input.wrapper>
 
-        <div class="mb-5">
-            <label class="block mb-1 font-semibold" for="">Deskripsi</label>
-            <div id="editor" wire:ignore></div>
-        </div>
 
-        <div class="flex items-center mb-8">
-            @if ($sambat->is_anonim == 1)
-                <input wire:model.defer="is_anonim" type="checkbox" value="1" class="mr-2 rounded-sm" checked>
-            @else
-                <input wire:model.defer="is_anonim" type="checkbox" value="1" class="mr-2 rounded-sm">
-            @endif
-            <label class="font-medium" for="">Anonim</label>
-        </div>
-    
-        <button onclick="submitForm()" type="button" class="w-full hover:-translate-y-1 hover:scale-105 duration-300 py-1 text-base font-medium text-white bg-orange-400 rounded-xl drop-shadow-2xl px-7">Kirim</button>
-    </div>
+            <x-input.wrapper>
+                <x-input.label for="sambat.description" value="{{ __('Sambatan') }}" />
+                <div wire:ignore class="mt-1">
+                    <div id="editor"></div>
+                </div>
+                <x-input.error for="sambat.description" />
+            </x-input.wrapper>
 
-    @push('scripts')
-    <script src="{{ mix('js/editor.js') }}" defer></script>
-    <script>
-        let editor;
-        const submitForm = () => Livewire.emit('submitForm', editor.getMarkdown());
+            <x-button.black onclick="submitForm()">
+                Submit
+            </x-button.black>
 
-        document.addEventListener("DOMContentLoaded", function(){
-            editor = new Editor({
-                el: document.querySelector('#editor'),
-                previewStyle: 'tab',
-                height: '500px',
-                initialValue : "{{ $sambat->description }}"
-            });
-        });
-    </script>
-    
-    @endpush
-</form>
+            @push('scripts')
+                <script src="{{ mix('js/editor.js') }}" defer></script>
+                <script>
+                    let editor;
+                    const submitForm = () => Livewire.emit('submitForm', editor.getMarkdown());
 
+                    document.addEventListener("DOMContentLoaded", function() {
+                        editor = new Editor({
+                            el: document.querySelector('#editor'),
+                            previewStyle: 'tab',
+                            height: '500px',
+                            initialValue: @this.sambat.description
+                        });
+                    });
+                </script>
+
+            @endpush
+        </form>
+    </x-card.form>
+</div>
