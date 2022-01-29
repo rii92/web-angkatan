@@ -42,23 +42,26 @@
                 <p class="my-2 text-sm">{{ $comment->description }}</p>
             </div>
         @empty
-            <h1 class="text-center text-xs">Belum ada komentar di sambatan ini...</h1>
+            <h1 class="text-center text-md">Belum ada komentar di sambatan ini...</h1>
         @endforelse
 
         <div class="mb-2">
             {{ $comments->links() }}
         </div>
 
-        <form wire:submit.prevent="addComments">
-            <x-input.wrapper>
-                <x-input.label for="sambat_comments.description" value="{{ __('Komentarmu') }}" />
-                <x-input.text id="sambat_comments.description"></x-input.text>
-                <x-input.error for="sambat_comments.description" />
-            </x-input.wrapper>
-            <x-button.success onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value);">Kirim</x-button.success>
-        </form>
+        @if (Auth::check())
+            <form wire:submit.prevent="addComments">
+                <x-input.wrapper>
+                    <x-input.label for="sambat_comments.description" value="{{ __('Komentarmu') }}" />
+                    <x-input.text id="sambat_comments.description"></x-input.text>
+                    <x-input.error for="sambat_comments.description" />
+                </x-input.wrapper>
+                <x-button.success onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value);">Kirim</x-button.success>
+            </form>
+        @else
+            <h1 class="text-center text-md">Login dulu biar bisa ikut komentar...</h1>
+        @endif
         
-
     </x-modal.body>
     <x-modal.footer>
         <x-button.secondary wire:click="$emit('closeModal')">

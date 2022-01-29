@@ -14,59 +14,63 @@ class Item extends Component
 
     public Sambat $sambat;
 
-    public function upvote($sambat_id)
+    public function upvote()
     {
-        $sambat_vote = SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $sambat_id)
-                                    ->first();
-        
-        if($sambat_vote){
-            if($sambat_vote->votes === 1){
-                SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $sambat_id)
-                                    ->update(['votes' => 0]);
-                return $this->emit('success', 'Sukses Hapus Vote');
-            }else{
-                SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $sambat_id)
-                                    ->update(['votes' => 1]);
+        if(Auth::check()){
+            $sambat_vote = SambatVote::where('user_id', Auth::user()->id)
+                                        ->where('sambat_id', $this->sambat->id)
+                                        ->first();
+            
+            if($sambat_vote){
+                if($sambat_vote->votes === 1){
+                    $sambat_vote->votes = 0;
+                    $sambat_vote->save();
+                    return $this->emit('success', 'Sukses Hapus Vote');
+                }else{
+                    $sambat_vote->votes = 1;
+                    $sambat_vote->save();
+                }
+            } else{
+                SambatVote::create([
+                    'user_id' => Auth::user()->id,
+                    'sambat_id' => $this->sambat->id,
+                    'votes' => 1
+                ]);
             }
-        } else{
-            SambatVote::create([
-                'user_id' => Auth::user()->id,
-                'sambat_id' => $sambat_id,
-                'votes' => 1
-            ]);
+            return $this->emit('success', 'Sukses Upvote');
+        }else{
+            return $this->emit('error', 'Login Dulu Yaa');
         }
-        return $this->emit('success', 'Sukses Upvote');
     }
     
-    public function downvote($sambat_id)
+    public function downvote()
     {
-        $sambat_vote = SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $sambat_id)
-                                    ->latest()
-                                    ->first();
-        if($sambat_vote){
-            if($sambat_vote->votes === -1){
-                SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $sambat_id)
-                                    ->update(['votes' => 0]);
-                return $this->emit('success', 'Sukses Hapus Vote');
-            }else{
-                SambatVote::where('user_id', Auth::user()->id)
-                                    ->where('sambat_id', $sambat_id)
-                                    ->update(['votes' => -1]);
+        if(Auth::check()){
+            $sambat_vote = SambatVote::where('user_id', Auth::user()->id)
+                                        ->where('sambat_id', $this->sambat->id)
+                                        ->latest()
+                                        ->first();
+            if($sambat_vote){
+                if($sambat_vote->votes === -1){
+                    $sambat_vote->votes = 0;
+                    $sambat_vote->save();
+                    return $this->emit('success', 'Sukses Hapus Vote');
+                }else{
+                    $sambat_vote->votes = -1;
+                    $sambat_vote->save();
+                }
+            } else{
+                SambatVote::create([
+                    'user_id' => Auth::user()->id,
+                    'sambat_id' => $this->sambat->id,
+                    'votes' => -1
+                ]);
             }
-        } else{
-            SambatVote::create([
-                'user_id' => Auth::user()->id,
-                'sambat_id' => $sambat_id,
-                'votes' => -1
-            ]);
+    
+            return $this->emit('success', 'Sukses Downvote');
+        }else{
+            return $this->emit('error', 'Login Dulu Yaa');
         }
-
-        return $this->emit('success', 'Sukses Downvote');
     }
 
     public function render()
