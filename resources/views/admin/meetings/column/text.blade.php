@@ -1,0 +1,1 @@
+<div class="max-w-xs whitespace-pre-wrap">{{ $value }}</div>

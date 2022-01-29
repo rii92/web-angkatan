@@ -93,6 +93,11 @@ class User extends Authenticatable
         return $this->hasMany(MeetingMember::class);
     }
 
+    public function konsul()
+    {
+        return $this->hasMany(Konsul::class);
+    }
+
     public function sambat()
     {
         return $this->hasMany(Sambat::class, 'user_id', 'id');
@@ -106,5 +111,10 @@ class User extends Authenticatable
     public function sambat_votes()
     {
         return $this->hasMany(SambatVote::class);
+    }
+
+    public function session()
+    {
+        return $this->hasOne(Session::class)->latestOfMany();
     }
 }

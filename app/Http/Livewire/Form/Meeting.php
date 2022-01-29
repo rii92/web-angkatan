@@ -13,7 +13,8 @@ class Meeting extends Component
     public $meetingMember;
 
     protected $rules = [
-        'meetingMember.attend_at' => 'required'
+        'meetingMember.attend_at' => 'required',
+        'meetingMember.notes' => 'nullable',
     ];
 
     public function mount()

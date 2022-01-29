@@ -31,6 +31,7 @@ class Table extends DataTableComponent
                 ->sortable(),
             Column::make('Registered At', 'created_at')
                 ->sortable(),
+            Column::make('Last Activity', 'session.last_activity'),
             Column::make('Role')
                 ->format(function ($value, $column, $user) {
                     return view('admin.users.column.role')->with('user', $user);
@@ -44,7 +45,7 @@ class Table extends DataTableComponent
 
     public function query(): Builder
     {
-        return User::with('roles')
+        return User::with('roles', 'session')
             ->when($this->getFilter('role'), fn ($query, $role) => $query->role($role));
     }
 
@@ -56,7 +57,7 @@ class Table extends DataTableComponent
         ];
     }
 
-     /**
+    /**
      * export to xlsx file
      *
      * @return void
@@ -71,5 +72,4 @@ class Table extends DataTableComponent
             return $this->emit('error', "Somethings Wrong, I can feel It");
         }
     }
-    
 }

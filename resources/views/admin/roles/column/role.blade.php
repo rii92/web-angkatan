@@ -6,7 +6,7 @@
         <x-badge.primary text="BPH" />
     @endif
     @if ($role == AppRoles::AKADEMIK)
-        <x-badge.black text="Akademik" />
+        <x-badge.warning text="Akademik" />
     @endif
     @if ($role == AppRoles::HUMAS)
         <x-badge.warning text="Humas" />
@@ -22,5 +22,17 @@
     @endif
     @if ($role == AppRoles::MEMBER)
         <x-badge.secondary text="Pengurus Angkatan" />
+    @endif
+    @if ($role == AppRoles::KOOR)
+        <x-badge.black text="Koordinator" />
+    @endif
+    @if ($role == AppRoles::EO)
+        <x-badge.warning text="EO" />
+    @endif
+    @if ($role == AppRoles::PUBDOK)
+        <x-badge.warning text="Pubdok" />
+    @endif
+    @if ($role == AppRoles::DANUS)
+        <x-badge.warning text="Danus" />
     @endif
 </div>

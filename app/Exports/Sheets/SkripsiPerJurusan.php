@@ -2,6 +2,7 @@
 
 namespace App\Exports\Sheets;
 
+use App\Models\UserDetails;
 use Illuminate\Database\Eloquent\Builder;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -30,7 +31,11 @@ class SkripsiPerJurusan implements FromQuery, WithHeadings, WithMapping, WithTit
     {
         return $this->selectedRowQuery->whereHas('details', function (Builder $query) {
             $query->where('kelas', 'like', "%{$this->jurusan}%");
-        });
+        })->orderBy(
+            UserDetails::select('kelas')
+                ->whereColumn('user_id', 'users.id')
+                ->orderBy('kelas')
+        );
     }
 
     public function map($row): array

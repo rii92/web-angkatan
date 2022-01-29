@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Constants\AppPermissions;
 use App\Constants\AppRoles;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -69,11 +68,20 @@ class MahasiswaSeeder extends Seeder
                     case 'TI':
                         $user->assignRole(AppRoles::ADMIN);
                         break;
+                    case 'EO':
+                        $user->assignRole(AppRoles::EO);
+                        break;
+                    case 'Danus':
+                        $user->assignRole(AppRoles::DANUS);
+                        break;
+                    case 'Pubdok':
+                        $user->assignRole(AppRoles::PUBDOK);
+                        break;
                 }
             }
 
             // give admin menu permisson for all coordinator
-            if ($details['pa_jabatan'] == "Koordinator") $user->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
+            if ($details['pa_jabatan'] == "Koordinator") $user->assignRole(AppRoles::KOOR);
         }
         fclose($csvFile);
     }
