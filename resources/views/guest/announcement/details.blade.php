@@ -1,5 +1,5 @@
 <x-app-layout title="{{ $announcement->title }}">
-  <div class="py-6 bg-light-4 bg-gradient-to-t from-light-4 to-white">
+  <div class="py-6 bg-light-4 bg-gradient-to-t from-light-4 to-white min-h-screen">
     <div class="max-w-5xl mx-auto px-1 sm:px-6 lg:px-8">
       <article class="shadow-lg rounded-lg bg-darker py-6 px-4 lg:px-8 relative">
         <header class="mb-5">

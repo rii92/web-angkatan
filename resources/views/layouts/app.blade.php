@@ -28,16 +28,25 @@
     <x-jet-banner />
 
     <div class="min-h-screen">
-        <nav class="font-poppins shadow mb-2">
+        <nav class="font-poppins shadow mb-2" x-data="{ isMenuOpen: false }" @keydown.escape="isMenuOpen = false">
             <!-- Primary Navigation Menu -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
+                        <!-- Mobile hamburger -->
+                        <button class="p-1 mr-5 -ml-1 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800 text-gray-600" @click="isMenuOpen = !isMenuOpen" aria-label="Menu">
+                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </button>
                         <!-- Logo -->
-                        <div class="flex-shrink-0 flex items-center">
+                        <div class="flex-shrink-0 flex items-center lg:mr-8">
                             <x-logo.full />
                         </div>
                     </div>
+
+                    <x-landingpage.desktop-menu></x-landingpage.desktop-menu>
 
                     <div class="flex items-center ml-6">
                         <!-- Settings Dropdown -->
@@ -81,6 +90,7 @@
                         @endauth
                     </div>
                 </div>
+                <x-landingpage.mobile-menu></x-landingpage.mobile-menu>
             </div>
         </nav>
 

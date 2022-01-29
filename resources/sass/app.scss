@@ -66,37 +66,51 @@
     background: #cacaca;
 }
 
-.swiper {
-    width: 100%;
-    height: 100%;
+.prokerImgSwiper .swiper-slide img {
+    @apply object-cover h-60 w-full rounded-md scale-75;
 }
 
-.swiper-slide {
-    /* Center slide text vertically */
-    @apply text-center text-white flex flex-col items-center justify-center;
+.prokerImgSwiper .swiper-slide-active img {
+    @apply scale-95;
 }
 
-.swiper-slide .content {
-    @apply hidden;
-}
+$colors: "green", "red", "blue", "orange", "yellow", "purple", "lime", "pink";
 
-.swiper-slide img {
-    @apply rounded-full object-cover w-36 h-36 mb-8 mt-16;
-}
-
-.swiper-slide-active .content {
-    @apply block;
-}
-
-.swiper-slide-active img {
-    @apply w-60 h-60 mt-0;
-}
-
-
-$colors : "green", "red", "blue", "orange", "yellow", "purple", "lime", "pink";
-
-@each $color in $colors{
-    .calendar-#{$color}{
+@each $color in $colors {
+    .calendar-#{$color} {
         @apply bg-#{$color}-500;
     }
+}
+
+.proker {
+    @apply relative cursor-pointer;
+}
+
+.proker img {
+    @apply object-cover h-64 w-full;
+}
+
+.proker .proker-hover {
+    @apply absolute top-0 left-0 bottom-0 right-0 invisible opacity-0 bg-main transition duration-500 ease-in-out;
+}
+
+.proker .proker-hover .proker-hover-inner {
+    @apply absolute left-1/2 top-1/2 invisible opacity-0 text-center w-full px-2 font-poppins  transition duration-500 ease-in-out;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.proker .proker-hover .proker-hover-inner h3 {
+    @apply transition-all duration-500 ease-in-out;
+    bottom: -30px;
+}
+
+.proker:hover .proker-hover,
+.proker:hover .proker-hover .proker-hover-inner {
+    @apply opacity-90 visible;
+}
+
+.proker:hover .proker-hover .proker-hover-inner h3 {
+    bottom: 0;
 }

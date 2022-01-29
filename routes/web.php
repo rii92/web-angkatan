@@ -27,6 +27,10 @@ Route::get('/', function () {
     return view('guest.landingpage');
 })->name('home');
 
+Route::get('/proker', function () {
+    return view('guest.proker');
+})->name('proker');
+
 Route::prefix('informasi')->group(function () {
     Route::get('', function () {
         return view('guest.announcement');
