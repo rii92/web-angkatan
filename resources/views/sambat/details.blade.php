@@ -48,6 +48,17 @@
         <div class="mb-2">
             {{ $comments->links() }}
         </div>
+
+        <form wire:submit.prevent="addComments">
+            <x-input.wrapper>
+                <x-input.label for="sambat_comments.description" value="{{ __('Komentarmu') }}" />
+                <x-input.text id="sambat_comments.description"></x-input.text>
+                <x-input.error for="sambat_comments.description" />
+            </x-input.wrapper>
+            <x-button.success onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value);">Kirim</x-button.success>
+        </form>
+        
+
     </x-modal.body>
     <x-modal.footer>
         <x-button.secondary wire:click="$emit('closeModal')">

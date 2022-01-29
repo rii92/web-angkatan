@@ -26,7 +26,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('sambat', function () {
-    return view('homepage.sambat');
+    return view('guest.sambat');
 })->name('sambat');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
