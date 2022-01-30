@@ -3,9 +3,13 @@
 use App\Constants\AppKonsul;
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Http\Livewire\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Konsul;
 use App\Models\Meeting;
+use App\Models\Sambat;
+use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 
 /*
@@ -174,9 +178,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 });
             });
 
-        Route::get('sambat', function () {
-            return view('mahasiswa.sambat');
-        })->name('user.sambat');
+        Route::prefix('sambat')->group(function () {
+            Route::get('', function () {
+                return view('mahasiswa.sambat');
+            })->name('user.sambat');
+
+            Route::get('add', SambatForm::class)->name('user.sambat.add');
+            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit');
+        });
 
         Route::get('skripsi', function () {
             return view('mahasiswa.skripsi');

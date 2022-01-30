@@ -51,5 +51,10 @@ module.exports = {
         }
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('tailwind-scrollbar'),],
+    plugins: [
+        require('@tailwindcss/forms'), 
+        require('@tailwindcss/typography'), 
+        require('tailwind-scrollbar'),
+        require('@tailwindcss/aspect-ratio')
+    ],
 };

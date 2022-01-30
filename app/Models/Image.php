@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SambatImage extends Model
+class Image extends Model
 {
     use HasFactory;
 
-    public function sambat()
+    public $timestamps = false;
+    protected $guarded = [];
+
+    public function imageable()
     {
-        return $this->belongsTo(Sambat::class);
+        return $this->morphTo();
     }
 }

@@ -14,7 +14,7 @@ class Tag extends Model
 
     public function sambat()
     {
-        return $this->belongsToMany(Sambat::class, 'sambat_tags', 'tag_id', 'sambat_id');
+        return $this->belongsToMany(Sambat::class, SambatTag::class);
     }
 
     public function konsul()

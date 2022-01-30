@@ -16,7 +16,7 @@ class SambatVoteFactory extends Factory
         return [
             'user_id' => rand(1,20),
             'sambat_id' => rand(1,20),
-            'is_upvote' => rand(0,1)
+            'votes' => rand(-1,1)
         ];
     }
 }
