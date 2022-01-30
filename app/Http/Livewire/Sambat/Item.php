@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Sambat;
 
 use App\Models\Sambat;
+use App\Models\SambatComment;
 use App\Models\SambatVote;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -13,22 +14,32 @@ class Item extends Component
     use WithPagination;
 
     public Sambat $sambat;
+    public $sambat_vote;
+
+    public function mount()
+    {
+        if(Auth::check()){
+            $this->sambat_vote = SambatVote::where('user_id', Auth::user()->id)
+                                        ->where('sambat_id', $this->sambat->id)
+                                        ->first();
+        }
+    }
 
     public function upvote()
     {
         if(Auth::check()){
-            $sambat_vote = SambatVote::where('user_id', Auth::user()->id)
+            $this->sambat_vote = SambatVote::where('user_id', Auth::user()->id)
                                         ->where('sambat_id', $this->sambat->id)
                                         ->first();
             
-            if($sambat_vote){
-                if($sambat_vote->votes === 1){
-                    $sambat_vote->votes = 0;
-                    $sambat_vote->save();
+            if($this->sambat_vote){
+                if($this->sambat_vote->votes === 1){
+                    $this->sambat_vote->votes = 0;
+                    $this->sambat_vote->save();
                     return $this->emit('success', 'Sukses Hapus Vote');
                 }else{
-                    $sambat_vote->votes = 1;
-                    $sambat_vote->save();
+                    $this->sambat_vote->votes = 1;
+                    $this->sambat_vote->save();
                 }
             } else{
                 SambatVote::create([
@@ -46,18 +57,17 @@ class Item extends Component
     public function downvote()
     {
         if(Auth::check()){
-            $sambat_vote = SambatVote::where('user_id', Auth::user()->id)
+            $this->sambat_vote = SambatVote::where('user_id', Auth::user()->id)
                                         ->where('sambat_id', $this->sambat->id)
-                                        ->latest()
                                         ->first();
-            if($sambat_vote){
-                if($sambat_vote->votes === -1){
-                    $sambat_vote->votes = 0;
-                    $sambat_vote->save();
+            if($this->sambat_vote){
+                if($this->sambat_vote->votes === -1){
+                    $this->sambat_vote->votes = 0;
+                    $this->sambat_vote->save();
                     return $this->emit('success', 'Sukses Hapus Vote');
                 }else{
-                    $sambat_vote->votes = -1;
-                    $sambat_vote->save();
+                    $this->sambat_vote->votes = -1;
+                    $this->sambat_vote->save();
                 }
             } else{
                 SambatVote::create([
@@ -76,7 +86,8 @@ class Item extends Component
     public function render()
     {
         return view('components.card.sambat', [
-            'votes_sum' => SambatVote::where('sambat_id', $this->sambat->id)->sum('votes')
+            'votes_sum' => SambatVote::where('sambat_id', $this->sambat->id)->sum('votes'),
+            'comments_count' => SambatComment::where('sambat_id', $this->sambat->id)->count()
         ]);
     }
 }

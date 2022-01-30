@@ -35,29 +35,45 @@
     {{-- side --}}
     <div class="w-16 py-2 ml-2 md:ml-0 md:py-4 flex justify-start md:border-r border-gray-200">
         <div class="flex md:flex-col items-center">
-            <x-button.white title="upvote" wire:click="upvote">
-                <x-icons.arrow-up class="w-4 h-4" />
-            </x-button.white>
+            @if (!is_null($sambat_vote) and $sambat_vote->votes == 1 )
+                <x-button.black title="upvote" wire:click="upvote">
+                    <x-icons.arrow-up class="w-4 h-4" />
+                </x-button.black>
+            @else
+                <x-button.white title="upvote" wire:click="upvote">
+                    <x-icons.arrow-up class="w-4 h-4" />
+                </x-button.white>
+            @endif
             <div class="text-xs my-2 mx-2">
                 {{$votes_sum}}
             </div>
-            <x-button.white title="downvote" wire:click="downvote">
-                <x-icons.arrow-down class="w-4 h-4" />
-            </x-button.white>
+            @if (!is_null($sambat_vote) and $sambat_vote->votes == -1 )
+                <x-button.black title="downvote" wire:click="downvote">
+                    <x-icons.arrow-down class="w-4 h-4" />
+                </x-button.black>
+            @else
+                <x-button.white title="downvote" wire:click="downvote">
+                    <x-icons.arrow-down class="w-4 h-4" />
+                </x-button.white>
+            @endif
             <x-button.white title="comment"
                 onclick="Livewire.emit('openModal', 'sambat.details', {{ json_encode(['sambat_id' => $sambat->id]) }})"
                 class="ml-2 mt-0 md:ml-0 md:mt-2">
+                {{$comments_count}}
                 <x-icons.chat class="w-4 h-4" />
             </x-button.white>
-            <x-anchor.white title="edit" href="{{ route('user.sambat.edit', $sambat) }}"
-                class="ml-2 mt-0 md:ml-0 md:mt-2">
-                <x-icons.edit class="w-4 h-4" />
-            </x-anchor.white>
-            <x-button.white title="delete"
-                onclick="Livewire.emit('openModal', 'sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
-                class="ml-2 mt-0 md:ml-0 md:mt-2">
-                <x-icons.delete class="w-4 h-4" />
-            </x-button.white>
+            @if (Auth::user()->id == $sambat->user->id)
+                <x-anchor.white title="edit" href="{{ route('user.sambat.edit', $sambat) }}"
+                    class="ml-2 mt-0 md:ml-0 md:mt-2">
+                    <x-icons.edit class="w-4 h-4" />
+                </x-anchor.white>
+                <x-button.white title="delete"
+                    onclick="Livewire.emit('openModal', 'sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                    class="ml-2 mt-0 md:ml-0 md:mt-2">
+                    <x-icons.delete class="w-4 h-4" />
+                </x-button.white>
+            @endif
+            
         </div>
     </div>
 </div>
