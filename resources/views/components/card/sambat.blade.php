@@ -1,5 +1,5 @@
 <div title="{{ $sambat->user->name }}"
-    class="block md:flex flex-row-reverse pb-2 md:pb-4 mb-4 border-b border-gray-200 ">
+    class="block md:flex flex-row-reverse pb-2 md:pb-4 mb-4 border-b border-gray-200">
     {{-- body --}}
     <div class="flex-1 py-4 px-2 md:ml-2 hover:bg-gray-50 transition duration-100">
         <div class="flex items-center pb-2  ">
@@ -72,8 +72,7 @@
                     class="ml-2 mt-0 md:ml-0 md:mt-2">
                     <x-icons.delete class="w-4 h-4" />
                 </x-button.white>
-            @endif
-            
+            @endif      
         </div>
     </div>
 </div>

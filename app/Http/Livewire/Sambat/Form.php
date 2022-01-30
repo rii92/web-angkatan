@@ -86,7 +86,7 @@ class Form extends Component
                 $this->sambat->tags()->attach($tag);
             }
 
-            return $this->emit('success', "Mantap, udah nyambat!!");
+            return redirect()->route('sambat')->with('success', 'Mantap, udah nyambat !!');
         } catch (\Exception $e) {
             $this->emit('error', "Waduh gagal nyambat!!");
         }

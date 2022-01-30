@@ -48,6 +48,7 @@ class Item extends Component
                     'votes' => 1
                 ]);
             }
+            $this->emit('reloadComponents', 'components.card.sambat');
             return $this->emit('success', 'Sukses Upvote');
         }else{
             return $this->emit('error', 'Login Dulu Yaa');
@@ -76,7 +77,7 @@ class Item extends Component
                     'votes' => -1
                 ]);
             }
-    
+            $this->emit('reloadComponents', 'components.card.sambat');
             return $this->emit('success', 'Sukses Downvote');
         }else{
             return $this->emit('error', 'Login Dulu Yaa');

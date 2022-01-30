@@ -54,11 +54,9 @@
         @if (Auth::check())
             <form wire:submit.prevent="addComments">
                 <x-input.wrapper>
-                    <x-input.label for="sambat_comments.description" value="{{ __('Komentarmu') }}" />
-                    <x-input.text id="sambat_comments.description"></x-input.text>
+                    <x-input.text id="sambat_comments.description" placeholder="{{ __('Komentarmu...') }}"></x-input.text>
                     <x-input.error for="sambat_comments.description" />
                 </x-input.wrapper>
-                <x-button.success onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value);">Kirim</x-button.success>
             </form>
         @else
             <h1 class="text-center text-md">Login dulu biar bisa ikut komentar...</h1>
@@ -66,7 +64,11 @@
         
     </x-modal.body>
     <x-modal.footer>
-        <x-button.secondary wire:click="$emit('closeModal')">
+        <x-button.success 
+        onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value); document.getElementById('sambat_comments.description').value = ''; ">
+            Kirim
+        </x-button.success>
+        <x-button.secondary wire:click="$emit('closeModal')" class="ml-2">
             Tutup
         </x-button.secondary>
     </x-modal.footer>
