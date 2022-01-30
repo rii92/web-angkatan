@@ -14,7 +14,7 @@ class Tag extends Model
 
     public function sambat()
     {
-        return $this->belongsToMany(Sambat::class, SambatTag::class);
+        return $this->morphedByMany(Sambat::class, 'taggable');
     }
 
     public function konsul()

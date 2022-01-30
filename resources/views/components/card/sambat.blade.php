@@ -62,7 +62,7 @@
                 {{$comments_count}}
                 <x-icons.chat class="w-4 h-4" />
             </x-button.white>
-            @if (Auth::user()->id == $sambat->user->id)
+            @if (Auth::check() and Auth::user()->id == $sambat->user->id)
                 <x-anchor.white title="edit" href="{{ route('user.sambat.edit', $sambat) }}"
                     class="ml-2 mt-0 md:ml-0 md:mt-2">
                     <x-icons.edit class="w-4 h-4" />

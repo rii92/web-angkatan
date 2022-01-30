@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <div>
-                        @if (Auth::user()->id == $comment->user->id)    
+                        @if (Auth::check() and Auth::user()->id == $comment->user->id)    
                             <x-jet-dropdown align="right" width="48">
                                 <x-slot name="trigger">
                                     <button
@@ -64,10 +64,14 @@
         
     </x-modal.body>
     <x-modal.footer>
-        <x-button.success 
-        onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value); document.getElementById('sambat_comments.description').value = ''; ">
-            Kirim
-        </x-button.success>
+        @if (Auth::check())
+            <x-button.success 
+            onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value); document.getElementById('sambat_comments.description').value = ''; ">
+                Kirim
+            </x-button.success>
+        @else
+        <div></div>
+        @endif  
         <x-button.secondary wire:click="$emit('closeModal')" class="ml-2">
             Tutup
         </x-button.secondary>

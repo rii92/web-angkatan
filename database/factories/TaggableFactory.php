@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Sambat;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SambatTagFactory extends Factory
+class TaggableFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,8 +15,9 @@ class SambatTagFactory extends Factory
     public function definition()
     {
         return [
-            'sambat_id' => rand(1,20),
-            'tag_id' => rand(1, 10)
+            'tag_id' => rand(1, 10),
+            'taggable_type' => Sambat::class,
+            'taggable_id' => rand(1,20)
         ];
     }
 }
