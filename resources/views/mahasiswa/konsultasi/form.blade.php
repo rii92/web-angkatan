@@ -3,7 +3,7 @@
     <x-input.wrapper class=" mb-5">
         <x-input.label for="konsul.title" value="{{ __('Judul') }}" />
         <x-input.caption>
-            Jabarkan secara spesifik dan bayangkan kamu sedang bertanya secara langsung kepada konseler
+            Jabarkan secara spesifik dan bayangkan kamu sedang bertanya secara langsung kepada konselor
         </x-input.caption>
         <x-input.text wire:model.defer="konsul.title" id="name" type="text" placeholder="{{ $placeholder }}" />
         <x-input.error for="konsul.title" />
@@ -13,7 +13,7 @@
     <x-input.wrapper>
         <x-input.label for="konsul.description" value="{{ __('Pokok Masalah yang Dihadapi') }}" />
         <x-input.caption>
-            Jelaskan inti permasalahan yang kamu hadapi sehingga dapat membantu konseler untuk menangkap arah
+            Jelaskan inti permasalahan yang kamu hadapi sehingga dapat membantu konselor untuk menangkap arah
             pembicaraan.
         </x-input.caption>
         <div wire:ignore>
@@ -26,8 +26,8 @@
     <x-input.wrapper class="md:col-span-1">
         <x-input.checkbox wire:model.defer="konsul.is_anonim" text="Bertanya sebagai anonim?" id="is_anonim" />
         <x-input.caption>
-            Jika bertanya sebagai anonim maka konseler tidak akan tau nama, nim, dan kelas. Akan tetapi konseler akan
-            tau infomasi jurusan kamu. Tujuannya untuk membantu mengalokasikan konseler yang tepat buatmu. Kami menjamin
+            Jika bertanya sebagai anonim maka konselor tidak akan tau nama, nim, dan kelas. Akan tetapi konselor akan
+            tau infomasi jurusan kamu. Tujuannya untuk membantu mengalokasikan konselor yang tepat buatmu. Kami menjamin
             kerahasiaan d atamu.
         </x-input.caption>
     </x-input.wrapper>

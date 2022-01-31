@@ -19,7 +19,7 @@
                 value="{{ __('Balasan Konsultasi (Jam)') }}" />
             <x-input.text id="details.setting_send_email_reply_konsultasi"
                 wire:model.defer="details.setting_send_email_reply_konsultasi" type="number" min="0" />
-            <x-input.caption class="mt-1">Jika bernilai "3" maka ketika konseler menjawab pesanmu lebih dari 3
+            <x-input.caption class="mt-1">Jika bernilai "3" maka ketika konselor menjawab pesanmu lebih dari 3
                 jam maka kamu akan
                 dikirimkam email notifikasi. Isikan "0" jika tidak ingin mengaktifkan fitur ini</x-input.caption>
             <x-input.error for="details.setting_send_email_reply_konsultasi" />

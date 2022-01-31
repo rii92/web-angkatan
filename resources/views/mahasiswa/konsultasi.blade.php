@@ -18,7 +18,7 @@
             <p class="text-gray-400 text-sm mt-3 leading-tight">
                 Data konsultasi masih dapat kamu edit dan hapus selama statusnya masih
                 <x-badge.warning text="{{ AppKonsul::STATUS_WAIT }}" class="mr-0" />Jika statusnya sudah
-                berubah maka hanya konseler yang bisa menghapusnya
+                berubah maka hanya konselor yang bisa menghapusnya
             </p>
 
         </x-card.base>

@@ -40,7 +40,7 @@ class DiscussionRoom extends Component
             $this->konsul->status = AppKonsul::STATUS_DONE;
             $this->konsul->done_at = now();
             $this->konsul->save();
-            $this->sendNotification("telah diakhiri oleh konseler");
+            $this->sendNotification("telah diakhiri oleh konselor");
             $this->emit('success', "Success to close this konsultasi");
         } else
             $this->emit('error', "Something wrong, you can't close this konsultasi");
@@ -60,7 +60,7 @@ class DiscussionRoom extends Component
     public function askToPublish()
     {
         if (($this->konsul->status == AppKonsul::STATUS_DONE) && (!$this->konsul->is_publish)) {
-            $this->sendNotification('disarankan oleh konseler untuk mempublishnya');
+            $this->sendNotification('disarankan oleh konselor untuk mempublishnya');
             $this->emit('success', "Success to send notification");
         } else
             $this->emit('error', "Failed to send notification, konsultasi has been published");

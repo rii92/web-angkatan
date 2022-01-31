@@ -38,7 +38,7 @@
     <x-slot name="footer">
         <div class="mt-3 mb-1 md:flex justify-between items-center">
             @if ($konsul->status == AppKonsul::STATUS_WAIT)
-                <p class="text-sm text-gray-500 mr-3">Kamu baru bisa memulai diskusi ketika konseler sudah menerima
+                <p class="text-sm text-gray-500 mr-3">Kamu baru bisa memulai diskusi ketika konselor sudah menerima
                     pengajuan
                     konsultasimu</p>
                 <x-anchor.secondary href="{{ route('user.konsultasi.' . $konsul->category . '.table') }}">

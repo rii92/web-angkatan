@@ -32,7 +32,7 @@ class ModalDelete extends ModalComponent
                 $konsul->delete();
 
                 $title = Str::limit($konsul->title, 40);
-                $message = "Konsultasimu yang berjudul <b>{$title}</b> dihapus konseler karena {$this->alasan}.";
+                $message = "Konsultasimu yang berjudul <b>{$title}</b> dihapus konselor karena {$this->alasan}.";
                 User::find($konsul->user_id)->notify(new BellNotification($message));
 
                 $this->emit('success', "Success delete konsultasi");

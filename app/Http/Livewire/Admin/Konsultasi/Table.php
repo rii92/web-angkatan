@@ -22,7 +22,7 @@ class Table extends DataTableComponent
 
     public function mount()
     {
-        // jika rolenya akademik, auto filter ke jurusan konselernya
+        // jika rolenya akademik, auto filter ke jurusan konselornya
         $user = auth()->user();
         if ($user->hasRole(AppRoles::AKADEMIK))
             $this->filters  += ['jurusan' => [$user->details->jurusan]];

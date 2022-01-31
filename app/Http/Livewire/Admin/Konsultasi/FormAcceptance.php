@@ -46,7 +46,7 @@ class FormAcceptance extends Component
         $title = Str::limit($this->konsul->title, 40);
 
         if ($this->status == AppKonsul::STATUS_PROGRESS) {
-            $message = "Konsultasimu yang berjudul <b>{$title}</b> diterima. Silahkan tunggu jawaban dari konseler atau follow up lagi pertanyaanmu";
+            $message = "Konsultasimu yang berjudul <b>{$title}</b> diterima. Silahkan tunggu jawaban dari konselor atau follow up lagi pertanyaanmu";
             $subject = "Pengajuan Konsultasi Diterima";
         }
 
