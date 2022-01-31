@@ -7,11 +7,14 @@ use App\Models\Sambat;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 
 class Form extends Component
 {
     use WithFileUploads;
+
+    const TAGS_DELIMETER = " ";
 
     public Sambat $sambat;
 
@@ -28,33 +31,16 @@ class Form extends Component
             'sambat.is_anonim' => 'required|boolean',
             'sambat.user_id' => 'required',
             'image' => 'nullable|image|max:1024',
-            'tags' => 'nullable|array',
-            'tags.*' => 'required'
+            'tags' => 'nullable|string',
         ];
     }
 
     public function mount(Sambat $sambat)
     {
         $this->sambat = $sambat ?? new Sambat();
-        $this->tags = $this->sambat->id ? $this->sambat->tags->pluck('name') : collect([]);
-    }
-
-    public function addTags()
-    {
-        try {
-            $this->tags =  $this->tags->push('');
-        } catch (\Exception $e) {
-            $this->emit('error', $e->getMessage());
-        }
-    }
-
-    public function removeTags($index)
-    {
-        try {
-            $this->tags =  $this->tags->forget($index);
-        } catch (\Exception $e) {
-            $this->emit('error', $e->getMessage());
-        }
+        $this->tags = $this->sambat->id
+            ? collect($this->sambat->tags->pluck('name'))->implode(self::TAGS_DELIMETER)
+            : '';
     }
 
     public function handleForm($description)
@@ -79,15 +65,21 @@ class Form extends Component
                 $this->sambat->image()->save($image);
             }
 
+            // explode string to array
+            $hasTags = Str::of($this->tags)->isNotEmpty()
+                ? Str::of($this->tags)->explode(self::TAGS_DELIMETER)
+                : [];
+
             // remove all tags and assign new
             $this->sambat->tags()->detach();
-            foreach ($this->tags as $item) {
+            foreach ($hasTags as $item) {
                 $tag = Tag::firstOrCreate(['name' => $item]);
                 $this->sambat->tags()->attach($tag);
             }
 
-            return redirect()->route('sambat')->with('success', 'Mantap, udah nyambat !!');
+            return redirect()->route('user.sambat')->with('success', 'Mantap, udah nyambat !!');
         } catch (\Exception $e) {
+            debugbar()->addMessage($e->getMessage());
             $this->emit('error', "Waduh gagal nyambat!!");
         }
     }

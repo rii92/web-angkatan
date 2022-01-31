@@ -11,6 +11,7 @@ class AppPermissions
     const MAKE_KONSULTASI = "make_konsultasi";
     const REPLY_KONSULTASI_AKADEMIK = 'reply_konsultasi_akademik';
     const REPLY_KONSULTASI_UMUM = 'reply_konsultasi_umum';
+    const DELETE_SAMBAT = 'delete_sambat_and_its_comment';
 
     public static function allPermissions()
     {
@@ -21,7 +22,8 @@ class AppPermissions
             self::ANNOUNCEMENT_MANAGEMENT => 'Manage Announcements',
             self::MAKE_KONSULTASI => "Make Konsultasi",
             self::REPLY_KONSULTASI_AKADEMIK => "Reply Konsultasi Akademik",
-            self::REPLY_KONSULTASI_UMUM => "Reply Konsultasi Umum"
+            self::REPLY_KONSULTASI_UMUM => "Reply Konsultasi Umum",
+            self::DELETE_SAMBAT => "Delete Sambat dan Komentar Sambat"
         ];
     }
 }

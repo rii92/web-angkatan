@@ -44,6 +44,10 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::REPLY_KONSULTASI_UMUM,
                 'description' => "Permission to reply konsultasi umum and manage it"
+            ],
+            [
+                'name' => AppPermissions::DELETE_SAMBAT,
+                'description' => "Permission to delete sambat and it's comment"
             ]
         ];
 

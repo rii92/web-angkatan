@@ -7,33 +7,9 @@
 
             <x-input.wrapper>
                 <x-input.label for="tags" value="{{ __('Tags') }}" />
-                @forelse ($tags as $key => $item)
-                    <div>
-                        <div class="flex items-center my-2">
-                            <x-input.text wire:model="tags.{{ $key }}" type="text" />
-                            <x-button.error class="ml-2" wire:click="removeTags({{ $key }})">
-                                <span class="hidden md:block">Remove</span>
-                                <span class="md:hidden">
-                                    <x-icons.delete class="w-8 h-8" />
-                                </span>
-                            </x-button.error>
-                        </div>
-                        <x-input.error for="tags.{{ $key }}" />
-                    </div>
-                @empty
-                    <div>
-                        <div class="flex items-center my-2">
-                            <x-input.text wire:model="tags.0" type="text" />
-                        </div>
-                        <x-input.error for="tags.0" />
-                    </div>
-                @endforelse
-                <x-button.success wire:click="addTags">
-                    Add Tags
-                </x-button.success>
+                <x-input.text wire:model.defer="tags" />
                 <x-input.error for="tags" />
             </x-input.wrapper>
-
 
             <div x-data="{ 'image' : 'Choose File', photoPreview: null }">
                 <x-input.wrapper>
@@ -100,7 +76,11 @@
                             el: document.querySelector('#editor'),
                             previewStyle: 'tab',
                             height: '500px',
-                            initialValue: @this.sambat.description
+                            initialValue: @this.sambat.description,
+                            toolbarItems: ['heading', 'bold', 'italic', 'strike', 'divider', 'hr', 'quote', 'divider',
+                                'ul', 'ol', 'task', 'indent', 'outdent', 'divider', 'table', 'link',
+                                'divider', 'code', 'codeblock'
+                            ],
                         });
                     });
                 </script>

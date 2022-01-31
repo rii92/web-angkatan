@@ -46,8 +46,12 @@ class Details extends ModalComponent
 
     public function deleteComments($comment_id)
     {
-        SambatComment::where('id', $comment_id)->delete();
-        $this->emit('success', "Komentar berhasil dihapus!");
+        try {
+            SambatComment::where('id', $comment_id)->delete();
+            $this->emit('success', "Komentar berhasil dihapus!");
+        } catch (\Exception $th) {
+            $this->emit('error', "Gagal mengahapus komentar!");
+        }
     }
 
     public function render()
