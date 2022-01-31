@@ -6,7 +6,10 @@ use App\Constants\AppKonsul;
 use Livewire\Component;
 use App\Models\Konsul;
 use App\Models\Tag;
+use App\Models\User;
+use App\Notifications\BellNotification;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class Form extends Component
 {
@@ -96,6 +99,19 @@ class Form extends Component
             DB::commit();
 
             if ($this->konsul_id) return $this->emit('success', "Changes Saved Successfully");
+
+            // jika membuat konsultasi akademik baru, kirim bell notifikasi ke konselor yang bertugas
+            if ($this->konsul->category == AppKonsul::TYPE_AKADEMIK) {
+                $penanya = User::find($this->konsul->user_id);
+                $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan);
+                $title = Str::limit($this->konsul->title, 40);
+                $message = "Hai konselor, terdapat konsultasi baru berjudul <b>{$title}</b>";
+                $url = route("admin.konsultasi.{$this->category}.room", $this->konsul->id);
+
+                foreach ($konselor as $nim)
+                    User::where('email', $nim . '@stis.ac.id')->first()->notify(new BellNotification($message, $url));
+            }
+
             return redirect()->route("user.konsultasi.{$this->category}.room", $this->konsul->id)->with('message', 'Success to add new konsultasi');
         } catch (\Exception $e) {
             DB::rollBack();

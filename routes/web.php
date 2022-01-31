@@ -5,11 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
 use App\Http\Livewire\Sambat\Form as SambatForm;
 use App\Models\Announcement;
-use App\Models\Konsul;
 use App\Models\Meeting;
-use App\Models\Sambat;
-use App\Models\Tag;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 
 /*
@@ -191,9 +187,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return view('mahasiswa.skripsi');
         })->name('user.skripsi');
     });
-});
-
-Route::get('test', function () {
-    $konsul = Konsul::first();
-    return view('guest.contoh', ['description' => $konsul->description]);
 });
