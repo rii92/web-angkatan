@@ -8,15 +8,9 @@
                     alt="{{ $sambat->user->name }}" />
             </div>
             <div class="ml-2">
-                @if (Auth::check() and Auth::user()->hasrole(AppRoles::ADMIN))
-                    <div class="font-bold text-sm text-gray-600">
-                        {{ $sambat->is_anonim ? $sambat->user->name . " (Anonim)" : $sambat->user->name }}
-                    </div>
-                @else
-                    <div class="font-bold text-sm text-gray-600">
-                        {{ $sambat->is_anonim ? "Anonim" : $sambat->user->name }}
-                    </div>
-                @endif
+                <div class="font-bold text-sm text-gray-600">
+                    {{ $sambat->is_anonim ? "Anonim" : $sambat->user->name }}
+                </div>
                 <div class="text-xs">
                     {{ $sambat->created_at }}
                 </div>
