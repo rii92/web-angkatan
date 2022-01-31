@@ -42,13 +42,12 @@ class Item extends Component
                     $this->sambat_vote->save();
                 }
             } else{
-                SambatVote::create([
+                $this->sambat_vote = SambatVote::create([
                     'user_id' => Auth::user()->id,
                     'sambat_id' => $this->sambat->id,
                     'votes' => 1
                 ]);
             }
-            $this->emit('reloadComponents', 'components.card.sambat');
             return $this->emit('success', 'Sukses Upvote');
         }else{
             return $this->emit('error', 'Login Dulu Yaa');
@@ -71,13 +70,12 @@ class Item extends Component
                     $this->sambat_vote->save();
                 }
             } else{
-                SambatVote::create([
+                $this->sambat_vote = SambatVote::create([
                     'user_id' => Auth::user()->id,
                     'sambat_id' => $this->sambat->id,
                     'votes' => -1
                 ]);
             }
-            $this->emit('reloadComponents', 'components.card.sambat');
             return $this->emit('success', 'Sukses Downvote');
         }else{
             return $this->emit('error', 'Login Dulu Yaa');
