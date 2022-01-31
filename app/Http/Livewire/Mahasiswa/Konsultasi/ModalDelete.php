@@ -6,6 +6,7 @@ use App\Constants\AppKonsul;
 use App\Constants\AppPermissions;
 use App\Http\Livewire\GuardsAgainstAccess;
 use App\Models\Konsul;
+use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 
 class ModalDelete extends ModalComponent
@@ -20,9 +21,11 @@ class ModalDelete extends ModalComponent
         $konsul = Konsul::find($this->konsul_id);
 
         // user hanya bisa hapus ketika statusnya reject atau wait
-        if (($konsul->user_id == auth()->user()->id) && in_array($konsul->status, [AppKonsul::STATUS_WAIT, AppKonsul::STATUS_REJECT])) {
+        if (($konsul->user_id == auth()->id()) && in_array($konsul->status, [AppKonsul::STATUS_WAIT, AppKonsul::STATUS_REJECT])) {
             try {
                 $konsul->tags()->detach();
+                $chatWithImage = $konsul->chats()->wherePivot('type', AppKonsul::TYPE_CHAT_IMAGE)->get();
+                foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->pivot->chat);
                 $konsul->delete();
                 $this->emit('success', "Success delete konsultasi");
             } catch (\Exception $e) {

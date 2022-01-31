@@ -1,7 +1,7 @@
 <form wire:submit.prevent="handleForm">
-    <x-modal.header title="Delete Pesan" />
+    <x-modal.header title="Delete {{ ucwords($chatType) }}" />
     <x-modal.body>
-        Apakah anda yakin menghapus pesan ini?
+        Apakah anda yakin menghapus {{ $chatType }} ini?
     </x-modal.body>
     <x-modal.footer bordered>
         <div class="ml-2">

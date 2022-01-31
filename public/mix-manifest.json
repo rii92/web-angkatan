@@ -4,6 +4,7 @@
     "/js/editor.js": "/js/editor.js",
     "/js/aos.js": "/js/aos.js",
     "/js/swiper.js": "/js/swiper.js",
+    "/js/viewer.js": "/js/viewer.js",
     "/css/app.css": "/css/app.css",
     "/css/chat.css": "/css/chat.css"
 }

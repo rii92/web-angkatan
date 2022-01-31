@@ -47,7 +47,7 @@ class Table extends DataTableComponent
     public function query(): Builder
     {
         return Konsul::konsulType($this->category)
-            ->where('user_id', auth()->user()->id)
+            ->where('user_id', auth()->id())
             ->when($this->getFilter('status'), function ($query, $status) {
                 $query->whereIn('status', $status);
             })

@@ -31,7 +31,7 @@
                 createdAt="{{ $chat->pivot->created_at->format('d M H:i') }}"
                 isRead="{{ $chat->pivot->is_seen && $chat->pivot->is_admin }}"
                 isLeft="{{ !$chat->pivot->is_admin }}" canDelete="{{ $chat->pivot->is_admin }}"
-                chatId="{{ $chat->pivot->id }}" route="admin" />
+                chatId="{{ $chat->pivot->id }}" chatType="{{ $chat->pivot->type }}" route="admin" />
         @endforeach
 
 
@@ -57,9 +57,12 @@
 
         @if ($konsul->status == AppKonsul::STATUS_PROGRESS)
             <div class="mt-3 mb-1 flex justify-between items-center">
-                <x-icons.refresh
-                    class="text-gray-500 cursor-pointer transform transition-transform duration-1000 hover:rotate-180"
-                    wire:click="$refresh" />
+                <div class="flex">
+                    <x-icons.refresh
+                        class="text-gray-500 cursor-pointer transform transition-transform duration-1000 hover:rotate-180"
+                        wire:click="$refresh" />
+                    @livewire('konsultasi.upload-image', ['konsul' => $konsul->id, 'route' => 'admin'])
+                </div>
                 <x-anchor.error wire:click="closeRoom">
                     Akhiri Konsultasi
                 </x-anchor.error>

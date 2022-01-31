@@ -7,6 +7,7 @@ use App\Constants\AppPermissions;
 use App\Models\Konsul;
 use App\Models\User;
 use App\Notifications\BellNotification;
+use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Support\Str;
 
@@ -25,6 +26,8 @@ class ModalDelete extends ModalComponent
         if (auth()->user()->can($permission)) {
             try {
                 $konsul->tags()->detach();
+                $chatWithImage = $konsul->chats()->wherePivot('type', AppKonsul::TYPE_CHAT_IMAGE)->get();
+                foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->pivot->chat);
                 $konsul->chats()->detach();
                 $konsul->delete();
 

@@ -32,7 +32,7 @@ class Form extends Component
         if ($this->konsul_id) {
             $this->konsul = Konsul::find($this->konsul_id);
             // hanya boleh edit ketika statusnya wait
-            if (($this->konsul->user_id != auth()->user()->id) || ($this->konsul->status != AppKonsul::STATUS_WAIT)) abort(404);
+            if (($this->konsul->user_id != auth()->id()) || ($this->konsul->status != AppKonsul::STATUS_WAIT)) abort(404);
 
             // ini menjaga agar kategori umum tidak bisa dibuka dari /akademik dan sebaliknya
             if ($this->konsul->category != $this->category) abort(404);

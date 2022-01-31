@@ -20,7 +20,7 @@ class DiscussionRoom extends Component
             abort(404);
         }
 
-        if ($this->konsul->user_id != auth()->user()->id) abort(404);
+        if ($this->konsul->user_id != auth()->id()) abort(404);
         if (Request::segment(3) != $this->konsul->category) abort(404);
     }
 
