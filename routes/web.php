@@ -184,7 +184,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             })->name('user.sambat');
 
             Route::get('add', SambatForm::class)->name('user.sambat.add');
-            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit');
+            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
         });
 
         Route::get('skripsi', function () {
