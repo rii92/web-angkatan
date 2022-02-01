@@ -20,7 +20,8 @@ class ModalDelete extends ModalComponent
             $this->emit('error', "Gagal menghapus sambat");
         } finally {
             $this->emit('reloadComponents', 'sambat.table');
-            $this->emit('closeModal');
+            $this->skipPreviousModal(2);
+            $this->closeModal();
         }
     }
 

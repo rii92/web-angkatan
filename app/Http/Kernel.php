@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'edit.sambat' => \App\Http\Middleware\EditSambat::class,
 
         // spatie
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,

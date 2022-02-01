@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SambatTag extends Model
+class Taggable extends Model
 {
     use HasFactory;
 
-    protected $table = 'sambat_tags';
+    protected $table = 'taggables';
     public $timestamps = false;
 }
