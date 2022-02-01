@@ -1,11 +1,16 @@
-<div title="{{ $sambat->user->name }}"
+<div title="{{ $sambat->is_anonim ? 'Anonim' : $sambat->user->name }}"
     class="block md:flex flex-row-reverse pb-2 md:pb-4 mb-4 border-b border-gray-200">
     {{-- body --}}
     <div class="flex-1 py-4 px-2 md:ml-2 hover:bg-gray-50 transition duration-100">
         <div class="flex items-center pb-2  ">
             <div class="w-10 h-10">
-                <img class="object-cover w-full rounded-full mr-2" src="{{ $sambat->user->profile_photo_url }}"
+                @if ($sambat->is_anonim)
+                    <img class="object-cover w-full mr-2" src="{{url('img/user-avatar.png')}}"
+                        alt="{{ $sambat->user->name }}" />
+                @else
+                    <img class="object-cover w-full rounded-full mr-2" src="{{$sambat->user->profile_photo_url}}"
                     alt="{{ $sambat->user->name }}" />
+                @endif
             </div>
             <div class="ml-2">
                 <div class="font-bold text-sm text-gray-600">
