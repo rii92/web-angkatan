@@ -58,7 +58,7 @@ class FormAcceptance extends Component
         $url = route("user.konsultasi.{$this->konsul->category}.room", $this->konsul->id);
         $penanya->notify(new BellNotification($message, $url));
 
-        if ($penanya->details->setting_send_email_accept_konsultasi)
+        if ($penanya->details && $penanya->details->setting_send_email_accept_konsultasi)
             $penanya->notify(new EmailNotifications((new MailMessage)
                 ->subject("PA60 - {$subject}")
                 ->greeting("Halo {$penanya->name},")

@@ -146,7 +146,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                         return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'add-edit', 'subtitle' => 'Edit Konsultasi', 'konsul_id' => $konsul_id]));
                     })->name('user.konsultasi.umum.edit');
 
-                    Route::get("{konsul}", function ($konsul_id) use ($data) {
+                    Route::get("{konsul_id}", function ($konsul_id) use ($data) {
                         $data['title'] = 'Discussion Room';
                         return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'room', 'konsul_id' => $konsul_id]));
                     })->name('user.konsultasi.umum.room');

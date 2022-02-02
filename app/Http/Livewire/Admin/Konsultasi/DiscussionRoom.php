@@ -63,7 +63,7 @@ class DiscussionRoom extends Component
             $this->sendNotification('disarankan oleh konselor untuk mempublishnya');
             $this->emit('success', "Success to send notification");
         } else
-            $this->emit('error', "Failed to send notification, konsultasi has been published");
+            $this->emit('error', "Failed to send notification");
     }
 
     public function render()

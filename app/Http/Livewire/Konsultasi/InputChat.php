@@ -42,7 +42,7 @@ class InputChat extends Component
             // kirim email jika chat terakhir bukan dari admin
             if ($this->is_admin && !$lastChat->pivot->is_admin) {
                 $penanya = User::find($this->konsul->user_id);
-                $interval = $penanya->details->setting_send_email_reply_konsultasi;
+                $interval = $penanya->details->setting_send_email_reply_konsultasi ?? 0;
 
                 // kalau settingannya bernilai 0 maka notifikasi email tidak dinyalakan untuk reply konsultasi
                 // jika tidak bernilai 0 maka angka tersebut maksudnya adalah selisih jam dengan last chat dari user
