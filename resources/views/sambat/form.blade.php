@@ -7,9 +7,33 @@
 
             <x-input.wrapper>
                 <x-input.label for="tags" value="{{ __('Tags') }}" />
-                <x-input.text wire:model.defer="tags" />
+                @forelse ($tags as $key => $item)
+                    <div>
+                        <div class="flex items-center my-2">
+                            <x-input.text wire:model="tags.{{ $key }}" type="text" />
+                            <x-button.error class="ml-2" wire:click="removeTags({{ $key }})">
+                                <span class="hidden md:block">Remove</span>
+                                <span class="md:hidden">
+                                    <x-icons.delete class="w-8 h-8" />
+                                </span>
+                            </x-button.error>
+                        </div>
+                        <x-input.error for="tags.{{ $key }}" />
+                    </div>
+                @empty
+                    <div>
+                        <div class="flex items-center my-2">
+                            <x-input.text wire:model="tags.0" type="text" />
+                        </div>
+                        <x-input.error for="tags.0" />
+                    </div>
+                @endforelse
+                <x-button.success wire:click="addTags">
+                    Add Tags
+                </x-button.success>
                 <x-input.error for="tags" />
             </x-input.wrapper>
+
 
             <div x-data="{ 'image' : 'Choose File', photoPreview: null }">
                 <x-input.wrapper>
@@ -70,7 +94,6 @@
                 <script>
                     let editor;
                     const submitForm = () => Livewire.emit('submitForm', editor.getMarkdown());
-
                     document.addEventListener("DOMContentLoaded", function() {
                         editor = new Editor({
                             el: document.querySelector('#editor'),
