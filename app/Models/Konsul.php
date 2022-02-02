@@ -10,9 +10,17 @@ class Konsul extends Model
 {
     use HasFactory;
     protected $table = 'konsul';
+
     protected $guarded = [];
+
     protected $dates = [
-        'acc_rej_at', 'done_at', 'published_at'
+        'acc_rej_at', 
+        'done_at', 
+        'published_at'
+    ];
+
+    protected $attributes = [
+        'is_anonim' => false
     ];
 
     public function scopeKonsulType($query, $category)

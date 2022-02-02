@@ -35,7 +35,12 @@ class AppKonsul
                 self::STATUS_PROGRESS => "Progress",
                 self::STATUS_DONE => "Done"
             ];
-        return [self::STATUS_WAIT, self::STATUS_REJECT, self::STATUS_PROGRESS, self::STATUS_DONE];
+        return [
+            self::STATUS_WAIT,
+            self::STATUS_REJECT,
+            self::STATUS_PROGRESS,
+            self::STATUS_DONE
+        ];
     }
 
     public static function getKonselor($dayInWeek, $jurusan)
