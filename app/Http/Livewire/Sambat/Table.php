@@ -3,37 +3,32 @@
 namespace App\Http\Livewire\Sambat;
 
 use App\Models\Sambat;
-use Livewire\Component;
-use Livewire\WithPagination;
+use Illuminate\Database\Eloquent\Builder;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Column;
 use Illuminate\Support\Str;
 
-class Table extends Component
+class Table extends DataTableComponent
 {
-    use WithPagination;
-
-    private const page = 10;
-    private $sambats;
-
-    public $search, $user_id;
-
-    protected $updatedQueryString = ['search', ['except' => '']];
-
-    public function mount()
+    public bool $dumpFilters = true;
+    public function columns(): array
     {
-        $this->search = request()->query('search', $this->search);
+        return [
+            // Column::make('Actions')
+            //     ->format(function ($value, $column, $row) {
+            //         return view('sambat.details')->with('sambat', $row);
+            //     }),
+            Column::make('Sambatan', 'description')
+                    ->searchable()
+                    ->format(fn ($value) => view('sambat.column.text')->with('value', Str::limit($value, 50))),
+            Column::make('Waktu Upload', 'created_at'),
+                
+        ];
     }
 
-    public function render()
+    public function query(): Builder
     {
-
-        $this->sambats = $this->user_id
-            ? Sambat::where('user_id', $this->user_id)->with('tags', 'image', 'user')
-            : Sambat::with('tags', 'image');
-
-        $this->sambats = Str::of($this->search)->trim()->isNotEmpty()
-            ? $this->sambats->where('description', 'like', '%' . $this->search . '%')
-            : $this->sambats;
-
-        return view('sambat.table', ['sambats' => $this->sambats->latest()->paginate(self::page)]);
+        return Sambat::query();
     }
+
 }
