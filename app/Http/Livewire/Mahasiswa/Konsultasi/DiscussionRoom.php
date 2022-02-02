@@ -4,20 +4,21 @@ namespace App\Http\Livewire\Mahasiswa\Konsultasi;
 
 use App\Constants\AppKonsul;
 use App\Models\Konsul;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class DiscussionRoom extends Component
 {
-    public $konsul;
-    protected $listeners = ['openRoom'];
+    public Konsul $konsul;
+    public $category;
 
-    public function mount($konsul)
+    protected $listeners = [
+        'openRoom'
+    ];
+
+    public function mount()
     {
-        $this->konsul = Konsul::findOrFail($konsul);
-
         if ($this->konsul->user_id != auth()->id()) abort(404);
-        if (Request::segment(3) != $this->konsul->category) abort(404);
+        if ($this->category != $this->konsul->category) abort(404);
     }
 
     public function closeRoom()
@@ -62,8 +63,9 @@ class DiscussionRoom extends Component
 
     public function render()
     {
-        $this->konsul->markUnreadMessage(true);
+        // ini pivot kok banyak masalah kayaknya, semua query yang berhubungan sama pivot disini ga bisa???
+        // $this->konsul->markUnreadMessage(true);
         return view('mahasiswa.konsultasi.discussion-room')
-            ->layout('layouts.dashboard', ['title' => "Discussion Room"]);;
+            ->layout('layouts.dashboard', ['title' => "Discussion Room"]);
     }
 }

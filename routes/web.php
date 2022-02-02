@@ -3,6 +3,7 @@
 use App\Constants\AppKonsul;
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoom;
 use App\Http\Livewire\Mahasiswa\Konsultasi\DiscussionRoom;
 use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
 use App\Http\Livewire\Sambat\Form as SambatForm;
@@ -79,23 +80,21 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
         Route::prefix('konsultasi')->group(function () {
             Route::prefix('akademik')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_AKADEMIK)->group(function () {
-                Route::get('', function () {
-                    return view('admin.konsultasi', ['category' => 'akademik', 'menu' => 'table', 'title' => 'Konsultasi Akademik']);
-                })->name('admin.konsultasi.akademik.table');
+                Route::get('', fn () => view('admin.konsultasi', ['category' => AppKonsul::TYPE_AKADEMIK]))
+                    ->name('admin.konsultasi.akademik.table');
 
-                Route::get('{konsul_id}', function ($konsulId) {
-                    return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
-                })->name('admin.konsultasi.akademik.room');
+                Route::get('{konsul}', KonsultasiDiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('admin.konsultasi.akademik.room');
             });
 
             Route::prefix('umum')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_UMUM)->group(function () {
-                Route::get('', function () {
-                    return view('admin.konsultasi', ['category' => 'umum', 'menu' => 'table', 'title' => 'Konsultasi Umum']);
-                })->name('admin.konsultasi.umum.table');
+                Route::get('', fn () => view('admin.konsultasi', ['category' => AppKonsul::TYPE_UMUM]))
+                    ->name('admin.konsultasi.umum.table');
 
-                Route::get('{konsul_id}', function ($konsulId) {
-                    return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
-                })->name('admin.konsultasi.umum.room');
+                Route::get('{konsul}', KonsultasiDiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_UMUM)
+                    ->name('admin.konsultasi.umum.room');
             });
         });
 
@@ -141,8 +140,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     ->defaults('category', AppKonsul::TYPE_UMUM)
                     ->name('user.konsultasi.umum.edit');
 
-                Route::get('{konsul_id}', DiscussionRoom::class)
-                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                Route::get('{konsul}', DiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_UMUM)
                     ->name('user.konsultasi.umum.room');
             });
 
@@ -159,7 +158,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     ->defaults('category', AppKonsul::TYPE_AKADEMIK)
                     ->name('user.konsultasi.akademik.edit');
 
-                Route::get('{konsul_id}', DiscussionRoom::class)
+                Route::get('{konsul}', DiscussionRoom::class)
                     ->defaults('category', AppKonsul::TYPE_AKADEMIK)
                     ->name('user.konsultasi.akademik.room');
             });

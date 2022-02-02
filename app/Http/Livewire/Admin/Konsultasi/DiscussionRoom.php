@@ -6,24 +6,19 @@ use App\Constants\AppKonsul;
 use App\Models\Konsul;
 use App\Models\User;
 use App\Notifications\BellNotification;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
 class DiscussionRoom extends Component
 {
-    public $konsul, $asker;
+    public Konsul $konsul;
 
-    public function mount($konsul)
+    public $asker, $category;
+
+    public function mount()
     {
-        try {
-            $this->konsul = Konsul::findOrFail($konsul);
-        } catch (\Exception $e) {
-            abort(404);
-        }
+        if ($this->category != $this->konsul->category) abort(404);
 
-        $category = Request::segment(3);
-        if ($this->konsul->category != $category) abort(404);
         $this->asker = User::find($this->konsul->user_id);
     }
 
@@ -36,39 +31,39 @@ class DiscussionRoom extends Component
 
     public function closeRoom()
     {
-        if ($this->konsul->status == AppKonsul::STATUS_PROGRESS) {
-            $this->konsul->status = AppKonsul::STATUS_DONE;
-            $this->konsul->done_at = now();
-            $this->konsul->save();
-            $this->sendNotification("telah diakhiri oleh konselor");
-            $this->emit('success', "Success to close this konsultasi");
-        } else
-            $this->emit('error', "Something wrong, you can't close this konsultasi");
+        if ($this->konsul->status != AppKonsul::STATUS_PROGRESS) return $this->emit('error', "Something wrong, you can't close this konsultasi");
+
+        $this->konsul->status = AppKonsul::STATUS_DONE;
+        $this->konsul->done_at = now();
+        $this->konsul->save();
+        $this->sendNotification("telah diakhiri oleh konselor");
+        return $this->emit('success', "Success to close this konsultasi");
     }
 
     public function openRoom()
     {
-        if ($this->konsul->status == AppKonsul::STATUS_DONE) {
-            $this->konsul->status = AppKonsul::STATUS_PROGRESS;
-            $this->konsul->done_at = null;
-            $this->konsul->save();
-            $this->emit('success', "Success to open konsultasi");
-        } else
-            $this->emit('error', "Something wrong, you can't open this konsultasi");
+        if ($this->konsul->status == AppKonsul::STATUS_DONE) return $this->emit('error', "Something wrong, you can't open this konsultasi");
+
+        $this->konsul->status = AppKonsul::STATUS_PROGRESS;
+        $this->konsul->done_at = null;
+        $this->konsul->save();
+        return $this->emit('success', "Success to open konsultasi");
     }
 
     public function askToPublish()
     {
         if (($this->konsul->status == AppKonsul::STATUS_DONE) && (!$this->konsul->is_publish)) {
             $this->sendNotification('disarankan oleh konselor untuk mempublishnya');
-            $this->emit('success', "Success to send notification");
+            return  $this->emit('success', "Success to send notification");
         } else
-            $this->emit('error', "Failed to send notification");
+            return $this->emit('error', "Failed to send notification");
     }
 
     public function render()
     {
-        $this->konsul->markUnreadMessage(false);
-        return view('admin.konsultasi.discussion-room');
+        // ini pivot kok banyak masalah kayaknya, semua query yang berhubungan sama pivot disini ga bisa???
+        // $this->konsul->markUnreadMessage(false);
+        return view('admin.konsultasi.discussion-room')
+            ->layout('layouts.dashboard', ['title' => "Discussion Room"]);
     }
 }
