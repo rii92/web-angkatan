@@ -128,7 +128,9 @@
     </div>
 
     @stack('modals')
-    @livewire('livewire-ui-modal')
+    <div class="modal-center">
+        @livewire('livewire-ui-modal')
+    </div>
 </body>
 
 @livewireScripts

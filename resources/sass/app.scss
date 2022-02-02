@@ -114,3 +114,7 @@ $colors: "green", "red", "blue", "orange", "yellow", "purple", "lime", "pink";
 .proker:hover .proker-hover .proker-hover-inner h3 {
     bottom: 0;
 }
+
+.modal-center > div > div > div {
+    @apply items-center;
+}

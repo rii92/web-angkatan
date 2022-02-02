@@ -41,7 +41,9 @@
         </div>
     </div>
     <div class="relative z-30">
-        @livewire('livewire-ui-modal')
+        <div class="modal-center">
+            @livewire('livewire-ui-modal')
+        </div>
     </div>
 </body>
 @livewireScripts

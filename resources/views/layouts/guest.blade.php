@@ -23,7 +23,9 @@
     <div class="font-sans text-gray-900 antialiased">
         {{ $slot }}
     </div>
-    @livewire('livewire-ui-modal')
+    <div class="modal-center">
+        @livewire('livewire-ui-modal')
+    </div>
 </body>
 
 @livewireScripts
