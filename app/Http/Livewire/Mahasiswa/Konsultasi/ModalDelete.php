@@ -24,11 +24,15 @@ class ModalDelete extends ModalComponent
         if (($konsul->user_id == auth()->id()) && in_array($konsul->status, [AppKonsul::STATUS_WAIT, AppKonsul::STATUS_REJECT])) {
             try {
                 $konsul->tags()->detach();
-                $chatWithImage = $konsul->chats()->wherePivot('type', AppKonsul::TYPE_CHAT_IMAGE)->get();
-                foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->pivot->chat);
+                
+                $chatWithImage = $konsul->chats()->where('konsul_chats.type', AppKonsul::TYPE_CHAT_IMAGE)->get();
+
+                foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->chat);
                 $konsul->delete();
+
                 $this->emit('success', "Success delete konsultasi");
             } catch (\Exception $e) {
+                debugbar()->addMessage($e->getMessage());
                 $this->emit('error', "Failed to delete konsultasi");
             }
         } else

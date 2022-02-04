@@ -1,4 +1,7 @@
 <form wire:submit.prevent="handleForm">
+    @php
+        $chatType = $chat->type == AppKonsul::TYPE_CHAT_IMAGE ? 'gambar' : 'pesan';
+    @endphp
     <x-modal.header title="Delete {{ ucwords($chatType) }}" />
     <x-modal.body>
         Apakah anda yakin menghapus {{ $chatType }} ini?

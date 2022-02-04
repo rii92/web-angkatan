@@ -26,9 +26,13 @@ class ModalDelete extends ModalComponent
         if (auth()->user()->can($permission)) {
             try {
                 $konsul->tags()->detach();
-                $chatWithImage = $konsul->chats()->wherePivot('type', AppKonsul::TYPE_CHAT_IMAGE)->get();
-                foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->pivot->chat);
+
+                $chatWithImage = $konsul->chats()->where('konsul_chats.type', AppKonsul::TYPE_CHAT_IMAGE)->get();
+
+                foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->chat);
+
                 $konsul->chats()->detach();
+                
                 $konsul->delete();
 
                 $title = Str::limit($konsul->title, 40);

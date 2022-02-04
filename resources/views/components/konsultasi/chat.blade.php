@@ -40,7 +40,7 @@ $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
             <p class="text-xs mt-4 w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
                 @if (!$isLeft && $canDelete)
                     <small class="text-red-700 font-bold cursor-pointer mr-4"
-                        onclick="Livewire.emit('openModal', 'konsultasi.modal-delete-chat', {{ json_encode(['chat_id' => $chat->id, 'route' => $route, 'chatType' => $chat->type]) }})">
+                        onclick="Livewire.emit('openModal', 'konsultasi.modal-delete-chat', {{ json_encode(['chat_id' => $chat->id, 'route' => $route]) }})">
                         DELETE
                     </small>
                 @endif

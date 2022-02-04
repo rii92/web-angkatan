@@ -3,29 +3,28 @@
 namespace App\Http\Livewire\Konsultasi;
 
 use App\Constants\AppKonsul;
-use Illuminate\Support\Facades\DB;
+use App\Models\KonsulChat;
 use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 
 
 class ModalDeleteChat extends ModalComponent
 {
-    public $chat_id, $route, $chatType;
-    const TABLE = "konsul_chats";
+    public $chat_id, $route;
+    public KonsulChat $chat;
 
-    public function mount($chatType)
+    public function mount()
     {
-        $this->chatType = $chatType == AppKonsul::TYPE_CHAT_IMAGE ? 'gambar' : 'pesan';
+        $this->chat = KonsulChat::find($this->chat_id);
     }
 
     public function handleForm()
     {
-        $chat = DB::table(self::TABLE)->find($this->chat_id);
         try {
-            if ($chat->type == AppKonsul::TYPE_CHAT_IMAGE)
-                Storage::disk('public')->delete($chat->chat);
+            if ($this->chat->type == AppKonsul::TYPE_CHAT_IMAGE)
+                Storage::disk('public')->delete($this->chat->chat);
 
-            DB::table(self::TABLE)->delete($chat->id);
+            $this->chat->delete();
 
             $this->emit('success', "Success to delete");
         } catch (\Exception $e) {
