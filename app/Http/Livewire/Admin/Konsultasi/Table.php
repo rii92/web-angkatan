@@ -14,10 +14,16 @@ use Rappasoft\LaravelLivewireTables\Views\Filter;
 class Table extends DataTableComponent
 {
     public $category;
+
     public string $defaultSortColumn = 'updated_at';
+
     public string $defaultSortDirection = 'desc';
+
     public array $filters = [
-        'status' => [AppKonsul::STATUS_WAIT, AppKonsul::STATUS_PROGRESS],
+        'status' => [
+            AppKonsul::STATUS_WAIT,
+            AppKonsul::STATUS_PROGRESS
+        ],
     ];
 
     public function mount()
@@ -25,7 +31,11 @@ class Table extends DataTableComponent
         // jika rolenya akademik, auto filter ke jurusan konselornya
         $user = auth()->user();
         if ($user->hasRole(AppRoles::AKADEMIK))
-            $this->filters  += ['jurusan' => [$user->details->jurusan]];
+            $this->filters  += [
+                'jurusan' => [
+                    $user->details->jurusan
+                ]
+            ];
     }
 
     public function columns(): array
@@ -34,9 +44,7 @@ class Table extends DataTableComponent
             Column::make('nama', 'name')
                 ->searchable(),
             Column::make('Judul', 'title')
-                ->format(function ($title) {
-                    return Str::limit($title, 30);
-                })
+                ->format(fn ($title) => Str::limit($title, 30))
                 ->searchable(),
             Column::make('Jurusan', 'userdetails.jurusan'),
             Column::make('status')
@@ -44,14 +52,10 @@ class Table extends DataTableComponent
                     return view('admin.konsultasi.column.status')->with('konsul', $row);
                 })->sortable(),
             Column::make('Tanggal Dibuat', 'created_at')
-                ->format(function ($created_at) {
-                    return $created_at->format('d-M H:i');
-                })
+                ->format(fn ($created_at) => $created_at->format('d-M H:i'))
                 ->sortable(),
             Column::make('Aktivitas Terakhir', 'updated_at')
-                ->format(function ($updated_at) {
-                    return $updated_at->format('d-M H:i');
-                })
+                ->format(fn ($updated_at) => $updated_at->format('d-M H:i'))
                 ->sortable(),
             Column::make('Aksi')->format(function ($value, $column, $konsul) {
                 return view('admin.konsultasi.column.action')->with(['konsul' => $konsul]);
@@ -61,7 +65,11 @@ class Table extends DataTableComponent
 
     public function query(): Builder
     {
-        return Konsul::with('userdetails')
+        return Konsul::with('userdetails')->withCount([
+            'chats as unread_chats' => function (Builder $query) {
+                $query->where('konsul_chats.is_seen', false)->where('konsul_chats.is_admin', false); // get unread message from user;;
+            },
+        ])
             ->konsulType($this->category)
             ->when($this->getFilter('status'), function ($query, $status) {
                 $query->whereIn('status', $status);

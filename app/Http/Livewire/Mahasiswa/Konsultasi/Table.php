@@ -13,31 +13,34 @@ use Rappasoft\LaravelLivewireTables\Views\Filter;
 class Table extends DataTableComponent
 {
     public $category, $is_admin;
+
     public string $defaultSortColumn = 'updated_at';
+
     public string $defaultSortDirection = 'desc';
 
     public function columns(): array
     {
         return [
             Column::make('Judul', 'title')
+                ->searchable()
                 ->format(function ($title) {
                     return Str::limit($title, 30);
-                })
-                ->searchable(),
+                }),
             Column::make('status')
+                ->sortable()
                 ->format(function ($value, $column, $row) {
                     return view('mahasiswa.konsultasi.column.status')->with('konsul', $row);
-                })->sortable(),
+                }),
             Column::make('Tanggal Dibuat', 'created_at')
+                ->sortable()
                 ->format(function ($created_at) {
                     return $created_at->format('d-M H:i');
-                })
-                ->sortable(),
+                }),
             Column::make('Aktivitas Terakhir', 'updated_at')
+                ->sortable()
                 ->format(function ($updated_at) {
                     return $updated_at->format('d-M H:i');
-                })
-                ->sortable(),
+                }),
             Column::make('Aksi')->format(function ($value, $column, $row) {
                 return view('mahasiswa.konsultasi.column.action')->with('konsul', $row);
             }),
@@ -46,7 +49,11 @@ class Table extends DataTableComponent
 
     public function query(): Builder
     {
-        return Konsul::konsulType($this->category)
+        return Konsul::konsulType($this->category)->withCount([
+            'chats as unread_chats' => function (Builder $query) {
+                $query->where('konsul_chats.is_seen', false)->where('konsul_chats.is_admin', true); // get unread message from admin
+            },
+        ])
             ->where('user_id', auth()->id())
             ->when($this->getFilter('status'), function ($query, $status) {
                 $query->whereIn('status', $status);

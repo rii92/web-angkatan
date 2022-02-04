@@ -22,23 +22,16 @@
     </x-slot>
 
     <x-slot name="chats">
-        <x-konsultasi.chat description="{!! $konsul->description !!}"
-            createdAt="{{ $konsul->created_at->format('d M H:i') }}" isRead="{{ false }}"
+        <x-konsultasi.chat-message message="{{ $konsul->description }}" :time="$konsul->created_at"
             isLeft="{{ true }}" />
 
         @foreach ($konsul->chats as $chat)
-            <x-konsultasi.chat description="{!! $chat->pivot->chat !!}"
-                createdAt="{{ $chat->pivot->created_at->format('d M H:i') }}"
-                isRead="{{ $chat->pivot->is_seen && $chat->pivot->is_admin }}"
-                isLeft="{{ !$chat->pivot->is_admin }}" canDelete="{{ $chat->pivot->is_admin }}"
-                chatId="{{ $chat->pivot->id }}" chatType="{{ $chat->pivot->type }}" route="admin" />
+            <x-konsultasi.chat :chat="$chat" route="admin" />
         @endforeach
 
-
         @if ($konsul->status == AppKonsul::STATUS_REJECT)
-            <x-konsultasi.chat description="{!! $konsul->note !!}"
-                createdAt="{{ $konsul->acc_rej_at->format('d M H:i') }}" isRead="{{ false }}"
-                isLeft="{{ false }}" canDelete="{{ false }}" />
+            <x-konsultasi.chat-message message="{{ $konsul->note }}" :time="$konsul->acc_rej_at"
+                isLeft="{{ false }}" />
         @endif
     </x-slot>
 

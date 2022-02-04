@@ -6,6 +6,7 @@ use App\Constants\AppKonsul;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Konsul;
+use App\Models\KonsulChat;
 
 class UploadImage extends Component
 {
@@ -15,29 +16,35 @@ class UploadImage extends Component
     public function mount(Konsul $konsul, $route)
     {
         $this->konsul = $konsul;
-        $this->reloadComponent = $route == "user" ? 'mahasiswa.konsultasi.discussion-room' : 'admin.konsultasi.discussion-room';
+        
+        $this->reloadComponent = $route == "user"
+            ? 'mahasiswa.konsultasi.discussion-room'
+            : 'admin.konsultasi.discussion-room';
+
         $this->is_admin = $route == "admin";
     }
 
     public function updatedImage()
     {
-        if ($this->konsul->status == AppKonsul::STATUS_PROGRESS) {
+        if ($this->konsul->status != AppKonsul::STATUS_PROGRESS) return $this->emit('error', "You can't send image to this konsultasi");
 
-            $this->validate(['image' => 'image|max:2048']);
-            $url = $this->image->storePublicly('konsultasi', ['disk' => 'public']);
+        $this->validate(['image' => 'image|max:2048']);
 
-            $this->konsul->chats()->attach(auth()->user(), [
-                'is_admin' => $this->is_admin,
-                'type' => AppKonsul::TYPE_CHAT_IMAGE,
-                'chat' => $url
-            ]);
-            $this->konsul->update(['updated_at' => now()]);
-            $this->emit('success', "Image send!");
-        } else
-            $this->emit('error', "You can't send image to this konsultasi");
+        $url = $this->image->storePublicly('konsultasi', ['disk' => 'public']);
 
+        $this->konsul->chats()->save(new KonsulChat([
+            'user_id' => auth()->id(),
+            'is_admin' => $this->is_admin,
+            'type' => AppKonsul::TYPE_CHAT_IMAGE,
+            'chat' => $url
+        ]));
+
+        $this->konsul->update(['updated_at' => now()]);
+
+        $this->emit('success', "Image send!");
         $this->emit('reloadComponents', $this->reloadComponent);
-        $this->image = null;
+
+        $this->reset('image');
     }
 
 

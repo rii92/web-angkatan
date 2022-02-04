@@ -25,28 +25,34 @@ class DiscussionRoom extends Component
     private function sendNotification($message, $link = null)
     {
         $message = "Konsultasimu yang berjudul <b>" . Str::limit($this->konsul->title, 40) . "</b> {$message}";
-        if (!$link) $link = route("user.konsultasi.{$this->konsul->category}.room", ['konsul_id' => $this->konsul->id]);
+
+        if (!$link) $link = route("user.konsultasi.{$this->konsul->category}.room",  $this->konsul->id);
+        
         $this->asker->notify(new BellNotification($message, $link));
     }
 
     public function closeRoom()
     {
-        if ($this->konsul->status != AppKonsul::STATUS_PROGRESS) return $this->emit('error', "Something wrong, you can't close this konsultasi");
+        if ($this->konsul->status != AppKonsul::STATUS_PROGRESS)
+            return $this->emit('error', "Something wrong, you can't close this konsultasi");
 
         $this->konsul->status = AppKonsul::STATUS_DONE;
         $this->konsul->done_at = now();
         $this->konsul->save();
         $this->sendNotification("telah diakhiri oleh konselor");
+
         return $this->emit('success', "Success to close this konsultasi");
     }
 
     public function openRoom()
     {
-        if ($this->konsul->status == AppKonsul::STATUS_DONE) return $this->emit('error', "Something wrong, you can't open this konsultasi");
+        if ($this->konsul->status == AppKonsul::STATUS_DONE)
+            return $this->emit('error', "Something wrong, you can't open this konsultasi");
 
         $this->konsul->status = AppKonsul::STATUS_PROGRESS;
         $this->konsul->done_at = null;
         $this->konsul->save();
+
         return $this->emit('success', "Success to open konsultasi");
     }
 
@@ -61,8 +67,7 @@ class DiscussionRoom extends Component
 
     public function render()
     {
-        // ini pivot kok banyak masalah kayaknya, semua query yang berhubungan sama pivot disini ga bisa???
-        // $this->konsul->markUnreadMessage(false);
+        $this->konsul->markUnreadMessage(false);
         return view('admin.konsultasi.discussion-room')
             ->layout('layouts.dashboard', ['title' => "Discussion Room"]);
     }
