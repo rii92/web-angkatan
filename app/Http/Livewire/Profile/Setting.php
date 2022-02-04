@@ -6,15 +6,13 @@ use App\Models\UserDetails;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class Details extends Component
+class Setting extends Component
 {
     public UserDetails $details;
 
     protected $rules = [
-        'details.nim' => 'nullable|numeric|digits:9',
-        'details.kelas' => 'nullable|string|size:4',
-        'details.no_hp' => 'nullable|numeric|digits_between:10,14',
-        'details.jenis_kelamin' => 'nullable|string',
+        'details.setting_send_email_accept_konsultasi' => 'required',
+        'details.setting_send_email_reply_konsultasi' => 'required|numeric|min:0',
     ];
 
     public function mount()
@@ -24,18 +22,13 @@ class Details extends Component
 
     public function handleForm()
     {
-        if ($this->details->jenis_kelamin == '')
-            $this->details->jenis_kelamin = null;
-
         $this->validate();
-
         Auth::user()->details()->save($this->details);
-
-        $this->emit('success', "Success update your information details");
+        $this->emit('success', "Success update your account setting");
     }
 
     public function render()
     {
-        return view('profile.details');
+        return view('profile.setting');
     }
 }

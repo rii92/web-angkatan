@@ -10,13 +10,13 @@
     <form wire:submit.prevent="handleForm">
         <x-input.wrapper>
             <x-input.label for="details.alamat_rumah" value="{{ __('Alamat Lengkap Rumah') }}" />
-            <x-input.text id="details.alamat_rumah" wire:model.defer="details.alamat_rumah" type="text" />
+            <x-input.textarea id="details.alamat_rumah" wire:model.defer="details.alamat_rumah" type="text" rows="4" />
             <x-input.error for="details.alamat_rumah" />
         </x-input.wrapper>
 
         <x-input.wrapper>
             <x-input.label for="details.alamat_kos" value="{{ __('Alamat Lengkap Kos') }}" />
-            <x-input.text id="details.alamat_kos" wire:model.defer="details.alamat_kos" type="text" />
+            <x-input.textarea id="details.alamat_kos" wire:model.defer="details.alamat_kos" type="text" rows="4" />
             <x-input.error for="details.alamat_kos" />
         </x-input.wrapper>
 

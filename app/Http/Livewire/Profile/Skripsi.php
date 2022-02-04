@@ -26,17 +26,10 @@ class Skripsi extends Component
     public function handleForm()
     {
         $this->validate();
-        
+
         Auth::user()->details()->save($this->details);
 
-        $this->handleResponse();
-    }
-
-    private function handleResponse()
-    {
         $this->emit('success', "Success update your data");
-        $this->emit('reloadComponents', 'profile.address');
-        $this->emit('reloadComponents', 'profile.details');
     }
 
     public function render()

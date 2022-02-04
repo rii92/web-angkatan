@@ -10,7 +10,18 @@ class Konsul extends Model
 {
     use HasFactory;
     protected $table = 'konsul';
+
     protected $guarded = [];
+
+    protected $dates = [
+        'acc_rej_at',
+        'done_at',
+        'published_at'
+    ];
+
+    protected $attributes = [
+        'is_anonim' => false
+    ];
 
     public function scopeKonsulType($query, $category)
     {
@@ -27,9 +38,9 @@ class Konsul extends Model
         return $this->hasOne(UserDetails::class, 'user_id', 'user_id');
     }
 
-    public function chat()
+    public function chats()
     {
-        return $this->belongsToMany(User::class, 'konsul_chats', 'konsul_id', 'user_id');
+        return $this->hasMany(KonsulChat::class)->oldest();
     }
 
     public function tags()
@@ -38,15 +49,13 @@ class Konsul extends Model
     }
 
     /**
-     * mendapat jumlah pesan yang belum dibaca dari suatu konsultasi
+     * menandai pesan jadi dibaca, jika $isAdmin true maka pesan dari admin yang akan diubah jadi seen
      *
+     * @param  bool $isAdmin
      * @return void
      */
-    public function unreadMessageCount()
+    public function markUnreadMessage($isAdmin = false)
     {
-        $count = $this->status == AppKonsul::STATUS_WAIT ? 1 : 0;
-        // masih ada kondisi lain lagi nanti
-
-        return $count;
+        return $this->chats()->where('konsul_chats.is_admin', $isAdmin)->update(['konsul_chats.is_seen' => true]);
     }
 }

@@ -29,7 +29,8 @@
         "@toast-ui/editor": "^2.5.4",
         "dateformat": "^5.0.2",
         "notyf": "^3.10.0",
-        "aos": "^2.3.4",
-        "swiper": "^7.4.1"
+        "swiper": "^7.4.1",
+        "viewerjs": "^1.10.2",
+        "aos": "^2.3.4"
     }
 }

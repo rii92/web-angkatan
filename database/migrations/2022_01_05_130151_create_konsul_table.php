@@ -26,6 +26,9 @@ class CreateKonsulTable extends Migration
             $table->text('note')->nullable();
             $table->boolean('is_publish')->nullable()->default(false);
             $table->boolean('is_anonim')->nullable()->default(false);
+            $table->dateTime('acc_rej_at')->nullable();
+            $table->dateTime('done_at')->nullable();
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
         });
     }

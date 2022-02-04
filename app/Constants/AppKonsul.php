@@ -30,11 +30,31 @@ class AppKonsul
     {
         if ($returnAssocArray)
             return [
-                self::STATUS_WAIT => "Menunggu",
-                self::STATUS_REJECT => "Ditolak",
-                self::STATUS_PROGRESS => "Dalam Proses",
-                self::STATUS_DONE => "Selesai"
+                self::STATUS_WAIT => "Wait",
+                self::STATUS_REJECT => "Reject",
+                self::STATUS_PROGRESS => "Progress",
+                self::STATUS_DONE => "Done"
             ];
-        return [self::STATUS_WAIT, self::STATUS_REJECT, self::STATUS_PROGRESS, self::STATUS_DONE];
+        return [
+            self::STATUS_WAIT,
+            self::STATUS_REJECT,
+            self::STATUS_PROGRESS,
+            self::STATUS_DONE
+        ];
+    }
+
+    public static function getKonselor($dayInWeek, $jurusan)
+    {
+        $konselor = [
+            ["SE" => "211810211", "SK" => "211810119", "SI" => "221810306", "SD" => "221810377"],
+            ["SE" => "211810423", "SK" => "211810379", "SI" => "221810560", "SD" => "221810333"],
+            ["SE" => "211810423", "SK" => "211810379", "SI" => "221810560", "SD" => "221810333"],
+            ["SE" => "211810471", "SK" => "211810435", "SI" => "221810560", "SD" => "221810333"],
+            ["SE" => "211810471", "SK" => "211810435", "SI" => "221810560", "SD" => "221810333"],
+            ["SE" => "211810471", "SK" => "211810119", "SI" => "221810306", "SD" => "221810377"],
+            ["SE" => "211810211", "SK" => "211810119", "SI" => "221810306", "SD" => "221810377"],
+        ];
+
+        return [$konselor[$dayInWeek][$jurusan], "211810500"];
     }
 }
