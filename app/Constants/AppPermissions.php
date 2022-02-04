@@ -26,7 +26,7 @@ class AppPermissions
             self::REPLY_KONSULTASI_AKADEMIK => "Reply Konsultasi Akademik",
             self::REPLY_KONSULTASI_UMUM => "Reply Konsultasi Umum",
             self::TURNITIN_MANAGEMENT => 'Manage Turnitin Submission',
-            self::MAKE_TURNITIN => 'Make Turnitin Submission'
+            self::MAKE_TURNITIN => 'Make Turnitin Submission',
             self::DELETE_SAMBAT => "Delete Sambat dan Komentar Sambat"
         ];
     }

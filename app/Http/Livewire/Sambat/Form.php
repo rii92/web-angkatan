@@ -86,7 +86,7 @@ class Form extends Component
                 $this->sambat->tags()->attach($tag);
             }
 
-            return redirect()->route('user.sambat')->with('success', 'Mantap, udah nyambat !!');
+            return redirect()->route('user.sambat.table')->with('success', 'Mantap, udah nyambat !!');
         } catch (\Exception $e) {
             debugbar()->addMessage($e->getMessage());
             $this->emit('error', "Waduh gagal nyambat!!");

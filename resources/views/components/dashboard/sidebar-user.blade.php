@@ -24,8 +24,8 @@
             </x-dashboard.sidebar-item>
         @endcan
 
-        <x-dashboard.sidebar-item menu="Sambat" href="{{ route('user.sambat') }}"
-            :active="request()->routeIs('user.sambat')">
+        <x-dashboard.sidebar-item menu="Sambat" href="{{ route('user.sambat.table') }}"
+            :active="request()->routeIs('user.sambat.*')">
             @slot('icon')
                 <x-icons.emoji-sad stroke-width="2.0" width="22" height="22" />
             @endslot
