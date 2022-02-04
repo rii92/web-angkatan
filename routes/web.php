@@ -32,9 +32,19 @@ Route::get('/', function () {
     return view('guest.landingpage');
 })->name('home');
 
-Route::get('/informasi', function () {
-    return view('guest.informasi');
-})->name('informasi');
+Route::get('/proker', function () {
+    return view('guest.proker');
+})->name('proker');
+
+Route::prefix('informasi')->group(function () {
+    Route::get('', function () {
+        return view('guest.announcement');
+    })->name('announcement');
+
+    Route::get('{announcement}', function (Announcement $announcement) {
+        return view('guest.announcement.details', ['announcement' => $announcement]);
+    })->name('announcement.details');
+});
 
 Route::get('/sambat', function () {
     return view('guest.sambat');
@@ -98,6 +108,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             });
         });
 
+
+        Route::middleware("permission:" . AppPermissions::TIMELINE_MANAGEMENT)
+            ->get('timelines', function () {
+                return view('admin.timelines');
+            })->name('admin.timelines.table');
+
+            
+        Route::middleware('permission:' . AppPermissions::TURNITIN_MANAGEMENT)->get('turnitin', function () {
+            return view('admin.turnitin');
+        })->name('admin.turnitin.table');
+
         Route::get('sambat', function () {
             return view('admin.sambat');
         })->name('admin.sambat');
@@ -115,10 +136,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 return view('admin.announcement.add-edit', ['title' => 'Edit Announcement', 'id' => $announcement->id]);
             })->name('admin.announcement.edit');
         });
-
-        Route::get('berita', function () {
-            return view('admin.berita');
-        })->name('admin.berita');
     });
 
     Route::prefix('user')->group(function () {
@@ -145,32 +162,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     ->name('user.konsultasi.umum.room');
             });
 
-            Route::prefix('akademik')->group(function () {
-
-                Route::get('', fn () => view('mahasiswa.konsultasi', ['category' => AppKonsul::TYPE_AKADEMIK]))
-                    ->name('user.konsultasi.akademik.table');
-
-                Route::get('add', Form::class)
-                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
-                    ->name('user.konsultasi.akademik.add');
-
-                Route::get('edit/{konsul_id}', Form::class)
-                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
-                    ->name('user.konsultasi.akademik.edit');
-
-                Route::get('{konsul}', DiscussionRoom::class)
-                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
-                    ->name('user.konsultasi.akademik.room');
-            });
-        });
+        Route::middleware('permission:' . AppPermissions::MAKE_TURNITIN)->get('turnitin', function () {
+            return view('mahasiswa.turnitin');
+        })->name('user.turnitin.table');
 
         Route::prefix('sambat')->group(function () {
             Route::get('', function () {
                 return view('mahasiswa.sambat');
-            })->name('user.sambat');
+            })->name('user.sambat.table');
 
             Route::get('add', SambatForm::class)->name('user.sambat.add');
-            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit');
+            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
         });
 
         Route::get('skripsi', function () {

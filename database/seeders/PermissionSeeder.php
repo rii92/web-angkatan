@@ -44,6 +44,22 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::REPLY_KONSULTASI_UMUM,
                 'description' => "Permission to reply konsultasi umum and manage it"
+            ],
+            [
+                'name' => AppPermissions::MAKE_TURNITIN,
+                'description' => "Permission to make a new turnitin submissions"
+            ],
+            [
+                'name' => AppPermissions::TURNITIN_MANAGEMENT,
+                'description' => "Permission to access turnitin submission management menu, to update turnitin submission"
+            ],
+            [
+                'name' => AppPermissions::DELETE_SAMBAT,
+                'description' => "Permission to delete sambat and it's comment"
+            ],
+            [
+                'name' => AppPermissions::TIMELINE_MANAGEMENT,
+                'description' => "Permission to access timeline management menu, to create, update, and delete new timeline"
             ]
         ];
 
