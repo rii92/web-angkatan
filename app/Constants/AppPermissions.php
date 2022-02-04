@@ -11,6 +11,8 @@ class AppPermissions
     const MAKE_KONSULTASI = "make_konsultasi";
     const REPLY_KONSULTASI_AKADEMIK = 'reply_konsultasi_akademik';
     const REPLY_KONSULTASI_UMUM = 'reply_konsultasi_umum';
+    const TURNITIN_MANAGEMENT = 'manage_turnitin';
+    const MAKE_TURNITIN = 'make_turnitin';
     const DELETE_SAMBAT = 'delete_sambat_and_its_comment';
 
     public static function allPermissions()
@@ -23,6 +25,8 @@ class AppPermissions
             self::MAKE_KONSULTASI => "Make Konsultasi",
             self::REPLY_KONSULTASI_AKADEMIK => "Reply Konsultasi Akademik",
             self::REPLY_KONSULTASI_UMUM => "Reply Konsultasi Umum",
+            self::TURNITIN_MANAGEMENT => 'Manage Turnitin Submission',
+            self::MAKE_TURNITIN => 'Make Turnitin Submission'
             self::DELETE_SAMBAT => "Delete Sambat dan Komentar Sambat"
         ];
     }

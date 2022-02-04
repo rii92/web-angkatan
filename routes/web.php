@@ -5,11 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
 use App\Http\Livewire\Sambat\Form as SambatForm;
 use App\Models\Announcement;
-use App\Models\Konsul;
 use App\Models\Meeting;
-use App\Models\Sambat;
-use App\Models\Tag;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 
 /*
@@ -104,6 +100,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 });
             });
 
+        Route::middleware('permission:' . AppPermissions::TURNITIN_MANAGEMENT)->get('turnitin', function () {
+            return view('admin.turnitin');
+        })->name('admin.turnitin.table');
+
         Route::get('sambat', function () {
             return view('admin.sambat');
         })->name('admin.sambat');
@@ -178,6 +178,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 });
             });
 
+        Route::middleware('permission:' . AppPermissions::MAKE_TURNITIN)->get('turnitin', function () {
+            return view('mahasiswa.turnitin');
+        })->name('user.turnitin.table');
+
         Route::prefix('sambat')->group(function () {
             Route::get('', function () {
                 return view('mahasiswa.sambat');
@@ -191,9 +195,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return view('mahasiswa.skripsi');
         })->name('user.skripsi');
     });
-});
-
-Route::get('test', function () {
-    $konsul = Konsul::first();
-    return view('guest.contoh', ['description' => $konsul->description]);
 });

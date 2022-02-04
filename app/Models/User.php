@@ -117,4 +117,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Session::class)->latestOfMany();
     }
+
+    public function turnitin()
+    {
+        return $this->hasMany(UserTurnitin::class);
+    }
 }

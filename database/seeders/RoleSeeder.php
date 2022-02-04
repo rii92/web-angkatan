@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
             'description' => "Role for all users"
         ]);
         $role->givePermissionTo(AppPermissions::MAKE_KONSULTASI);
+        $role->givePermissionTo(AppPermissions::MAKE_TURNITIN);
 
         $roles = [
             [
@@ -67,7 +68,8 @@ class RoleSeeder extends Seeder
 
             if ($role['name'] == AppRoles::BPH) $newRole->givePermissionTo([
                 AppPermissions::ANNOUNCEMENT_MANAGEMENT,
-                AppPermissions::MEETING_MANAGEMENT
+                AppPermissions::MEETING_MANAGEMENT,
+                AppPermissions::TURNITIN_MANAGEMENT
             ]);
 
             if (($role['name'] == AppRoles::BPH) || ($role['name'] == AppRoles::KOOR))
