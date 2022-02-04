@@ -3,6 +3,9 @@
 use App\Constants\AppKonsul;
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoom;
+use App\Http\Livewire\Mahasiswa\Konsultasi\DiscussionRoom;
+use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
 use App\Http\Livewire\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
@@ -75,30 +78,25 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             })->name('admin.meetings.details');
         });
 
-        Route::prefix('konsultasi')
-            ->middleware("permission:" . AppPermissions::REPLY_KONSULTASI_AKADEMIK . '|' . AppPermissions::REPLY_KONSULTASI_UMUM)
-            ->group(function () {
+        Route::prefix('konsultasi')->group(function () {
+            Route::prefix('akademik')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_AKADEMIK)->group(function () {
+                Route::get('', fn () => view('admin.konsultasi', ['category' => AppKonsul::TYPE_AKADEMIK]))
+                    ->name('admin.konsultasi.akademik.table');
 
-                Route::prefix('akademik')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_AKADEMIK)->group(function () {
-                    Route::get('', function () {
-                        return view('admin.konsultasi', ['category' => 'akademik', 'menu' => 'table', 'title' => 'Konsultasi Akademik']);
-                    })->name('admin.konsultasi.akademik.table');
-
-                    Route::get('{konsul_id}', function ($konsulId) {
-                        return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
-                    })->name('admin.konsultasi.akademik.room');
-                });
-
-                Route::prefix('umum')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_UMUM)->group(function () {
-                    Route::get('', function () {
-                        return view('admin.konsultasi', ['category' => 'umum', 'menu' => 'table', 'title' => 'Konsultasi Umum']);
-                    })->name('admin.konsultasi.umum.table');
-
-                    Route::get('{konsul_id}', function ($konsulId) {
-                        return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
-                    })->name('admin.konsultasi.umum.room');
-                });
+                Route::get('{konsul}', KonsultasiDiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('admin.konsultasi.akademik.room');
             });
+
+            Route::prefix('umum')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_UMUM)->group(function () {
+                Route::get('', fn () => view('admin.konsultasi', ['category' => AppKonsul::TYPE_UMUM]))
+                    ->name('admin.konsultasi.umum.table');
+
+                Route::get('{konsul}', KonsultasiDiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_UMUM)
+                    ->name('admin.konsultasi.umum.room');
+            });
+        });
 
         Route::get('sambat', function () {
             return view('admin.sambat');
@@ -129,50 +127,42 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return redirect()->route('user.skripsi');
         })->name('user');
 
-        Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)
-            ->prefix('konsultasi')
-            ->group(function () {
-                Route::prefix('umum')->group(function () {
-                    $data = ['category' => AppKonsul::TYPE_UMUM, 'title' => "Konsultasi Umum"];
-                    Route::get('', function () use ($data) {
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'table']));
-                    })->name('user.konsultasi.umum.table');
+        Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)->prefix('konsultasi')->group(function () {
+            Route::prefix('umum')->group(function () {
+                Route::get('', fn () => view('mahasiswa.konsultasi', ['category' => AppKonsul::TYPE_UMUM]))
+                    ->name('user.konsultasi.umum.table');
 
-                    Route::get('add', function () use ($data) {
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'add-edit', 'subtitle' => "Buat Konsultasi"]));
-                    })->name('user.konsultasi.umum.add');
+                Route::get('add', Form::class)
+                    ->defaults('category', AppKonsul::TYPE_UMUM)
+                    ->name('user.konsultasi.umum.add');
 
-                    Route::get('edit/{konsul_id}', function ($konsul_id) use ($data) {
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'add-edit', 'subtitle' => 'Edit Konsultasi', 'konsul_id' => $konsul_id]));
-                    })->name('user.konsultasi.umum.edit');
+                Route::get('edit/{konsul_id}', Form::class)
+                    ->defaults('category', AppKonsul::TYPE_UMUM)
+                    ->name('user.konsultasi.umum.edit');
 
-                    Route::get("{konsul_id}", function ($konsul_id) use ($data) {
-                        $data['title'] = 'Discussion Room';
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'room', 'konsul_id' => $konsul_id]));
-                    })->name('user.konsultasi.umum.room');
-                });
-
-                Route::prefix('akademik')->group(function () {
-                    $data = ['category' => AppKonsul::TYPE_AKADEMIK, 'title' => "Konsultasi Akademik"];
-
-                    Route::get('', function () use ($data) {
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'table']));
-                    })->name('user.konsultasi.akademik.table');
-
-                    Route::get('add', function () use ($data) {
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'add-edit', 'subtitle' => 'Buat Konsultasi']));
-                    })->name('user.konsultasi.akademik.add');
-
-                    Route::get('edit/{konsul_id}', function ($konsul_id) use ($data) {
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'add-edit', 'subtitle' => 'Edit Konsultasi', 'konsul_id' => $konsul_id]));
-                    })->name('user.konsultasi.akademik.edit');
-
-                    Route::get("{konsul_id}", function ($konsul_id) use ($data) {
-                        $data['title'] = 'Discussion Room';
-                        return view('mahasiswa.konsultasi', array_merge($data, ['menu' => 'room', 'konsul_id' => $konsul_id]));
-                    })->name('user.konsultasi.akademik.room');
-                });
+                Route::get('{konsul}', DiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_UMUM)
+                    ->name('user.konsultasi.umum.room');
             });
+
+            Route::prefix('akademik')->group(function () {
+
+                Route::get('', fn () => view('mahasiswa.konsultasi', ['category' => AppKonsul::TYPE_AKADEMIK]))
+                    ->name('user.konsultasi.akademik.table');
+
+                Route::get('add', Form::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('user.konsultasi.akademik.add');
+
+                Route::get('edit/{konsul_id}', Form::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('user.konsultasi.akademik.edit');
+
+                Route::get('{konsul}', DiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('user.konsultasi.akademik.room');
+            });
+        });
 
         Route::prefix('sambat')->group(function () {
             Route::get('', function () {

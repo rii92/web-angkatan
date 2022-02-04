@@ -51,4 +51,16 @@
 <script src="{{ mix('js/livewire-handler.js') }}"></script>
 @stack('scripts')
 
+@if (session('message'))
+    <script>
+        Livewire.emit('success', "{{ session('message') }}")
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+        Livewire.emit('error', "{{ session('error') }}")
+    </script>
+@endif
+
 </html>

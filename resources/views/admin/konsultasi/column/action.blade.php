@@ -1,6 +1,6 @@
 <div class="flex justify-center">
     <x-konsultasi.icon-chat
-        href="{{ route('admin.konsultasi.' . $konsul->category . '.room', ['konsul_id' => $konsul->id]) }}"
+        href="{{ route('admin.konsultasi.' . $konsul->category . '.room', $konsul->id) }}"
         messageCount="{{ $konsul->unreadMessageCount(false) }}" />
 
     @if ($konsul->status != AppKonsul::STATUS_WAIT)

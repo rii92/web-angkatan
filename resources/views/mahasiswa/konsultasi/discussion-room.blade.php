@@ -9,8 +9,8 @@
                 <x-badge.success text="{{ $tag->name }}" class="mr-0" />
             @endforeach
         </p>
-        <p class="italic text-xs text-gray-600">Ditanyakan pada
-            {{ $konsul->created_at->format('d M Y H:i:s') }}
+        <p class="italic text-xs text-gray-600">
+            Ditanyakan pada {{ $konsul->created_at->format('d M Y H:i:s') }}
         </p>
     </x-slot>
 
@@ -38,9 +38,9 @@
     <x-slot name="footer">
         <div class="mt-3 mb-1 md:flex justify-between items-center">
             @if ($konsul->status == AppKonsul::STATUS_WAIT)
-                <p class="text-sm text-gray-500 mr-3">Kamu baru bisa memulai diskusi ketika konselor sudah menerima
-                    pengajuan
-                    konsultasimu</p>
+                <p class="text-sm text-gray-500 mr-3">
+                    Kamu baru bisa memulai diskusi ketika konselor sudah menerima pengajuan konsultasimu
+                </p>
                 <x-anchor.secondary href="{{ route('user.konsultasi.' . $konsul->category . '.table') }}">
                     Back
                 </x-anchor.secondary>
@@ -69,15 +69,13 @@
 
             @if ($konsul->status == AppKonsul::STATUS_DONE)
                 @if (!$konsul->is_publish)
-                    <p class="text-gray-500 text-xs">Konsultasi selesai pada
-                        {{ $konsul->done_at->format('d M H:i:s') }}. Konsultasi yang sudah dipublish akan bisa
-                        dilihat
-                        oleh siapa
-                        saja.
-                        Jika kamu bertanya sebagai
-                        anonim maka namamu tetap tidak akan ditampilkan. Jika menurut kamu konsultasi ini sangat
-                        bermanfaat
-                        dan bisa membantu orang lain maka sangat disarankan untuk mempublishnya</p>
+                    <p class="text-gray-500 text-xs">
+                        Konsultasi selesai pada {{ $konsul->done_at->format('d M H:i:s') }}.
+                        Konsultasi yang sudah dipublish akan bisa dilihat oleh siapa saja.
+                        Jika kamu bertanya sebagai anonim maka namamu tetap tidak akan ditampilkan. 
+                        Jika menurut kamu konsultasi ini sangat bermanfaat dan bisa membantu orang lain 
+                        maka sangat disarankan untuk mempublishnya
+                    </p>
                     <div class="md:ml-3 md:mt-0 mt-2 flex items-center whitespace-nowrap justify-end">
                         <x-anchor.success wire:click="publishKonsultasi">
                             Publish

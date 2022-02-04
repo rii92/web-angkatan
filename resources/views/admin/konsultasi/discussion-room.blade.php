@@ -75,8 +75,7 @@
                 <div class="mt-3 mb-1 flex justify-end items-center">
                     <p class="text-gray-500 text-xs">
                         Konsultasi ini selesai pada {{ $konsul->done_at->format('d M H:i:s') }}. Menekan tombol
-                        <b>Ask
-                            to Publish</b> akan mengirimkan notifikasi untuk meminta penanya untuk
+                        <b>Ask to Publish</b> akan mengirimkan notifikasi untuk meminta penanya untuk
                         mempublish konsultasi ini
                     </p>
                     <div class="md:ml-3 md:mt-0 mt-2 flex items-center whitespace-nowrap justify-end">
