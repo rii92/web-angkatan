@@ -14,6 +14,7 @@ class AppPermissions
     const TURNITIN_MANAGEMENT = 'manage_turnitin';
     const MAKE_TURNITIN = 'make_turnitin';
     const DELETE_SAMBAT = 'delete_sambat_and_its_comment';
+    const TIMELINE_MANAGEMENT = 'manage_timeline';
 
     public static function allPermissions()
     {
@@ -27,7 +28,8 @@ class AppPermissions
             self::REPLY_KONSULTASI_UMUM => "Reply Konsultasi Umum",
             self::TURNITIN_MANAGEMENT => 'Manage Turnitin Submission',
             self::MAKE_TURNITIN => 'Make Turnitin Submission',
-            self::DELETE_SAMBAT => "Delete Sambat dan Komentar Sambat"
+            self::DELETE_SAMBAT => "Delete Sambat dan Komentar Sambat",
+            self::TIMELINE_MANAGEMENT => 'Manage Timeline'
         ];
     }
 }

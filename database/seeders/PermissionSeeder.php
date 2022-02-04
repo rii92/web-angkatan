@@ -53,8 +53,13 @@ class PermissionSeeder extends Seeder
                 'name' => AppPermissions::TURNITIN_MANAGEMENT,
                 'description' => "Permission to access turnitin submission management menu, to update turnitin submission"
             ],
+            [
                 'name' => AppPermissions::DELETE_SAMBAT,
                 'description' => "Permission to delete sambat and it's comment"
+            ],
+            [
+                'name' => AppPermissions::TIMELINE_MANAGEMENT,
+                'description' => "Permission to access timeline management menu, to create, update, and delete new timeline"
             ]
         ];
 

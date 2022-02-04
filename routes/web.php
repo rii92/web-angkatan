@@ -29,9 +29,19 @@ Route::get('/', function () {
     return view('guest.landingpage');
 })->name('home');
 
-Route::get('/informasi', function () {
-    return view('guest.informasi');
-})->name('informasi');
+Route::get('/proker', function () {
+    return view('guest.proker');
+})->name('proker');
+
+Route::prefix('informasi')->group(function () {
+    Route::get('', function () {
+        return view('guest.announcement');
+    })->name('announcement');
+
+    Route::get('{announcement}', function (Announcement $announcement) {
+        return view('guest.announcement.details', ['announcement' => $announcement]);
+    })->name('announcement.details');
+});
 
 Route::get('/sambat', function () {
     return view('guest.sambat');
@@ -75,30 +85,37 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             })->name('admin.meetings.details');
         });
 
-        Route::prefix('konsultasi')
-            ->middleware("permission:" . AppPermissions::REPLY_KONSULTASI_AKADEMIK . '|' . AppPermissions::REPLY_KONSULTASI_UMUM)
-            ->group(function () {
 
-                Route::prefix('akademik')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_AKADEMIK)->group(function () {
-                    Route::get('', function () {
-                        return view('admin.konsultasi', ['category' => 'akademik', 'menu' => 'table', 'title' => 'Konsultasi Akademik']);
-                    })->name('admin.konsultasi.akademik.table');
+        Route::middleware("permission:" . AppPermissions::TIMELINE_MANAGEMENT)
+            ->get('timelines', function () {
+                return view('admin.timelines');
+            })->name('admin.timelines.table');
 
-                    Route::get('{konsul_id}', function ($konsulId) {
-                        return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
-                    })->name('admin.konsultasi.akademik.room');
-                });
+        Route::prefix('konsultasi')->group(function () {
+            Route::get('akademik', function () {
+                return view('admin.konsultasi-akademik');
+            })->name('admin.konsultasi-akademik');
 
-                Route::prefix('umum')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_UMUM)->group(function () {
-                    Route::get('', function () {
-                        return view('admin.konsultasi', ['category' => 'umum', 'menu' => 'table', 'title' => 'Konsultasi Umum']);
-                    })->name('admin.konsultasi.umum.table');
+            Route::prefix('akademik')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_AKADEMIK)->group(function () {
+                Route::get('', function () {
+                    return view('admin.konsultasi', ['category' => 'akademik', 'menu' => 'table', 'title' => 'Konsultasi Akademik']);
+                })->name('admin.konsultasi.akademik.table');
 
-                    Route::get('{konsul_id}', function ($konsulId) {
-                        return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
-                    })->name('admin.konsultasi.umum.room');
-                });
+                Route::get('{konsul_id}', function ($konsulId) {
+                    return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
+                })->name('admin.konsultasi.akademik.room');
             });
+
+            Route::prefix('umum')->middleware('permission:' . AppPermissions::REPLY_KONSULTASI_UMUM)->group(function () {
+                Route::get('', function () {
+                    return view('admin.konsultasi', ['category' => 'umum', 'menu' => 'table', 'title' => 'Konsultasi Umum']);
+                })->name('admin.konsultasi.umum.table');
+
+                Route::get('{konsul_id}', function ($konsulId) {
+                    return view('admin.konsultasi', ['konsul_id' => $konsulId, 'menu' => 'room', 'title' => "Discussion Room"]);
+                })->name('admin.konsultasi.umum.room');
+            });
+        });
 
         Route::middleware('permission:' . AppPermissions::TURNITIN_MANAGEMENT)->get('turnitin', function () {
             return view('admin.turnitin');
@@ -121,10 +138,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 return view('admin.announcement.add-edit', ['title' => 'Edit Announcement', 'id' => $announcement->id]);
             })->name('admin.announcement.edit');
         });
-
-        Route::get('berita', function () {
-            return view('admin.berita');
-        })->name('admin.berita');
     });
 
     Route::prefix('user')->group(function () {
