@@ -1,5 +1,5 @@
 <x-dashboard-layout title="Sambat">
     <x-card.base title="Daftar Sambat">
-        @livewire('sambat.table', ['user_id' => auth()->id()])
+        @livewire('sambat.table')
     </x-card.base>
 </x-dashboard-layout>

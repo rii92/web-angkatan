@@ -10,25 +10,30 @@ use Illuminate\Support\Str;
 
 class Table extends DataTableComponent
 {
-    public bool $dumpFilters = true;
+    public $user_id;
+
     public function columns(): array
     {
         return [
-            // Column::make('Actions')
-            //     ->format(function ($value, $column, $row) {
-            //         return view('sambat.details')->with('sambat', $row);
-            //     }),
+            Column::make('Actions')
+                ->format(function ($value, $column, $row) {
+                    return view('sambat.column.actions')->with('sambat', $row);
+                }),
+            Column::make('User','user.name')
+                ->searchable(),
             Column::make('Sambatan', 'description')
                     ->searchable()
-                    ->format(fn ($value) => view('sambat.column.text')->with('value', Str::limit($value, 50))),
-            Column::make('Waktu Upload', 'created_at'),
-                
+                    ->format(fn ($value) => view('sambat.column.text')->with('value', Str::limit($value, 100))),
+            Column::make('Waktu Upload', 'created_at'),             
         ];
     }
 
     public function query(): Builder
     {
-        return Sambat::query();
+        return Sambat::with('user')
+                ->when($this->user_id, function(Builder $query, $user_id){
+                    $query->where('user_id', '=', $user_id);
+                });
     }
 
 }
