@@ -23,8 +23,9 @@ class Table extends DataTableComponent
                 ->searchable(),
             Column::make('Sambatan', 'description')
                     ->searchable()
+                    ->sortable()
                     ->format(fn ($value) => view('sambat.column.text')->with('value', Str::limit($value, 100))),
-            Column::make('Waktu Upload', 'created_at'),             
+            Column::make('Waktu Upload', 'created_at')->sortable(),             
         ];
     }
 
