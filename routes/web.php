@@ -114,7 +114,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                 return view('admin.timelines');
             })->name('admin.timelines.table');
 
-            
+
         Route::middleware('permission:' . AppPermissions::TURNITIN_MANAGEMENT)->get('turnitin', function () {
             return view('admin.turnitin');
         })->name('admin.turnitin.table');
@@ -144,6 +144,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             return redirect()->route('user.skripsi');
         })->name('user');
 
+
+        Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)->prefix('konsultasi')->group(function () {
+        });
+
         Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)->prefix('konsultasi')->group(function () {
             Route::prefix('umum')->group(function () {
                 Route::get('', fn () => view('mahasiswa.konsultasi', ['category' => AppKonsul::TYPE_UMUM]))
@@ -161,6 +165,24 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
                     ->defaults('category', AppKonsul::TYPE_UMUM)
                     ->name('user.konsultasi.umum.room');
             });
+
+            Route::prefix('akademik')->group(function () {
+                Route::get('', fn () => view('mahasiswa.konsultasi', ['category' => AppKonsul::TYPE_AKADEMIK]))
+                    ->name('user.konsultasi.akademik.table');
+
+                Route::get('add', Form::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('user.konsultasi.akademik.add');
+
+                Route::get('edit/{konsul_id}', Form::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('user.konsultasi.akademik.edit');
+
+                Route::get('{konsul}', DiscussionRoom::class)
+                    ->defaults('category', AppKonsul::TYPE_AKADEMIK)
+                    ->name('user.konsultasi.akademik.room');
+            });
+        });
 
         Route::middleware('permission:' . AppPermissions::MAKE_TURNITIN)->get('turnitin', function () {
             return view('mahasiswa.turnitin');
