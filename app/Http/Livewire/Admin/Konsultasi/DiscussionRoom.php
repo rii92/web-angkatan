@@ -27,7 +27,7 @@ class DiscussionRoom extends Component
         $message = "Konsultasimu yang berjudul <b>" . Str::limit($this->konsul->title, 40) . "</b> {$message}";
 
         if (!$link) $link = route("user.konsultasi.{$this->konsul->category}.room",  $this->konsul->id);
-        
+
         $this->asker->notify(new BellNotification($message, $link));
     }
 
@@ -46,7 +46,7 @@ class DiscussionRoom extends Component
 
     public function openRoom()
     {
-        if ($this->konsul->status == AppKonsul::STATUS_DONE)
+        if ($this->konsul->status != AppKonsul::STATUS_DONE)
             return $this->emit('error', "Something wrong, you can't open this konsultasi");
 
         $this->konsul->status = AppKonsul::STATUS_PROGRESS;

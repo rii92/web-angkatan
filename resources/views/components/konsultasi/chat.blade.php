@@ -1,8 +1,10 @@
-@props(['route', 'chat'])
+@props(['route', 'chat', 'canDelete' => true])
 
 @php
 // if user is not admin, admin is admin who can open discussion room from admin menu
-$canDelete = $route == 'admin' ? $chat->is_admin : !$chat->is_admin;
+if ($canDelete) {
+    $canDelete = $route == 'admin' ? $chat->is_admin : !$chat->is_admin;
+}
 
 $isRead = $route == 'admin' ? $chat->is_seen && $chat->is_admin : $chat->is_seen && !$chat->is_admin;
 
@@ -18,7 +20,7 @@ $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
                 <img src="{{ Storage::disk('public')->url($chat->chat) }}"
                     alt="{{ Storage::disk('public')->url($chat->chat) }}">
             </div>
-            <p class="text-xs italic mt-1 w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
+            <div class="text-xs italic mt-1 w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
                 @if (!$isLeft && $canDelete)
                     <small class="text-red-700 font-bold cursor-pointer mr-4"
                         onclick="Livewire.emit('openModal', 'konsultasi.modal-delete-chat', {{ json_encode(['chat_id' => $chat->id, 'route' => $route, 'chatType' => $chat->type]) }})">
@@ -28,7 +30,7 @@ $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
                 <div class="text-xs text-gray-400">
                     {{ $chat->created_at->format('d M H:i') }} WIB. {{ $isRead ? 'Read' : '' }}
                 </div>
-            </p>
+            </div>
         </div>
     @else
         <div
@@ -37,11 +39,11 @@ $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
                 {!! Str::markdown($chat->chat) !!}
             </div>
 
-            <p class="text-xs mt-4 w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
+            <p class="text-xs mt-4 italic w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
                 @if (!$isLeft && $canDelete)
                     <small class="text-red-700 font-bold cursor-pointer mr-4"
                         onclick="Livewire.emit('openModal', 'konsultasi.modal-delete-chat', {{ json_encode(['chat_id' => $chat->id, 'route' => $route]) }})">
-                        DELETE
+                        Delete
                     </small>
                 @endif
                 <small class="text-xs">

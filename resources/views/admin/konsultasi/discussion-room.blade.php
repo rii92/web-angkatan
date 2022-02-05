@@ -26,7 +26,8 @@
             isLeft="{{ true }}" />
 
         @foreach ($konsul->chats as $chat)
-            <x-konsultasi.chat :chat="$chat" route="admin" />
+            <x-konsultasi.chat :chat="$chat" route="admin"
+                canDelete="{{ $konsul->status == AppKonsul::STATUS_PROGRESS }}" />
         @endforeach
 
         @if ($konsul->status == AppKonsul::STATUS_REJECT)

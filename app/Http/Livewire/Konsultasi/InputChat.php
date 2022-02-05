@@ -13,7 +13,7 @@ use Livewire\Component;
 
 class InputChat extends Component
 {
-    public $konsul, $chat, $route, $reloadComponent, $is_admin;
+    public $konsul, $chat, $routeBack, $reloadComponent, $is_admin;
 
     protected $listeners = [
         'submitFormChat'
@@ -22,17 +22,23 @@ class InputChat extends Component
     public function mount(Konsul $konsul, $route)
     {
         $this->konsul = $konsul;
-        
+
         $this->reloadComponent = $route == "user"
             ? 'mahasiswa.konsultasi.discussion-room'
             : 'admin.konsultasi.discussion-room';
 
         $this->is_admin = $route == "admin";
+        $this->routeBack = $route == "admin"
+            ? route("admin.konsultasi.{$this->konsul->category}.table")
+            : route("user.konsultasi.{$this->konsul->category}.table");
     }
 
     public function submitFormChat($chat)
     {
-        if ($this->konsul->status != AppKonsul::STATUS_PROGRESS) return $this->emit('error', "You can't send message to this konsultasi");
+        if ($this->konsul->status != AppKonsul::STATUS_PROGRESS) {
+            $this->emit('reloadComponents', $this->reloadComponent);
+            return $this->emit('error', "You can't send message to this konsultasi");
+        }
 
         $this->chat = $chat;
 

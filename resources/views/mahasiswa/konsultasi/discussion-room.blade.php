@@ -16,10 +16,11 @@
 
     <x-slot name="chats">
         <x-konsultasi.chat-message message="{{ $konsul->description }}" :time="$konsul->created_at"
-            isLeft="{{ false }}" />
+            isLeft="{{ false }}" isRead="{{ $konsul->status != AppKonsul::STATUS_WAIT }}" />
 
         @foreach ($konsul->chats as $chat)
-            <x-konsultasi.chat :chat="$chat" route="mahasiswa" />
+            <x-konsultasi.chat :chat="$chat" route="mahasiswa"
+                canDelete="{{ $konsul->status == AppKonsul::STATUS_PROGRESS }}" />
         @endforeach
 
         @if ($konsul->status == AppKonsul::STATUS_REJECT)

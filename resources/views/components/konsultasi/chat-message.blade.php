@@ -1,4 +1,4 @@
-@props(['message', 'isLeft', 'time'])
+@props(['message', 'isLeft', 'time', 'isRead' => false])
 
 <li class="flex mb-3 {{ $isLeft ? 'ml-3' : 'mr-3 justify-end' }}">
     <div
@@ -7,9 +7,9 @@
             {!! Str::markdown($message) !!}
         </div>
 
-        <p class="text-xs mt-4 w-full flex justify-end">
+        <p class="text-xs mt-4 w-full flex justify-end italic">
             <small class="text-xs">
-                {{ $time->format('d M H:i') }} WIB.
+                {{ $time->format('d M H:i') }} WIB. {{ $isRead ? 'Read' : '' }}
             </small>
         </p>
 

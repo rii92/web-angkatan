@@ -29,7 +29,7 @@ class DiscussionRoom extends Component
         $this->konsul->status = AppKonsul::STATUS_DONE;
         $this->konsul->done_at = now();
         $this->konsul->save();
-        
+
         return $this->emit('success', "Success to close this konsultasi. Do you want to publish your konsultasi?");
     }
 
