@@ -66,8 +66,8 @@
 
         @if ($konsul->status == AppKonsul::STATUS_DONE)
             @if (!$konsul->is_publish)
-                <div class="mt-3 mb-1 flex justify-end items-center">
-                    <p class="text-gray-500 text-xs">
+                <div class="mt-3 mb-1 sm:flex sm:justify-end sm:items-center">
+                    <p class="text-gray-500 text-xs sm:mr-3">
                         Konsultasi ini selesai pada {{ $konsul->done_at->format('d M H:i:s') }}. Menekan tombol
                         <b>Ask to Publish</b> akan mengirimkan notifikasi untuk meminta penanya untuk
                         mempublish konsultasi ini
@@ -83,9 +83,11 @@
                     </div>
                 </div>
             @else
-                <div class="mt-3 mb-1 flex justify-between items-center">
-                    <p class="text-gray-500 text-xs">
-                        Konsultasi ini sudah dipublish oleh penanya pada
+                <div class="mt-3 mb-1 sm:flex sm:justify-between sm:items-center">
+                    <p class="text-gray-500 text-xs sm:mr-3">
+                        Konsultasi ini sudah dipublish <x-link class="underline" target="_blank"
+                            href="{{ route('konsultasi.detail', ['slug' => $konsul->slug]) }}">disini</x-link> oleh
+                        penanya pada
                         {{ $konsul->published_at->format('d M H:i:s') }}
                     </p>
                     <x-anchor.secondary href="{{ route('admin.konsultasi.' . $konsul->category . '.table') }}"

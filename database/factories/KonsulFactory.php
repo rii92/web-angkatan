@@ -10,6 +10,7 @@ use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use PDO;
+use Illuminate\Support\Str;
 
 class KonsulFactory extends Factory
 {
@@ -66,6 +67,7 @@ class KonsulFactory extends Factory
     {
         $status = $this->faker->randomElement(AppKonsul::allStatus());
         $created_at = $this->faker->dateTimeBetween('-50 days', '-20 days');
+        $title = $this->faker->sentence(rand(10, 20));
 
         if ($status != AppKonsul::STATUS_WAIT) {
             $accepted_at = $this->faker->dateTimeBetween($created_at, '-3 days');
@@ -73,7 +75,11 @@ class KonsulFactory extends Factory
                 if ($status != AppKonsul::STATUS_PROGRESS) {
                     $done_at = $this->faker->dateTimeBetween($accepted_at, '-1 days');
                     $isPublish = $this->faker->boolean();
-                    if ($isPublish) $published_at = $this->faker->dateTimeBetween($done_at);
+                    if ($isPublish) {
+                        $published_at = $this->faker->dateTimeBetween($done_at);
+                        $randomInt = $this->faker->numerify(' #####');
+                        $slug = Str::slug(Str::limit($title, 60, '') . $randomInt);
+                    }
                 }
             } else {
                 $note = $this->faker->paragraph(rand(7, 15));
@@ -81,7 +87,7 @@ class KonsulFactory extends Factory
         }
 
         return [
-            'title' => $this->faker->sentence(rand(10, 20)),
+            'title' => $title,
             'category' => $this->faker->randomElement([AppKonsul::TYPE_AKADEMIK, AppKonsul::TYPE_UMUM]),
             'status' => $status,
             'is_publish' => $isPublish ?? false,
@@ -91,7 +97,8 @@ class KonsulFactory extends Factory
             'acc_rej_at' => $accepted_at ?? null,
             'done_at' => $done_at ?? null,
             'published_at' => $published_at ?? null,
-            'note' => $note ?? null
+            'note' => $note ?? null,
+            'slug' => $slug ?? null
         ];
     }
 }

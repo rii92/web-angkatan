@@ -32,7 +32,7 @@ Route::get('/sambat', fn () => view('guest.sambat'))->name('sambat');
 
 Route::prefix('konsultasi')->group(function () {
     Route::get('', fn () => view('guest.konsultasi'))->name('konsultasi.list');
-    Route::get('{konsul_id}', KonsultasiDetail::class)->name('konsultasi.detail');
+    Route::get('{slug}', KonsultasiDetail::class)->name('konsultasi.detail');
 });
 
 Route::prefix('informasi')->group(function () {

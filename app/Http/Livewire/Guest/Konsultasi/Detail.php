@@ -11,9 +11,16 @@ class Detail extends Component
     public Konsul $konsul;
     public $konsul_id;
 
-    public function mount()
+    public function mount($slug)
     {
-        $this->konsul = Konsul::with(['user', 'userdetails'])->publish()->first();
+        try {
+            $this->konsul = Konsul::with(['user', 'userdetails'])
+                ->publish()
+                ->where('slug', $slug)
+                ->first();
+        } catch (\Throwable $th) {
+            abort(404);
+        }
     }
 
 

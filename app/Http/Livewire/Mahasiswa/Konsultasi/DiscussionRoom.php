@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Mahasiswa\Konsultasi;
 use App\Constants\AppKonsul;
 use App\Models\Konsul;
 use Livewire\Component;
+use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 
 class DiscussionRoom extends Component
 {
@@ -51,8 +53,12 @@ class DiscussionRoom extends Component
             return $this->emit('error', "Something wrong, you can't publish this konsultasi");
 
         $this->konsul->is_publish = true;
+        $randomInt = Faker::create()->numerify(' #####');
+        $this->konsul->slug = Str::slug(Str::limit($this->konsul->title, 60, '') . $randomInt);
         $this->konsul->published_at = now();
         $this->konsul->save();
+
+
 
         return $this->emit('success', "Success to publish this konsultasi");
     }
@@ -64,6 +70,7 @@ class DiscussionRoom extends Component
 
         $this->konsul->is_publish = false;
         $this->konsul->published_at = null;
+        $this->konsul->slug = null;
         $this->konsul->save();
 
         return $this->emit('success', "Success to unpublish this konsultasi");
