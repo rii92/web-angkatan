@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
 use App\Http\Livewire\Admin\Announcement\Form as AnnouncementForm;
 use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoom;
+use App\Http\Livewire\Guest\Konsultasi\Detail as KonsultasiDetail;
 use App\Http\Livewire\Mahasiswa\Konsultasi\DiscussionRoom;
 use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
 use App\Http\Livewire\Sambat\Form as SambatForm;
@@ -28,7 +29,11 @@ use Illuminate\Database\Eloquent\Builder;
 Route::get('/', fn () => view('guest.landingpage'))->name('home');
 Route::get('/proker', fn () => view('guest.proker'))->name('proker');
 Route::get('/sambat', fn () => view('guest.sambat'))->name('sambat');
-Route::get('/konsultasi', fn () => view('guest.konsultasi'))->name('konsultasi');
+
+Route::prefix('konsultasi')->group(function () {
+    Route::get('', fn () => view('guest.konsultasi'))->name('konsultasi.list');
+    Route::get('{konsul_id}', KonsultasiDetail::class)->name('konsultasi.detail');
+});
 
 Route::prefix('informasi')->group(function () {
     Route::get('', fn () => view('guest.announcement'))->name('announcement');

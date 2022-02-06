@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\AppKonsul;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,6 +26,11 @@ class Konsul extends Model
     public function scopeKonsulType($query, $category)
     {
         return $query->where('category', $category);
+    }
+
+    public function scopePublish($query)
+    {
+        return $query->where('status', AppKonsul::STATUS_DONE)->where('is_publish', true);
     }
 
     public function user()

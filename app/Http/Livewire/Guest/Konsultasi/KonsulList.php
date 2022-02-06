@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Http\Livewire\Konsultasi;
+namespace App\Http\Livewire\Guest\Konsultasi;
 
 use App\Models\Konsul;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Str;
 
-class Table extends Component
+class KonsulList extends Component
 {
     use WithPagination;
 
     private const page = 10;
     private $konsuls;
 
-    public $search, $user_id;
+    public $user_id;
+    public $search, $category, $jurusan;
+    public $tags = [];
 
     protected $updatedQueryString = ['search', ['except' => '']];
 
@@ -29,12 +31,12 @@ class Table extends Component
         if ($this->user_id) $this->konsuls->where('user_id', $this->user_id);
         if (Str::of($this->search)->trim()->isNotEmpty()) {
             $this->konsuls->where('title', 'like', '%' . $this->search . '%')
-            ->orWhere('category', 'like', '%' .  $this->search . '%')
-            ->orWhere('description', 'like', '%' .  $this->search . '%')
-            ->orWhere('name', 'like', '%' .  $this->search . '%');
+                ->orWhere('category', 'like', '%' .  $this->search . '%')
+                ->orWhere('description', 'like', '%' .  $this->search . '%')
+                ->orWhere('name', 'like', '%' .  $this->search . '%');
         }
 
         // dd($this->konsuls->get()->toArray());
-        return view('guest.konsultasi', ['konsuls' => $this->konsuls->latest()->paginate(self::page)]);
+        return view('guest.konsultasi.list', ['konsuls' => $this->konsuls->latest()->paginate(self::page)]);
     }
 }
