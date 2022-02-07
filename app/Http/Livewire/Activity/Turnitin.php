@@ -7,7 +7,6 @@ use App\Constants\AppPermissions;
 use App\Constants\AppTurnitins;
 use App\Http\Livewire\GuardsAgainstAccess;
 use App\Models\UserTurnitin;
-use Exception;
 use LivewireUI\Modal\ModalComponent;
 
 class Turnitin extends ModalComponent
@@ -57,6 +56,6 @@ class Turnitin extends ModalComponent
 
     public function render()
     {
-        return view('components.turnitin.modal-activity');
+        return view('activity.turnitin');
     }
 }

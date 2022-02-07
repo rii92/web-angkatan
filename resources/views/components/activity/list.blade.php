@@ -24,7 +24,7 @@ if ($activity->pivot->icon == AppActivity::TYPE_PHOTO) {
     <div
         class="sm:py-3 px-3 pt-1 pb-2 bg-white rounded-lg border border-gray-200 shadow-sm dark:bg-gray-700 dark:border-gray-600">
         <div class="justify-between items-center sm:flex">
-            <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">
+            <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0 whitespace-nowrap">
                 {{ $activity->pivot->created_at->diffForHumans() }}
             </time>
             <div class="text-xs font-normal text-gray-500 lex dark:text-gray-300">

@@ -63,4 +63,11 @@ class Konsul extends Model
     {
         return $this->chats()->where('konsul_chats.is_admin', $isAdmin)->update(['konsul_chats.is_seen' => true]);
     }
+
+    public function activity()
+    {
+        return $this->morphToMany(User::class, 'activity', 'users_activities', 'activity_id', 'user_id')
+            ->withPivot('title', 'note', 'icon', 'created_at')
+            ->orderByPivot('created_at', 'desc');
+    }
 }

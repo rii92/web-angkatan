@@ -31,6 +31,7 @@ class ModalDelete extends ModalComponent
             foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->chat);
 
             $konsul->chats()->delete();
+            $konsul->activity()->detach();
 
             $konsul->delete();
 

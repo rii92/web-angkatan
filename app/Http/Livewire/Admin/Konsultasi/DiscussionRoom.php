@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Konsultasi;
 
+use App\Constants\AppActivity;
 use App\Constants\AppKonsul;
 use App\Models\Konsul;
 use App\Models\User;
@@ -31,6 +32,15 @@ class DiscussionRoom extends Component
         $this->asker->notify(new BellNotification($message, $link));
     }
 
+    private function addActivity($message, $status = null)
+    {
+        $view = $status ? view('components.konsultasi.status', ['status' => $status]) : '';
+        $this->konsul->activity()->attach(auth()->user(), [
+            'title' => "<b>Admin</b> {$message} {$view}",
+            'icon' => AppActivity::TYPE_ADMIN,
+        ]);
+    }
+
     public function closeRoom()
     {
         if ($this->konsul->status != AppKonsul::STATUS_PROGRESS)
@@ -40,6 +50,7 @@ class DiscussionRoom extends Component
         $this->konsul->done_at = now();
         $this->konsul->save();
         $this->sendNotification("telah diakhiri oleh konselor");
+        $this->addActivity('mengakhiri konsultasi dan mengubah statusnya menjadi', $this->konsul->status);
 
         return $this->emit('success', "Success to close this konsultasi");
     }
@@ -52,6 +63,7 @@ class DiscussionRoom extends Component
         $this->konsul->status = AppKonsul::STATUS_PROGRESS;
         $this->konsul->done_at = null;
         $this->konsul->save();
+        $this->addActivity('membuka kembali konsultasi dan mengubah statusnya menjadi', $this->konsul->status);
 
         return $this->emit('success', "Success to open konsultasi");
     }
@@ -60,6 +72,7 @@ class DiscussionRoom extends Component
     {
         if (($this->konsul->status == AppKonsul::STATUS_DONE) && (!$this->konsul->is_publish)) {
             $this->sendNotification('disarankan oleh konselor untuk mempublishnya');
+            $this->addActivity('meminta kamu untuk mempublish konsultasi ini');
             return  $this->emit('success', "Success to send notification");
         } else
             return $this->emit('error', "Failed to send notification");

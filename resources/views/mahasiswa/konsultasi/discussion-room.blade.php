@@ -3,6 +3,7 @@
         <h1 class="text-2xl">
             {{ $konsul->title }}
             <x-konsultasi.status status="{{ $konsul->status }}" class="ml-1" />
+            <x-konsultasi.icon-activity konsulId="{{ $konsul->id }}" />
         </h1>
         <p class="text-sm">
             @foreach ($konsul->tags as $tag)

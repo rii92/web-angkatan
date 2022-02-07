@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Mahasiswa\Konsultasi;
 
+use App\Constants\AppActivity;
 use App\Constants\AppKonsul;
 use App\Models\Konsul;
 use Livewire\Component;
@@ -23,6 +24,16 @@ class DiscussionRoom extends Component
         if ($this->category != $this->konsul->category) abort(404);
     }
 
+    private function addActivity($message, $useView = true, $note = null)
+    {
+        $view = $useView ? view('components.konsultasi.status', ['status' => $this->konsul->status]) : '';
+        $this->konsul->activity()->attach(auth()->user(), [
+            'title' => "<b>{$this->konsul->name}</b> {$message} {$view}",
+            'icon' => $this->konsul->is_anonim ? AppActivity::TYPE_ANONIM : AppActivity::TYPE_PHOTO,
+            'note' => $note
+        ]);
+    }
+
     public function closeRoom()
     {
         if ($this->konsul->status != AppKonsul::STATUS_PROGRESS)
@@ -31,6 +42,7 @@ class DiscussionRoom extends Component
         $this->konsul->status = AppKonsul::STATUS_DONE;
         $this->konsul->done_at = now();
         $this->konsul->save();
+        $this->addActivity('megakhiri konsultasi dan mengubah statusnya menjadi');
 
         return $this->emit('success', "Success to close this konsultasi. Do you want to publish your konsultasi?");
     }
@@ -43,6 +55,7 @@ class DiscussionRoom extends Component
         $this->konsul->status = AppKonsul::STATUS_PROGRESS;
         $this->konsul->done_at = null;
         $this->konsul->save();
+        $this->addActivity('membuka kembali konsultasi dan mengubah statusnya menjadi');
 
         return $this->emit('success', "Success to open konsultasi");
     }
@@ -58,6 +71,7 @@ class DiscussionRoom extends Component
         $this->konsul->published_at = now();
         $this->konsul->save();
 
+        $this->addActivity('mempublish konsultasi', false, 'Konsultasi dipublish <a target="_blank" class="underline text-blue-600" href="' . route('konsultasi.detail', ['slug' => $this->konsul->slug]) . '"> disini</a>');
 
 
         return $this->emit('success', "Success to publish this konsultasi");
@@ -73,6 +87,7 @@ class DiscussionRoom extends Component
         $this->konsul->slug = null;
         $this->konsul->save();
 
+        $this->addActivity('melakukan unpublish konsultasi', false);
         return $this->emit('success', "Success to unpublish this konsultasi");
     }
 
