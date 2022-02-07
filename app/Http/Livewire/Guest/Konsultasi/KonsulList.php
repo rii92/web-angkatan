@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Guest\Konsultasi;
 
+use App\Constants\AppKonsul;
 use App\Models\Konsul;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Support\Str;
 
 class KonsulList extends Component
 {
@@ -15,18 +16,60 @@ class KonsulList extends Component
     public $konsuls;
 
     public $user_id;
-    public $search, $category, $jurusan;
-    public $tags = [];
+    public $search, $category, $jurusan, $searchInfo, $hasKonsulPublish;
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'category' => ['except' => ''],
+        'jurusan' => ['except' => '']
+    ];
+    protected $listeners = ['selectTag' => 'selectTag'];
 
     public function mount()
     {
-        $this->konsuls = Konsul::with(['userdetails', 'user', 'tags'])
-            ->publish()->orderBy('published_at', 'desc')->get();
+        $this->hasKonsulPublish = Konsul::publish()->count() > 0;
+        if ($this->hasKonsulPublish) $this->search();
     }
 
-    public function handleSearch()
+    public function updated()
     {
-        dd($this->category, $this->jurusan);
+        $this->search();
+    }
+
+    public function selectTag($tag = null)
+    {
+        $this->search = $tag;
+        $this->search();
+    }
+
+    private function search()
+    {
+        $query = Konsul::with(['userdetails', 'user', 'tags'])
+            ->publish()->orderBy('published_at', 'desc');
+
+        // category filter
+        $this->category && in_array($this->category, [AppKonsul::TYPE_AKADEMIK, AppKonsul::TYPE_UMUM])
+            ? $query->KonsulType($this->category)
+            : '';
+
+        // jurusan filter
+        $this->jurusan && in_array($this->jurusan, AppKonsul::allJurusan())
+            ? $query->whereHas('userdetails', fn (Builder $query) => $query->where('kelas', "like", "%{$this->jurusan}%"))
+            : '';
+
+        if ($this->search) {
+            // if search by tag
+            if (substr($this->search, 0, 1) == "#") {
+                $tag = substr($this->search, 1);
+                $query->whereHas('tags', fn (Builder $query) => $query->where('name', $tag));
+                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian hastag : ", 'tag' => $tag])->render();
+            } else {
+                $query->where('description', 'like', "%{$this->search}%");
+                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian berdasarkan kata kunci : ", 'keyword' => $this->search])->render();
+            }
+        } else
+            $this->searchInfo = null;
+
+        $this->konsuls = $query->get();
     }
 
     public function render()

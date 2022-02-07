@@ -1160,6 +1160,9 @@ select{
 .col-span-1{
 	grid-column: span 1 / span 1;
 }
+.col-span-12{
+	grid-column: span 12 / span 12;
+}
 .m-4{
 	margin: 1rem;
 }
@@ -1216,6 +1219,10 @@ select{
 .mx-3{
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
+}
+.mx-7{
+	margin-left: 1.75rem;
+	margin-right: 1.75rem;
 }
 .ml-3{
 	margin-left: 0.75rem;
@@ -2338,6 +2345,9 @@ select{
 .leading-normal{
 	line-height: 1.5;
 }
+.leading-snug{
+	line-height: 1.375;
+}
 .tracking-widest{
 	letter-spacing: 0.1em;
 }
@@ -2504,6 +2514,15 @@ select{
 }
 .opacity-95{
 	opacity: 0.95;
+}
+.opacity-80{
+	opacity: 0.8;
+}
+.opacity-10{
+	opacity: 0.1;
+}
+.opacity-30{
+	opacity: 0.3;
 }
 .shadow-sm{
 	--tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -3585,6 +3604,12 @@ html {
 	.md\:col-span-4{
 		grid-column: span 4 / span 4;
 	}
+	.md\:col-span-9{
+		grid-column: span 9 / span 9;
+	}
+	.md\:col-span-8{
+		grid-column: span 8 / span 8;
+	}
 	.md\:mt-0{
 		margin-top: 0px;
 	}
@@ -3987,6 +4012,9 @@ html {
 	}
 	.lg\:col-span-2{
 		grid-column: span 2 / span 2;
+	}
+	.lg\:col-span-8{
+		grid-column: span 8 / span 8;
 	}
 	.lg\:mt-0{
 		margin-top: 0px;

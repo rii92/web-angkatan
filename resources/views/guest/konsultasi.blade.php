@@ -9,13 +9,11 @@
 
                 <div class="absolute bg-white rounded-md py-3 -top-24 right-0 shadow-md border" x-show="open"
                     x-on:click.outside="open = false">
-                    <a target="_blank" href="{{ route('user.konsultasi.akademik.add') }}"
-                        class="px-4 inline-block whitespace-nowrap py-1 hover:bg-gray-100"
-                        x-on:click="open = false">Konsul
+                    <a href="{{ route('user.konsultasi.akademik.add') }}"
+                        class="px-4 inline-block whitespace-nowrap py-1 hover:bg-gray-100">Konsul
                         Akademik</a>
-                    <a target="_blank" href="{{ route('user.konsultasi.umum.add') }}"
-                        class="px-4 inline-block w-full whitespace-nowrap py-1 hover:bg-gray-100"
-                        x-on:click="open = false">Konsul
+                    <a href="{{ route('user.konsultasi.umum.add') }}"
+                        class="px-4 inline-block w-full whitespace-nowrap py-1 hover:bg-gray-100">Konsul
                         Umum</a>
                 </div>
             </div>
