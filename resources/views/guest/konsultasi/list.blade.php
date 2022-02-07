@@ -29,7 +29,7 @@
         </div>
 
 
-        <div class="mt-8 max-w-5xl mx-auto">
+        <div class="mt-8 max-w-5xl mx-auto" id="konsul-list">
             @forelse ($konsuls as $konsul)
                 <x-konsultasi.list-guest :konsul="$konsul" />
             @empty
@@ -41,6 +41,8 @@
                     pakai fitur anonim dan kami menjamin kerahasiaan identitasmu.
                 </p>
             @endforelse
+
+            {{ $konsuls->links() }}
         </div>
     @else
         <div class="max-w-5xl mx-auto">
@@ -54,4 +56,19 @@
             </p>
         </div>
     @endif
+
+    @push('scripts')
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById('konsul-list').addEventListener('click', function(e) {
+                    if (e.target && e.target.classList.contains('page-link-scroll-to-top')) {
+                        window.scrollTo({
+                            top: 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        </script>
+    @endpush
 </div>

@@ -12,8 +12,8 @@ class KonsulList extends Component
 {
     use WithPagination;
 
-    private const page = 10;
-    public $konsuls;
+    private const PAGE = 7;
+    private $konsuls;
 
     public $user_id;
     public $search, $category, $jurusan, $searchInfo, $hasKonsulPublish;
@@ -27,18 +27,21 @@ class KonsulList extends Component
     public function mount()
     {
         $this->hasKonsulPublish = Konsul::publish()->count() > 0;
-        if ($this->hasKonsulPublish) $this->search();
+    }
+
+    public function paginationView()
+    {
+        return 'pagination.main';
     }
 
     public function updated()
     {
-        $this->search();
+        $this->resetPage();
     }
 
     public function selectTag($tag = null)
     {
         $this->search = $tag;
-        $this->search();
     }
 
     private function search()
@@ -69,11 +72,11 @@ class KonsulList extends Component
         } else
             $this->searchInfo = null;
 
-        $this->konsuls = $query->get();
+        return $query->paginate(self::PAGE);
     }
 
     public function render()
     {
-        return view('guest.konsultasi.list');
+        return view('guest.konsultasi.list', ['konsuls' => $this->search()]);
     }
 }

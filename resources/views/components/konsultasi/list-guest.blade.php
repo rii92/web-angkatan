@@ -16,7 +16,7 @@ $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan}" : "{$kon
                 <x-konsultasi.category category="{{ $konsul->category }}" />
             </h2>
             <small class="text-gray-500">{{ $name }} | {{ $kelas }} |
-                {{ $konsul->published_at->format('d M Y H:i') }}</small>
+                {{ $konsul->published_at->format('d M Y H:i') }} WIB</small>
         </div>
     </div>
 
