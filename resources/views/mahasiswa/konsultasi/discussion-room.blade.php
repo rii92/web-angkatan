@@ -15,7 +15,7 @@
     </x-slot>
 
     <x-slot name="chats">
-        <x-konsultasi.chat-message message="{{ $konsul->description }}" :time="$konsul->created_at"
+        <x-konsultasi.chat-message message="{!! $konsul->description !!}" :time="$konsul->created_at"
             isLeft="{{ false }}" isRead="{{ $konsul->status != AppKonsul::STATUS_WAIT }}" />
 
         @foreach ($konsul->chats as $chat)
@@ -24,7 +24,7 @@
         @endforeach
 
         @if ($konsul->status == AppKonsul::STATUS_REJECT)
-            <x-konsultasi.chat-message message="{{ $konsul->note }}" :time="$konsul->acc_rej_at"
+            <x-konsultasi.chat-message message="{!! $konsul->note !!}" :time="$konsul->acc_rej_at"
                 isLeft="{{ true }}" />
         @endif
     </x-slot>

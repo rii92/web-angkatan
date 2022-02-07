@@ -16,6 +16,6 @@ class KonsultasiSeeder extends Seeder
     public function run()
     {
         Tag::factory()->count(40)->create();
-        Konsul::factory(50)->create();
+        Konsul::factory(150)->create();
     }
 }

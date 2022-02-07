@@ -22,7 +22,7 @@
     </x-slot>
 
     <x-slot name="chats">
-        <x-konsultasi.chat-message message="{{ $konsul->description }}" :time="$konsul->created_at"
+        <x-konsultasi.chat-message message="{!! $konsul->description !!}" :time="$konsul->created_at"
             isLeft="{{ true }}" />
 
         @foreach ($konsul->chats as $chat)
@@ -31,7 +31,7 @@
         @endforeach
 
         @if ($konsul->status == AppKonsul::STATUS_REJECT)
-            <x-konsultasi.chat-message message="{{ $konsul->note }}" :time="$konsul->acc_rej_at"
+            <x-konsultasi.chat-message message="{!! $konsul->note !!}" :time="$konsul->acc_rej_at"
                 isLeft="{{ false }}" />
         @endif
     </x-slot>
@@ -85,7 +85,7 @@
             @else
                 <div class="mt-3 mb-1 sm:flex sm:justify-between sm:items-center">
                     <p class="text-gray-500 text-xs sm:mr-3">
-                        Konsultasi ini sudah dipublish <x-link class="underline" target="_blank"
+                        Konsultasi ini sudah dipublish <x-link class="underline"
                             href="{{ route('konsultasi.detail', ['slug' => $konsul->slug]) }}">disini</x-link> oleh
                         penanya pada
                         {{ $konsul->published_at->format('d M H:i:s') }}

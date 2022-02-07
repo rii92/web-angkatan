@@ -125,10 +125,6 @@
   --tw-border-opacity: 1;
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
-.chat-left blockquote {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity)) !important;
-}
 .chat-left table {
   margin-top: 0.75rem !important;
   margin-bottom: 0.75rem !important;
@@ -174,10 +170,6 @@
 .chat-right hr {
   --tw-border-opacity: 1;
   border-color: rgba(219, 234, 254, var(--tw-border-opacity));
-}
-.chat-right blockquote {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(249, 250, 251, var(--tw-bg-opacity)) !important;
 }
 .chat-right table {
   margin-top: 0.75rem !important;

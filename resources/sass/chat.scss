@@ -90,10 +90,6 @@
             @apply border-gray-200;
         }
 
-        blockquote {
-            @apply bg-gray-200 #{!important};
-        }
-
         table {
             @apply w-full my-3 #{!important};
 
@@ -131,10 +127,6 @@
 
         hr {
             @apply border-blue-100;
-        }
-
-        blockquote {
-            @apply bg-gray-50 #{!important};
         }
 
         table {
