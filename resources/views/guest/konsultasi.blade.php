@@ -1,9 +1,10 @@
 <x-app-layout title="Konsultasi">
     <x-landingpage.wrapper title="Konsultasi">
         @livewire('guest.konsultasi.konsul-list')
+    </x-landingpage.wrapper>
 
-        <div class="h-10 w-10 bg-main fixed bottom-10 right-10 rounded-full border-2 border-white"
-            x-data="{open : false}" x-cloak>
+    @push('bottom-menu')
+        <div class="h-10 w-10 bg-main rounded-full border-2 border-white" x-data="{open : false}" x-cloak>
             <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
                 <x-icons.plus class="text-white" stroke-width='3' x-on:click="open = !open" />
 
@@ -18,7 +19,6 @@
                 </div>
             </div>
         </div>
-    </x-landingpage.wrapper>
-
+    @endpush
 
 </x-app-layout>

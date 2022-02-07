@@ -145,10 +145,26 @@
     <div class="modal-center">
         @livewire('livewire-ui-modal')
     </div>
-</body>
 
-@livewireScripts
-<script src="{{ mix('js/livewire-handler.js') }}"></script>
-@stack('scripts')
+    <div class="fixed bottom-10 sm:right-10 right-5 z-50 transform sm:scale-100 scale-90"
+        x-data="{show : false, showButton : () => document.body.scrollTop > 500 || document.documentElement.scrollTop > 500}"
+        x-on:scroll.window="show = showButton()" x-init="show = showButton()" x-cloak>
+        <div class="grid grid-cols-1 gap-y-1">
+            @stack('bottom-menu')
+
+            <div class="h-10 w-10 bg-main rounded-full border-2 border-white" id="scroll-to-top"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition
+                x-transition.duration.600ms>
+                <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
+                    <x-icons.arrow-up class="text-white" stroke-width='3' />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @livewireScripts
+    <script src="{{ mix('js/livewire-handler.js') }}"></script>
+    @stack('scripts')
+</body>
 
 </html>
