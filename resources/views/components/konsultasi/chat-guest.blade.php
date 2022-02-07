@@ -28,8 +28,8 @@
             </div>
 
             <time>
-                @if ($time->addDays(2)->gte(now()))
-                    {{ $time->subDays(2)->diffForHumans() }}
+                @if ($time->gte(now()->subDays(2)))
+                    {{ $time->diffForHumans() }}
                 @else
                     {{ $time->format('d-M H:i') }} WIB
                 @endif

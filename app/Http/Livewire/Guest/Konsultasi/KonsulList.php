@@ -12,31 +12,25 @@ class KonsulList extends Component
     use WithPagination;
 
     private const page = 10;
-    private $konsuls;
+    public $konsuls;
 
     public $user_id;
     public $search, $category, $jurusan;
     public $tags = [];
 
-    protected $updatedQueryString = ['search', ['except' => '']];
-
     public function mount()
     {
-        $this->search = request()->query('search', $this->search);
+        $this->konsuls = Konsul::with(['userdetails', 'user', 'tags'])
+            ->publish()->orderBy('published_at', 'desc')->get();
+    }
+
+    public function handleSearch()
+    {
+        dd($this->category, $this->jurusan);
     }
 
     public function render()
     {
-        $this->konsuls = Konsul::with('user');
-        if ($this->user_id) $this->konsuls->where('user_id', $this->user_id);
-        if (Str::of($this->search)->trim()->isNotEmpty()) {
-            $this->konsuls->where('title', 'like', '%' . $this->search . '%')
-                ->orWhere('category', 'like', '%' .  $this->search . '%')
-                ->orWhere('description', 'like', '%' .  $this->search . '%')
-                ->orWhere('name', 'like', '%' .  $this->search . '%');
-        }
-
-        // dd($this->konsuls->get()->toArray());
-        return view('guest.konsultasi.list', ['konsuls' => $this->konsuls->latest()->paginate(self::page)]);
+        return view('guest.konsultasi.list');
     }
 }
