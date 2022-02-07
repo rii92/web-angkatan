@@ -2,6 +2,8 @@
     <x-konsultasi.icon-chat href="{{ route('admin.konsultasi.' . $konsul->category . '.room', $konsul->id) }}"
         messageCount="{{ $konsul->status == AppKonsul::STATUS_WAIT ? 1 : $konsul->unread_chats }}" />
 
+    <x-konsultasi.icon-activity konsulId="{{ $konsul->id }}" class="ml-2" />
+
     @if ($konsul->status != AppKonsul::STATUS_WAIT)
         <x-konsultasi.icon-delete onclick="Livewire.emit('openModal', 'admin.konsultasi.modal-delete' ,
     {{ json_encode(['konsul_id' => $konsul->id, 'category' => $konsul->category]) }})" />

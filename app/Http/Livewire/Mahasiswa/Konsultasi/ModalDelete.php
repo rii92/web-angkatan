@@ -24,7 +24,8 @@ class ModalDelete extends ModalComponent
         if (($konsul->user_id == auth()->id()) && in_array($konsul->status, [AppKonsul::STATUS_WAIT, AppKonsul::STATUS_REJECT])) {
             try {
                 $konsul->tags()->detach();
-                
+                $konsul->activity()->detach();
+
                 $chatWithImage = $konsul->chats()->where('konsul_chats.type', AppKonsul::TYPE_CHAT_IMAGE)->get();
 
                 foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->chat);

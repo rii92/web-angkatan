@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Konsultasi;
 
+use App\Constants\AppActivity;
 use App\Constants\AppKonsul;
 use App\Constants\AppPermissions;
 use App\Http\Livewire\GuardsAgainstAccess;
@@ -85,6 +86,14 @@ class FormAcceptance extends Component
             ]);
 
             $this->sendNotification();
+
+            $view = view('components.konsultasi.status', ['status' => $this->konsul->status]);
+            $this->konsul->activity()->attach(auth()->user(), [
+                'title' => "<b>Admin</b> mengubah status konsultasi menjadi {$view}",
+                'icon' => AppActivity::TYPE_ADMIN,
+                'note' => $this->note ? strip_tags(Str::markdown($this->note)) : null
+            ]);
+
             $this->emit('success', "Success to change status konsultasi");
             $this->emit('reloadComponents', 'admin.konsultasi.discussion-room');
         } catch (\Exception $e) {

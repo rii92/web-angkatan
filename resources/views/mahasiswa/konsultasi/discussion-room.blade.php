@@ -3,6 +3,7 @@
         <h1 class="text-2xl">
             {{ $konsul->title }}
             <x-konsultasi.status status="{{ $konsul->status }}" class="ml-1" />
+            <x-konsultasi.icon-activity konsulId="{{ $konsul->id }}" />
         </h1>
         <p class="text-sm">
             @foreach ($konsul->tags as $tag)
@@ -15,7 +16,7 @@
     </x-slot>
 
     <x-slot name="chats">
-        <x-konsultasi.chat-message message="{{ $konsul->description }}" :time="$konsul->created_at"
+        <x-konsultasi.chat-message message="{!! $konsul->description !!}" :time="$konsul->created_at"
             isLeft="{{ false }}" isRead="{{ $konsul->status != AppKonsul::STATUS_WAIT }}" />
 
         @foreach ($konsul->chats as $chat)
@@ -24,15 +25,15 @@
         @endforeach
 
         @if ($konsul->status == AppKonsul::STATUS_REJECT)
-            <x-konsultasi.chat-message message="{{ $konsul->note }}" :time="$konsul->acc_rej_at"
+            <x-konsultasi.chat-message message="{!! $konsul->note !!}" :time="$konsul->acc_rej_at"
                 isLeft="{{ true }}" />
         @endif
     </x-slot>
 
     <x-slot name="footer">
-        <div class="mt-3 mb-1 flex justify-between items-center">
+        <div class="mt-3 mb-1 sm:flex sm:justify-between sm:items-center">
             @if ($konsul->status == AppKonsul::STATUS_WAIT)
-                <p class="text-sm text-gray-500 mr-3">
+                <p class="text-sm text-gray-500 sm:mr-3">
                     Kamu baru bisa memulai diskusi ketika konselor sudah menerima pengajuan konsultasimu
                 </p>
                 <x-anchor.secondary href="{{ route('user.konsultasi.' . $konsul->category . '.table') }}">
@@ -41,7 +42,7 @@
             @endif
 
             @if ($konsul->status == AppKonsul::STATUS_REJECT)
-                <p class="text-gray-500 text-xs">Mohon maaf, pengajuan konsultasimu tidak diterima</p>
+                <p class="text-gray-500 text-xs sm:mr-3">Mohon maaf, pengajuan konsultasimu tidak diterima</p>
                 <div class="md:ml-3 md:mt-0 mt-2 flex items-center whitespace-nowrap justify-end">
                     <x-anchor.secondary href="{{ route('user.konsultasi.' . $konsul->category . '.table') }}">
                         Back
@@ -63,7 +64,7 @@
 
             @if ($konsul->status == AppKonsul::STATUS_DONE)
                 @if (!$konsul->is_publish)
-                    <p class="text-gray-500 text-xs">
+                    <p class="text-gray-500 text-xs sm:mr-3">
                         Konsultasi selesai pada {{ $konsul->done_at->format('d M H:i:s') }}.
                         Konsultasi yang sudah dipublish akan bisa dilihat oleh siapa saja.
                         Jika kamu bertanya sebagai anonim maka namamu tetap tidak akan ditampilkan.
@@ -81,9 +82,12 @@
                         </x-anchor.secondary>
                     </div>
                 @else
-                    <p class="text-gray-500 text-xs">Konsultasimu sudah dipublish pada
+                    <p class="text-gray-500 text-xs sm:mr-3">Konsultasimu sudah dipublish
+                        <x-link class="underline"
+                            href="{{ route('konsultasi.detail', ['slug' => $konsul->slug]) }}">disini</x-link> pada
                         {{ $konsul->published_at->format('d M H:i:s') }}. Kamu bebas kapan saja untuk
-                        meng-unpublishkannya kembali</p>
+                        meng-unpublishkannya kembali
+                    </p>
                     <div class="md:ml-3 md:mt-0 mt-2 flex items-center whitespace-nowrap justify-end">
                         <x-anchor.error wire:click="unpublishKonsultasi">
                             Unpublish

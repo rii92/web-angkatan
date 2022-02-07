@@ -1,4 +1,4 @@
-const setCalendar = (events = []) =>  {
+const setCalendar = (events = []) => {
     const MONTH_NAMES = [
         "January",
         "February",
@@ -42,7 +42,6 @@ const setCalendar = (events = []) =>  {
             this.events = events;
             this.getNoOfDays();
             this.eventToDisplay = this.getEventDate(today.getDate());
-            console.log(events);
         },
 
         getEventDate(day) {
@@ -120,4 +119,4 @@ const setCalendar = (events = []) =>  {
     };
 };
 
-window.setCalendar  = setCalendar
+window.setCalendar = setCalendar

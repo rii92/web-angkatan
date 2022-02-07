@@ -1,42 +1,24 @@
-@if (!isset($konsuls))
-    <x-app-layout title="Konsultasi">
-        @livewire('konsultasi.table')
-    </x-app-layout>
+<x-app-layout title="Konsultasi">
+    <x-landingpage.wrapper title="Konsultasi">
+        @livewire('guest.konsultasi.konsul-list')
+    </x-landingpage.wrapper>
 
-@else
+    @push('bottom-menu')
+        <div class="h-10 w-10 bg-main rounded-full border-2 border-white" x-data="{open : false}" x-cloak>
+            <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
+                <x-icons.plus class="text-white" stroke-width='3' x-on:click="open = !open" />
 
-    <div class="max-w-5xl mx-auto">
-        <x-card.base title="Konsultasi">
-            @slot('aside')
-                <div class="flex items-center">
-                    @if ($user_id)
-                        <x-anchor.black href="{{ route('konsultasi') }}">
-                            <span class="ml-2 text-xs">View All</span>
-                        </x-anchor.black>
-                    @endif
-                    <x-anchor.success href="{{ route('user.konsultasi.umum.table') }}" class="ml-2">
-                        <x-icons.plus stroke-width="2.5" width="16" height="16" />
-                        <span class="hidden md:inline-block ml-2 text-xs">Konsultasi Umum</span>
-                    </x-anchor.success>
-                    <x-anchor.success href="{{ route('user.konsultasi.akademik.table') }}" class="ml-2">
-                        <x-icons.plus stroke-width="2.5" width="16" height="16" />
-                        <span class="hidden md:inline-block ml-2 text-xs">Konsultasi Akademik</span>
-                    </x-anchor.success>
+                <div class="absolute bg-white rounded-md py-3 -top-24 right-0 shadow-md border" x-show="open"
+                    x-on:click.outside="open = false">
+                    <a href="{{ route('user.konsultasi.akademik.add') }}"
+                        class="px-4 inline-block whitespace-nowrap py-1 hover:bg-gray-100">Konsul
+                        Akademik</a>
+                    <a href="{{ route('user.konsultasi.umum.add') }}"
+                        class="px-4 inline-block w-full whitespace-nowrap py-1 hover:bg-gray-100">Konsul
+                        Umum</a>
                 </div>
-            @endslot
-            <x-input.wrapper class="relative">
-                <x-input.text wire:model="search" class="pl-8 pr-3" />
-                <div class="absolute inset-y-0 left-0 flex items-center px-2 pointer-events-none">
-                    <x-icons.search></x-icons.search>
-                </div>
-            </x-input.wrapper>
-            @foreach ($konsuls as $konsul)
-                @livewire('konsultasi.item', ['konsul' => $konsul], key($konsul->id))
-                {{-- @dump($konsul->get()->toArray())<hr><br><hr> --}}
-            @endforeach
-            <div class="my-4">{{ $konsuls->links() }}</div>
-        </x-card.base>
+            </div>
+        </div>
+    @endpush
 
-    </div>
-
-@endif
+</x-app-layout>

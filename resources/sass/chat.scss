@@ -9,7 +9,7 @@
     }
 
     blockquote {
-        @apply my-2 bg-white py-4 ml-2 border-red-400 rounded-sm #{!important};
+        @apply my-2 bg-white py-4 ml-4 border-red-400 rounded-sm #{!important};
     }
 
     code {
@@ -23,9 +23,26 @@
     h5,
     h6 {
         @apply text-gray-600;
+
+        &:not(:first-child) {
+            @apply mt-4 #{!important};
+        }
     }
 
-    &-left {
+    h1,
+    h2 {
+        @apply text-2xl;
+    }
+
+    &-guest {
+        pre {
+            @apply my-2 bg-gray-50 text-gray-700 bg-opacity-75 border #{!important};
+        }
+
+        code {
+            @apply bg-gray-50 p-0.5 border  rounded-lg text-xs bg-opacity-75;
+        }
+
         a {
             @apply hover:text-blue-600 text-blue-500;
         }
@@ -35,7 +52,42 @@
         }
 
         blockquote {
-            @apply bg-gray-200  #{!important};
+            @apply bg-gray-50 bg-opacity-75 #{!important};
+        }
+
+        table {
+            @apply w-full my-3 #{!important};
+
+            tr {
+                @apply text-center;
+
+                &:nth-child(even) {
+                    @apply bg-gray-50 bg-opacity-75;
+                }
+
+                &:hover {
+                    @apply bg-gray-50 bg-opacity-75;
+                }
+
+                td,
+                th {
+                    @apply border;
+                }
+
+                th {
+                    @apply bg-gray-50 text-center py-3 bg-opacity-75;
+                }
+            }
+        }
+    }
+
+    &-left {
+        a {
+            @apply hover:text-blue-600 text-blue-500;
+        }
+
+        hr {
+            @apply border-gray-200;
         }
 
         table {
@@ -75,10 +127,6 @@
 
         hr {
             @apply border-blue-100;
-        }
-
-        blockquote {
-            @apply bg-gray-50  #{!important};
         }
 
         table {

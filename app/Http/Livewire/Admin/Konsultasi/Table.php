@@ -98,12 +98,7 @@ class Table extends DataTableComponent
     {
         return [
             'jurusan' => Filter::make('Jurusan')
-                ->multiSelect([
-                    'SD' => 'SD',
-                    'SI' => 'SI',
-                    'SK' => 'SK',
-                    'SE' => 'SE',
-                ]),
+                ->multiSelect(AppKonsul::allJurusan(true)),
             'status' => Filter::make('Status')
                 ->multiSelect(AppKonsul::allStatus(true)),
             'need_publish' => Filter::make('Need Publish')
