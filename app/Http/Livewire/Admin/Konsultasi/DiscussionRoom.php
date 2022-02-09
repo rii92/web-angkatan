@@ -57,7 +57,7 @@ class DiscussionRoom extends Component
 
     public function openRoom()
     {
-        if ($this->konsul->status != AppKonsul::STATUS_DONE)
+        if ($this->konsul->status != AppKonsul::STATUS_DONE || $this->konsul->is_publish)
             return $this->emit('error', "Something wrong, you can't open this konsultasi");
 
         $this->konsul->status = AppKonsul::STATUS_PROGRESS;
@@ -70,12 +70,12 @@ class DiscussionRoom extends Component
 
     public function askToPublish()
     {
-        if (($this->konsul->status == AppKonsul::STATUS_DONE) && (!$this->konsul->is_publish)) {
-            $this->sendNotification('disarankan oleh konselor untuk mempublishnya');
-            $this->addActivity('meminta kamu untuk mempublish konsultasi ini');
-            return  $this->emit('success', "Success to send notification");
-        } else
+        if ($this->konsul->status != AppKonsul::STATUS_DONE || $this->konsul->is_publish)
             return $this->emit('error', "Failed to send notification");
+
+        $this->sendNotification('disarankan oleh konselor untuk mempublishnya');
+        $this->addActivity('meminta kamu untuk mempublish konsultasi ini');
+        return  $this->emit('success', "Success to send notification");
     }
 
     public function render()
