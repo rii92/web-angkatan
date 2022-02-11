@@ -4,23 +4,13 @@ import Swiper from 'swiper/bundle';
 // import styles bundle
 import 'swiper/css/bundle';
 
-const swiper = new Swiper(".prokerSwiper", {
+const swiper = new Swiper(".prokerImgSwiper", {
   slidesPerView: 1,
+  allowTouchMove: false,
   loop: true,
   spaceBetween: 20,
   centeredSlides: true,
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
+  autoplay: true,
   breakpoints: {
     640: {
       slidesPerView: 2,
@@ -31,8 +21,17 @@ const swiper = new Swiper(".prokerSwiper", {
       spaceBetween: 40,
     },
     1024: {
-      slidesPerView: 3,
-      spaceBetween: 50,
+      slidesPerView: 4,
+      spaceBetween: 10,
     },
   },
+});
+
+const descSwiper = new Swiper(".prokerDescriptionSwiper", {
+  slidesPerView: 1,
+  allowTouchMove: false,
+  loop: true,
+  spaceBetween: 20,
+  centeredSlides: true,
+  autoplay: true,
 });

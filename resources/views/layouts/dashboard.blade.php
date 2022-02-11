@@ -44,11 +44,25 @@
         </div>
     </div>
     <div class="relative z-30">
-        @livewire('livewire-ui-modal')
+        <div class="modal-center">
+            @livewire('livewire-ui-modal')
+        </div>
     </div>
 </body>
 @livewireScripts
 <script src="{{ mix('js/livewire-handler.js') }}"></script>
 @stack('scripts')
+
+@if (session('message'))
+    <script>
+        Livewire.emit('success', "{{ session('message') }}")
+    </script>
+@endif
+
+@if (session('error'))
+    <script>
+        Livewire.emit('error', "{{ session('error') }}")
+    </script>
+@endif
 
 </html>

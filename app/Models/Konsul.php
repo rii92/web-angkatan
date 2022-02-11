@@ -5,16 +5,45 @@ namespace App\Models;
 use App\Constants\AppKonsul;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Faker\Factory as Faker;
+use Illuminate\Support\Str;
 
 class Konsul extends Model
 {
     use HasFactory;
     protected $table = 'konsul';
+
     protected $guarded = [];
+
+    protected $dates = [
+        'acc_rej_at',
+        'done_at',
+        'published_at'
+    ];
+
+    protected $attributes = [
+        'is_anonim' => false
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'is_publish'
+    ];
 
     public function scopeKonsulType($query, $category)
     {
         return $query->where('category', $category);
+    }
+
+    public function scopePublish($query)
+    {
+        return $query->where('status', AppKonsul::STATUS_DONE)
+            ->where('acc_publish_admin', true)
+            ->where('acc_publish_user', true);
     }
 
     public function user()
@@ -27,9 +56,9 @@ class Konsul extends Model
         return $this->hasOne(UserDetails::class, 'user_id', 'user_id');
     }
 
-    public function chat()
+    public function chats()
     {
-        return $this->belongsToMany(User::class, 'konsul_chats', 'konsul_id', 'user_id');
+        return $this->hasMany(KonsulChat::class)->oldest();
     }
 
     public function tags()
@@ -37,16 +66,39 @@ class Konsul extends Model
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
+    public function getIsPublishAttribute()
+    {
+        return $this->acc_publish_admin && $this->acc_publish_user;
+    }
+
     /**
-     * mendapat jumlah pesan yang belum dibaca dari suatu konsultasi
+     * menandai pesan jadi dibaca, jika $isAdmin true maka pesan dari admin yang akan diubah jadi seen
      *
+     * @param  bool $isAdmin
      * @return void
      */
-    public function unreadMessageCount()
+    public function markUnreadMessage($isAdmin = false)
     {
-        $count = $this->status == AppKonsul::STATUS_WAIT ? 1 : 0;
-        // masih ada kondisi lain lagi nanti
+        return $this->chats()->where('konsul_chats.is_admin', $isAdmin)->update(['konsul_chats.is_seen' => true]);
+    }
 
-        return $count;
+    public function activity()
+    {
+        return $this->morphToMany(User::class, 'activity', 'users_activities', 'activity_id', 'user_id')
+            ->withPivot('title', 'note', 'icon', 'created_at')
+            ->orderByPivot('created_at', 'desc');
+    }
+
+    public function publishKonsul()
+    {
+        $randomInt = Faker::create()->numerify(' #####');
+        $this->slug = Str::slug(Str::limit($this->title, 60, '') . $randomInt);
+        $this->published_at = now();
+    }
+
+    public function unpublishKonsul()
+    {
+        $this->slug = null;
+        $this->published_at = null;
     }
 }

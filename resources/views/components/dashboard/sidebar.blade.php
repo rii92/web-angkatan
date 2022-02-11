@@ -32,19 +32,13 @@
         </x-dashboard.sidebar-item>
     @endcan
 
-    @can(AppPermissions::ANNOUNCEMENT_MANAGEMENT)
-        <x-dashboard.sidebar-label value="Informasi" />
-        <x-dashboard.sidebar-item menu="Announcement" href="{{ route('admin.announcement.table') }}"
-            :active="request()->routeIs('admin.announcement.*')">
-            @slot('icon')
-                <x-icons.speakerphone stroke-width="2.0" width="22" height="22" />
-            @endslot
-        </x-dashboard.sidebar-item>
-    @endcan
-
     @if (App::environment(['local', 'development']))
 
-        <x-dashboard.sidebar-label value="Konsultasi dan Sambat" />
+        @canany([AppPermissions::REPLY_KONSULTASI_UMUM, AppPermissions::REPLY_KONSULTASI_AKADEMIK,
+            AppPermissions::TURNITIN_MANAGEMENT])
+            <x-dashboard.sidebar-label value="Main Feature" />
+        @endcanany
+
         @can(AppPermissions::REPLY_KONSULTASI_UMUM)
             <x-dashboard.sidebar-item menu="Konsultasi Umum" href="{{ route('admin.konsultasi.umum.table') }}"
                 :active="request()->routeIs('admin.konsultasi.umum.*')">
@@ -63,20 +57,43 @@
             </x-dashboard.sidebar-item>
         @endcan
 
+        @can(AppPermissions::TURNITIN_MANAGEMENT)
+            <x-dashboard.sidebar-item menu="Turnitin Submission" href="{{ route('admin.turnitin.table') }}"
+                :active="request()->routeIs('admin.turnitin.*')">
+                @slot('icon')
+                    <x-icons.clipboard-check stroke-width="2.0" width="22" height="22" />
+                @endslot
+            </x-dashboard.sidebar-item>
+        @endcan
+
         <x-dashboard.sidebar-item menu="Sambat" href="{{ route('admin.sambat') }}"
             :active="request()->routeIs('admin.sambat')">
             @slot('icon')
                 <x-icons.emoji-sad stroke-width="2.0" width="22" height="22" />
             @endslot
         </x-dashboard.sidebar-item>
+    @endif
 
+    @canany([AppPermissions::ANNOUNCEMENT_MANAGEMENT, AppPermissions::TIMELINE_MANAGEMENT])
         <x-dashboard.sidebar-label value="Informasi" />
-        <x-dashboard.sidebar-item menu="Berita" href="{{ route('admin.berita') }}"
-            :active="request()->routeIs('admin.berita')">
+    @endcanany
+
+    @can(AppPermissions::ANNOUNCEMENT_MANAGEMENT)
+        <x-dashboard.sidebar-item menu="Announcement" href="{{ route('admin.announcement.table') }}"
+            :active="request()->routeIs('admin.announcement.*')">
             @slot('icon')
-                <x-icons.book-open stroke-width="2.0" width="22" height="22" />
+                <x-icons.speakerphone stroke-width="2.0" width="22" height="22" />
             @endslot
         </x-dashboard.sidebar-item>
-    @endif
+    @endcan
+
+    @can(AppPermissions::TIMELINE_MANAGEMENT)
+        <x-dashboard.sidebar-item menu="Timelines" href="{{ route('admin.timelines.table') }}"
+            :active="request()->routeIs('admin.timelines.*')">
+            @slot('icon')
+                <x-icons.calendar stroke-width="2.0" width="22" height="22" />
+            @endslot
+        </x-dashboard.sidebar-item>
+    @endcan
 
 </x-sidebar-layout>

@@ -5,7 +5,7 @@
             tersebut tau alasannya, misalnya pertanyaan sudah pernah ditanyakan atau pertanyaan tidak jelas.
         </x-input.caption>
 
-        <x-input.select wire:model.defer="status" id="status" x-model="status" onchange="openEditor(this.value)">
+        <x-input.select wire:model.defer="status" id="status" x-model="status" onchange="openEditorNote(this.value)">
             <option value="">Pilih Status</option>
             <option value="{{ AppKonsul::STATUS_PROGRESS }}">Terima</option>
             <option value="{{ AppKonsul::STATUS_REJECT }}">Ditolak</option>
@@ -40,7 +40,7 @@
             let noteEditor;
             const submitForm = () => Livewire.emit('submitForm', noteEditor ? noteEditor.getMarkdown() : '');
 
-            const openEditor = (status) => {
+            const openEditorNote = (status) => {
                 if (status == "<?= AppKonsul::STATUS_REJECT ?>") {
                     setTimeout(() => {
                         noteEditor = new Editor({

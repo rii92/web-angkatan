@@ -16,11 +16,15 @@ mix.disableNotifications();
 
 mix.js("resources/js/app.js", "public/js")
     .js("resources/js/livewire-handler.js", "public/js")
+    .js("resources/js/calendar.js", "public/js")
     .js("resources/js/editor.js", "public/js")
     .js("resources/js/aos.js", "public/js")
     .js("resources/js/swiper.js", "public/js")
+    .js("resources/js/viewer.js", "public/js")
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/chat.scss', 'public/css')
+    .sass('resources/sass/animation.scss', 'public/css')
+    .sass('resources/sass/announcement.scss', 'public/css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],

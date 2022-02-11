@@ -7,6 +7,7 @@ use App\Constants\AppPermissions;
 use App\Models\Konsul;
 use App\Models\User;
 use App\Notifications\BellNotification;
+use Illuminate\Support\Facades\Storage;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Support\Str;
 
@@ -23,15 +24,24 @@ class ModalDelete extends ModalComponent
         $permission = $this->category == AppKonsul::TYPE_UMUM ? AppPermissions::REPLY_KONSULTASI_UMUM : AppPermissions::REPLY_KONSULTASI_AKADEMIK;
 
         if (auth()->user()->can($permission)) {
+            $konsul->tags()->detach();
+
+            $chatWithImage = $konsul->chats()->where('konsul_chats.type', AppKonsul::TYPE_CHAT_IMAGE)->get();
+
+            foreach ($chatWithImage as $chat) Storage::disk('public')->delete($chat->chat);
+
+            $konsul->chats()->delete();
+            $konsul->activity()->detach();
+
+            $konsul->delete();
+
+            $title = Str::limit($konsul->title, 40);
+            $message = "Konsultasimu yang berjudul <b>{$title}</b> dihapus konselor karena {$this->alasan}.";
+            User::find($konsul->user_id)->notify(new BellNotification($message));
+
+            $this->emit('success', "Success delete konsultasi");
+
             try {
-                $konsul->tags()->detach();
-                $konsul->delete();
-
-                $title = Str::limit($konsul->title, 40);
-                $message = "Konsultasimu yang berjudul <b>{$title}</b> dihapus karena {$this->alasan}.";
-                User::find($konsul->user_id)->notify(new BellNotification($message));
-
-                $this->emit('success', "Success delete konsultasi");
             } catch (\Exception $e) {
                 $this->emit('error', "Failed to delete konsultasi");
             } finally {

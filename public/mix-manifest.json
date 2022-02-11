@@ -1,9 +1,13 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/livewire-handler.js": "/js/livewire-handler.js",
-    "/js/editor.js": "/js/editor.js",
-    "/js/aos.js": "/js/aos.js",
-    "/js/swiper.js": "/js/swiper.js",
-    "/css/app.css": "/css/app.css",
-    "/css/chat.css": "/css/chat.css"
+    "/js/app.js": "/js/app.js?id=1fdde4fb88da06be559b",
+    "/js/livewire-handler.js": "/js/livewire-handler.js?id=722402b8823c179800c1",
+    "/js/calendar.js": "/js/calendar.js?id=3a59bd42b8eea26040d9",
+    "/js/editor.js": "/js/editor.js?id=9afab2a6fdd1bb82e00b",
+    "/js/aos.js": "/js/aos.js?id=3abbf763eddbd2fe481f",
+    "/js/swiper.js": "/js/swiper.js?id=95f98736fda24b3349c8",
+    "/js/viewer.js": "/js/viewer.js?id=5bb7747e0d8aed75aeb4",
+    "/css/app.css": "/css/app.css?id=32846109e34580077b10",
+    "/css/announcement.css": "/css/announcement.css?id=0049cb0e4e28916f867e",
+    "/css/animation.css": "/css/animation.css?id=89354ebb019813257a6c",
+    "/css/chat.css": "/css/chat.css?id=c729f8319bd1e4febadd"
 }

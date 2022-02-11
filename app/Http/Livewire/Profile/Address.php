@@ -51,15 +51,7 @@ class Address extends Component
         }
 
         Auth::user()->details()->save($this->details);
-
-        $this->handleResponse();
-    }
-
-    private function handleResponse()
-    {
         $this->emit('success', "Success update your address");
-        $this->emit('reloadComponents', 'profile.details');
-        $this->emit('reloadComponents', 'profile.skripsi');
     }
 
 

@@ -18,6 +18,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('css/chat.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/animation.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/announcement.css') }}">
 
     @livewireStyles
 
@@ -29,16 +31,29 @@
     <x-jet-banner />
 
     <div class="min-h-screen">
-        <nav class="font-poppins shadow mb-2">
+        <nav class="font-poppins shadow mb-2" x-data="{ isMenuOpen: false }" @keydown.escape="isMenuOpen = false">
             <!-- Primary Navigation Menu -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
+                        <!-- Mobile hamburger -->
+                        <button
+                            class="p-1 mr-5 -ml-1 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800 text-gray-600"
+                            @click="isMenuOpen = !isMenuOpen" aria-label="Menu">
+                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </button>
                         <!-- Logo -->
-                        <div class="flex-shrink-0 flex items-center">
+                        <div class="flex-shrink-0 flex items-center lg:mr-8">
                             <x-logo.full />
                         </div>
                     </div>
+
+                    <x-landingpage.desktop-menu></x-landingpage.desktop-menu>
 
                     <div class="flex items-center ml-6">
                         <!-- Settings Dropdown -->
@@ -86,6 +101,7 @@
                         @endauth
                     </div>
                 </div>
+                <x-landingpage.mobile-menu></x-landingpage.mobile-menu>
             </div>
         </nav>
 
@@ -126,11 +142,30 @@
     </div>
 
     @stack('modals')
-    @livewire('livewire-ui-modal')
-</body>
+    <div class="modal-center">
+        @livewire('livewire-ui-modal')
+    </div>
 
-@livewireScripts
-<script src="{{ mix('js/livewire-handler.js') }}"></script>
-@stack('scripts')
+    <div class="fixed bottom-10 sm:right-10 right-5 z-50 transform sm:scale-100 scale-90"
+        x-data="{show : false, showButton : () => document.body.scrollTop > 500 || document.documentElement.scrollTop > 500}"
+        x-on:scroll.window="show = showButton()" x-init="show = showButton()" x-cloak>
+        <div class="grid grid-cols-1 gap-y-1">
+            @stack('bottom-menu')
+
+            <div class="h-10 w-10 bg-main rounded-full border-2 border-white" id="scroll-to-top"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition
+                x-transition.duration.600ms>
+                <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
+                    <x-icons.arrow-up class="text-white hover:text-orange-200 transition duration-150"
+                        stroke-width='3' />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @livewireScripts
+    <script src="{{ mix('js/livewire-handler.js') }}"></script>
+    @stack('scripts')
+</body>
 
 </html>

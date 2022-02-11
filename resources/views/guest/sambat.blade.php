@@ -1,5 +1,5 @@
 <x-app-layout title="Sambat">
-    <div class="my-8 font-sans text-base">
-        @livewire('sambat.lists')
-    </div>
+    <x-landingpage.wrapper title="Sambat">
+        @livewire('sambat.table')
+    </x-landingpage.wrapper>
 </x-app-layout>

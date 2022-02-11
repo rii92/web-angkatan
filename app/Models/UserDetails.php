@@ -17,7 +17,7 @@ class UserDetails extends Model
      * @var array
      */
     protected $appends = [
-        'jenis_kelamin_value',
+        'jenis_kelamin_value', 'jurusan', 'admin_name'
     ];
 
     /**
@@ -44,5 +44,15 @@ class UserDetails extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getJurusanAttribute()
+    {
+        return substr($this->kelas, 1, 2);
+    }
+
+    public function getAdminNameAttribute()
+    {
+        return "Admin {$this->jurusan}-{$this->user_id}";
     }
 }

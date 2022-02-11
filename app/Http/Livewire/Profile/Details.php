@@ -31,14 +31,7 @@ class Details extends Component
 
         Auth::user()->details()->save($this->details);
 
-        $this->handleResponse();
-    }
-
-    private function handleResponse()
-    {
         $this->emit('success', "Success update your information details");
-        $this->emit('reloadComponents', 'profile.address');
-        $this->emit('reloadComponents', 'profile.skripsi');
     }
 
     public function render()
