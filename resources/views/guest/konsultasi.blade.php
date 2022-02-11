@@ -6,7 +6,8 @@
     @push('bottom-menu')
         <div class="h-10 w-10 bg-main rounded-full border-2 border-white" x-data="{open : false}" x-cloak>
             <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
-                <x-icons.plus class="text-white" stroke-width='3' x-on:click="open = !open" />
+                <x-icons.plus class="text-white hover:text-orange-200 transition duration-150" stroke-width='3'
+                    x-on:click="open = !open" />
 
                 <div class="absolute bg-white rounded-md py-3 -top-24 right-0 shadow-md border" x-show="open"
                     x-on:click.outside="open = false">

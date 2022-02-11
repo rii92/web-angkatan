@@ -156,7 +156,8 @@
                 onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition
                 x-transition.duration.600ms>
                 <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
-                    <x-icons.arrow-up class="text-white" stroke-width='3' />
+                    <x-icons.arrow-up class="text-white hover:text-orange-200 transition duration-150"
+                        stroke-width='3' />
                 </div>
             </div>
         </div>

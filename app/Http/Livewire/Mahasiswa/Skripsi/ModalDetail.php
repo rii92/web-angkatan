@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Skripsi;
+namespace App\Http\Livewire\Mahasiswa\Skripsi;
 
 use App\Models\UserDetails;
 use LivewireUI\Modal\ModalComponent;
@@ -18,6 +18,6 @@ class ModalDetail extends ModalComponent
 
     public function render()
     {
-        return view('skripsi.modal-detail');
+        return view('mahasiswa.skripsi.modal-detail');
     }
 }

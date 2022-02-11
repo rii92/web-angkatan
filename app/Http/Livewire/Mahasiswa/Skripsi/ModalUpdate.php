@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Skripsi;
+namespace App\Http\Livewire\Mahasiswa\Skripsi;
 
 use LivewireUI\Modal\ModalComponent;
 
@@ -24,7 +24,7 @@ class ModalUpdate extends ModalComponent
     public function handleForm()
     {
         $this->validate();
-        
+
         auth()->user()->details()->save($this->user_details);
 
         $this->emit('success', "Success update your data");
@@ -33,6 +33,6 @@ class ModalUpdate extends ModalComponent
 
     public function render()
     {
-        return view('skripsi.modal-update');
+        return view('mahasiswa.skripsi.modal-update');
     }
 }

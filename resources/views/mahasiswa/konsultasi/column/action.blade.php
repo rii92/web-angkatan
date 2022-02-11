@@ -1,20 +1,27 @@
 <div class="flex justify-center">
-    <x-konsultasi.icon-chat href='{{ route("user.konsultasi.{$konsul->category}.room", $konsul->id) }}'
-        messageCount="{{ $konsul->unread_chats }}" />
+    <x-button.icon.chat title="Discussion Room"
+        href='{{ route("user.konsultasi.{$konsul->category}.room", $konsul->id) }}' class="relative">
+        @if ($messageCount = $konsul->unread_chats)
+            <div
+                class="absolute font-bold -right-2 -top-3 text-xs bg-orange-300 rounded-full w-6 h-6 flex justify-center items-center transform scale-75">
+                {{ $messageCount }}
+            </div>
+        @endif
+    </x-button.icon.chat>
 
-    <x-konsultasi.icon-activity konsulId="{{ $konsul->id }}" class="ml-2" />
+    <x-button.icon.activity title="Riwayat Konsultasi"
+        onclick="Livewire.emit('openModal', 'activity.konsultasi', {{ json_encode(['konsul_id' => $konsul->id]) }})" />
 
     @if ($konsul->status == AppKonsul::STATUS_WAIT)
-        <a href='{{ route("user.konsultasi.{$konsul->category}.edit", $konsul->id) }}' class="text-green-600 ml-2">
-            <x-icons.pencil-alt stroke-width="2.0" width="22" height="22" />
-        </a>
+        <x-button.icon.edit title="Update Konsultasi"
+            href='{{ route("user.konsultasi.{$konsul->category}.edit", $konsul->id) }}' />
 
-        <x-konsultasi.icon-delete onclick="Livewire.emit('openModal', 'mahasiswa.konsultasi.modal-delete' ,
-        {{ json_encode(['konsul_id' => $konsul->id]) }})" />
+        <x-button.icon.delete title="Delete Konsultasi"
+            onclick="Livewire.emit('openModal', 'mahasiswa.konsultasi.modal-delete', {{ json_encode(['konsul_id' => $konsul->id]) }})" />
     @endif
 
     @if ($konsul->status == AppKonsul::STATUS_REJECT)
-        <x-konsultasi.icon-delete onclick="Livewire.emit('openModal', 'mahasiswa.konsultasi.modal-delete' ,
-        {{ json_encode(['konsul_id' => $konsul->id]) }})" />
+        <x-button.icon.delete title="Delete Konsultasi"
+            onclick="Livewire.emit('openModal', 'mahasiswa.konsultasi.modal-delete', {{ json_encode(['konsul_id' => $konsul->id]) }})" />
     @endif
 </div>

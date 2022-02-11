@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Skripsi;
+namespace App\Http\Livewire\Mahasiswa\Skripsi;
 
 use App\Constants\AppRoles;
 use App\Exports\SkripsiExport;
@@ -26,7 +26,7 @@ class Table extends DataTableComponent
         return [
             Column::make('Actions')
                 ->format(function ($value, $column, $row) {
-                    return view('skripsi.column.actions')->with('user', $row);
+                    return view('mahasiswa.skripsi.column.actions')->with('user', $row);
                 })->excludeFromSelectable(),
             Column::make('NIM', 'details.nim')
                 ->searchable()
@@ -43,16 +43,16 @@ class Table extends DataTableComponent
             Column::make('Judul Skripsi', 'details.skripsi_judul')
                 ->searchable()
                 ->excludeFromSelectable()
-                ->format(fn ($value) => view('skripsi.column.text')->with('value', $value)),
+                ->format(fn ($value) => view('mahasiswa.skripsi.column.text')->with('value', $value)),
             Column::make('Metode', 'details.skripsi_metode')
                 ->searchable()
-                ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
+                ->format(fn ($value) => view('mahasiswa.skripsi.column.text')->with('value', Str::limit($value, 100))),
             Column::make('Variabel Dependen', 'details.skripsi_variabel_dependent')
                 ->searchable()
-                ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
+                ->format(fn ($value) => view('mahasiswa.skripsi.column.text')->with('value', Str::limit($value, 100))),
             Column::make('Variabel Independen', 'details.skripsi_variabel_independent')
                 ->searchable()
-                ->format(fn ($value) => view('skripsi.column.text')->with('value', Str::limit($value, 100))),
+                ->format(fn ($value) => view('mahasiswa.skripsi.column.text')->with('value', Str::limit($value, 100))),
         ];
     }
 

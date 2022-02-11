@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Form;
+namespace App\Http\Livewire\Mahasiswa\Form;
 
 use App\Constants\AppMeetings;
 use App\Models\MeetingMember;
@@ -42,6 +42,6 @@ class Meeting extends Component
 
     public function render()
     {
-        return view('forms.meeting-form');
+        return view('mahasiswa.forms.meeting-form');
     }
 }

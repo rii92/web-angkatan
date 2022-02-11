@@ -44,7 +44,7 @@ Route::prefix('informasi')->group(function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('forms/{uuid}', function ($uuid) {
-        return view('forms.meetings', ['meeting' => Meeting::where('token', $uuid)->whereHas('members', function (Builder $query) {
+        return view('mahasiswa.forms.meetings', ['meeting' => Meeting::where('token', $uuid)->whereHas('members', function (Builder $query) {
             $query->where('user_id', auth()->id());
         })->firstOrFail()]);
     })->name('form');

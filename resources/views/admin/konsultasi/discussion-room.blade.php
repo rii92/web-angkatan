@@ -3,7 +3,8 @@
         <h1 class="text-2xl">
             {{ $konsul->title }}
             <x-konsultasi.status status="{{ $konsul->status }}" class="ml-1" />
-            <x-konsultasi.icon-activity konsulId="{{ $konsul->id }}" />
+            <x-button.icon.activity title="Riwayat Konsultasi" class="inline-block ml-0"
+                onclick="Livewire.emit('openModal', 'activity.konsultasi', {{ json_encode(['konsul_id' => $konsul->id]) }})" />
         </h1>
         <p class="mt-2 text-sm">
             <span>{{ $konsul->name }}</span>

@@ -1,12 +1,7 @@
 <x-app-layout title="{{ $meeting->name }}">
-    @slot('header')
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Absensi') }}
-        </h2>
-    @endslot
-    <div class="mt-8">
+    <x-landingpage.wrapper title="{{ $meeting->name }}">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <x-card.base title="{{ $meeting->name }}" class="text-sm">
+            <x-card.base class="text-sm">
                 {{ $meeting->description }}
                 @if ($meeting->is_open)
                     <div class="mt-4 mb-4 italic">
@@ -15,7 +10,7 @@
                             {{ auth()->user()->name }} ({{ auth()->user()->email }})
                         </span>
                     </div>
-                    @livewire('form.meeting', ['meeting_id' => $meeting->id], key($meeting->id))
+                    @livewire('mahasiswa.form.meeting', ['meeting_id' => $meeting->id], key($meeting->id))
                 @else
                     <div class="text-red-400 font-bold text-center uppercase">
                         This form is closed
@@ -23,5 +18,5 @@
                 @endif
             </x-card.base>
         </div>
-    </div>
+    </x-landingpage.wrapper>
 </x-app-layout>

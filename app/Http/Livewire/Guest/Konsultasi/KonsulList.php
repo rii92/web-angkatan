@@ -31,7 +31,7 @@ class KonsulList extends Component
 
     public function paginationView()
     {
-        return 'pagination.main';
+        return 'pagination.dark';
     }
 
     public function updated()

@@ -7,21 +7,22 @@ $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan}" : "{$kon
 @endphp
 
 <div class="mb-8">
-    <div class="flex items-center">
-        <img src="{{ $photo }}" alt="{{ $name }}"
-            class="rounded-full mr-3 border border-gray-200 shadow-md sm:h-12 sm:w-12 w-10 h-10">
-        <div class="flex flex-col">
-            <h2 class="leading-tight md:text-2xl text-lg">
-                {{ $konsul->title }}
-                <x-konsultasi.category category="{{ $konsul->category }}" />
-            </h2>
-            <small class="text-gray-500">{{ $name }} | {{ $kelas }} |
-                {{ $konsul->published_at->format('d M Y H:i') }} WIB</small>
+    <div class="bg-white p-5 rounded-lg mt-3 shadow-xl border border-gray-200">
+        <div class="flex items-center mb-5">
+            <img src="{{ $photo }}" alt="{{ $name }}"
+                class="rounded-full mr-3 border border-gray-200 shadow-md sm:h-12 sm:w-12 w-10 h-10">
+            <div class="flex flex-col">
+                <a href="{{ route('konsultasi.detail', ['slug' => $konsul->slug]) }}">
+                    <h2 class="md:text-2xl text-lg text-orange-500 hover:text-orange-600">
+                        {{ $konsul->title }}
+                        <x-konsultasi.category category="{{ $konsul->category }}" />
+                    </h2>
+                </a>
+                <small class="text-darker">{{ $name }} | {{ $kelas }} |
+                    {{ $konsul->published_at->format('d M Y H:i') }} WIB</small>
+            </div>
         </div>
-    </div>
-
-    <div class="bg-light-4 bg-opacity-30 p-5 rounded-lg mt-3 shadow-lg border border-gray-300">
-        <article class="text-gray-800">
+        <article class="text-gray-800 font-poppins text-sm tracking-wide">
             {{ Str::limit(strip_tags(Str::markdown($konsul->description)), 1500, '...') }}
         </article>
         <div class="flex justify-between items-center mt-3">
@@ -32,10 +33,6 @@ $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan}" : "{$kon
                         onclick="window.scrollTo({ top: 70, behavior: 'smooth' });" />
                 @endforeach
             </div>
-            <x-anchor.black class="ml-3"
-                href="{{ route('konsultasi.detail', ['slug' => $konsul->slug]) }}">
-                Lihat
-            </x-anchor.black>
         </div>
     </div>
 </div>
