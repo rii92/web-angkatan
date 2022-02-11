@@ -10,6 +10,12 @@ $isRead = $route == 'admin' ? $chat->is_seen && $chat->is_admin : $chat->is_seen
 
 // chat from admin is always left if you, regular user, open discussion room, otherwise
 $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
+
+if ($route == 'admin') {
+    $name = $chat->is_admin ? $chat->user->name : '';
+} else {
+    $name = $chat->is_admin ? $chat->userdetails->admin_name : '';
+}
 @endphp
 
 <li class="flex mb-3 {{ $isLeft ? 'ml-3' : 'mr-3 justify-end' }}">
@@ -20,15 +26,18 @@ $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
                 <img src="{{ Storage::disk('public')->url($chat->chat) }}"
                     alt="{{ Storage::disk('public')->url($chat->chat) }}">
             </div>
-            <div class="text-xs italic mt-1 w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
+            <div
+                class="text-xs italic mt-1 w-full items-center flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
                 @if (!$isLeft && $canDelete)
                     <small class="text-red-700 font-bold cursor-pointer mr-4"
                         onclick="Livewire.emit('openModal', 'konsultasi.modal-delete-chat', {{ json_encode(['chat_id' => $chat->id, 'route' => $route, 'chatType' => $chat->type]) }})">
                         Delete
                     </small>
                 @endif
-                <div class="text-xs text-gray-400">
-                    {{ $chat->created_at->format('d M H:i') }} WIB. {{ $isRead ? 'Read' : '' }}
+                <div class="text-sm text-gray-400 flex flex-col items-end">
+                    <small class="leading-none">{{ $chat->created_at->format('d M H:i') }} WIB.
+                        {{ $isRead ? 'Read' : '' }}</small>
+                    <small>{{ $name . '. ' }}</small>
                 </div>
             </div>
         </div>
@@ -39,15 +48,18 @@ $isLeft = $route == 'admin' ? !$chat->is_admin : $chat->is_admin;
                 {!! Str::markdown($chat->chat) !!}
             </div>
 
-            <p class="text-xs mt-4 italic w-full flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
+            <p
+                class="text-xs mt-4 italic w-full items-center flex {{ $canDelete ? 'justify-between' : 'justify-end' }}">
                 @if (!$isLeft && $canDelete)
                     <small class="text-red-700 font-bold cursor-pointer mr-4"
                         onclick="Livewire.emit('openModal', 'konsultasi.modal-delete-chat', {{ json_encode(['chat_id' => $chat->id, 'route' => $route]) }})">
                         Delete
                     </small>
                 @endif
-                <small class="text-xs">
-                    {{ $chat->created_at->format('d M H:i') }} WIB. {{ $isRead ? 'Read' : '' }}
+                <small class="text-sm flex flex-col items-end">
+                    <small class="leading-none">{{ $chat->created_at->format('d M H:i') }} WIB.
+                        {{ $isRead ? 'Read' : '' }}</small>
+                    <small>{{ $name }}</small>
                 </small>
             </p>
 

@@ -70,18 +70,39 @@
             @if (!$konsul->is_publish)
                 <div class="mt-3 mb-1 sm:flex sm:justify-end sm:items-center">
                     <p class="text-gray-500 text-xs sm:mr-3">
-                        Konsultasi ini selesai pada {{ $konsul->done_at->format('d M H:i:s') }}. Menekan tombol
-                        <b>Ask to Publish</b> akan mengirimkan notifikasi untuk meminta penanya untuk
-                        mempublish konsultasi ini
+                        Konsultasi ini selesai pada {{ $konsul->done_at->format('d M H:i:s') }}.
+                        @if ($this->konsul->acc_publish_admin)
+                            Kamu menyetujui untuk mempublish konsultasi ini. Konsultasi baru akan ke publish jika
+                            penanya juga menyetujuinya
+                        @else
+                            @if ($this->konsul->acc_publish_user)
+                                Penanya sudah setuju untuk mempublish ini. Apakah kamu setuju juga untuk mempublishnya?
+                            @else
+                                Kamu belum menyetujui untuk mempublish konsultasi ini. Apakah kamu menyetujui untuk
+                                dipublish?
+                            @endif
+                        @endif
                     </p>
                     <div class="md:ml-3 md:mt-0 mt-2 flex items-center whitespace-nowrap justify-end">
-                        <x-anchor.success wire:click="askToPublish">
-                            Ask to Publish
-                        </x-anchor.success>
+                        @if ($this->konsul->acc_publish_admin)
+                            <x-anchor.error wire:click="unpublish">
+                                Reject to Publish
+                            </x-anchor.error>
 
-                        <x-anchor.secondary wire:click="openRoom" class="ml-2">
-                            Buka Lagi Konsultasi
-                        </x-anchor.secondary>
+                            <x-anchor.secondary
+                                href="{{ route('admin.konsultasi.' . $konsul->category . '.table') }}"
+                                class="ml-2">
+                                Back
+                            </x-anchor.secondary>
+                        @else
+                            <x-anchor.success wire:click="publish">
+                                Accept to Publish
+                            </x-anchor.success>
+
+                            <x-anchor.secondary wire:click="openRoom" class="ml-2">
+                                Buka Lagi Konsultasi
+                            </x-anchor.secondary>
+                        @endif
                     </div>
                 </div>
             @else
@@ -92,10 +113,19 @@
                         penanya pada
                         {{ $konsul->published_at->format('d M H:i:s') }}
                     </p>
-                    <x-anchor.secondary href="{{ route('admin.konsultasi.' . $konsul->category . '.table') }}"
-                        class="ml-2">
-                        Back
-                    </x-anchor.secondary>
+
+                    <div class="flex">
+                        <x-anchor.error wire:click="unpublish">
+                            Unpublish
+                        </x-anchor.error>
+
+                        <x-anchor.secondary href="{{ route('admin.konsultasi.' . $konsul->category . '.table') }}"
+                            class="ml-2">
+                            Back
+                        </x-anchor.secondary>
+                    </div>
+
+
                 </div>
             @endif
         @endif

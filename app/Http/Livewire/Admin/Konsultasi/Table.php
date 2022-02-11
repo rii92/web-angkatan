@@ -75,10 +75,14 @@ class Table extends DataTableComponent
                 $query->whereIn('status', $status);
             })
             ->when($this->getFilter('is_anonim'), fn ($query, $is_anonim) => $query->where('is_anonim', $is_anonim))
-            ->when($this->getFilter('is_publish'), fn ($query, $is_publish) => $query->where('is_publish', $is_publish))
+            ->when($this->getFilter('is_publish'), fn ($query, $is_publish) => $query->publish())
             ->when($this->getFilter('need_publish'), function ($query, $needPublish) {
                 if ($needPublish)
-                    $query->where('is_publish', false)->where('status', AppKonsul::STATUS_DONE);
+                    $query->where('status', AppKonsul::STATUS_DONE)
+                        ->where(function ($query) {
+                            $query->where('acc_publish_admin', false)
+                                ->orWhere('acc_publish_user', false);
+                        });
             })
             ->when($this->getFilter('jurusan'), function ($query, $jurusan) {
                 $query->whereHas('userdetails', function (Builder $query) use ($jurusan) {

@@ -13,14 +13,10 @@ class Detail extends Component
 
     public function mount($slug)
     {
-        try {
-            $this->konsul = Konsul::with(['user', 'userdetails'])
-                ->publish()
-                ->where('slug', $slug)
-                ->first();
-        } catch (\Throwable $th) {
-            abort(404);
-        }
+        $this->konsul = Konsul::with(['user', 'userdetails', 'chats.userdetails'])
+            ->publish()
+            ->where('slug', $slug)
+            ->firstOrFail();
     }
 
 

@@ -41,6 +41,7 @@ class KonsulList extends Component
 
     public function selectTag($tag = null)
     {
+        $this->resetPage();
         $this->search = $tag;
     }
 

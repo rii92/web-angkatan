@@ -4,7 +4,6 @@
         $nameUser = $konsul->is_anonim ? 'Anonim' : $konsul->user->name;
 
         $photoAdmin = 'https://ui-avatars.com/api/?name=Admin&color=7F9CF5&background=EBF4FF';
-        $nameAdmin = 'Admin';
     @endphp
 
     <div class="max-w-5xl mx-auto">
@@ -41,8 +40,8 @@
 
                 @foreach ($konsul->chats as $chat)
                     <x-konsultasi.chat-guest photo="{!! $chat->is_admin ? $photoAdmin : $photoUser !!}"
-                        name="{{ $chat->is_admin ? $nameAdmin : $nameUser }}" :time="$chat->created_at"
-                        text="{!! $chat->chat !!}" type="{{ $chat->type }}" />
+                        name="{{ $chat->is_admin ? $chat->userdetails->admin_name : $nameUser }}"
+                        :time="$chat->created_at" text="{!! $chat->chat !!}" type="{{ $chat->type }}" />
                 @endforeach
             </ol>
         </main>

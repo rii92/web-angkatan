@@ -17,4 +17,14 @@ class KonsulChat extends Model
         'is_admin',
         'is_seen',
     ];
+
+    public function userdetails()
+    {
+        return $this->hasOne(UserDetails::class, 'user_id', 'user_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

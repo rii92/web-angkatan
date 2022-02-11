@@ -67,20 +67,41 @@
                 @if (!$konsul->is_publish)
                     <p class="text-gray-500 text-xs sm:mr-3">
                         Konsultasi selesai pada {{ $konsul->done_at->format('d M H:i:s') }}.
-                        Konsultasi yang sudah dipublish akan bisa dilihat oleh siapa saja.
-                        Jika kamu bertanya sebagai anonim maka namamu tetap tidak akan ditampilkan.
-                        Jika menurut kamu konsultasi ini sangat bermanfaat dan bisa membantu orang lain
-                        maka sangat disarankan untuk mempublishnya
+                        @if ($konsul->acc_publish_user)
+                            Kamu menyetujui untuk mempublish konsultasi ini. Konsultasi baru akan ke publish jika
+                            admin juga menyetujuinya
+                        @else
+                            @if ($this->konsul->acc_publish_admin)
+                                Admin sudah setuju untuk mempublish ini.
+                            @endif
+
+                            Konsultasi yang sudah dipublish akan bisa dilihat oleh siapa saja.
+                            Jika kamu bertanya sebagai anonim maka namamu tetap tidak akan ditampilkan.
+                            Jika menurut kamu konsultasi ini sangat bermanfaat dan bisa membantu orang lain
+                            maka sangat disarankan untuk mempublishnya
+                        @endif
+
+
                     </p>
                     <div class="md:ml-3 md:mt-0 mt-2 flex items-center whitespace-nowrap justify-end">
-                        <x-anchor.success wire:click="publishKonsultasi">
-                            Publish
-                        </x-anchor.success>
+                        @if ($this->konsul->acc_publish_user)
+                            <x-anchor.error wire:click="unpublishKonsultasi">
+                                Reject to Publish
+                            </x-anchor.error>
+                            <x-anchor.secondary href="{{ route('user.konsultasi.' . $konsul->category . '.table') }}"
+                                class="ml-2">
+                                Back
+                            </x-anchor.secondary>
+                        @else
+                            <x-anchor.success wire:click="publishKonsultasi">
+                                Accept to Publish
+                            </x-anchor.success>
+                            {{-- idk if I use wire:click in one case it doest'n work --}}
+                            <x-anchor.secondary onclick="Livewire.emit('openRoom')" class="ml-2">
+                                Buka Lagi Konsultasi
+                            </x-anchor.secondary>
+                        @endif
 
-                        {{-- idk if I use wire:click in one case it doest'n work --}}
-                        <x-anchor.secondary onclick="Livewire.emit('openRoom')" class="ml-2">
-                            Buka Lagi Konsultasi
-                        </x-anchor.secondary>
                     </div>
                 @else
                     <p class="text-gray-500 text-xs sm:mr-3">Konsultasimu sudah dipublish

@@ -90,7 +90,6 @@ class KonsulFactory extends Factory
             'title' => $title,
             'category' => $this->faker->randomElement([AppKonsul::TYPE_AKADEMIK, AppKonsul::TYPE_UMUM]),
             'status' => $status,
-            'is_publish' => $isPublish ?? false,
             'is_anonim' => $this->faker->boolean(),
             'description' => $this->faker->paragraph(rand(7, 15)),
             'created_at' => $created_at,
@@ -98,7 +97,9 @@ class KonsulFactory extends Factory
             'done_at' => $done_at ?? null,
             'published_at' => $published_at ?? null,
             'note' => $note ?? null,
-            'slug' => $slug ?? null
+            'slug' => $slug ?? null,
+            'acc_publish_admin' => $isPublish ?? false,
+            'acc_publish_user' => $isPublish ?? false
         ];
     }
 }

@@ -53,6 +53,8 @@ class DiscussionRoom extends Component
             return $this->emit('error', "Something wrong, you can't open this konsultasi");
 
         $this->konsul->status = AppKonsul::STATUS_PROGRESS;
+        $this->konsul->acc_publish_admin = false;
+        $this->konsul->acc_publish_user = false;
         $this->konsul->done_at = null;
         $this->konsul->save();
         $this->addActivity('membuka kembali konsultasi dan mengubah statusnya menjadi');
@@ -62,33 +64,41 @@ class DiscussionRoom extends Component
 
     public function publishKonsultasi()
     {
-        if ($this->konsul->status != AppKonsul::STATUS_DONE)
+        if ($this->konsul->status != AppKonsul::STATUS_DONE || $this->konsul->acc_publish_user)
             return $this->emit('error', "Something wrong, you can't publish this konsultasi");
 
-        $this->konsul->is_publish = true;
-        $randomInt = Faker::create()->numerify(' #####');
-        $this->konsul->slug = Str::slug(Str::limit($this->konsul->title, 60, '') . $randomInt);
-        $this->konsul->published_at = now();
+        $this->konsul->acc_publish_user = true;
+        if ($this->konsul->acc_publish_admin) {
+            $this->konsul->publishKonsul();
+            $this->addActivity('mempublish konsultasi', false, 'Konsultasi dipublish <a target="_blank" class="underline text-blue-600" href="' . route('konsultasi.detail', ['slug' => $this->konsul->slug]) . '"> disini</a>');
+            $message = "Success to publish this konsultasi";
+        } else {
+            $message = "Success to take this action";
+            $this->addActivity('menyutujui untuk mempublish konsultasi ini', false);
+        }
+
         $this->konsul->save();
-
-        $this->addActivity('mempublish konsultasi', false, 'Konsultasi dipublish <a target="_blank" class="underline text-blue-600" href="' . route('konsultasi.detail', ['slug' => $this->konsul->slug]) . '"> disini</a>');
-
-
-        return $this->emit('success', "Success to publish this konsultasi");
+        return $this->emit('success', $message);
     }
 
     public function unpublishKonsultasi()
     {
-        if ($this->konsul->status != AppKonsul::STATUS_DONE)
+        if ($this->konsul->status != AppKonsul::STATUS_DONE || !$this->konsul->acc_publish_user)
             return $this->emit('error', "Something wrong, you can't unpublish this konsultasi");
 
-        $this->konsul->is_publish = false;
-        $this->konsul->published_at = null;
-        $this->konsul->slug = null;
-        $this->konsul->save();
+        $this->konsul->acc_publish_user = false;
 
-        $this->addActivity('melakukan unpublish konsultasi', false);
-        return $this->emit('success', "Success to unpublish this konsultasi");
+        if ($this->konsul->acc_publish_admin) {
+            $this->konsul->unpublishKonsul();
+            $this->addActivity('melakukan unpublish konsultasi', false);
+            $message = "Success to unpublish this konsultasi";
+        } else {
+            $this->addActivity('tidak setuju untuk mempublish konsultasi ini', false);
+            $message = "Success to take this action";
+        }
+
+        $this->konsul->save();
+        return $this->emit('success', $message);
     }
 
     public function render()

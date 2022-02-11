@@ -1,5 +1,10 @@
 <x-dashboard-layout title="{{ $category == AppKonsul::TYPE_AKADEMIK ? 'Konsultasi Akademik' : 'Konsultasi Umum' }}">
-    <x-card.base title="Konsultasi List">
+    @php
+        $user = auth()
+            ->user()
+            ->load('details');
+    @endphp
+    <x-card.base title="{{ 'Halo ' . $user->name . ' (' . $user->details->admin_name . ')' }}">
         @slot('aside')
             <div class="flex items-center">
                 <x-icons.refresh
@@ -7,7 +12,7 @@
                     onclick="Livewire.emit('reloadComponents', 'admin.konsultasi.table')" />
             </div>
         @endslot
-        
+
         @livewire('admin.konsultasi.table', ['category'=> $category])
     </x-card.base>
 </x-dashboard-layout>
