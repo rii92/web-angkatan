@@ -8,7 +8,7 @@ use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoo
 use App\Http\Livewire\Guest\Konsultasi\Detail as KonsultasiDetail;
 use App\Http\Livewire\Mahasiswa\Konsultasi\DiscussionRoom;
 use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
-use App\Http\Livewire\Sambat\Form as SambatForm;
+use App\Http\Livewire\Mahasiswa\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
 use Illuminate\Database\Eloquent\Builder;

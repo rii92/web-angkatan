@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Sambat;
+namespace App\Http\Livewire\Mahasiswa\Sambat;
 
 use App\Models\Image;
 use App\Models\Sambat;
@@ -95,7 +95,7 @@ class Form extends Component
 
     public function render()
     {
-        return view('sambat.form')
+        return view('mahasiswa.sambat.form')
             ->layout('layouts.dashboard', [
                 'title' => $this->sambat->id ? "Update Sambat" : "Buat Sambat"
             ]);

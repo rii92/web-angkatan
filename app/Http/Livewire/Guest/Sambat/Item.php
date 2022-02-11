@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Sambat;
+namespace App\Http\Livewire\Guest\Sambat;
 
 use App\Models\Sambat;
 use App\Models\SambatComment;

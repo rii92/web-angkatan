@@ -2,7 +2,7 @@
     <x-modal.header title="Sambat" bordered />
     {{-- just move body to a new single page --}}
     <x-modal.body>
-        @livewire('sambat.item', ['sambat' => $sambat, 'hideCommentButton' => true])
+        @livewire('guest.sambat.item', ['sambat' => $sambat, 'hideCommentButton' => true])
         <h2 class="mb-2">Komentar</h2>
         @forelse ($comments as $comment)
             <div class="flex flex-col justify-between p-4 font-sans">

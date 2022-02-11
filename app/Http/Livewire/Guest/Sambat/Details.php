@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Sambat;
+namespace App\Http\Livewire\Guest\Sambat;
 
 use App\Models\Sambat;
 use App\Models\SambatComment;
@@ -56,7 +56,7 @@ class Details extends ModalComponent
 
     public function render()
     {
-        return view('sambat.details', [
+        return view('guest.sambat.details', [
             'comments' => SambatComment::where('sambat_id', $this->sambat_id)
                 ->orderBy('created_at')
                 ->paginate(self::COMMENT_PAGINATE),

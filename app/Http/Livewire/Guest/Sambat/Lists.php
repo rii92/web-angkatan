@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Sambat;
+namespace App\Http\Livewire\Guest\Sambat;
 
 use App\Models\Sambat;
 use Livewire\Component;
@@ -34,6 +34,6 @@ class Lists extends Component
             ? $this->sambats->where('description', 'like', '%' . $this->search . '%')
             : $this->sambats;
 
-        return view('sambat.lists', ['sambats' => $this->sambats->latest()->paginate(self::page)]);
+        return view('guest.sambat.lists', ['sambats' => $this->sambats->latest()->paginate(self::page)]);
     }
 }

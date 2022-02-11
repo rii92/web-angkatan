@@ -1,5 +1,14 @@
 <x-dashboard-layout title="Sambat">
     <x-card.base title="Daftar Sambat">
-        @livewire('sambat.table', ['user_id' => auth()->id()])
+        @slot('aside')
+            <div class="flex items-center">
+                <x-anchor.success href="{{ route('user.sambat.add') }}">
+                    <x-icons.plus stroke-width="2.5" width="16" height="16" />
+                    <span class="ml-2">Nyambat</span>
+                </x-anchor.success>
+            </div>
+        @endslot
+
+        @livewire('mahasiswa.sambat.table')
     </x-card.base>
 </x-dashboard-layout>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Sambat;
+namespace App\Http\Livewire\Guest\Sambat;
 
 use LivewireUI\Modal\ModalComponent;
 use App\Models\Sambat;
@@ -27,6 +27,6 @@ class ModalDelete extends ModalComponent
 
     public function render()
     {
-        return view('sambat.modal-delete');
+        return view('guest.sambat.modal-delete');
     }
 }

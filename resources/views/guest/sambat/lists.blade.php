@@ -20,7 +20,7 @@
             </div>
         </x-input.wrapper>
         @foreach ($sambats as $sambat)
-            @livewire('sambat.item', ['sambat' => $sambat], key($sambat->id))
+            @livewire('guest.sambat.item', ['sambat' => $sambat], key($sambat->id))
         @endforeach
         <div class="my-4">{{ $sambats->links() }}</div>
     </x-card.base>

@@ -5,11 +5,11 @@
         <div class="flex items-center pb-2  ">
             <div class="w-10 h-10">
                 @if ($sambat->is_anonim)
-                    <img class="object-cover w-full mr-2" src="{{url('img/user-avatar.png')}}"
+                    <img class="object-cover w-full mr-2" src="{{ url('img/user-avatar.png') }}"
                         alt="{{ $sambat->user->name }}" />
                 @else
-                    <img class="object-cover w-full rounded-full mr-2" src="{{$sambat->user->profile_photo_url}}"
-                    alt="{{ $sambat->user->name }}" />
+                    <img class="object-cover w-full rounded-full mr-2" src="{{ $sambat->user->profile_photo_url }}"
+                        alt="{{ $sambat->user->name }}" />
                 @endif
             </div>
             <div class="ml-2">
@@ -63,7 +63,7 @@
             @endif
             @if (!$hideCommentButton)
                 <x-button.white title="comment"
-                    onclick="Livewire.emit('openModal', 'sambat.details', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                    onclick="Livewire.emit('openModal', 'guest.sambat.details', {{ json_encode(['sambat_id' => $sambat->id]) }})"
                     class="ml-2 mt-0 md:ml-0 md:mt-2">
                     <div class="relative">
                         @if ($comments_count)
@@ -84,7 +84,7 @@
                 @endif
                 @if (Auth::user()->id == $sambat->user->id or Auth::user()->can(AppPermissions::DELETE_SAMBAT))
                     <x-button.white title="delete"
-                        onclick="Livewire.emit('openModal', 'sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                        onclick="Livewire.emit('openModal', 'guest.sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
                         class="ml-2 mt-0 md:ml-0 md:mt-2">
                         <x-icons.delete class="w-4 h-4" />
                     </x-button.white>
