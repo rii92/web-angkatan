@@ -150,7 +150,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::prefix('sambat')->group(function () {
             Route::get('', fn () => view('mahasiswa.sambat'))->name('user.sambat.table');
             Route::get('add', SambatForm::class)->name('user.sambat.add');
-            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
+            Route::get('{sambat_id}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
         });
     });
 });

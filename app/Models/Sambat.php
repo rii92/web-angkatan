@@ -41,9 +41,9 @@ class Sambat extends Model
         return $this->hasMany(SambatVote::class);
     }
 
-    public function image()
+    public function images()
     {
-        return $this->morphOne(Image::class, 'imageable');
+        return $this->morphMany(Image::class, 'imageable');
     }
 
     public function scopeSearch($query, $term)

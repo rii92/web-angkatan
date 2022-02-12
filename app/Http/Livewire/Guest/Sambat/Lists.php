@@ -27,8 +27,8 @@ class Lists extends Component
     {
 
         $this->sambats = $this->user_id
-            ? Sambat::where('user_id', $this->user_id)->with('tags', 'image', 'user')
-            : Sambat::with('tags', 'image');
+            ? Sambat::where('user_id', $this->user_id)->with('tags', 'images', 'user')
+            : Sambat::with('tags', 'images');
 
         $this->sambats = Str::of($this->search)->trim()->isNotEmpty()
             ? $this->sambats->where('description', 'like', '%' . $this->search . '%')

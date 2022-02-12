@@ -18,9 +18,9 @@ class EditSambat
      */
     public function handle(Request $request, Closure $next)
     {
-        $sambat = Sambat::find($request->route('sambat'));
+        $sambat = Sambat::find($request->route('sambat_id'));
 
-        if(Auth::check() and Auth::user()->id === $sambat->user->id){
+        if (Auth::check() and Auth::user()->id === $sambat->user->id) {
             return $next($request);
         }
 

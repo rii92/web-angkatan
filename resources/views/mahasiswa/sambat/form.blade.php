@@ -1,7 +1,12 @@
-<div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-data="dataSambat">
     <x-card.form title="Mari Nyambat">
         @slot('description')
-            Pusing sama skripsi? pusing sama kuliah? mari nyambat
+
+            Pusing sama skripsi? pusing sama kuliah? mari nyambat. Kamu bisa menggunakan fitur anonim juga loh!!
+            Kerahasiaan datamu bakalan dijamin, bahkan pihak angkatanpun tidak akan tau kamu siapa. Tapi
+            ingat, sambatan yang kamu buat jangan sampai mengandung kebencian, hoax, sara, dan pornografi. Jika hal itu
+            terjadi maka pihak angkatan akan men-<i>takedown</i> sambatanmu.
+
         @endslot
         <form wire:submit.prevent="handleForm">
 
@@ -14,103 +19,137 @@
             </x-input.wrapper>
 
             <x-input.wrapper>
-                <x-input.checkbox wire:model.defer="sambat.is_anonim" id="anonim" text="Anonim" />
-                <x-input.error for="sambat.is_anonim" />
+                <div class="flex">
+                    <x-input.checkbox wire:model.defer="sambat.is_anonim" id="anonim" text="Anonim" />
+                    <input type="file" id="input-image" class="hidden" x-ref="image" multiple
+                        x-on:change="updateImage" />
+                    <x-icons.image class="cursor-pointer ml-2" x-on:click="$refs.image.click()" />
+                </div>
+                <x-input.error for="images.*" />
             </x-input.wrapper>
 
 
-            <div x-data="{ 'image' : 'Choose File', photoPreview: null }">
-                <x-input.wrapper>
-                    <x-input.label for="image" value="{{ __('Image') }}" />
-                    <div class="w-full">
-                        <input type="file" id="image" class="hidden" x-ref="image" wire:model="image"
-                            x-on:change="
-                            image = $refs.image.files[0].name;
-                            const reader = new FileReader();
-                            reader.onload = (e) => {
-                                photoPreview = e.target.result;
-                            };
-                            reader.readAsDataURL($refs.image.files[0]);
-                            " />
-                        <div class="flex divide-x-1 border rounded-md shadow-sm border-gray-300 justify-between">
-                            <span class="text-gray-400 text-sm p-2 overflow-hidden whitespace-nowrap" x-text="image">
-                            </span>
-                            <x-button.success x-on:click.prevent="$refs.image.click()">
-                                File
-                            </x-button.success>
-                        </div>
+            <div class="grid grid-cols-3 gap-1" id="images">
+                @foreach ($sambat->images as $image)
+                    <div class="h-32 col-span-1 overflow-hidden relative">
+                        <img src="{{ Storage::disk('public')->url($image->url) }}"
+                            alt="{{ Storage::disk('public')->url($image->url) }}"
+                            class="hover:opacity-90 transition cursor-pointer">
+                        <x-icons.close title="Hapus" x-on:click="deleteImage('{{ $image->url }}', $el)"
+                            class="absolute top-0 right-0 border transition hover:bg-white cursor-pointer bg-gray-100 p-0.5"
+                            width="18" height="18" />
                     </div>
-                    <x-input.error for="image" />
-                </x-input.wrapper>
+                @endforeach
 
-                @if ($sambat->image)
-                    <div class="aspect-w-3 aspect-h-2 mt-1" x-show="!photoPreview">
-                        <img src="{{ Storage::disk('public')->url($sambat->image->url) }}" alt="{{ $sambat->id }}">
+                <template x-for="(photo, index) in photos" :key="index">
+                    <div class="h-32 col-span-1 overflow-hidden relative uploaded">
+                        <img x-bind:src="photo" x-bind:alt="index" class="hover:opacity-90 transition cursor-pointer">
+                        <x-icons.close title="Hapus"
+                            class="absolute top-0 right-0 border transition hover:bg-white cursor-pointer bg-gray-100 p-0.5"
+                            x-on:click="removeImage(index)" width="18" height="18" />
                     </div>
-                @endif
-
-                <div class="aspect-w-3 aspect-h-2 mt-1" x-show="photoPreview">
-                    <div class="bg-cover bg-center" x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
-                    </div>
-                </div>
+                </template>
             </div>
 
-
-            <x-input.wrapper>
-                <x-input.label for="tags" value="{{ __('Tags') }}" />
-                @forelse ($tags as $key => $item)
-                    <div>
-                        <div class="flex items-center my-2">
-                            <x-input.text wire:model="tags.{{ $key }}" type="text" />
-                            <x-button.error class="ml-2" wire:click="removeTags({{ $key }})">
-                                <span class="hidden md:block">Remove</span>
-                                <span class="md:hidden">
-                                    <x-icons.delete class="w-8 h-8" />
-                                </span>
-                            </x-button.error>
-                        </div>
-                        <x-input.error for="tags.{{ $key }}" />
-                    </div>
-                @empty
-                    <div>
-                        <div class="flex items-center my-2">
-                            <x-input.text wire:model="tags.0" type="text" />
-                        </div>
-                        <x-input.error for="tags.0" />
-                    </div>
-                @endforelse
-                <x-button.success wire:click="addTags">
-                    Add Tags
-                </x-button.success>
-                <x-input.error for="tags" />
+            <x-input.wrapper class="mb-5">
+                <x-input.label for="hastags" value="{{ __('Hastags') }}" />
+                <x-input.caption>
+                    Maksimal 5 tags untuk menggambarkan sambatanmu berkaitan dengan apa
+                </x-input.caption>
+                <x-input.tags init="{{ $tags }}" id="hastags" className="tag" />
+                <x-input.error for="hastags" />
             </x-input.wrapper>
 
-            <div class="flex justify-end mt-4">
+            <div class="flex justify-end mt-4 items-center">
+                <p wire:loading class="text-gray-400 text-xs italic mr-2">Menyimpan ...</p>
                 <x-anchor.secondary href="{{ route('user.sambat.table') }}">Back</x-anchor.secondary>
-                <x-button.black onclick="submitForm()" class="ml-2">
+                <x-button.black x-on:click="submitForm" class="ml-2" wire:loading.attr="disabled">
                     Submit
                 </x-button.black>
             </div>
 
             @push('scripts')
                 <script src="{{ mix('js/editor.js') }}" defer></script>
+                <script src="{{ mix('js/viewer.js') }}" defer></script>
                 <script>
-                    let editor;
-                    const submitForm = () => Livewire.emit('submitForm', editor.getMarkdown());
-                    document.addEventListener("DOMContentLoaded", function() {
-                        editor = new Editor({
-                            el: document.querySelector('#editor'),
-                            previewStyle: 'tab',
-                            minHeight: '300px',
-                            initialValue: @this.sambat.description,
-                            toolbarItems: ['heading', 'bold', 'italic', 'strike', 'divider', 'hr', 'quote', 'divider',
-                                'ul', 'ol', 'task', 'indent', 'outdent', 'divider', 'table', 'link',
-                                'divider', 'code', 'codeblock'
-                            ],
-                        });
-                    });
-                </script>
+                    const dataSambat = {
+                        photos: [],
+                        files: [],
+                        editor: null,
+                        viewer: null,
+                        validExtention: ["jpeg", 'jpg', 'png'],
+                        deleteUrl: [],
 
+                        init() {
+                            document.addEventListener("DOMContentLoaded", () => {
+                                this.editor = new Editor({
+                                    el: document.querySelector('#editor'),
+                                    previewStyle: 'tab',
+                                    minHeight: '300px',
+                                    initialValue: @this.sambat.description,
+                                    toolbarItems: ['bold', 'italic', 'strike', 'hr', 'quote', 'ul', 'ol',
+                                        'link'
+                                    ],
+                                });
+
+                                this.viewer = new Viewer(document.getElementById('images'), {
+                                    inline: false,
+                                    zoomRatio: 0.2
+                                });
+                            });
+                        },
+
+                        submit() {
+                            const tags = Array.from(document.querySelectorAll('.tag')).map(tag => tag.textContent);
+                            @this.handleForm(this.editor.getMarkdown(), tags, this.deleteUrl)
+                        },
+
+                        submitForm() {
+                            if (this.files.length != 0)
+                                @this.uploadMultiple('images', this.files, () => {
+                                    this.submit();
+                                });
+                            else
+                                this.submit();
+                        },
+
+                        removeImage(index) {
+                            this.photos.splice(index, 1);
+                            this.files.splice(index, 1);
+                            this.updateViewer();
+                        },
+
+                        updateViewer() {
+                            setTimeout(() => {
+                                this.viewer.update();
+                            }, 100);
+                        },
+
+                        updateImage() {
+                            Array.from(this.$refs.image.files).forEach((file) => {
+                                const fileType = file.type.split('/')[1]
+                                const fileSize = file.size / 1024 / 1024;
+
+                                if (!this.validExtention.includes(fileType))
+                                    return Livewire.emit('error', `Pastikan file ${file.name} adalah file gambar`);
+
+                                if (fileSize > 2)
+                                    return Livewire.emit('error', `File ${file.name} melebihi 2 MB`);
+
+                                this.files.push(file)
+                                const reader = new FileReader();
+                                reader.onload = e => this.photos.push(e.target.result);
+                                reader.readAsDataURL(file);
+                            });
+                            this.updateViewer();
+                        },
+
+                        deleteImage(url, element) {
+                            element.parentElement.remove()
+                            this.deleteUrl.push(url);
+                        }
+                    }
+                </script>
             @endpush
         </form>
     </x-card.form>

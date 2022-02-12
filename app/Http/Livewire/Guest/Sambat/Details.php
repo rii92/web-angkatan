@@ -23,7 +23,7 @@ class Details extends ModalComponent
 
     public function mount()
     {
-        $this->sambat = Sambat::where('id', $this->sambat_id)->first();
+        $this->sambat = Sambat::with('images')->find($this->sambat_id);
     }
 
     public function addComments($description)

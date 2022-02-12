@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Mahasiswa\Sambat;
 
-use App\Models\Image;
 use App\Models\Sambat;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +13,7 @@ class Form extends Component
     use WithFileUploads;
 
     public Sambat $sambat;
-
-    public $image, $tags;
+    public $images = [], $tags, $hastags, $sambat_id;
 
     protected $listeners = [
         'submitForm' => 'handleForm'
@@ -26,67 +24,56 @@ class Form extends Component
         return [
             'sambat.description' => 'required',
             'sambat.is_anonim' => 'required|boolean',
-            'sambat.user_id' => 'required',
-            'image' => 'nullable|image|max:1024',
-            'tags' => 'nullable|array',
-            'tags.*' => 'required'
+            'images.*' => 'nullable|image|max:2048',
+            'hastags' => 'required|array|max:5|min:1'
         ];
     }
 
-    public function mount(Sambat $sambat)
+    public function mount()
     {
-        $this->sambat = $sambat ?? new Sambat();
-        $this->tags = $this->sambat->id ? $this->sambat->tags->pluck('name') : collect([]);
+        $this->sambat = $this->sambat_id ? Sambat::find($this->sambat_id) : new Sambat();
+        $this->tags = $this->sambat_id ? $this->sambat->tags->pluck('name')->implode(' ') : '';
     }
 
-    public function addTags()
-    {
-        try {
-            $this->tags =  $this->tags->push('');
-        } catch (\Exception $e) {
-            $this->emit('error', $e->getMessage());
-        }
-    }
 
-    public function removeTags($index)
-    {
-        try {
-            $this->tags =  $this->tags->forget($index);
-        } catch (\Exception $e) {
-            $this->emit('error', $e->getMessage());
-        }
-    }
-
-    public function handleForm($description)
+    public function handleForm($description, $tags, $deleteUrl)
     {
         $this->sambat->description = $description;
         $this->sambat->user_id = Auth::user()->id;
+        $this->hastags = $tags;
 
         $this->validate();
-
         try {
-
             $this->sambat->save();
 
             // image
-            if ($this->image) {
-                $image = $this->sambat->image ?? new Image([
-                    'imageable_id' => $this->sambat->id,
-                    'imageable_type' => Sambat::class
+            foreach ($this->images as $image) {
+                $this->sambat->images()->create([
+                    'url' => $image->storePublicly('sambat', ['disk' => 'public'])
                 ]);
-                $image->url = $this->image->storePublicly('image', ['disk' => 'public']);
-
-                $this->sambat->image()->save($image);
             }
+
+            // delete image
+            foreach ($deleteUrl as $url)
+                $this->sambat->images()->where('url', $url)->delete();
 
             // remove all tags and assign new
             $this->sambat->tags()->detach();
-            foreach ($this->tags as $item) {
-                $tag = Tag::firstOrCreate(['name' => $item]);
-                $this->sambat->tags()->attach($tag);
+            foreach ($this->hastags as $item) {
+                $tag = Tag::updateOrCreate(['name' => $item]);
+                $this->sambat->tags()->save($tag);
             }
 
-            return redirect()->route('user.sambat.table')->with('success', 'Mantap, udah nyambat !!');
+            if ($this->sambat_id) {
+                if (!empty($this->images))
+                    return redirect()->route('user.sambat.edit', ['sambat_id' => $this->sambat->id])
+                        ->with('message', 'Perubahan berhasil disimpan');
+
+                $this->sambat->load('images');
+                return $this->emit('success', 'Perubahan berhasil disimpan');
+            }
+
+            return redirect()->route('user.sambat.table')->with('message', 'Mantap, udah nyambat !!');
         } catch (\Exception $e) {
             debugbar()->addMessage($e->getMessage());
             $this->emit('error', "Waduh gagal nyambat!!");
@@ -97,7 +84,7 @@ class Form extends Component
     {
         return view('mahasiswa.sambat.form')
             ->layout('layouts.dashboard', [
-                'title' => $this->sambat->id ? "Update Sambat" : "Buat Sambat"
+                'title' => $this->sambat_id ? "Update Sambat" : "Buat Sambat"
             ]);
     }
 }

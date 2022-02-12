@@ -28,11 +28,12 @@
         </div>
         <div>
             <div class="prose font-sans">
-                @if ($sambat->image)
+                @foreach ($sambat->images as $image)
                     <div class="mb-2">
-                        <img src="{{ Storage::disk('public')->url($sambat->image->url) }}" alt="{{ $sambat->id }}">
+                        <img src="{{ Storage::disk('public')->url($image->url) }}" alt="{{ $image->id }}">
                     </div>
-                @endif
+                @endforeach
+
                 {!! Str::markdown($sambat->description) !!}
             </div>
         </div>
