@@ -1,11 +1,18 @@
+@props(['comments'])
+
 <div>
-    <x-modal.header title="Sambat" bordered />
-    {{-- just move body to a new single page --}}
-    <x-modal.body>
-        @livewire('guest.sambat.item', ['sambat' => $sambat, 'hideCommentButton' => true])
-        <h2 class="mb-2">Komentar</h2>
+    <h2 class="pb-2 mb-3 border-b">
+        Komentar
+        @if ($jumlahKomentar = $comments->count())
+            <x-badge.warning text="{{ $jumlahKomentar }}" />
+        @endif
+    </h2>
+
+    <div style="max-height: 60vh" x-data="{}" class="overflow-y-auto divide-y" id="all-comments"
+        x-effect="setTimeout(() => {const bottom = $el.lastElementChild.offsetTop; $el.scrollTo({top: bottom, behavior: 'smooth'});}, 100);">
+
         @forelse ($comments as $comment)
-            <div class="flex flex-col justify-between p-4 font-sans">
+            <div class="flex flex-col justify-between p-4 font-sans hover:bg-gray-50">
                 <div class="flex flex-row justify-between items-start">
                     <div class="flex items-center pb-2  ">
                         <div class="w-10 h-10">
@@ -17,13 +24,14 @@
                                 {{ $comment->user->name }}
                             </div>
                             <div class="text-xs">
-                                {{ $comment->created_at }}
+                                {{ $comment->created_at->format('d-M H:i') }}
                             </div>
                         </div>
                     </div>
+
                     <div>
                         @auth
-                            @if (Auth::user()->id == $comment->user->id or Auth::user()->can(AppPermissions::DELETE_SAMBAT))
+                            @if (Auth::id() == $comment->user_id or Auth::user()->can(AppPermissions::DELETE_SAMBAT))
                                 <x-jet-dropdown align="right" width="48">
                                     <x-slot name="trigger">
                                         <button
@@ -42,38 +50,12 @@
                             @endif
                         @endauth
                     </div>
+
                 </div>
                 <p class="my-2 text-sm">{{ $comment->description }}</p>
             </div>
         @empty
-            <h1 class="text-center text-md">Belum ada komentar di sambatan ini...</h1>
+            <p class="text-center text-md italic my-8">Belum ada komentar di sambatan ini...</p>
         @endforelse
-
-        <div class="mb-2">
-            {{ $comments->links() }}
-        </div>
-        @auth
-            <form wire:submit.prevent="addComments">
-                <x-input.wrapper>
-                    <x-input.textarea id="sambat_comments.description" placeholder="{{ __('Komentarmu...') }}">
-                    </x-input.textarea>
-                    <x-input.error for="sambat_comments.description" />
-                </x-input.wrapper>
-            </form>
-        @else
-            <div class="text-center text-md">Login dulu biar bisa ikut komentar...</div>
-        @endauth
-
-    </x-modal.body>
-    <x-modal.footer>
-        @auth
-            <x-button.success
-                onclick="Livewire.emit('submitForm', document.getElementById('sambat_comments.description').value); document.getElementById('sambat_comments.description').value = ''; ">
-                Kirim
-            </x-button.success>
-        @endauth
-        <x-button.secondary wire:click="$emit('closeModal')" class="ml-2">
-            Tutup
-        </x-button.secondary>
-    </x-modal.footer>
+    </div>
 </div>

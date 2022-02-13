@@ -21,9 +21,15 @@ class Sambat extends Model
         'is_anonim' => false
     ];
 
+
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    public function userdetails()
+    {
+        return $this->hasOne(UserDetails::class, 'user_id', 'user_id');
     }
 
     public function tags()
@@ -31,7 +37,7 @@ class Sambat extends Model
         return $this->morphToMany(Tag::class, 'taggable');
     }
 
-    public function sambat_comment()
+    public function comments()
     {
         return $this->hasMany(SambatComment::class);
     }
@@ -50,5 +56,10 @@ class Sambat extends Model
     {
         $term = "%$term%";
         $query->where('description', 'like', $term);
+    }
+
+    public function myvote()
+    {
+        return $this->votes()->where('user_id', auth()->id() ?? -1);
     }
 }

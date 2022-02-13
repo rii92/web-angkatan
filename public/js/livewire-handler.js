@@ -539,7 +539,9 @@ Livewire.on("success", function (message) {
 }); // Reload table
 
 Livewire.on("reloadComponents", function (name) {
-  Livewire.components.getComponentsByName(name)[0].$wire.$refresh();
+  var index = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var event = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+  if (!event) Livewire.components.getComponentsByName(name)[index].$wire.$refresh();else Livewire.components.getComponentsByName(name)[index].$wire.emitSelf(event);
 });
 })();
 

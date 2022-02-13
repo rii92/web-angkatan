@@ -146,7 +146,7 @@
         @livewire('livewire-ui-modal')
     </div>
 
-    <div class="fixed bottom-10 sm:right-10 right-5 z-50 transform sm:scale-100 scale-90"
+    <div class="fixed bottom-10 sm:right-10 right-5 transform sm:scale-100 scale-90"
         x-data="{show : false, showButton : () => document.body.scrollTop > 500 || document.documentElement.scrollTop > 500}"
         x-on:scroll.window="show = showButton()" x-init="show = showButton()" x-cloak>
         <div class="grid grid-cols-1 gap-y-1">
