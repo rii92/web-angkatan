@@ -36,6 +36,14 @@
             <x-input.error for="details.jenis_kelamin" />
         </x-input.wrapper>
 
+        <x-input.wrapper>
+            <x-input.label for="details.anonim_name" value="{{ __('Anonim Name') }}" />
+            <x-input.caption>Nama anonim ini yang akan digunakan ketika menggunakan fitur sambat</x-input.caption>
+            <x-input.text id="details.anonim_name" wire:model.defer="details.anonim_name" type="text"
+                onkeyup="this.value = this.value.toLowerCase()" />
+            <x-input.error for="details.anonim_name" />
+        </x-input.wrapper>
+
 
         <div class="flex justify-end mt-6 items-center">
             <span class="mr-3 text-sm" wire:loading>Saving...</span>

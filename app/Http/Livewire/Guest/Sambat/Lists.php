@@ -12,9 +12,13 @@ class Lists extends Component
     use WithPagination;
 
     private const page = 8;
-    public $search;
-
+    public $search, $hasSambat;
     protected $updatedQueryString = ['search', ['except' => '']];
+
+    public function mount()
+    {
+        $this->hasSambat = Sambat::count() > 0;
+    }
 
     private function getSambat()
     {

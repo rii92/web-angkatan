@@ -1,9 +1,9 @@
-const descriptionSambat = (description) => ({
+const descriptionSambat = (description, limitText = 500) => ({
     description: null,
     showFull: false,
     needReadMore: null,
     displayText: '',
-    limitText: 500,
+    limitText: limitText,
     viewer: null,
 
     init() {
@@ -16,7 +16,7 @@ const descriptionSambat = (description) => ({
         this.showFull = true;
     },
     showLessText() {
-        this.displayText = this.description.slice(0, this.limitText) + '.......';
+        this.displayText = this.description.slice(0, this.limitText) + '...';
         this.showFull = false;
     },
     initViewer(element) {

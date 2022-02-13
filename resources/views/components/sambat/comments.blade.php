@@ -1,7 +1,7 @@
-@props(['comments'])
+@props(['comments', 'penyambat'])
 
 <div>
-    <h2 class="pb-2 mb-3 border-b">
+    <h2 class="pb-2 md:mb-3 md:border-b">
         Komentar
         @if ($jumlahKomentar = $comments->count())
             <x-badge.warning text="{{ $jumlahKomentar }}" />
@@ -12,19 +12,27 @@
         x-effect="setTimeout(() => {const bottom = $el.lastElementChild.offsetTop; $el.scrollTo({top: bottom, behavior: 'smooth'});}, 100);">
 
         @forelse ($comments as $comment)
+            @php
+                $name = $comment->is_anonim ? 'Anonim-' . $comment->userdetails->anonim_name : $comment->user->name;
+                $photo = $comment->is_anonim ? url('img/user-avatar.png') : $comment->user->profile_photo_url;
+            @endphp
+
             <div class="flex flex-col justify-between p-4 font-sans hover:bg-gray-50">
                 <div class="flex flex-row justify-between items-start">
                     <div class="flex items-center pb-2  ">
                         <div class="w-10 h-10">
-                            <img class="object-cover w-full rounded-full mr-2"
-                                src="{{ $comment->user->profile_photo_url }}" alt="{{ $comment->user->name }}" />
+                            <img class="object-cover w-full rounded-full mr-2" src="{{ $photo }}"
+                                alt="{{ $name }}" />
                         </div>
                         <div class="ml-2">
-                            <div class="font-bold text-sm text-gray-600">
-                                {{ $comment->user->name }}
+                            <div class="font-bold text-sm text-orange-600">
+                                {{ $name }}
                             </div>
                             <div class="text-xs">
                                 {{ $comment->created_at->format('d-M H:i') }}
+                                @if ($name == $penyambat)
+                                    <x-badge.primary text="penyambat" class="transform scale-90" />
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -52,7 +60,13 @@
                     </div>
 
                 </div>
-                <p class="my-2 text-sm">{{ $comment->description }}</p>
+                <p class="mb-2 mt-1 text-sm" x-data='descriptionSambat(@json($comment->description), 150)' x-cloak>
+                    <span x-text="displayText"></span>
+                    <span x-show="needReadMore"
+                        class="text-blue-500 hover:text-blue-600 underline text-xs cursor-pointer transition">
+                        <small x-show="!showFull" x-on:click="showFullText">Show More</small>
+                        <small x-show="showFull" x-on:click="showLessText">Show Less</small>
+                    </span>
             </div>
         @empty
             <p class="text-center text-md italic my-8">Belum ada komentar di sambatan ini...</p>

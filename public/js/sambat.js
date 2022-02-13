@@ -4,12 +4,13 @@ var __webpack_exports__ = {};
   !*** ./resources/js/sambat.js ***!
   \********************************/
 var descriptionSambat = function descriptionSambat(description) {
+  var limitText = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
   return {
     description: null,
     showFull: false,
     needReadMore: null,
     displayText: '',
-    limitText: 500,
+    limitText: limitText,
     viewer: null,
     init: function init() {
       this.description = description;
@@ -21,7 +22,7 @@ var descriptionSambat = function descriptionSambat(description) {
       this.showFull = true;
     },
     showLessText: function showLessText() {
-      this.displayText = this.description.slice(0, this.limitText) + '.......';
+      this.displayText = this.description.slice(0, this.limitText) + '...';
       this.showFull = false;
     },
     initViewer: function initViewer(element) {

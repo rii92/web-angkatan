@@ -1,5 +1,5 @@
 @php
-$name = $sambat->is_anonim ? 'Anonim' : $sambat->user->name;
+$name = $sambat->is_anonim ? 'Anonim-' . $sambat->userdetails->anonim_name : $sambat->user->name;
 $photo = $sambat->is_anonim ? url('img/user-avatar.png') : $sambat->user->profile_photo_url;
 @endphp
 
@@ -10,49 +10,53 @@ $photo = $sambat->is_anonim ? url('img/user-avatar.png') : $sambat->user->profil
     </div>
 
     {{-- side --}}
-    <div class="w-16 py-2 ml-2 md:ml-0 md:py-4 flex justify-start md:border-r border-gray-200">
-        <div class="flex md:flex-col items-center">
-            <x-sambat.icon-vote isSelected="{{ !is_null($sambat_vote) and $sambat_vote->votes == 1 }}" type="upvote"
-                wire:click="upvote" />
+    <div class="md:w-16 w-auto pt-3 md:pt-2 pb-2 ml-2 md:ml-0 md:py-4 md:border-r border-gray-200">
+        <div class="flex md:flex-col items-center justify-between">
+            <div class="flex md:flex-col items-center">
+                <x-sambat.icon-vote isSelected="{{ !is_null($sambat_vote) and $sambat_vote->votes == 1 }}"
+                    type="upvote" wire:click="upvote" />
 
-            <div class="text-sm my-2 mx-2">
-                {{ $votes_sum }}
+                <div class="text-sm my-2 mx-2">
+                    {{ $votes_sum }}
+                </div>
+
+                <x-sambat.icon-vote isSelected="{{ !is_null($sambat_vote) and $sambat_vote->votes == -1 }}"
+                    type="downvote" wire:click="downvote" />
             </div>
 
-            <x-sambat.icon-vote isSelected="{{ !is_null($sambat_vote) and $sambat_vote->votes == -1 }}"
-                type="downvote" wire:click="downvote" />
-
-            @if (!$hideCommentButton)
-                <x-button.white title="comment"
-                    onclick="Livewire.emit('openModal', 'guest.sambat.modal-detail', {{ json_encode(['sambat_id' => $sambat->id]) }})"
-                    class="ml-2 mt-0 md:ml-0 md:mt-2">
-                    <div class="relative">
-                        @if ($comments_count)
-                            <div class="absolute -right-6 -top-4 text-sm">
-                                <x-badge.warning text="{{ $comments_count }}" />
-                            </div>
-                        @endif
-                        <x-icons.chat class="w-4 h-4" />
-                    </div>
-                </x-button.white>
-            @endif
-
-            @auth
-                @if (Auth::id() == $sambat->user_id)
-                    <x-anchor.white title="edit" href="{{ route('user.sambat.edit', $sambat) }}"
-                        class="ml-2 mt-0 md:ml-0 md:mt-2">
-                        <x-icons.edit class="w-4 h-4" />
-                    </x-anchor.white>
-                @endif
-
-                @if (Auth::id() == $sambat->user_id or Auth::user()->can(AppPermissions::DELETE_SAMBAT))
-                    <x-button.white title="delete"
-                        onclick="Livewire.emit('openModal', 'guest.sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
-                        class="ml-2 mt-0 md:ml-0 md:mt-2">
-                        <x-icons.delete class="w-4 h-4" />
+            <div class="flex md:flex-col items-center">
+                @if (!$hideCommentButton)
+                    <x-button.white title="comment"
+                        onclick="Livewire.emit('openModal', 'guest.sambat.modal-detail', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                        class="ml-2 mt-0 md:ml-0 md:mt-2 md:order-1 order-4">
+                        <div class="relative">
+                            @if ($comments_count)
+                                <div class="absolute -right-6 -top-4 text-sm">
+                                    <x-badge.warning text="{{ $comments_count }}" />
+                                </div>
+                            @endif
+                            <x-icons.chat class="w-4 h-4" />
+                        </div>
                     </x-button.white>
                 @endif
-            @endauth
+
+                @auth
+                    @if (Auth::id() == $sambat->user_id)
+                        <x-anchor.white title="edit" href="{{ route('user.sambat.edit', $sambat) }}"
+                            class="ml-2 mt-0 md:ml-0 md:mt-2 order-2">
+                            <x-icons.edit class="w-4 h-4" />
+                        </x-anchor.white>
+                    @endif
+
+                    @if (Auth::id() == $sambat->user_id or Auth::user()->can(AppPermissions::DELETE_SAMBAT))
+                        <x-button.white title="delete"
+                            onclick="Livewire.emit('openModal', 'guest.sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                            class="ml-2 mt-0 md:ml-0 md:mt-2 order-3">
+                            <x-icons.delete class="w-4 h-4" />
+                        </x-button.white>
+                    @endif
+                @endauth
+            </div>
         </div>
     </div>
 </div>

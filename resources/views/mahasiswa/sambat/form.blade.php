@@ -60,97 +60,104 @@
                 <x-input.error for="hastags" />
             </x-input.wrapper>
 
-            <div class="flex justify-end mt-4 items-center">
-                <p wire:loading class="text-gray-400 text-xs italic mr-2">Menyimpan ...</p>
-                <x-anchor.secondary href="{{ route('user.sambat.table') }}">Back</x-anchor.secondary>
-                <x-button.black x-on:click="submitForm" class="ml-2" wire:loading.attr="disabled">
-                    Submit
-                </x-button.black>
+            <div class="flex justify-between mt-4 items-center">
+                <p class="text-xs text-gray-500 mr-3">
+                    {{ $sambat->updated_at ? "Last Update : {$sambat->updated_at->format('d M Y h:i A')}" : '' }}
+                </p>
+
+                <div class="flex items-center">
+                    <p wire:loading class="text-gray-400 text-xs italic mr-2">Menyimpan ...</p>
+                    <x-anchor.secondary wire:loading.remove href="{{ route('user.sambat.table') }}">Back
+                    </x-anchor.secondary>
+                    <x-button.black x-on:click="submitForm" class="ml-2" wire:loading.attr="disabled">
+                        {{ $sambat_id ? 'Save' : 'Submit' }}
+                    </x-button.black>
+                </div>
             </div>
-
-            @push('scripts')
-                <script src="{{ mix('js/editor.js') }}" defer></script>
-                <script src="{{ mix('js/viewer.js') }}" defer></script>
-                <script>
-                    const dataSambat = {
-                        photos: [],
-                        files: [],
-                        editor: null,
-                        viewer: null,
-                        validExtention: ["jpeg", 'jpg', 'png'],
-                        deleteUrl: [],
-
-                        init() {
-                            document.addEventListener("DOMContentLoaded", () => {
-                                this.editor = new Editor({
-                                    el: document.querySelector('#editor'),
-                                    previewStyle: 'tab',
-                                    minHeight: '300px',
-                                    initialValue: @this.sambat.description,
-                                    toolbarItems: ['bold', 'italic', 'strike', 'hr', 'quote', 'ul', 'ol',
-                                        'link'
-                                    ],
-                                });
-
-                                this.viewer = new Viewer(document.getElementById('images'), {
-                                    inline: false,
-                                    zoomRatio: 0.2
-                                });
-                            });
-                        },
-
-                        submit() {
-                            const tags = Array.from(document.querySelectorAll('.tag')).map(tag => tag.textContent);
-                            @this.handleForm(this.editor.getMarkdown(), tags, this.deleteUrl)
-                        },
-
-                        submitForm() {
-                            if (this.files.length != 0)
-                                @this.uploadMultiple('images', this.files, () => {
-                                    this.submit();
-                                });
-                            else
-                                this.submit();
-                        },
-
-                        removeImage(index) {
-                            this.photos.splice(index, 1);
-                            this.files.splice(index, 1);
-                            this.updateViewer();
-                        },
-
-                        updateViewer() {
-                            setTimeout(() => {
-                                this.viewer.update();
-                            }, 100);
-                        },
-
-                        updateImage() {
-                            Array.from(this.$refs.image.files).forEach((file) => {
-                                const fileType = file.type.split('/')[1]
-                                const fileSize = file.size / 1024 / 1024;
-
-                                if (!this.validExtention.includes(fileType))
-                                    return Livewire.emit('error', `Pastikan file ${file.name} adalah file gambar`);
-
-                                if (fileSize > 2)
-                                    return Livewire.emit('error', `File ${file.name} melebihi 2 MB`);
-
-                                this.files.push(file)
-                                const reader = new FileReader();
-                                reader.onload = e => this.photos.push(e.target.result);
-                                reader.readAsDataURL(file);
-                            });
-                            this.updateViewer();
-                        },
-
-                        deleteImage(url, element) {
-                            element.parentElement.remove()
-                            this.deleteUrl.push(url);
-                        }
-                    }
-                </script>
-            @endpush
         </form>
     </x-card.form>
+
+    @push('scripts')
+        <script src="{{ mix('js/editor.js') }}" defer></script>
+        <script src="{{ mix('js/viewer.js') }}" defer></script>
+        <script>
+            const dataSambat = {
+                photos: [],
+                files: [],
+                editor: null,
+                viewer: null,
+                validExtention: ["jpeg", 'jpg', 'png'],
+                deleteUrl: [],
+
+                init() {
+                    document.addEventListener("DOMContentLoaded", () => {
+                        this.editor = new Editor({
+                            el: document.querySelector('#editor'),
+                            previewStyle: 'tab',
+                            minHeight: '300px',
+                            initialValue: @this.sambat.description,
+                            toolbarItems: ['bold', 'italic', 'strike', 'hr', 'quote', 'ul', 'ol',
+                                'link'
+                            ],
+                        });
+
+                        this.viewer = new Viewer(document.getElementById('images'), {
+                            inline: false,
+                            zoomRatio: 0.2
+                        });
+                    });
+                },
+
+                submit() {
+                    const tags = Array.from(document.querySelectorAll('.tag')).map(tag => tag.textContent);
+                    @this.handleForm(this.editor.getMarkdown(), tags, this.deleteUrl)
+                },
+
+                submitForm() {
+                    if (this.files.length != 0)
+                        @this.uploadMultiple('images', this.files, () => {
+                            this.submit();
+                        });
+                    else
+                        this.submit();
+                },
+
+                removeImage(index) {
+                    this.photos.splice(index, 1);
+                    this.files.splice(index, 1);
+                    this.updateViewer();
+                },
+
+                updateViewer() {
+                    setTimeout(() => {
+                        this.viewer.update();
+                    }, 100);
+                },
+
+                updateImage() {
+                    Array.from(this.$refs.image.files).forEach((file) => {
+                        const fileType = file.type.split('/')[1]
+                        const fileSize = file.size / 1024 / 1024;
+
+                        if (!this.validExtention.includes(fileType))
+                            return Livewire.emit('error', `Pastikan file ${file.name} adalah file gambar`);
+
+                        if (fileSize > 2)
+                            return Livewire.emit('error', `File ${file.name} melebihi 2 MB`);
+
+                        this.files.push(file)
+                        const reader = new FileReader();
+                        reader.onload = e => this.photos.push(e.target.result);
+                        reader.readAsDataURL(file);
+                    });
+                    this.updateViewer();
+                },
+
+                deleteImage(url, element) {
+                    element.parentElement.remove()
+                    this.deleteUrl.push(url);
+                }
+            }
+        </script>
+    @endpush
 </div>

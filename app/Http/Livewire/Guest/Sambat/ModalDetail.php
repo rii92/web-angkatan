@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\Guest\Sambat;
 
+use App\Constants\AppPermissions;
 use App\Models\Sambat;
 use App\Models\SambatComment;
 use LivewireUI\Modal\ModalComponent;
 
 class ModalDetail extends ModalComponent
 {
-    public $sambat_id, $sambatComment, $comments;
+    public $sambat_id, $sambatComment, $comments, $isAnonim = false;
     public Sambat $sambat;
 
     protected $listeners = [
@@ -46,19 +47,24 @@ class ModalDetail extends ModalComponent
 
     public function mount()
     {
-        $this->sambat = Sambat::withSum('votes', 'votes')
+        $this->sambat = Sambat::with('userdetails')
+            ->withSum('votes', 'votes')
             ->find($this->sambat_id);
         $this->getComments();
     }
 
     public function addComments()
     {
+        if (!auth()->check())
+            return $this->emit('error', "Login dulu ya baru bisa komen");
+
         $this->validate(['sambatComment' => "required"]);
 
         try {
             $this->sambat->comments()->create([
                 'user_id' => auth()->id(),
-                'description' => $this->sambatComment
+                'description' => $this->sambatComment,
+                'is_anonim' => $this->isAnonim
             ]);
             $this->sambatComment = '';
             $this->getComments();
@@ -70,8 +76,15 @@ class ModalDetail extends ModalComponent
 
     public function deleteComments($comment_id)
     {
+        if (!auth()->check())
+            return $this->emit('error', "Login dulu ya baru bisa hapus komentar");
+
+        $comment = SambatComment::find($comment_id);
+        if (auth()->id() != $comment->user_id and !auth()->user()->can(AppPermissions::DELETE_SAMBAT))
+            return $this->emit('error', "Gagal menghapus komentar");
+
         try {
-            SambatComment::destroy($comment_id);
+            $comment->delete();
             $this->getComments();
             $this->emit('success', "Komentar berhasil dihapus!");
         } catch (\Exception $th) {
