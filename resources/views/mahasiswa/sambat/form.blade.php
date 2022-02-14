@@ -1,12 +1,13 @@
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-data="dataSambat">
     <x-card.form title="Mari Nyambat">
         @slot('description')
-
-            Pusing sama skripsi? pusing sama kuliah? mari nyambat. Kamu bisa menggunakan fitur anonim juga loh!!
-            Kerahasiaan datamu bakalan dijamin, bahkan pihak angkatanpun tidak akan tau kamu siapa. Tapi
-            ingat, sambatan yang kamu buat jangan sampai mengandung kebencian, hoax, sara, dan pornografi. Jika hal itu
-            terjadi maka pihak angkatan akan men-<i>takedown</i> sambatanmu.
-
+            Pusing sama skripsi? pusing sama kuliah? mari nyambat. Kamu bisa menggunakan fitur anonim juga loh!! Kamu bisa
+            mengatur nama anonim kamu <x-link class="text-green-600 font-bold"
+                href="{{ route('profile.show') . '#details-information' }}">disini
+            </x-link>. Kerahasiaan datamu bakalan
+            dijamin, bahkan pihak angkatanpun tidak akan tau kamu siapa. Tapi ingat, sambatan yang kamu buat jangan sampai
+            mengandung kebencian, hoax, sara, dan pornografi. Jika hal itu terjadi maka pihak angkatan akan
+            men-<i>takedown</i> sambatanmu.
         @endslot
         <form wire:submit.prevent="handleForm">
 

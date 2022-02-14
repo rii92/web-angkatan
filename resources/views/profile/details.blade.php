@@ -1,4 +1,4 @@
-<x-card.form>
+<x-card.form id="details-information">
     <x-slot name="title">
         {{ __('Update Details Information') }}
     </x-slot>
