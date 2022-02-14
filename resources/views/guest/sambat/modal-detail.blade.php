@@ -8,7 +8,7 @@
             <div class="md:pl-3 md:mx-0 mx-2">
 
                 <x-sambat.comments :comments="$comments"
-                    penyambat="{{ $sambat->is_anonim ? 'Anonim-' . $sambat->userdetails->anonim_name : $sambat->user->name }}" />
+                    penyambat="{{ $sambat->is_anonim ? $sambat->userdetails->anonim_name_value : $sambat->user->name }}" />
 
                 @auth
                     <form wire:submit.prevent="addComments" id="add-comment">

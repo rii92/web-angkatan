@@ -1,5 +1,5 @@
 @php
-$name = $sambat->is_anonim ? 'Anonim-' . $sambat->userdetails->anonim_name : $sambat->user->name;
+$name = $sambat->is_anonim ? $sambat->userdetails->anonim_name_value : $sambat->user->name;
 $photo = $sambat->is_anonim ? url('img/user-avatar.png') : $sambat->user->profile_photo_url;
 @endphp
 
@@ -48,9 +48,9 @@ $photo = $sambat->is_anonim ? url('img/user-avatar.png') : $sambat->user->profil
                         </x-anchor.white>
                     @endif
 
-                    @if (Auth::id() == $sambat->user_id or Auth::user()->can(AppPermissions::DELETE_SAMBAT))
+                    @if (Auth::id() == $sambat->user_id)
                         <x-button.white title="delete"
-                            onclick="Livewire.emit('openModal', 'guest.sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                            onclick="Livewire.emit('openModal', 'guest.sambat.modal-delete', {{ json_encode(['sambat_id' => $sambat->id, 'route' => 'guest']) }})"
                             class="ml-2 mt-0 md:ml-0 md:mt-2 order-3">
                             <x-icons.delete class="w-4 h-4" />
                         </x-button.white>

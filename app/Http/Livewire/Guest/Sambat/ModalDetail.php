@@ -5,7 +5,10 @@ namespace App\Http\Livewire\Guest\Sambat;
 use App\Constants\AppPermissions;
 use App\Models\Sambat;
 use App\Models\SambatComment;
+use App\Models\User;
+use App\Notifications\BellNotification;
 use LivewireUI\Modal\ModalComponent;
+use Illuminate\Support\Str;
 
 class ModalDetail extends ModalComponent
 {
@@ -86,6 +89,15 @@ class ModalDetail extends ModalComponent
         try {
             $comment->delete();
             $this->emit('success', "Komentar berhasil dihapus!");
+
+            // jika berbeda maka yang hapus adalah admin
+            // kirim bell notifikasi ke user yang membuat komentar
+            if ($comment->user_id != auth()->id()) {
+                $user = User::find($comment->user_id);
+                $description = Str::limit($comment->description);
+                $message = "Komentarmu <b>{$description}</b> pada tanggal {$comment->created->at} dihapus oleh admin.";
+                $user->notify(new BellNotification($message));
+            }
         } catch (\Exception $th) {
             $this->emit('error', "Gagal mengahapus komentar!");
         }

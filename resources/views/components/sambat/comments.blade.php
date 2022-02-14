@@ -13,7 +13,7 @@
 
         @forelse ($comments as $comment)
             @php
-                $name = $comment->is_anonim ? 'Anonim-' . $comment->userdetails->anonim_name : $comment->user->name;
+                $name = $comment->is_anonim ? $comment->userdetails->anonim_name_value : $comment->user->name;
                 $photo = $comment->is_anonim ? url('img/user-avatar.png') : $comment->user->profile_photo_url;
             @endphp
 

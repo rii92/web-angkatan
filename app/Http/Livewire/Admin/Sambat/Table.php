@@ -26,7 +26,7 @@ class Table extends DataTableComponent
                 }),
             Column::make('Nama')
                 ->format(function ($value, $column, $sambat) {
-                    return $sambat->is_anonim ? 'Anonim-' . $sambat->userdetails->anonim_name : $sambat->user->name;
+                    return $sambat->is_anonim ? $sambat->userdetails->anonim_name_value : $sambat->user->name;
                 }),
             Column::make('Isi', 'description')
                 ->format(fn ($description) => view('admin.sambat.column.text')->with('value', Str::limit(strip_tags(Str::markdown($description)), 100, '...')))
