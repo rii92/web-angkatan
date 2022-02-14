@@ -1,11 +1,12 @@
 <x-modal.body class="sm:mx-5 mx-0.5">
     <div class="lg:grid lg:grid-cols-12">
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-7" wire:ignore>
             @livewire('guest.sambat.item', ['sambat' => $sambat, 'hideCommentButton' => true])
         </div>
 
         <div class="lg:col-span-5">
             <div class="md:pl-3 md:mx-0 mx-2">
+
                 <x-sambat.comments :comments="$comments"
                     penyambat="{{ $sambat->is_anonim ? 'Anonim-' . $sambat->userdetails->anonim_name : $sambat->user->name }}" />
 

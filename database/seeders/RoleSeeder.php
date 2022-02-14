@@ -64,12 +64,15 @@ class RoleSeeder extends Seeder
                 $newRole->givePermissionTo(AppPermissions::DASHBOARD_ACCESS);
 
             if ($role['name'] == AppRoles::AKADEMIK) $newRole->givePermissionTo(AppPermissions::REPLY_KONSULTASI_AKADEMIK);
-            if ($role['name'] == AppRoles::HUMAS) $newRole->givePermissionTo(AppPermissions::REPLY_KONSULTASI_UMUM);
+            if ($role['name'] == AppRoles::HUMAS) $newRole->givePermissionTo([
+                AppPermissions::REPLY_KONSULTASI_UMUM,
+                AppPermissions::DELETE_SAMBAT
+            ]);
 
             if ($role['name'] == AppRoles::BPH) $newRole->givePermissionTo([
                 AppPermissions::ANNOUNCEMENT_MANAGEMENT,
                 AppPermissions::MEETING_MANAGEMENT,
-                AppPermissions::TURNITIN_MANAGEMENT
+                AppPermissions::TURNITIN_MANAGEMENT,
             ]);
 
             if (($role['name'] == AppRoles::BPH) || ($role['name'] == AppRoles::KOOR))
@@ -77,6 +80,7 @@ class RoleSeeder extends Seeder
                     AppPermissions::DASHBOARD_ACCESS,
                     AppPermissions::REPLY_KONSULTASI_UMUM,
                     AppPermissions::REPLY_KONSULTASI_AKADEMIK,
+                    AppPermissions::DELETE_SAMBAT
                 ]);
         }
 

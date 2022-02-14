@@ -93,7 +93,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             ->get('turnitin', fn () => view('admin.turnitin'))
             ->name('admin.turnitin.table');
 
-        Route::get('sambat', fn () => view('admin.sambat'))->name('admin.sambat');
+        Route::middleware('permission:' . AppPermissions::DELETE_SAMBAT)
+            ->get('sambat', fn () => view('admin.sambat'))
+            ->name('admin.sambat');
 
         Route::prefix('announcement')->middleware("permission:" . AppPermissions::ANNOUNCEMENT_MANAGEMENT)->group(function () {
             Route::get('', fn () => view('admin.announcement'))->name('admin.announcement.table');

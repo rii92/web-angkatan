@@ -8,7 +8,7 @@
         @endif
     </h2>
 
-    <div style="max-height: 60vh" x-data="{}" class="overflow-y-auto divide-y" id="all-comments"
+    <div style="max-height: 60vh" class="overflow-y-auto divide-y" id="all-comments"
         x-effect="setTimeout(() => {const bottom = $el.lastElementChild.offsetTop; $el.scrollTo({top: bottom, behavior: 'smooth'});}, 100);">
 
         @forelse ($comments as $comment)
@@ -58,15 +58,21 @@
                             @endif
                         @endauth
                     </div>
-
                 </div>
-                <p class="mb-2 mt-1 text-sm" x-data='descriptionSambat(@json($comment->description), 150)' x-cloak>
+
+                {{-- idk why this isn't work properly if I delete comment --}}
+                {{-- <p class="mb-2 mt-1 text-sm" x-data='descriptionSambat(@json($comment->description), 150)' x-cloak>
                     <span x-text="displayText"></span>
                     <span x-show="needReadMore"
                         class="text-blue-500 hover:text-blue-600 underline text-xs cursor-pointer transition">
                         <small x-show="!showFull" x-on:click="showFullText">Show More</small>
                         <small x-show="showFull" x-on:click="showLessText">Show Less</small>
                     </span>
+                </p> --}}
+
+                <p class="mb-2 mt-1 text-sm">
+                    {{ $comment->description }}
+                </p>
             </div>
         @empty
             <p class="text-center text-md italic my-8">Belum ada komentar di sambatan ini...</p>

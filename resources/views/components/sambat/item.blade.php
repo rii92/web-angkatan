@@ -27,7 +27,7 @@ $photo = $sambat->is_anonim ? url('img/user-avatar.png') : $sambat->user->profil
             <div class="flex md:flex-col items-center">
                 @if (!$hideCommentButton)
                     <x-button.white title="comment"
-                        onclick="Livewire.emit('openModal', 'guest.sambat.modal-detail', {{ json_encode(['sambat_id' => $sambat->id]) }})"
+                        onclick="Livewire.emit('openModal', 'guest.sambat.modal-detail', {{ json_encode(['sambat_id' => $sambat->id, 'route' => 'guest']) }})"
                         class="ml-2 mt-0 md:ml-0 md:mt-2 md:order-1 order-4">
                         <div class="relative">
                             @if ($comments_count)

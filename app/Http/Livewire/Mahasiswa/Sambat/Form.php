@@ -44,6 +44,7 @@ class Form extends Component
 
         $this->validate();
         try {
+            if ($this->sambat_id) $this->sambat->updated_at = now();
             $this->sambat->save();
 
             // image
@@ -75,8 +76,8 @@ class Form extends Component
 
             return redirect()->route('user.sambat.table')->with('message', 'Mantap, udah nyambat !!');
         } catch (\Exception $e) {
-            debugbar()->addMessage($e->getMessage());
-            $this->emit('error', "Waduh gagal nyambat!!");
+            if ($this->sambat_id) return $this->emit('error', "Gagal menyimpan perubahan");
+            return $this->emit('error', "Waduh gagal nyambat!!");
         }
     }
 

@@ -9,7 +9,7 @@ use LivewireUI\Modal\ModalComponent;
 
 class ModalDetail extends ModalComponent
 {
-    public $sambat_id, $sambatComment, $comments, $isAnonim = false;
+    public $sambat_id, $sambatComment, $isAnonim = false, $route;
     public Sambat $sambat;
 
     protected $listeners = [
@@ -35,14 +35,9 @@ class ModalDetail extends ModalComponent
 
     public function refreshItemSambat()
     {
-        $this->emit('refresh-item-sambat-' . $this->sambat_id);
-    }
-
-    private function getComments()
-    {
-        $this->comments = SambatComment::with('user')
-            ->where('sambat_id', $this->sambat_id)
-            ->get();
+        if ($this->route == 'guest') return $this->emit('refresh-item-sambat-' . $this->sambat_id);
+        if ($this->route == 'user') return $this->emit('reloadComponents', 'mahasiswa.sambat.table');
+        if ($this->route == 'admin') return $this->emit('reloadComponents', 'admin.sambat.table');
     }
 
     public function mount()
@@ -50,7 +45,13 @@ class ModalDetail extends ModalComponent
         $this->sambat = Sambat::with('userdetails')
             ->withSum('votes', 'votes')
             ->find($this->sambat_id);
-        $this->getComments();
+    }
+
+    private function getComments()
+    {
+        return SambatComment::with(['user', 'userdetails'])
+            ->where('sambat_id', $this->sambat_id)
+            ->get();
     }
 
     public function addComments()
@@ -67,7 +68,6 @@ class ModalDetail extends ModalComponent
                 'is_anonim' => $this->isAnonim
             ]);
             $this->sambatComment = '';
-            $this->getComments();
             $this->emit('success', "Komentar berhasil dibuat");
         } catch (\Exception $th) {
             $this->emit('error', "Gagal menambah komentar!");
@@ -85,7 +85,6 @@ class ModalDetail extends ModalComponent
 
         try {
             $comment->delete();
-            $this->getComments();
             $this->emit('success', "Komentar berhasil dihapus!");
         } catch (\Exception $th) {
             $this->emit('error', "Gagal mengahapus komentar!");
@@ -94,6 +93,6 @@ class ModalDetail extends ModalComponent
 
     public function render()
     {
-        return view('guest.sambat.modal-detail');
+        return view('guest.sambat.modal-detail', ['comments' => $this->getComments()]);
     }
 }

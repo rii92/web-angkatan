@@ -15,6 +15,11 @@
             @foreach ($sambat->tags as $tag)
                 <x-badge.success text="{{ $tag->name }}" class="mr-0" />
             @endforeach
+
+            @if ($sambat->created_at != $sambat->updated_at)
+                <small class="italic text-xs whitespace-nowrap">Diedit pada
+                    {{ $sambat->updated_at->format('d-M H:i') }}</small>
+            @endif
         </div>
     </div>
 </div>
