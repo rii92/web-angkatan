@@ -32,47 +32,45 @@
         </x-dashboard.sidebar-item>
     @endcan
 
-    @if (App::environment(['local', 'development']))
+    @canany([AppPermissions::REPLY_KONSULTASI_UMUM, AppPermissions::REPLY_KONSULTASI_AKADEMIK,
+        AppPermissions::TURNITIN_MANAGEMENT])
+        <x-dashboard.sidebar-label value="Main Feature" />
+    @endcanany
 
-        @canany([AppPermissions::REPLY_KONSULTASI_UMUM, AppPermissions::REPLY_KONSULTASI_AKADEMIK,
-            AppPermissions::TURNITIN_MANAGEMENT])
-            <x-dashboard.sidebar-label value="Main Feature" />
-        @endcanany
-
-        @can(AppPermissions::REPLY_KONSULTASI_UMUM)
-            <x-dashboard.sidebar-item menu="Konsultasi Umum" href="{{ route('admin.konsultasi.umum.table') }}"
-                :active="request()->routeIs('admin.konsultasi.umum.*')">
-                @slot('icon')
-                    <x-icons.chat stroke-width="2.0" width="22" height="22" />
-                @endslot
-            </x-dashboard.sidebar-item>
-        @endcan
-
-        @can(AppPermissions::REPLY_KONSULTASI_AKADEMIK)
-            <x-dashboard.sidebar-item menu="Konsultasi Akademik" href="{{ route('admin.konsultasi.akademik.table') }}"
-                :active="request()->routeIs('admin.konsultasi.akademik.*')">
-                @slot('icon')
-                    <x-icons.academic stroke-width="2.0" width="22" height="22" />
-                @endslot
-            </x-dashboard.sidebar-item>
-        @endcan
-
-        @can(AppPermissions::TURNITIN_MANAGEMENT)
-            <x-dashboard.sidebar-item menu="Turnitin Submission" href="{{ route('admin.turnitin.table') }}"
-                :active="request()->routeIs('admin.turnitin.*')">
-                @slot('icon')
-                    <x-icons.clipboard-check stroke-width="2.0" width="22" height="22" />
-                @endslot
-            </x-dashboard.sidebar-item>
-        @endcan
-
-        <x-dashboard.sidebar-item menu="Sambat" href="{{ route('admin.sambat') }}"
-            :active="request()->routeIs('admin.sambat')">
+    @can(AppPermissions::REPLY_KONSULTASI_UMUM)
+        <x-dashboard.sidebar-item menu="Konsultasi Umum" href="{{ route('admin.konsultasi.umum.table') }}"
+            :active="request()->routeIs('admin.konsultasi.umum.*')">
             @slot('icon')
-                <x-icons.emoji-sad stroke-width="2.0" width="22" height="22" />
+                <x-icons.chat stroke-width="2.0" width="22" height="22" />
             @endslot
         </x-dashboard.sidebar-item>
-    @endif
+    @endcan
+
+    @can(AppPermissions::REPLY_KONSULTASI_AKADEMIK)
+        <x-dashboard.sidebar-item menu="Konsultasi Akademik" href="{{ route('admin.konsultasi.akademik.table') }}"
+            :active="request()->routeIs('admin.konsultasi.akademik.*')">
+            @slot('icon')
+                <x-icons.academic stroke-width="2.0" width="22" height="22" />
+            @endslot
+        </x-dashboard.sidebar-item>
+    @endcan
+
+    @can(AppPermissions::TURNITIN_MANAGEMENT)
+        <x-dashboard.sidebar-item menu="Turnitin Submission" href="{{ route('admin.turnitin.table') }}"
+            :active="request()->routeIs('admin.turnitin.*')">
+            @slot('icon')
+                <x-icons.clipboard-check stroke-width="2.0" width="22" height="22" />
+            @endslot
+        </x-dashboard.sidebar-item>
+    @endcan
+
+    <x-dashboard.sidebar-item menu="Sambat" href="{{ route('admin.sambat') }}"
+        :active="request()->routeIs('admin.sambat')">
+        @slot('icon')
+            <x-icons.emoji-sad stroke-width="2.0" width="22" height="22" />
+        @endslot
+    </x-dashboard.sidebar-item>
+    
 
     @canany([AppPermissions::ANNOUNCEMENT_MANAGEMENT, AppPermissions::TIMELINE_MANAGEMENT])
         <x-dashboard.sidebar-label value="Informasi" />
