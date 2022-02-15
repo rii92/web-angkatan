@@ -1,7 +1,7 @@
 <x-landingpage.wrapper title="Konsultasi">
     @php
-        $photoUser = $konsul->is_anonim ? 'https://ui-avatars.com/api/?name=Anonim&color=7F9CF5&background=EBF4FF' : $konsul->user->profile_photo_url;
-        $nameUser = $konsul->is_anonim ? 'Anonim' : $konsul->user->name;
+        $photoUser = $konsul->is_anonim ? url('img/user-avatar.png') : $konsul->user->profile_photo_url;
+        $nameUser = $konsul->is_anonim ? 'Anonim ' . $konsul->userdetails->jurusan : $konsul->user->name;
 
         $photoAdmin = 'https://ui-avatars.com/api/?name=Admin&color=7F9CF5&background=EBF4FF';
     @endphp

@@ -17,7 +17,7 @@ class UserDetails extends Model
      * @var array
      */
     protected $appends = [
-        'jenis_kelamin_value', 'jurusan', 'admin_name'
+        'jenis_kelamin_value', 'jurusan', 'admin_name', 'anonim_name_value'
     ];
 
     /**
@@ -29,6 +29,11 @@ class UserDetails extends Model
     {
         if ($this->jenis_kelamin == 'P') return "Perempuan";
         return "Laki-Laki";
+    }
+
+    public function getAnonimNameValueAttribute()
+    {
+        return "Anonim-" . $this->anonim_name;
     }
 
     /**

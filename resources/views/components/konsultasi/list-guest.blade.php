@@ -1,7 +1,7 @@
 @props(['konsul'])
 
 @php
-$photo = $konsul->is_anonim ? 'https://ui-avatars.com/api/?name=Anonim&color=7F9CF5&background=EBF4FF' : $konsul->user->profile_photo_url;
+$photo = $konsul->is_anonim ? url('img/user-avatar.png') : $konsul->user->profile_photo_url;
 $name = $konsul->is_anonim ? 'Anonim' : $konsul->user->name;
 $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan}" : "{$konsul->userdetails->nim}/{$konsul->userdetails->kelas}";
 @endphp

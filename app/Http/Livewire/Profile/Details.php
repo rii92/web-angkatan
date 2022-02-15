@@ -10,12 +10,18 @@ class Details extends Component
 {
     public UserDetails $details;
 
-    protected $rules = [
-        'details.nim' => 'nullable|numeric|digits:9',
-        'details.kelas' => 'nullable|string|size:4',
-        'details.no_hp' => 'nullable|numeric|digits_between:10,14',
-        'details.jenis_kelamin' => 'nullable|string',
-    ];
+
+
+    protected function rules()
+    {
+        return [
+            'details.nim' => 'nullable|numeric|digits:9',
+            'details.kelas' => 'nullable|string|size:4',
+            'details.no_hp' => 'nullable|numeric|digits_between:10,14',
+            'details.jenis_kelamin' => 'nullable|string',
+            'details.anonim_name' => 'required|alpha_dash|max:15|unique:users_details,anonim_name,' . $this->details->id
+        ];
+    }
 
     public function mount()
     {

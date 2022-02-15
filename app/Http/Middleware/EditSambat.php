@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use App\Models\Sambat;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class EditSambat
 {
@@ -18,12 +17,12 @@ class EditSambat
      */
     public function handle(Request $request, Closure $next)
     {
-        $sambat = Sambat::find($request->route('sambat'));
+        $sambat = Sambat::find($request->route('sambat_id'));
 
-        if(Auth::check() and Auth::user()->id === $sambat->user->id){
+        if (auth()->check() and $sambat and auth()->id() == $sambat->user_id) {
             return $next($request);
         }
 
-        return redirect('sambat');
+        return abort(404);
     }
 }

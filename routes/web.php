@@ -8,7 +8,7 @@ use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoo
 use App\Http\Livewire\Guest\Konsultasi\Detail as KonsultasiDetail;
 use App\Http\Livewire\Mahasiswa\Konsultasi\DiscussionRoom;
 use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
-use App\Http\Livewire\Sambat\Form as SambatForm;
+use App\Http\Livewire\Mahasiswa\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
 use Illuminate\Database\Eloquent\Builder;
@@ -93,7 +93,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             ->get('turnitin', fn () => view('admin.turnitin'))
             ->name('admin.turnitin.table');
 
-        Route::get('sambat', fn () => view('admin.sambat'))->name('admin.sambat');
+        Route::middleware('permission:' . AppPermissions::DELETE_SAMBAT)
+            ->get('sambat', fn () => view('admin.sambat'))
+            ->name('admin.sambat');
 
         Route::prefix('announcement')->middleware("permission:" . AppPermissions::ANNOUNCEMENT_MANAGEMENT)->group(function () {
             Route::get('', fn () => view('admin.announcement'))->name('admin.announcement.table');
@@ -150,7 +152,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::prefix('sambat')->group(function () {
             Route::get('', fn () => view('mahasiswa.sambat'))->name('user.sambat.table');
             Route::get('add', SambatForm::class)->name('user.sambat.add');
-            Route::get('edit/{sambat}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
+            Route::get('{sambat_id}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
         });
     });
 });

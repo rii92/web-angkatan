@@ -49,8 +49,7 @@
             </p>
             <div class="flex items-center">
                 <p wire:loading class="text-gray-400 text-xs italic mr-2">Menyimpan ...</p>
-                <x-anchor.secondary wire:loading.attr="disabled"
-                    href="{{ route('user.konsultasi.' . $category . '.table') }}">
+                <x-anchor.secondary wire:loading.remove href="{{ route('user.konsultasi.' . $category . '.table') }}">
                     Back
                 </x-anchor.secondary>
                 <x-button.black wire:loading.attr="disabled" x-on:click="submitForm" class="ml-2">

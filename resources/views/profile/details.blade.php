@@ -1,4 +1,4 @@
-<x-card.form>
+<x-card.form id="details-information">
     <x-slot name="title">
         {{ __('Update Details Information') }}
     </x-slot>
@@ -34,6 +34,14 @@
                 <option value="P">Perempuan</option>
             </x-input.select>
             <x-input.error for="details.jenis_kelamin" />
+        </x-input.wrapper>
+
+        <x-input.wrapper>
+            <x-input.label for="details.anonim_name" value="{{ __('Anonim Name') }}" />
+            <x-input.caption>Nama anonim ini yang akan digunakan ketika menggunakan fitur sambat</x-input.caption>
+            <x-input.text id="details.anonim_name" wire:model.defer="details.anonim_name" type="text"
+                onkeyup="this.value = this.value.toLowerCase()" />
+            <x-input.error for="details.anonim_name" />
         </x-input.wrapper>
 
 
