@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Sambat extends Model
 {
@@ -42,9 +43,19 @@ class Sambat extends Model
         return $this->hasMany(SambatComment::class);
     }
 
+    public function latestComment()
+    {
+        return $this->hasOne(SambatComment::class)->latestOfMany();
+    }
+
     public function votes()
     {
         return $this->hasMany(SambatVote::class);
+    }
+
+    public function latestVote()
+    {
+        return $this->hasOne(SambatVote::class)->latestOfMany();
     }
 
     public function images()
@@ -61,5 +72,27 @@ class Sambat extends Model
     public function myvote()
     {
         return $this->votes()->where('user_id', auth()->id() ?? -1);
+    }
+
+    // this is a recommended way to declare event handlers
+    public static function boot()
+    {
+        parent::boot();
+        self::deleting(function ($sambat) { // before delete() method call this
+            $sambat->comments()->each(function ($comment) {
+                $comment->delete(); // <-- direct deletion
+            });
+
+            $sambat->votes()->each(function ($vote) {
+                $vote->delete(); // <-- direct deletion
+            });
+
+            $sambat->images()->each(function ($image) {
+                Storage::disk('public')->delete($image->url);
+                $image->delete();
+            });
+
+            $sambat->tags()->detach();
+        });
     }
 }

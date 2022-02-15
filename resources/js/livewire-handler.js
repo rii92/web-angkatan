@@ -15,6 +15,6 @@ Livewire.on("success", (message) => {
 // Reload table
 
 Livewire.on("reloadComponents", (name, index = 0, event = null) => {
-    if (!event) Livewire.components.getComponentsByName(name)[index].$wire.$refresh();
-    else Livewire.components.getComponentsByName(name)[index].$wire.emitSelf(event);
+    if (!event) Livewire.components.getComponentsByName(name)?.[index]?.$wire.$refresh();
+    else Livewire.components.getComponentsByName(name)?.[index]?.$wire.emitSelf(event);
 });

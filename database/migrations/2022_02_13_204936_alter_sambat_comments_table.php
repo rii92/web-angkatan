@@ -26,7 +26,7 @@ class AlterSambatCommentsTable extends Migration
     public function down()
     {
         Schema::table('sambat_comments', function (Blueprint $table) {
-            $table->dropColumn('sambat_comments');
+            $table->dropColumn('is_anonim');
         });
     }
 }

@@ -20,7 +20,6 @@ class ModalDetail extends ModalComponent
         'modalClosed' => 'refreshItemSambat'
     ];
 
-
     public static function closeModalOnClickAway(): bool
     {
         return true;
@@ -38,9 +37,14 @@ class ModalDetail extends ModalComponent
 
     public function refreshItemSambat()
     {
-        if ($this->route == 'guest') return $this->emit('refresh-item-sambat-' . $this->sambat_id);
-        if ($this->route == 'user') return $this->emit('reloadComponents', 'mahasiswa.sambat.table');
-        if ($this->route == 'admin') return $this->emit('reloadComponents', 'admin.sambat.table');
+        switch ($this->route) {
+            case 'user':
+                return $this->emit('reloadComponents', 'mahasiswa.sambat.table');
+            case 'admin':
+                return $this->emit('reloadComponents', 'admin.sambat.table');
+            default:
+                return $this->emit('refresh-item-sambat-' . $this->sambat_id);
+        }
     }
 
     public function mount()

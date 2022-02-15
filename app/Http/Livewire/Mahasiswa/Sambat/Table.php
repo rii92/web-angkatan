@@ -4,8 +4,6 @@ namespace App\Http\Livewire\Mahasiswa\Sambat;
 
 use App\Constants\AppSambat;
 use App\Models\Sambat;
-use App\Models\SambatComment;
-use App\Models\SambatVote;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -33,11 +31,11 @@ class Table extends DataTableComponent
                 ->sortable(),
             Column::make('Downvote', 'jumlah_downvote')
                 ->sortable(),
-            Column::make('Komentar Terakhir', 'last_comment')
-                ->format(fn ($lastComment) => $lastComment ? Carbon::createFromTimeString($lastComment)->format('d-M H:i') : '-')
+            Column::make('Komentar Terakhir', 'latestComment')
+                ->format(fn ($lastComment) => $lastComment ? Carbon::createFromTimeString($lastComment->created_at)->format('d-M H:i') : '-')
                 ->sortable(),
-            Column::make('Vote Terakhir', 'last_vote')
-                ->format(fn ($lastVote) => $lastVote ? Carbon::createFromTimeString($lastVote)->format('d-M H:i') : '-')
+            Column::make('Vote Terakhir', 'latestComment')
+                ->format(fn ($lastVote) => $lastVote ? Carbon::createFromTimeString($lastVote->created_at)->format('d-M H:i') : '-')
                 ->sortable(),
             Column::make('Dibuat Pada', 'created_at')
                 ->format(fn ($created_at) => $created_at->format('d-M H:i'))
@@ -50,18 +48,7 @@ class Table extends DataTableComponent
 
     public function query(): Builder
     {
-        return Sambat::with(['user', 'userdetails'])
-            ->addSelect([
-                'last_comment' => SambatComment::select('created_at')
-                    ->whereColumn('sambat_id', 'sambat.id')
-                    ->orderByDesc('created_at')
-                    ->limit(1),
-                'last_vote' => SambatVote::select('updated_at')
-                    ->whereColumn('sambat_id', 'sambat.id')
-                    ->whereIn('votes', [AppSambat::UPVOTE, AppSambat::DOWNVOTE])
-                    ->orderByDesc('updated_at')
-                    ->limit(1),
-            ])
+        return Sambat::with(['user', 'userdetails', 'latestComment', 'latestComment'])
             ->withCount([
                 'comments as jumlah_comments',
                 'votes as jumlah_upvote' => fn (Builder $query) => $query->where('votes', AppSambat::UPVOTE),
