@@ -3,6 +3,9 @@ version: "3.1"
 networks:
     laravel:
 
+volumes:
+    angkatan:
+
 services:
     nginx:
         image: "nginx:latest"
@@ -36,7 +39,7 @@ services:
             - POSTGRES_PASSWORD=${DB_PASSWORD:-secret}
             - POSTGRES_DB=${DB_DATABASE:-laravel}
         volumes:
-            - "./.docker/volumes:/var/lib/postgresql/data"
+            - "angkatan:/var/lib/postgresql/data"
         networks:
             - laravel
 

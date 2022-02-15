@@ -9,8 +9,16 @@ class Tag extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    protected $fillable = ['name'];
+
     public function sambat()
     {
-        return $this->belongsToMany(Sambat::class, 'sambat_tags', 'tag_id', 'sambat_id');
+        return $this->morphedByMany(Sambat::class, 'taggable');
+    }
+
+    public function konsul()
+    {
+        return $this->morphedByMany(Konsul::class, 'taggable');
     }
 }

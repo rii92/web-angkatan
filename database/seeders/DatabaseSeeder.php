@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionSeeder::class,
             RoleSeeder::class,
+            AnonimNameSeeder::class, // it must remove after releases.
         ]);
 
         if (App::environment(['local', 'development'])) {
@@ -25,7 +26,9 @@ class DatabaseSeeder extends Seeder
                 MahasiswaSeeder::class,
                 AdminSeeder::class,
                 UsersSeeder::class,
-                DetailSkripsiSeeder::class
+                DetailSkripsiSeeder::class,
+                KonsultasiSeeder::class,
+                AnonimNameSeeder::class
             ]);
         }
     }

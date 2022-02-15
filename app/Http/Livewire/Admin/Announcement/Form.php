@@ -14,6 +14,7 @@ class Form extends Component
 
     public $announcement;
     public $announcement_id;
+    public $title;
     protected $listeners = ['submitForm' => 'handleForm'];
 
     public function rules()
@@ -28,6 +29,7 @@ class Form extends Component
     public function mount()
     {
         $this->announcement = $this->announcement_id ? Announcement::find($this->announcement_id) : new Announcement();
+        $this->title = $this->announcement_id ? "Edit Announcement" : "Add Announcement";
     }
 
     /**
@@ -53,6 +55,7 @@ class Form extends Component
 
     public function render()
     {
-        return view('admin.announcement.form');
+        return view('admin.announcement.form')
+            ->layout('layouts.dashboard', ['title' => "Announcement"]);
     }
 }

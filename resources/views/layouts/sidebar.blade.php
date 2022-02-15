@@ -7,9 +7,10 @@
         </div>
 
         <div class="flex items-center bg-subtle rounded-tr-lg rounded-br-lg px-5 py-3 mr-5 mt-3 mb-5">
-            <img class="h-8 w-8 rounded-full object-cover bg-lighter mr-3"
-                src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-            <span class="font-semibold text-lighter text-base">Halo {{ Str::of(Auth::user()->name)->explode(' ')->last() }}</span>
+            <img class="h-8 w-8 rounded-full object-cover bg-lighter mr-3" src="{{ Auth::user()->profile_photo_url }}"
+                alt="{{ Auth::user()->name }}" />
+            <span class="font-semibold text-lighter text-base">Halo
+                {{ Str::of(Auth::user()->name)->explode(' ')->first() }}</span>
         </div>
 
         <ul id="desktop-sidebar">

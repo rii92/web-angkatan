@@ -10,12 +10,18 @@ class Details extends Component
 {
     public UserDetails $details;
 
-    protected $rules = [
-        'details.nim' => 'nullable|numeric|digits:9',
-        'details.kelas' => 'nullable|string|size:4',
-        'details.no_hp' => 'nullable|numeric|digits_between:10,14',
-        'details.jenis_kelamin' => 'nullable|string',
-    ];
+
+
+    protected function rules()
+    {
+        return [
+            'details.nim' => 'nullable|numeric|digits:9',
+            'details.kelas' => 'nullable|string|size:4',
+            'details.no_hp' => 'nullable|numeric|digits_between:10,14',
+            'details.jenis_kelamin' => 'nullable|string',
+            'details.anonim_name' => 'required|alpha_dash|max:15|unique:users_details,anonim_name,' . $this->details->id
+        ];
+    }
 
     public function mount()
     {
@@ -31,14 +37,7 @@ class Details extends Component
 
         Auth::user()->details()->save($this->details);
 
-        $this->handleResponse();
-    }
-
-    private function handleResponse()
-    {
         $this->emit('success', "Success update your information details");
-        $this->emit('reloadComponents', 'profile.address');
-        $this->emit('reloadComponents', 'profile.skripsi');
     }
 
     public function render()

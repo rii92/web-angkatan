@@ -3,14 +3,20 @@ const colors = require('tailwindcss/colors');
 
 module.exports = {
     mode: 'jit',
-    purge: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './vendor/laravel/jetstream/**/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-        './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php',
-    ],
+    purge: {
+        content: [
+            './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+            './vendor/laravel/jetstream/**/*.blade.php',
+            './storage/framework/views/*.php',
+            './resources/views/**/*.blade.php',
+            './vendor/rappasoft/laravel-livewire-tables/resources/views/tailwind/**/*.blade.php',
+        ],
 
+        safelist: [
+            'sm:max-w-5xl',
+            // other sm:max-w breakpoints  in your modals
+        ],
+    },
     theme: {
         extend: {
             fontFamily: {
@@ -47,8 +53,14 @@ module.exports = {
     variants: {
         extend: {
             opacity: ['disabled'],
+            scrollbar: ['rounded']
         }
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require('tailwind-scrollbar'),
+        require('@tailwindcss/aspect-ratio')
+    ],
 };

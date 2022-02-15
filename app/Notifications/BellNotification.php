@@ -17,7 +17,7 @@ class BellNotification extends Notification
      *
      * @return void
      */
-    public function __construct(string $message, string $link = "")
+    public function __construct(string $message, string $link = "#")
     {
         $this->message = $message;
         $this->link = $link;

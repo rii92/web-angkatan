@@ -9,12 +9,14 @@ class SambatVote extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function sambat()
     {
         return $this->belongsTo(Sambat::class);
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

@@ -20,7 +20,7 @@
             @forelse ($notif as $n)
                 <x-jet-dropdown-link href="{{ $n->data['link'] }}"
                     class="{{ $n->read_at ? __('bg-white') : __('bg-gray-100') }} ">
-                    <p>{{ $n->data['message'] }}</p>
+                    <p class="text-xs">{!! $n->data['message'] !!}</p>
                     <p class="italic text-right text-xs text-gray-500 my-1">
                         {{ $n->created_at->format('d M Y H:i') }} WIB
                     </p>

@@ -17,7 +17,7 @@ class UserDetails extends Model
      * @var array
      */
     protected $appends = [
-        'jenis_kelamin_value',
+        'jenis_kelamin_value', 'jurusan', 'admin_name', 'anonim_name_value'
     ];
 
     /**
@@ -29,6 +29,11 @@ class UserDetails extends Model
     {
         if ($this->jenis_kelamin == 'P') return "Perempuan";
         return "Laki-Laki";
+    }
+
+    public function getAnonimNameValueAttribute()
+    {
+        return "Anonim-" . $this->anonim_name;
     }
 
     /**
@@ -44,5 +49,15 @@ class UserDetails extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getJurusanAttribute()
+    {
+        return substr($this->kelas, 1, 2);
+    }
+
+    public function getAdminNameAttribute()
+    {
+        return "Admin {$this->jurusan}-{$this->user_id}";
     }
 }

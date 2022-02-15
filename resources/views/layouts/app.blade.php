@@ -11,10 +11,13 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap">
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/chat.css') }}">
     <link rel="stylesheet" href="{{ mix('css/animation.css') }}">
     <link rel="stylesheet" href="{{ mix('css/announcement.css') }}">
 
@@ -34,9 +37,13 @@
                 <div class="flex justify-between h-16">
                     <div class="flex">
                         <!-- Mobile hamburger -->
-                        <button class="p-1 mr-5 -ml-1 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800 text-gray-600" @click="isMenuOpen = !isMenuOpen" aria-label="Menu">
+                        <button
+                            class="p-1 mr-5 -ml-1 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800 text-gray-600"
+                            @click="isMenuOpen = !isMenuOpen" aria-label="Menu">
                             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd">
                                 </path>
                             </svg>
                         </button>
@@ -51,42 +58,46 @@
                     <div class="flex items-center ml-6">
                         <!-- Settings Dropdown -->
                         @auth
-                        @livewire('mahasiswa.notification')
-                        <div class="ml-3 relative">
-                            <x-jet-dropdown align="right" width="48">
-                                <x-slot name="trigger">
-                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                    </button>
-                                </x-slot>
+                            @livewire('mahasiswa.notification')
+                            <div class="ml-3 relative">
+                                <x-jet-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <button
+                                            class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                                            <img class="h-8 w-8 rounded-full object-cover"
+                                                src="{{ Auth::user()->profile_photo_url }}"
+                                                alt="{{ Auth::user()->name }}" />
+                                        </button>
+                                    </x-slot>
 
-                                <x-slot name="content">
-                                    <x-jet-dropdown-link href="{{ route('user') }}">
-                                        {{ __('My Dashboard') }}
-                                    </x-jet-dropdown-link>
-
-                                    @can(AppPermissions::DASHBOARD_ACCESS)
-                                    <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                                        {{ __('Halaman Admin') }}
-                                    </x-jet-dropdown-link>
-                                    @endcan
-
-                                    <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
-                                            {{ __('Log Out') }}
+                                    <x-slot name="content">
+                                        <x-jet-dropdown-link href="{{ route('user') }}">
+                                            {{ __('My Dashboard') }}
                                         </x-jet-dropdown-link>
-                                    </form>
-                                </x-slot>
-                            </x-jet-dropdown>
-                        </div>
+
+                                        @can(AppPermissions::DASHBOARD_ACCESS)
+                                            <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
+                                                {{ __('Halaman Admin') }}
+                                            </x-jet-dropdown-link>
+                                        @endcan
+
+                                        <!-- Authentication -->
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();this.closest('form').submit();">
+                                                {{ __('Log Out') }}
+                                            </x-jet-dropdown-link>
+                                        </form>
+                                    </x-slot>
+                                </x-jet-dropdown>
+                            </div>
                         @else
-                        <div class="flex">
-                            <x-anchor.primary href="{{ route('login') }}" class=" font-semibold font-poppins">
-                                Login
-                            </x-anchor.primary>
-                        </div>
+                            <div class="flex">
+                                <x-anchor.primary href="{{ route('login') }}" class=" font-semibold font-poppins">
+                                    Login
+                                </x-anchor.primary>
+                            </div>
                         @endauth
                     </div>
                 </div>
@@ -108,13 +119,16 @@
                     </div>
                     <div class="flex items-center gap-4 justify-center my-4">
                         <!-- social -->
-                        <a class="text-main hover:text-orange-500" href="mailto:pengurus-tingkat-4@stis.ac.id" role="button" target="blank" aria-label="email">
+                        <a class="text-main hover:text-orange-500" href="mailto:pengurus-tingkat-4@stis.ac.id"
+                            role="button" target="blank" aria-label="email">
                             <x-icons.mail stroke-width="0" width="37" height="33" />
                         </a>
-                        <a class="text-main hover:text-orange-500" href="https://instagram.com/stis60/" role="button" target="blank" aria-label="instagram">
+                        <a class="text-main hover:text-orange-500" href="https://instagram.com/stis60/" role="button"
+                            target="blank" aria-label="instagram">
                             <x-icons.instagram stroke-width="0" width="33" height="33" />
                         </a>
-                        <a class="text-main hover:text-orange-500" href="https://youtube.com/c/POLSTATSTIS60" role="button" target="blank" aria-label="youtube">
+                        <a class="text-main hover:text-orange-500" href="https://youtube.com/c/POLSTATSTIS60"
+                            role="button" target="blank" aria-label="youtube">
                             <x-icons.youtube stroke-width="0" width="37" height="33" />
                         </a>
                     </div>
@@ -131,10 +145,27 @@
     <div class="modal-center">
         @livewire('livewire-ui-modal')
     </div>
-</body>
 
-@livewireScripts
-<script src="{{ mix('js/livewire-handler.js') }}"></script>
-@stack('scripts')
+    <div class="fixed bottom-10 sm:right-10 right-5 transform sm:scale-100 scale-90"
+        x-data="{show : false, showButton : () => document.body.scrollTop > 500 || document.documentElement.scrollTop > 500}"
+        x-on:scroll.window="show = showButton()" x-init="show = showButton()" x-cloak>
+        <div class="grid grid-cols-1 gap-y-1">
+            @stack('bottom-menu')
+
+            <div class="h-10 w-10 bg-main rounded-full border-2 border-white" id="scroll-to-top"
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition
+                x-transition.duration.600ms>
+                <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
+                    <x-icons.arrow-up class="text-white hover:text-orange-200 transition duration-150"
+                        stroke-width='3' />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @livewireScripts
+    <script src="{{ mix('js/livewire-handler.js') }}"></script>
+    @stack('scripts')
+</body>
 
 </html>

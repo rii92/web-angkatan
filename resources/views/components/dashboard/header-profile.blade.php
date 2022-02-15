@@ -9,19 +9,18 @@
         </x-slot>
 
         <x-slot name="content">
-            @if (strpos(\Request::route()->getName(), 'admin.') === 0)
-                <x-jet-dropdown-link href="{{ route('user') }}">
-                    {{ __('My Dashboard') }}
+            <x-jet-dropdown-link href="{{ route('user') }}">
+                {{ __('My Dashboard') }}
+            </x-jet-dropdown-link>
+
+            @can(AppPermissions::DASHBOARD_ACCESS)
+                <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
+                    {{ __('Halaman Admin') }}
                 </x-jet-dropdown-link>
-            @else
-                @can(AppPermissions::DASHBOARD_ACCESS)
-                    <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                        {{ __('Halaman Admin') }}
-                    </x-jet-dropdown-link>
-                @endcan
-            @endif
+            @endcan
+
             <x-jet-dropdown-link href="{{ route('home') }}">
-                {{ __('Halaman Utama') }}
+                {{ __('Homepage') }}
             </x-jet-dropdown-link>
 
             <!-- Authentication -->

@@ -7,7 +7,7 @@
     <section>
         <div class="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 py-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <x-landingpage.fasilitas href="{{ route('konsultasi') }}" title="Konsultasi">
+                <x-landingpage.fasilitas href="{{ route('konsultasi.list') }}" title="Konsultasi">
                     <x-slot name="icon">
                         <x-icons.chat stroke-width=".5" width="70" height="70" />
                     </x-slot>
