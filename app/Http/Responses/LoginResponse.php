@@ -8,7 +8,6 @@ class LoginResponse implements ContractsLoginResponse
 {
     public function toResponse($request)
     {
-        // return redirect()->intended('/');
         return redirect()->intended(route('user.skripsi'));
     }
 }

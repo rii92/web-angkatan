@@ -1,4 +1,4 @@
-@props(['comments', 'penyambat'])
+@props(['comments', 'sambat'])
 
 <div>
     <h2 class="pb-2 md:mb-3 md:border-b">
@@ -30,6 +30,9 @@
                             </div>
                             <div class="text-xs">
                                 {{ $comment->created_at->format('d-M H:i') }}
+                                @php
+                                    $penyambat = $sambat->is_anonim ? $sambat->userdetails->anonim_name_value : $sambat->user->name;
+                                @endphp
                                 @if ($name == $penyambat)
                                     <x-badge.primary text="penyambat" class="transform scale-90" />
                                 @endif
@@ -59,16 +62,6 @@
                         @endauth
                     </div>
                 </div>
-
-                {{-- idk why this isn't work properly if I delete comment --}}
-                {{-- <p class="mb-2 mt-1 text-sm" x-data='descriptionSambat(@json($comment->description), 150)' x-cloak>
-                    <span x-text="displayText"></span>
-                    <span x-show="needReadMore"
-                        class="text-blue-500 hover:text-blue-600 underline text-xs cursor-pointer transition">
-                        <small x-show="!showFull" x-on:click="showFullText">Show More</small>
-                        <small x-show="showFull" x-on:click="showLessText">Show Less</small>
-                    </span>
-                </p> --}}
 
                 <p class="mb-2 mt-1 text-sm">
                     {{ $comment->description }}

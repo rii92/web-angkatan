@@ -11,14 +11,10 @@ class Lists extends Component
 {
     use WithPagination;
 
-    private const page = 8;
-    public $search, $hasSambat;
-    protected $updatedQueryString = ['search', ['except' => '']];
+    private const PAGE = 8;
 
-    public function mount()
-    {
-        $this->hasSambat = Sambat::count() > 0;
-    }
+    public $search;
+    protected $updatedQueryString = ['search', ['except' => '']];
 
     private function getSambat()
     {
@@ -30,6 +26,6 @@ class Lists extends Component
 
     public function render()
     {
-        return view('guest.sambat.lists', ['sambats' => $this->getSambat()->paginate(self::page)]);
+        return view('guest.sambat.lists', ['sambats' => $this->getSambat()->paginate(self::PAGE)]);
     }
 }
