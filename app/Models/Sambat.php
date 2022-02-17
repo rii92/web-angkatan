@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\AppSambat;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -79,19 +80,12 @@ class Sambat extends Model
     {
         parent::boot();
         self::deleting(function ($sambat) { // before delete() method call this
-            $sambat->comments()->each(function ($comment) {
-                $comment->delete(); // <-- direct deletion
-            });
-
-            $sambat->votes()->each(function ($vote) {
-                $vote->delete(); // <-- direct deletion
-            });
-
+            $sambat->comments()->delete();
+            $sambat->votes()->delete();
             $sambat->images()->each(function ($image) {
                 Storage::disk('public')->delete($image->url);
                 $image->delete();
             });
-
             $sambat->tags()->detach();
         });
     }

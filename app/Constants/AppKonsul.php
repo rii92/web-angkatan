@@ -70,7 +70,7 @@ class AppKonsul
                 self::JURUSAN_SD => self::JURUSAN_SD,
                 self::JURUSAN_SI => self::JURUSAN_SI,
                 self::JURUSAN_SE => self::JURUSAN_SE,
-                self::JURUSAN_SK => self::JURUSAN_SE
+                self::JURUSAN_SK => self::JURUSAN_SK
             ];
         return [
             self::JURUSAN_SD,
