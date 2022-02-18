@@ -13,7 +13,7 @@
         <div class="text-sm">
             <span class="mr-2">{{ $sambat->created_at->format('d-M H:i') }}</span>
             @foreach ($sambat->tags as $tag)
-                <x-badge.success text="{{ $tag->name }}" class="mr-0" />
+                <a href={{route('sambat')."?tag=".$tag->name}}><x-badge.success text="{{ $tag->name }}" class="mr-0 hover:bg-green-400 hover:text-green-100 transition" /></a>
             @endforeach
 
             @if ($sambat->created_at != $sambat->updated_at)

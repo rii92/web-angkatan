@@ -18,10 +18,18 @@ class Lists extends Component
 
     private function getSambat()
     {
-        return Sambat::with(['tags', 'images', 'user', 'userdetails', 'myvote'])
-            ->withCount('comments')
-            ->withSum('votes', 'votes')
-            ->latest();
+        if(request('tag')){
+            return Sambat::with(['tags', 'images', 'user', 'userdetails', 'myvote'])
+                ->whereHas('tags', fn ($query) => $query->where('name', '=', request('tag')))
+                ->withCount('comments')
+                ->withSum('votes', 'votes')
+                ->latest();
+        }else{
+            return Sambat::with(['tags', 'images', 'user', 'userdetails', 'myvote'])
+                ->withCount('comments')
+                ->withSum('votes', 'votes')
+                ->latest();
+        }
     }
 
     public function render()
