@@ -26,9 +26,8 @@ class DatabaseSeeder extends Seeder
                 AdminSeeder::class,
                 UsersSeeder::class,
                 DetailSkripsiSeeder::class,
-                KonsultasiSeeder::class,
+                // KonsultasiSeeder::class,
                 AnonimNameSeeder::class,
-                AnonimNameSeeder::class, // it must remove after releases.
             ]);
         }
     }

@@ -19,9 +19,15 @@
                 </x-jet-dropdown-link>
             @endcan
 
-            <x-jet-dropdown-link href="{{ route('home') }}">
-                {{ __('Homepage') }}
-            </x-jet-dropdown-link>
+            @php
+                $isDashboardPage = Str::contains(\Request::route()->getName(), 'admin') || Str::contains(\Request::route()->getName(), 'user');
+            @endphp
+
+            @if ($isDashboardPage)
+                <x-jet-dropdown-link href="{{ route('home') }}">
+                    {{ __('Homepage') }}
+                </x-jet-dropdown-link>
+            @endif
 
             <!-- Authentication -->
             <form method="POST" action="{{ route('logout') }}">

@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> {{ ucfirst($title) }} | {{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="/img/logo_angkatan.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/logo_angkatan.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ mix('css/chat.css') }}">
     <link rel="stylesheet" href="{{ mix('css/animation.css') }}">
     <link rel="stylesheet" href="{{ mix('css/announcement.css') }}">
+    @stack('styles')
 
     @livewireStyles
 
@@ -49,41 +50,13 @@
 
                     <x-landingpage.desktop-menu></x-landingpage.desktop-menu>
 
-                    <div class="flex items-center ml-6">
+                    <ul class="flex items-center ml-6 list-none">
                         <!-- Settings Dropdown -->
                         @auth
-                        <div class="dropdown-notification">
+                        <li class="dropdown-notification mr-3">
                             @livewire('mahasiswa.notification')
-                        </div>
-                        <div class="ml-3 relative">
-                            <x-jet-dropdown align="right" width="48">
-                                <x-slot name="trigger">
-                                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
-                                    </button>
-                                </x-slot>
-
-                                <x-slot name="content">
-                                    <x-jet-dropdown-link href="{{ route('user') }}">
-                                        {{ __('My Dashboard') }}
-                                    </x-jet-dropdown-link>
-
-                                    @can(AppPermissions::DASHBOARD_ACCESS)
-                                    <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                                        {{ __('Halaman Admin') }}
-                                    </x-jet-dropdown-link>
-                                    @endcan
-
-                                    <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-                                        <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
-                                            {{ __('Log Out') }}
-                                        </x-jet-dropdown-link>
-                                    </form>
-                                </x-slot>
-                            </x-jet-dropdown>
-                        </div>
+                        </li>
+                        <x-dashboard.header-profile />
                         @else
                         <div class="flex">
                             <x-anchor.primary href="{{ route('login') }}" class=" font-semibold font-poppins">
@@ -91,7 +64,7 @@
                             </x-anchor.primary>
                         </div>
                         @endauth
-                    </div>
+                    </ul>
                 </div>
                 <x-landingpage.mobile-menu></x-landingpage.mobile-menu>
             </div>
