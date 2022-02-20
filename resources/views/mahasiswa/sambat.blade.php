@@ -8,7 +8,7 @@
                     onclick="Livewire.emit('reloadComponents', 'mahasiswa.sambat.table')" />
                 <x-anchor.success href="{{ route('user.sambat.add') }}">
                     <x-icons.plus stroke-width="2.5" width="16" height="16" />
-                    <span class="ml-2">Nyambat</span>
+                    <span class="ml-2 hidden lg:block">Nyambat</span>
                 </x-anchor.success>
             </div>
         @endslot
