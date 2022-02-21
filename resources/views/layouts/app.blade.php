@@ -112,7 +112,7 @@
         <div class="grid grid-cols-1 gap-y-1">
             @stack('bottom-menu')
 
-            <div class="h-10 w-10 bg-main rounded-full border-2 border-white" id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition x-transition.duration.600ms>
+            <div class="h-12 w-12 bg-main rounded-full border-2 border-white" id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition x-transition.duration.600ms>
                 <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
                     <x-icons.arrow-up class="text-white hover:text-orange-200 transition duration-150" stroke-width='3' />
                 </div>
