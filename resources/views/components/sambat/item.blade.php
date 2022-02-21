@@ -1,6 +1,6 @@
 @php
-$name = $sambat->is_anonim ? $sambat->userdetails->anonim_name_value : $sambat->user->name;
-$photo = $sambat->is_anonim ? url('img/user-avatar.png') : $sambat->user->profile_photo_url;
+    $name = $sambat->is_anonim ? $sambat->userdetails->anonim_name_value : $sambat->user->name;
+    $photo = $sambat->is_anonim ? url('img/user-avatar.svg') : $sambat->user->profile_photo_url;
 @endphp
 
 <div title="{{ $name }}" class="block md:flex flex-row-reverse pb-2 md:pb-4 mb-4 border-b border-gray-200">

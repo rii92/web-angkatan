@@ -33,7 +33,7 @@ class UserDetails extends Model
 
     public function getAnonimNameValueAttribute()
     {
-        return "Anonim-" . $this->anonim_name;
+        return "(Anonim) " . $this->anonim_name;
     }
 
     /**

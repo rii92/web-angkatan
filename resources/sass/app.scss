@@ -127,7 +127,3 @@ $colors: "green", "red", "blue", "orange", "yellow", "purple", "lime", "pink";
     position: unset;
     @apply sm:relative;
 }
-
-.dropdown-notification div:first-child div:nth-child(2) {
-    @apply w-full sm:w-auto;
-}

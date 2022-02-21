@@ -14,7 +14,7 @@
         @forelse ($comments as $comment)
             @php
                 $name = $comment->is_anonim ? $comment->userdetails->anonim_name_value : $comment->user->name;
-                $photo = $comment->is_anonim ? url('img/user-avatar.png') : $comment->user->profile_photo_url;
+                $photo = $comment->is_anonim ? url('img/user-avatar.svg') : $comment->user->profile_photo_url;
             @endphp
 
             <div class="flex flex-col justify-between p-4 font-sans hover:bg-gray-50">
