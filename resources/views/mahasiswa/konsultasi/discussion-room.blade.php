@@ -1,10 +1,14 @@
 <x-konsultasi.wrapper-room>
     <x-slot name="header">
-        <h1 class="text-2xl">
-            {{ $konsul->title }}
-            <x-konsultasi.status status="{{ $konsul->status }}" class="ml-1" />
-            <x-button.icon.activity title="Riwayat Konsultasi" class="inline-block ml-0"
-                onclick="Livewire.emit('openModal', 'activity.konsultasi', {{ json_encode(['konsul_id' => $konsul->id]) }})" />
+        <h1 class="text-2xl flex items-center">
+            <span>{{ $konsul->title }}</span>
+            <div class="flex mb-2">
+                <x-konsultasi.status status="{{ $konsul->status }}" class="ml-1" />
+            </div>
+            <div>
+                <x-button.icon.activity title="Riwayat Konsultasi" class="inline-block ml-0 mt-2"
+                    onclick="Livewire.emit('openModal', 'activity.konsultasi', {{ json_encode(['konsul_id' => $konsul->id]) }})" />
+            </div>
         </h1>
         <p class="text-sm">
             @foreach ($konsul->tags as $tag)

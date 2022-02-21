@@ -16,18 +16,17 @@ class KonsulList extends Component
     private $konsuls;
 
     public $user_id;
-    public $search, $category, $jurusan, $searchInfo, $hasKonsulPublish;
+    public $search, $category, $jurusan, $searchInfo;
+
     protected $queryString = [
         'search' => ['except' => ''],
         'category' => ['except' => ''],
         'jurusan' => ['except' => '']
     ];
-    protected $listeners = ['selectTag' => 'selectTag'];
 
-    public function mount()
-    {
-        $this->hasKonsulPublish = Konsul::publish()->count() > 0;
-    }
+    protected $listeners = [
+        'selectTag' => 'selectTag'
+    ];
 
     public function paginationView()
     {
@@ -65,10 +64,16 @@ class KonsulList extends Component
             if (substr($this->search, 0, 1) == "#") {
                 $tag = substr($this->search, 1);
                 $query->whereHas('tags', fn (Builder $query) => $query->where('name', $tag));
-                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian hashtag : ", 'tag' => $tag])->render();
+                $this->searchInfo = view('guest.konsultasi.search-info', [
+                    'message' => "Hasil pencarian hashtag : ",
+                    'tag' => $tag
+                ])->render();
             } else {
                 $query->where('description', 'like', "%{$this->search}%");
-                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian berdasarkan kata kunci : ", 'keyword' => $this->search])->render();
+                $this->searchInfo = view('guest.konsultasi.search-info', [
+                    'message' => "Hasil pencarian berdasarkan kata kunci : ",
+                    'keyword' => $this->search
+                ])->render();
             }
         } else
             $this->searchInfo = null;
