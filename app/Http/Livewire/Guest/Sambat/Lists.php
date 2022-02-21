@@ -28,23 +28,23 @@ class Lists extends Component
     private function getSambat()
     {
         $query = Sambat::with(['tags', 'images', 'user', 'userdetails', 'myvote'])
-        ->withCount('comments')
-        ->withSum('votes', 'votes')
-        ->latest();
-        
+            ->withCount('comments')
+            ->withSum('votes', 'votes')
+            ->latest();
+
         if ($this->search) {
             // if search by tag
             if (substr($this->search, 0, 1) == "#") {
                 $tag = substr($this->search, 1);
                 $query->whereHas('tags', fn (Builder $query) => $query->where('name', $tag));
-                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian hashtag : ", 'tag' => $tag])->render();
+                $this->searchInfo = view('components.search-info', ['message' => "Hasil pencarian hashtag : ", 'tag' => $tag])->render();
             } else {
                 $query->where('description', 'like', "%{$this->search}%");
-                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian berdasarkan kata kunci : ", 'keyword' => $this->search])->render();
+                $this->searchInfo = view('components.search-info', ['message' => "Hasil pencarian berdasarkan kata kunci : ", 'keyword' => $this->search])->render();
             }
         } else
             $this->searchInfo = null;
-        
+
         return $query->paginate(self::PAGE);
     }
 

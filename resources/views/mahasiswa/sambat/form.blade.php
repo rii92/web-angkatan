@@ -53,12 +53,12 @@
             </div>
 
             <x-input.wrapper class="mb-5">
-                <x-input.label for="hastags" value="{{ __('Hastags') }}" />
+                <x-input.label for="hashtags" value="{{ __('Hashtags') }}" />
                 <x-input.caption>
                     Maksimal 5 tags untuk menggambarkan sambatanmu berkaitan dengan apa
                 </x-input.caption>
-                <x-input.tags init="{{ $tags }}" id="hastags" className="tag" />
-                <x-input.error for="hastags" />
+                <x-input.tags init="{{ $tags }}" id="hashtags" className="tag" />
+                <x-input.error for="hashtags" />
             </x-input.wrapper>
 
             <div class="flex justify-between mt-4 items-center">
