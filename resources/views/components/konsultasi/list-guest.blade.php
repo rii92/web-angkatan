@@ -28,7 +28,7 @@ $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan}" : "{$kon
         <div class="flex justify-between items-center mt-3">
             <div>
                 @foreach ($konsul->tags as $tag)
-                    <x-badge.success text="{{ $tag->name }}" class="mr-0 cursor-pointer"
+                    <x-badge.success text="{{ $tag->name }}" class="mr-0 cursor-pointer hover:bg-green-400 hover:text-green-100 transition"
                         wire:click="$emitSelf('selectTag', '{{ '#' . $tag->name }}')"
                         onclick="window.scrollTo({ top: 70, behavior: 'smooth' });" />
                 @endforeach

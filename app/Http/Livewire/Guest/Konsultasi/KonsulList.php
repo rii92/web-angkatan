@@ -65,7 +65,7 @@ class KonsulList extends Component
             if (substr($this->search, 0, 1) == "#") {
                 $tag = substr($this->search, 1);
                 $query->whereHas('tags', fn (Builder $query) => $query->where('name', $tag));
-                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian hastag : ", 'tag' => $tag])->render();
+                $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian hashtag : ", 'tag' => $tag])->render();
             } else {
                 $query->where('description', 'like', "%{$this->search}%");
                 $this->searchInfo = view('guest.konsultasi.search-info', ['message' => "Hasil pencarian berdasarkan kata kunci : ", 'keyword' => $this->search])->render();

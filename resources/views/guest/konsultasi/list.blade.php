@@ -22,7 +22,7 @@
 
                 <div class="md:col-span-8 col-span-12 mb-0 mt-0">
                     <x-input.text autocomplete="off" id="search" x-model="search" wire:model.debounce.700ms="search"
-                        placeholder="Awali dengan # jika ingin mencari berdasarkan hastags.." />
+                        placeholder="Awali dengan # jika ingin mencari berdasarkan hashtags..." />
                 </div>
             </div>
             {!! $searchInfo !!}

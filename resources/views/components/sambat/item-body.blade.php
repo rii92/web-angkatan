@@ -13,7 +13,9 @@
         <div class="text-sm">
             <span class="mr-2">{{ $sambat->created_at->format('d-M H:i') }}</span>
             @foreach ($sambat->tags as $tag)
-                <a href={{route('sambat')."?tag=".$tag->name}}><x-badge.success text="{{ $tag->name }}" class="mr-0 hover:bg-green-400 hover:text-green-100 transition" /></a>
+                <x-badge.success text="{{ $tag->name }}" class="mr-0 cursor-pointer hover:bg-green-400 hover:text-green-100 transition"
+                        wire:click="$emit('selectTag', '{{ '#' . $tag->name }}')"
+                        onclick="window.scrollTo({ top: 70, behavior: 'smooth' });" />
             @endforeach
 
             @if ($sambat->created_at != $sambat->updated_at)
