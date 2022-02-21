@@ -15,7 +15,7 @@ class Form extends Component
 {
     public $konsul, $konsul_id, $category;
     public $tags = '';
-    public $hastags, $placeholder;
+    public $hashtags, $placeholder;
 
     protected $listeners = [
         'submitForm' => 'handleForm'
@@ -28,7 +28,7 @@ class Form extends Component
             'konsul.description' => 'required',
             'konsul.is_anonim' => 'nullable',
             'konsul.category' => 'required',
-            'hastags' => 'required|array|max:5|min:1'
+            'hashtags' => 'required|array|max:5|min:1'
         ];
     }
 
@@ -73,7 +73,7 @@ class Form extends Component
             return redirect()->route($redirectRoute, $this->konsul->id)->with('error', "You can't change this konsultasi again");
 
         $this->konsul->description = $description;
-        $this->hastags = $tags;
+        $this->hashtags = $tags;
 
         $this->validate();
 
@@ -96,7 +96,7 @@ class Form extends Component
 
             // biar ga ribet ketika edit, tagnya di detach semua aja dulu terus diinput lagi
             $this->konsul->tags()->detach();
-            foreach ($this->hastags as $tag) {
+            foreach ($this->hashtags as $tag) {
                 $tag = Tag::updateOrCreate(['name' => $tag]);
                 $this->konsul->tags()->save($tag);
             }

@@ -13,7 +13,7 @@ class Form extends Component
     use WithFileUploads;
 
     public Sambat $sambat;
-    public $images = [], $tags, $hastags, $sambat_id;
+    public $images = [], $tags, $hashtags, $sambat_id;
 
     protected $listeners = [
         'submitForm' => 'handleForm'
@@ -25,7 +25,7 @@ class Form extends Component
             'sambat.description' => 'required',
             'sambat.is_anonim' => 'required|boolean',
             'images.*' => 'nullable|image|max:2048',
-            'hastags' => 'required|array|max:5|min:1'
+            'hashtags' => 'required|array|max:5|min:1'
         ];
     }
 
@@ -40,7 +40,7 @@ class Form extends Component
     {
         $this->sambat->description = $description;
         $this->sambat->user_id = Auth::user()->id;
-        $this->hastags = $tags;
+        $this->hashtags = $tags;
 
         $this->validate();
         try {
@@ -60,7 +60,7 @@ class Form extends Component
 
             // remove all tags and assign new
             $this->sambat->tags()->detach();
-            foreach ($this->hastags as $item) {
+            foreach ($this->hashtags as $item) {
                 $tag = Tag::updateOrCreate(['name' => $item]);
                 $this->sambat->tags()->save($tag);
             }
