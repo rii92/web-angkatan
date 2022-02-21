@@ -16,7 +16,7 @@
     </x-slot>
 
     <x-slot name="content">
-        <ul class="divide-y max-h-96 w-96 overflow-y-auto pb-2" id="notif-container">
+        <ul class="divide-y max-h-96 sm:w-96 w-full max-w-full overflow-y-auto pb-2" id="notif-container">
             @forelse ($notif as $n)
                 <x-jet-dropdown-link href="{{ $n->data['link'] }}"
                     class="{{ $n->read_at ? __('bg-white') : __('bg-gray-100') }} ">

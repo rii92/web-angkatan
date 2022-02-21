@@ -13,7 +13,7 @@
             </h2>
         </div>
         <ul class="flex items-center flex-shrink-0 space-x-6 ml-auto">
-            <li>
+            <li class="dropdown-notification">
                 @livewire('mahasiswa.notification')
             </li>
             <x-dashboard.header-profile />

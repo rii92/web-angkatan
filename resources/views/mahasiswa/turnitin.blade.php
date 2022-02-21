@@ -7,7 +7,7 @@
                     onclick="Livewire.emit('reloadComponents', 'mahasiswa.turnitin.table')" />
                 <x-button.success onclick="Livewire.emit('openModal', 'mahasiswa.turnitin.modal-add-edit')">
                     <x-icons.plus stroke-width="2.5" width="16" height="16" />
-                    <span class="ml-2">Submission</span>
+                    <span class="ml-2 hidden lg:block">Submission</span>
                 </x-button.success>
             </div>
         @endslot

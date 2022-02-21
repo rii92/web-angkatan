@@ -7,7 +7,7 @@
                     onclick="Livewire.emit('reloadComponents', 'mahasiswa.konsultasi.table')" />
                 <x-anchor.success href="{{ route('user.konsultasi.' . $category . '.add') }}">
                     <x-icons.plus stroke-width="2.5" width="16" height="16" />
-                    <span class="ml-2">Konsultasi {{ ucwords($category) }}</span>
+                    <span class="ml-2 hidden lg:block">Konsultasi {{ ucwords($category) }}</span>
                 </x-anchor.success>
             </div>
         @endslot

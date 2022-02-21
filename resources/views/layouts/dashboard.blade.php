@@ -8,7 +8,7 @@
 
     {{-- title and descriptioan --}}
     <title>{{ ucfirst($title) }} | {{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="/img/logo_angkatan.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('img/logo_angkatan.png') }}" type="image/x-icon">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">

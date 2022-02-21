@@ -4,12 +4,10 @@
     </x-landingpage.wrapper>
 
     @push('bottom-menu')
-        <div class="h-10 w-10 bg-main rounded-full border-2 border-white shadow-md">
-            <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
-                <a href="{{ route('user.sambat.add') }}">
-                    <x-icons.plus class="text-white hover:text-orange-200 transition duration-150" stroke-width='3' />
-                </a>
-            </div>
+        <div class="h-12 w-12 bg-main rounded-full border-2 border-white">
+            <a href="{{ route('user.sambat.add') }}" class="relative flex justify-center items-center h-full w-full cursor-pointer">
+                <x-icons.plus class="text-white hover:text-orange-200 transition duration-150 w-10 h-10 mx-2 my-2" stroke-width='1.5' />
+            </a>
         </div>
     @endpush
 

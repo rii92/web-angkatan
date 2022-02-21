@@ -41,6 +41,6 @@ class Notification extends Component
     public function render()
     {
         $notif = auth()->user()->notifications()->take($this->totalDisplay)->get();
-        return view('mahasiswa.notification', compact('notif'));
+        return view('components.dashboard.header-notification', compact('notif'));
     }
 }
