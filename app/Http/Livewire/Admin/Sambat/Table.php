@@ -40,7 +40,7 @@ class Table extends DataTableComponent
             Column::make('Komentar Terakhir', 'latestComment')
                 ->format(fn ($lastComment) => $lastComment ? Carbon::createFromTimeString($lastComment->created_at)->format('d-M H:i') : '-')
                 ->sortable(),
-            Column::make('Vote Terakhir', 'latestComment')
+            Column::make('Vote Terakhir', 'latestVote')
                 ->format(fn ($lastVote) => $lastVote ? Carbon::createFromTimeString($lastVote->created_at)->format('d-M H:i') : '-')
                 ->sortable(),
             Column::make('Dibuat Pada', 'created_at')
@@ -54,7 +54,7 @@ class Table extends DataTableComponent
 
     public function query(): Builder
     {
-        return Sambat::with(['user', 'userdetails', 'latestComment', 'latestComment'])
+        return Sambat::with(['user', 'userdetails', 'latestComment', 'latestVote'])
             ->withCount([
                 'comments as jumlah_comments',
                 'votes as jumlah_upvote' => fn (Builder $query) => $query->where('votes', AppSambat::UPVOTE),
