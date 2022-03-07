@@ -41,6 +41,9 @@ class Table extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make('Aksi')->format(function ($value, $column, $konsul) {
+                return view('admin.konsultasi.column.action')->with(['konsul' => $konsul]);
+            }),
             Column::make('nama', 'name')
                 ->searchable(),
             Column::make('Judul', 'title')
@@ -51,15 +54,12 @@ class Table extends DataTableComponent
                 ->format(function ($value, $column, $row) {
                     return view('admin.konsultasi.column.status')->with('konsul', $row);
                 })->sortable(),
-            Column::make('Tanggal Dibuat', 'created_at')
-                ->format(fn ($created_at) => $created_at->format('d-M H:i'))
-                ->sortable(),
             Column::make('Aktivitas Terakhir', 'updated_at')
                 ->format(fn ($updated_at) => $updated_at->format('d-M H:i'))
                 ->sortable(),
-            Column::make('Aksi')->format(function ($value, $column, $konsul) {
-                return view('admin.konsultasi.column.action')->with(['konsul' => $konsul]);
-            }),
+            Column::make('Tanggal Dibuat', 'created_at')
+                ->format(fn ($created_at) => $created_at->format('d-M H:i'))
+                ->sortable(),
         ];
     }
 

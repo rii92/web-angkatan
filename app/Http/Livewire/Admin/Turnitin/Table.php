@@ -17,6 +17,10 @@ class Table extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make('action')
+                ->format(function ($value, $column, $row) {
+                    return view('admin.turnitin.column.action', ['turnitin' => $row]);
+                }),
             Column::make('nama', 'user.name')
                 ->searchable(),
             Column::make('status')
@@ -31,20 +35,16 @@ class Table extends DataTableComponent
                 ->format(function ($link) {
                     return view('components.turnitin.link', ['link' => $link]);
                 }),
-            Column::make('Tanggal Pengajuan', 'created_at')
-                ->sortable()
-                ->format(function ($value) {
-                    return $value->format('d-M H:i');
-                }),
             Column::make('Aktivitas Terakhir', 'updated_at')
                 ->sortable()
                 ->format(function ($value) {
                     return $value->format('d-M H:i');
                 }),
-            Column::make('action')
-                ->format(function ($value, $column, $row) {
-                    return view('admin.turnitin.column.action', ['turnitin' => $row]);
-                })
+            Column::make('Tanggal Pengajuan', 'created_at')
+                ->sortable()
+                ->format(function ($value) {
+                    return $value->format('d-M H:i');
+                }),
         ];
     }
 

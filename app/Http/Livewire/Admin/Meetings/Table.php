@@ -18,13 +18,13 @@ class Table extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make('Action')
+                ->format(function ($value, $column, $row) {
+                    return view('admin.meetings.column.action')->with('meeting', $row);
+                }),
             Column::make('name')
                 ->searchable()
                 ->sortable()
-                ->format(function ($value) {
-                    return Str::limit($value, 40);
-                }),
-            Column::make('description')
                 ->format(function ($value) {
                     return Str::limit($value, 40);
                 }),
@@ -41,9 +41,9 @@ class Table extends DataTableComponent
             Column::make('hadir', 'present'),
             Column::make('izin', 'has_permission'),
             Column::make('tidak_hadir', 'not_present'),
-            Column::make('Action')
-                ->format(function ($value, $column, $row) {
-                    return view('admin.meetings.column.action')->with('meeting', $row);
+            Column::make('description')
+                ->format(function ($value) {
+                    return Str::limit($value, 40);
                 }),
         ];
     }
