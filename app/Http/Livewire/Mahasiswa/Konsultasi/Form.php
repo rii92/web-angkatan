@@ -8,7 +8,10 @@ use App\Models\Konsul;
 use App\Models\Tag;
 use App\Models\User;
 use App\Notifications\BellNotification;
+use App\Notifications\EmailNotifications;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 
 class Form extends Component
@@ -121,14 +124,20 @@ class Form extends Component
 
         $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan);
 
-        $title = Str::limit($this->konsul->title, 40);
-
-        $message = "Hai konselor, terdapat konsultasi baru berjudul <b>{$title}</b>";
+        $message = "Terdapat konsultasi baru berjudul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
 
         $url = route("admin.konsultasi.{$this->category}.room", $this->konsul->id);
 
-        foreach ($konselor as $nim)
-            User::where('email', $nim . '@stis.ac.id')->first()->notify(new BellNotification($message, $url));
+        foreach ($konselor as $nim) {
+            $user  = User::where('email', $nim . '@stis.ac.id')->first();
+            $user->notify(new EmailNotifications((new MailMessage)
+                ->subject("PA60 - Terdapat Konsultasi Baru")
+                ->greeting("Halo {$user->name},")
+                ->line(new HtmlString($message))
+                ->action("Discussion Room", $url)
+                ->line("Regards,")
+                ->salutation("Tim TI Angkatan 60")));
+        }
     }
 
     public function render()
