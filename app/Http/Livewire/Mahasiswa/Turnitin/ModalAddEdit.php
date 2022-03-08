@@ -8,6 +8,8 @@ use App\Constants\AppTurnitins;
 use App\Http\Livewire\GuardsAgainstAccess;
 use App\Models\User;
 use App\Models\UserTurnitin;
+use App\Notifications\EmailNotifications;
+use Illuminate\Notifications\Messages\MailMessage;
 use LivewireUI\Modal\ModalComponent;
 
 class ModalAddEdit extends ModalComponent
@@ -35,6 +37,20 @@ class ModalAddEdit extends ModalComponent
         if ($this->user->id != auth()->id()) abort(404);
     }
 
+    private function sendEmailToPJTurnitin()
+    {
+        $nimPJ = '211810302'; # PJ Turnitin Fayadh Abiyyi
+        $user  = User::where('email', $nimPJ . '@stis.ac.id')->first();
+
+        $user->notify(new EmailNotifications((new MailMessage)
+            ->subject("PA60 - Terdapat Pengajuan Turnitin Baru")
+            ->greeting("Halo {$user->name},")
+            ->line("{$this->user->name} baru saja melakukan pengajuan jasa pengecekan Turnitin")
+            ->action("Halaman Turnitin", route('admin.turnitin.table'))
+            ->line("Regards,")
+            ->salutation("Tim TI Angkatan 60")));
+    }
+
     private function add()
     {
         $this->turnitin->user()->associate($this->user);
@@ -45,6 +61,7 @@ class ModalAddEdit extends ModalComponent
             'note' => 'File yang akan dicek berada <a target="_blank" class="underline text-blue-600" href="' . $this->turnitin->link_file . '">disini</a>'
         ]);
         $this->emit('success', "Success to add new turnitins submission");
+        $this->sendEmailToPJTurnitin();
     }
 
     private function update()
