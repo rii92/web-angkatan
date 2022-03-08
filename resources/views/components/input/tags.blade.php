@@ -4,7 +4,7 @@
     <div x-data="{tags : []}" x-init="tags = '{{ $init }}'.split(' ').filter((text) => text != '');">
         <x-input.text autocomplete="off" :attributes="$attributes" type="text"
             placeholder="Setiap tag dipisahkan oleh spasi" x-ref="input"
-            x-on:keyup.space="const tag = $refs.input.value; const tagTrim = tag.trim(); if (tag.slice(-1) == ' ' && tagTrim.length > 0 && !tags.includes(tagTrim)) {tags.push(tagTrim.toLowerCase())} if (tag.slice(-1) == ' ' || tags.includes(tagTrim)){$refs.input.value = ''} tags.length == 5 ? $refs.input.disabled = true : ''" />
+            x-on:keyup="const tag = $refs.input.value; const tagTrim = tag.trim(); if (tag.slice(-1) == ' ' && tagTrim.length > 0 && !tags.includes(tagTrim)) {tags.push(tagTrim.toLowerCase())} if (tag.slice(-1) == ' ' || tags.includes(tagTrim)){$refs.input.value = ''} tags.length == 5 ? $refs.input.disabled = true : ''" />
         <div class="mt-2">
             <template x-for="(tag, index) in tags" :key="index">
                 <div class="relative inline-flex">
