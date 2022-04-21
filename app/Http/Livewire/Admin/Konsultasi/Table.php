@@ -19,21 +19,25 @@ class Table extends DataTableComponent
 
     public string $defaultSortDirection = 'desc';
 
-    public array $filters = [
-        'status' => [
-            AppKonsul::STATUS_WAIT,
-            AppKonsul::STATUS_PROGRESS
-        ],
-    ];
+    public array $filters = [];
 
     public function mount()
     {
         // jika rolenya akademik, auto filter ke jurusan konselornya
         $user = auth()->user();
-        if ($user->hasRole(AppRoles::AKADEMIK))
+        // kecuali untuk Sindu (koor akademik), dia sendiri yang minta seperti itu
+        if ($user->hasRole(AppRoles::AKADEMIK) and $user->email != "211810500@stis.ac.id")
             $this->filters  += [
                 'jurusan' => [
                     $user->details->jurusan
+                ],
+            ];
+
+        if ($user->email != "211810500@stis.ac.id")
+            $this->filters  += [
+                'status' => [
+                    AppKonsul::STATUS_WAIT,
+                    AppKonsul::STATUS_PROGRESS
                 ]
             ];
     }

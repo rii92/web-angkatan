@@ -5,7 +5,7 @@
             class="flex justify-between items-center px-4 sm:px-0 {{ isset($title) || isset($aside) ? 'border-b mb-5' : '' }}">
             @isset($title)
                 <h4 class="mb-2 flex-1 text-lg font-bold text-gray-700 dark:text-gray-300 capitalize">
-                    {{ $title }}
+                    {!! $title !!}
                 </h4>
             @endisset
             @isset($aside)
