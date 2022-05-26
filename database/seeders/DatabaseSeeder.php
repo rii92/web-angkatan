@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
                 DetailSkripsiSeeder::class,
                 // KonsultasiSeeder::class,
                 AnonimNameSeeder::class,
+                DetailMahasiswaSeeder::class
             ]);
         }
     }
