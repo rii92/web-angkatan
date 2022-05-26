@@ -21,9 +21,27 @@
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="details.no_hp" value="{{ __('Phone Number') }}" />
+            <x-input.label for="details.no_hp" value="{{ __('No HP') }}" />
             <x-input.text id="details.no_hp" wire:model.defer="details.no_hp" type="text" />
             <x-input.error for="details.no_hp" />
+        </x-input.wrapper>
+
+        <x-input.wrapper>
+            <x-input.label for="details.no_hp_ayah" value="{{ __('No HP Ayah') }}" />
+            <x-input.text id="details.no_hp_ayah" wire:model.defer="details.no_hp_ayah" type="text" />
+            <x-input.error for="details.no_hp_ayah" />
+        </x-input.wrapper>
+
+        <x-input.wrapper>
+            <x-input.label for="details.no_hp_ibu" value="{{ __('No HP Ibu') }}" />
+            <x-input.text id="details.no_hp_ibu" wire:model.defer="details.no_hp_ibu" type="text" />
+            <x-input.error for="details.no_hp_ibu" />
+        </x-input.wrapper>
+
+        <x-input.wrapper>
+            <x-input.label for="details.no_hp_wali" value="{{ __('No HP Wali') }}" />
+            <x-input.text id="details.no_hp_wali" wire:model.defer="details.no_hp_wali" type="text" />
+            <x-input.error for="details.no_hp_wali" />
         </x-input.wrapper>
 
         <x-input.wrapper>
