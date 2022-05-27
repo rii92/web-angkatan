@@ -42,6 +42,9 @@ class UsersDetailsExport implements FromQuery, WithHeadings, WithMapping, Should
             $row->details->alamat_kos,
             $row->details->location->provinsi ?? null,
             $row->details->location->kabupaten ?? null,
+            $row->details->no_hp_ayah,
+            $row->details->no_hp_ibu,
+            $row->details->no_hp_wali,
         ];
     }
 
@@ -59,7 +62,10 @@ class UsersDetailsExport implements FromQuery, WithHeadings, WithMapping, Should
             'Alamat Rumah',
             'Alamat Kos',
             'Provinsi',
-            'Kabupaten'
+            'Kabupaten',
+            'No HP Ayah',
+            'No HP Ibu',
+            'No Wali',
         ];
     }
 
