@@ -21,7 +21,7 @@
         </x-input.wrapper>
 
         <x-input.wrapper class="relative" x-data="{search : false}">
-            <x-input.label for="kabupaten" value="Search Kabupaten" />
+            <x-input.label for="kabupaten" value="Kabupaten Asal" />
             <x-input.text id="kabupaten" placeholder="Kota Metro" wire:model="kabupaten" x-on:input="search = true" />
             {{-- dropdown auto search. limit search 3 items, because modal is overflow:hidden --}}
             @if ($kabupaten)
