@@ -19,7 +19,9 @@ class Address extends Component
     protected $rules = [
         'details.alamat_rumah' => 'nullable|string',
         'details.alamat_kos' => 'nullable|string',
-        'kabupaten' => 'nullable|exists:locations,kabupaten'
+        'kabupaten' => 'nullable|exists:locations,kabupaten',
+        'details.link_map_kosan' => 'nullable|url',
+        'details.tanggal_ke_jakarta' => 'nullable|date'
     ];
 
     public function selectLocation($kabupaten)

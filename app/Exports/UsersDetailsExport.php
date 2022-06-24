@@ -9,7 +9,6 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
-use PhpOption\None;
 
 class UsersDetailsExport implements FromQuery, WithHeadings, WithMapping, ShouldAutoSize, WithColumnWidths
 {
@@ -45,6 +44,8 @@ class UsersDetailsExport implements FromQuery, WithHeadings, WithMapping, Should
             $row->details->no_hp_ayah,
             $row->details->no_hp_ibu,
             $row->details->no_hp_wali,
+            $row->details->link_map_kosan,
+            $row->details->tanggal_ke_jakarta,
         ];
     }
 
@@ -66,6 +67,8 @@ class UsersDetailsExport implements FromQuery, WithHeadings, WithMapping, Should
             'No HP Ayah',
             'No HP Ibu',
             'No Wali',
+            'Link Google Maps Kos',
+            'Tanggal ke Jakarta'
         ];
     }
 

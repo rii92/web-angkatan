@@ -10,17 +10,26 @@
     <form wire:submit.prevent="handleForm">
         <x-input.wrapper>
             <x-input.label for="details.alamat_rumah" value="{{ __('Alamat Lengkap Rumah') }}" />
-            <x-input.textarea id="details.alamat_rumah" wire:model.defer="details.alamat_rumah" type="text" rows="4" />
+            <x-input.textarea id="details.alamat_rumah" wire:model.defer="details.alamat_rumah" type="text"
+                rows="4" />
             <x-input.error for="details.alamat_rumah" />
         </x-input.wrapper>
 
         <x-input.wrapper>
             <x-input.label for="details.alamat_kos" value="{{ __('Alamat Lengkap Kos') }}" />
-            <x-input.textarea id="details.alamat_kos" wire:model.defer="details.alamat_kos" type="text" rows="4" />
+            <x-input.textarea id="details.alamat_kos" wire:model.defer="details.alamat_kos" type="text"
+                rows="4" />
             <x-input.error for="details.alamat_kos" />
         </x-input.wrapper>
 
-        <x-input.wrapper class="relative" x-data="{search : false}">
+        <x-input.wrapper>
+            <x-input.label for="details.link_map_kosan" value="{{ __('Link Google Maps Kos') }}" />
+            <x-input.textarea id="details.link_map_kosan" wire:model.defer="details.link_map_kosan" type="text"
+                rows="2" />
+            <x-input.error for="details.link_map_kosan" />
+        </x-input.wrapper>
+
+        <x-input.wrapper class="relative" x-data="{ search: false }">
             <x-input.label for="kabupaten" value="Kabupaten Asal" />
             <x-input.text id="kabupaten" placeholder="Kota Metro" wire:model="kabupaten" x-on:input="search = true" />
             {{-- dropdown auto search. limit search 3 items, because modal is overflow:hidden --}}
@@ -42,6 +51,14 @@
             {{-- don't move it --}}
             <x-input.error for="kabupaten" />
 
+        </x-input.wrapper>
+
+        <x-input.wrapper>
+            <x-input.label for="details.tanggal_ke_jakarta" value="{{ __('Tanggal Ke Jakarta') }}" />
+            <x-input.caption>Jika berdomisili atau sudah lama berada di Jakarta biarkan kosong</x-input.caption>
+            <x-input.text id="details.tanggal_ke_jakarta" wire:model.defer="details.tanggal_ke_jakarta"
+                type="date" />
+            <x-input.error for="details.tanggal_ke_jakarta" />
         </x-input.wrapper>
 
         <div class="flex justify-end mt-6 items-center">
