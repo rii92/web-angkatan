@@ -88,6 +88,11 @@ class User extends Authenticatable
         return $this->hasOne(UserDetails::class);
     }
 
+    public function formation()
+    {
+        return $this->hasOne(UsersFormation::class);
+    }
+
     public function meetings()
     {
         return $this->hasMany(MeetingMember::class);

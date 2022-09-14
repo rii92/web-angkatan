@@ -26,10 +26,11 @@ class DatabaseSeeder extends Seeder
                 AdminSeeder::class,
                 UsersSeeder::class,
                 DetailSkripsiSeeder::class,
-                // KonsultasiSeeder::class,
                 AnonimNameSeeder::class,
                 DetailMahasiswaSeeder::class,
-                AlterEmailUser::class
+                AlterEmailUser::class,
+                SatkerSeeder::class,
+                UsersFormationSeeder::class
             ]);
         }
     }
