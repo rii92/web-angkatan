@@ -1,8 +1,7 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Users;
 
-use App\Models\User;
 use App\Models\UserDetails;
 use App\Models\UsersFormation;
 use Illuminate\Database\Seeder;
@@ -16,7 +15,7 @@ class UsersFormationSeeder extends Seeder
      */
     public function run()
     {
-        $csvFile = fopen(base_path("database/data/user_formation.csv"), "r");
+        $csvFile = fopen(base_path("database/data/users/details_nilai.csv"), "r");
 
         $firstline = true;
 
@@ -29,7 +28,7 @@ class UsersFormationSeeder extends Seeder
 
                 $userDetails->save();
 
-               UsersFormation::updateOrCreate([
+                UsersFormation::updateOrCreate([
                     "ipk" => (float) $data[2],
                     "rank_jurusan" => (int) $data[5],
                     "rank_peminatan" => (int) $data[6]

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Simulasi;
 
 use App\Models\Location;
 use App\Models\Satker;
@@ -15,7 +15,7 @@ class SatkerSeeder extends Seeder
      */
     public function run()
     {
-        $csvFile = fopen(base_path("database/data/satker.csv"), "r");
+        $csvFile = fopen(base_path("database/data/simulasi/satker.csv"), "r");
 
         $firstline = true;
 

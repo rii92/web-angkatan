@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\System;
 
 use App\Models\Location;
 use Illuminate\Database\Seeder;
@@ -16,7 +16,7 @@ class LocationSeeder extends Seeder
     {
         Location::truncate();
 
-        $csvFile = fopen(base_path("database/data/location.csv"), "r");
+        $csvFile = fopen(base_path("database/data/system/location.csv"), "r");
 
         $firstline = true;
 
