@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UsersFormations extends Model
+class UserFormations extends Model
 {
     use HasFactory;
 
@@ -32,5 +32,10 @@ class UsersFormations extends Model
     public function satker_final()
     {
         return $this->belongsTo(Satker::class, "satker_final");
+    }
+
+    public function simulasi()
+    {
+        return $this->belongsTo(Simulations::class);
     }
 }
