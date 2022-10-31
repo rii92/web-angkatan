@@ -60,6 +60,10 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::TIMELINE_MANAGEMENT,
                 'description' => "Permission to access timeline management menu, to create, update, and delete new timeline"
+            ],
+            [
+                'name' => AppPermissions::SIMULATION_ACCESS,
+                'description' => 'Permission to access simulations, for the better future hehe'
             ]
         ];
 
