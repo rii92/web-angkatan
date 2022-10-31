@@ -1,10 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Features;
 
 use App\Models\Sambat;
 use App\Models\SambatComment;
-use App\Models\Taggable;
 use App\Models\SambatVote;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
@@ -19,8 +18,9 @@ class SambatSeeder extends Seeder
     public function run()
     {
         Tag::factory(10)->create();
-        Sambat::factory(20)->create();
-        Taggable::factory(40)->create();
+        Sambat::factory(20)->create()->each(function($sambat) {
+            $sambat->tags()->sync([rand(1, 10), rand(1, 10)]);
+        });
         SambatVote::factory(50)->create();
         SambatComment::factory(40)->create();
     }

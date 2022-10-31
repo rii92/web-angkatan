@@ -8,12 +8,16 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserDetailsFactory extends Factory
 {
+
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
     protected $model = UserDetails::class;
+
+    private $KS_NIM_PREFIX = "221810";
+    private $ST_NIM_PREFIX = "211810";
 
     /**
      * Define the model's default state.
@@ -22,10 +26,11 @@ class UserDetailsFactory extends Factory
      */
     public function definition()
     {
-        $awalan_nim = $this->faker->randomElement(['221810', '211810']);
+
+        $awalan_nim = $this->faker->randomElement([$this->KS_NIM_PREFIX, $this->ST_NIM_PREFIX]);
         $nim = $awalan_nim .  $this->faker->unique()->numerify('###');
 
-        if ($awalan_nim == '221810') {
+        if ($awalan_nim == $this->KS_NIM_PREFIX) {
             $jurusan = $this->faker->randomElement(['SD', 'SI']);
             $nomor_kelas = $this->faker->randomElement(['1', '2']);
         } else {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Users;
 
 use App\Models\UserDetails;
 use Illuminate\Database\Seeder;
@@ -15,7 +15,7 @@ class AnonimNameSeeder extends Seeder
      */
     public function run()
     {
-        foreach (UserDetails::all() as $user)
-            $user->update(['anonim_name' => Str::lower($user->jurusan . '-' . $user->user_id)]);
+        foreach (UserDetails::all() as $userDetail)
+            $userDetail->update(['anonim_name' => Str::lower($userDetail->jurusan . '-' . $userDetail->user_id)]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Users;
 
 use App\Constants\AppRoles;
 use App\Models\User;
@@ -21,7 +21,7 @@ class MahasiswaSeeder extends Seeder
         $password = App::environment(['local', 'development']) ? 'patrickstar' : Str::random(10);
         $password = Hash::make($password);
 
-        $csvFile = fopen(base_path("database/data/mahasiswa.csv"), "r");
+        $csvFile = fopen(base_path("database/data/users/mahasiswa.csv"), "r");
         $firstline = true;
 
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {

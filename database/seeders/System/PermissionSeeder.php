@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\System;
 
 use App\Constants\AppPermissions;
 use Illuminate\Database\Seeder;
@@ -60,6 +60,10 @@ class PermissionSeeder extends Seeder
             [
                 'name' => AppPermissions::TIMELINE_MANAGEMENT,
                 'description' => "Permission to access timeline management menu, to create, update, and delete new timeline"
+            ],
+            [
+                'name' => AppPermissions::SIMULATION_ACCESS,
+                'description' => 'Permission to access simulations, for the better future hehe'
             ]
         ];
 
