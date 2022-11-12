@@ -19,21 +19,6 @@ class DetailNilaiSeeder extends Seeder
         $firstline = true;
 
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
-            // if (!$firstline) {
-            //     $userDetails = UserDetails::where("nim", $data[0])->first();
-
-            //     $userDetails->jurusan = $data[3];
-            //     $userDetails->peminatan = $data[4];
-
-            //     $userDetails->save();
-
-            //     UsersFormation::updateOrCreate([
-            //         "ipk" => (float) $data[2],
-            //         "rank_jurusan" => (int) $data[5],
-            //         "rank_peminatan" => (int) $data[6]
-            //     ], ["user_id" => $userDetails->user_id]);
-            // }
-            // $firstline = false;
             if ($firstline) {
                 $firstline = false;
                 continue;
@@ -45,6 +30,8 @@ class DetailNilaiSeeder extends Seeder
 
             $user->details->update([
                 "ipk" => (float) $data[2],
+                "jurusan" => $data[3],
+                "peminatan" => $data[4],
                 "rank_jurusan" => (int) $data[5],
                 "rank_peminatan" => (int) $data[6]
             ]);
