@@ -13,4 +13,9 @@ class SimulationsTime extends Model
     {
         return $this->belongsTo(Simulations::class);
     }
+
+    public function user_formation()
+    {
+        return $this->hasMany(UserFormations::class);
+    }
 }

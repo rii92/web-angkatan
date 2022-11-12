@@ -2,6 +2,7 @@
 
 use App\Models\Satker;
 use App\Models\Simulations;
+use App\Models\SimulationsTime;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -24,6 +25,7 @@ class CreateUserFormationsTable extends Migration
             $table->foreignIdFor(Satker::class, "satker_3")->nullable();
             $table->foreignIdFor(Satker::class, "satker_final")->nullable();
             $table->foreignIdFor(Simulations::class);
+            $table->foreignIdFor(SimulationsTime::class);
             $table->timestamps();
         });
     }
