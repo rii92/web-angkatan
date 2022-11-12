@@ -16,14 +16,8 @@ class SimulationsTime extends Model
         'end_time'  => 'datetime:Y-m-d\TH:i'
     ];
 
-
     public function simulation()
     {
         return $this->belongsTo(Simulations::class, 'simulations_id');
-    }
-
-    public function user_formation()
-    {
-        return $this->hasMany(UserFormations::class);
     }
 }

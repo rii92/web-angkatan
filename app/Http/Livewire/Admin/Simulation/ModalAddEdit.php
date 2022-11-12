@@ -6,7 +6,6 @@ use App\Constants\AppPermissions;
 use App\Http\Livewire\GuardsAgainstAccess;
 use App\Models\Simulations;
 use App\Models\SimulationsTime;
-use App\Models\UserFormations;
 use Illuminate\Support\Facades\DB;
 use LivewireUI\Modal\ModalComponent;
 use Illuminate\Database\Eloquent\Collection;
@@ -17,9 +16,15 @@ class ModalAddEdit extends ModalComponent
 
     private $permissionGuard = AppPermissions::SIMULATION_MANAGEMENT;
 
-    public $sesi_count, $sesi_count_prev, $simulation_id, $simulation_times;
+    public $sesi_count;
+    
+    public $sesi_count_prev; 
+    
+    public $simulation_id; 
+    
+    public $simulation_times;
+    
     public Simulations $simulation;
-
 
     public function rules()
     {
@@ -33,15 +38,16 @@ class ModalAddEdit extends ModalComponent
 
     public function mount()
     {
-
         $this->simulation = $this->simulation_id ? Simulations::find($this->simulation_id) : new Simulations();
+
         $this->simulation_times = $this->simulation_id ? $this->simulation->times : new Collection();
+
         $this->sesi_count = $this->simulation_id ? $this->simulation_times->count() : 0;
 
         $this->sesi_count_prev = $this->sesi_count;
     }
 
-    public function updated($propertyName)
+    public function updated()
     {
         $selisih = $this->sesi_count - $this->sesi_count_prev;
 
@@ -54,25 +60,7 @@ class ModalAddEdit extends ModalComponent
 
         $this->sesi_count_prev = $this->sesi_count;
     }
-
-    private function initializeUserFormation()
-    {
-        try {
-            $users = Simulations::getUserSession('jurusan', $this->sesi_count);
-            $users->each(function ($user, $key) {
-                $user->simulations_id = $this->simulation->id;
-                $user->simulations_time_id = $this->simulation_times[$user->sesi]->id;
-                $user->created_at = now();
-                $user->updated_at = now();
-                $user->setAppends([]);
-                unset($user->sesi);
-            });
-
-            UserFormations::insert($users->toArray());
-        } catch (\Exception $e) {
-            throw $e;
-        }
-    }
+    
 
     public function handleForm()
     {
@@ -89,13 +77,11 @@ class ModalAddEdit extends ModalComponent
                 $time->save();
             }
 
-            if (!$this->simulation_id) $this->initializeUserFormation();
-
             DB::commit();
-            $this->emit('success', "You're data success to store");
+            $this->emit('success', "Berhasil menambahkan simulasi baru");
         } catch (\Exception $e) {
             DB::rollBack();
-            $this->emit('error', "Somethings Wrong, I can feel it");
+            $this->emit('error', "Gagal menambahkan simulasi baru");
         } finally {
             $this->emit('reloadComponents', 'admin.simulation.table');
             $this->emit('closeModal');

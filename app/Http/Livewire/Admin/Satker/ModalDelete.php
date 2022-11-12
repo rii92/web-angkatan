@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Simulasi\Satker;
+namespace App\Http\Livewire\Admin\Satker;
 
 use App\Constants\AppPermissions;
 use App\Http\Livewire\GuardsAgainstAccess;
@@ -25,13 +25,13 @@ class ModalDelete extends ModalComponent
         } catch (\Exception $e) {
             $this->emit('error', "Gagal menghapus satker");
         } finally {
-            $this->emit('reloadComponents', 'admin.simulasi.satker.table');
+            $this->emit('reloadComponents', 'admin.satker.table');
             $this->emit('closeModal');
         }
     }
 
     public function render()
     {
-        return view('admin.simulasi.satker.modal-delete');
+        return view('admin.satker.modal-delete');
     }
 }

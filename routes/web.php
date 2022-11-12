@@ -85,10 +85,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             });
         });
 
-        Route::middleware('permission:' . AppPermissions::SIMULATION_MANAGEMENT)
-            ->get('simulasi', fn () => view('admin.simulation'))
-            ->name('admin.simulation.table');
-
         Route::middleware("permission:" . AppPermissions::TIMELINE_MANAGEMENT)
             ->get('timelines', fn () => view('admin.timelines'))
             ->name('admin.timelines.table');
@@ -112,7 +108,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             ->name("admin.simulasi.satker");
 
         Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
-            ->get("simulasi", fn () => view('admin.simulasi.simulasi'))
+            ->get("simulasi", fn () => view('admin.simulation'))
             ->name("admin.simulasi.simulasi");
     });
 
