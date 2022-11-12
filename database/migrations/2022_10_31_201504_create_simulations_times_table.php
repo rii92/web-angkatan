@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Simulations;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,7 @@ class CreateSimulationsTimesTable extends Migration
             $table->id();
             $table->dateTime("start_time");
             $table->dateTime("end_time");
+            $table->foreignIdFor(Simulations::class)->nullable();
             $table->timestamps();
         });
     }

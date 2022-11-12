@@ -67,7 +67,7 @@ class PermissionSeeder extends Seeder
             ],
             [
                 'name' => AppPermissions::SIMULATION_MANAGEMENT,
-                'description' => 'Permission to manage simulations features'
+                'description' => 'Permission to manage simulations, for the better future hehe'
             ]
         ];
 

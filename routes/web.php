@@ -11,6 +11,7 @@ use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
 use App\Http\Livewire\Mahasiswa\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
+use App\Models\Simulations;
 use Illuminate\Database\Eloquent\Builder;
 
 /*
@@ -108,7 +109,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             ->name("admin.simulasi.satker");
 
         Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
-            ->get("simulasi", fn () => view('admin.simulasi.simulasi'))
+            ->get("simulasi", fn () => view('admin.simulation'))
             ->name("admin.simulasi.simulasi");
     });
 
@@ -161,6 +162,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('', fn () => view('mahasiswa.sambat'))->name('user.sambat.table');
             Route::get('add', SambatForm::class)->name('user.sambat.add');
             Route::get('{sambat_id}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
+        });
+
+        Route::prefix("simulasi")->middleware("permission:" . AppPermissions::SIMULATION_ACCESS)->group(function () {
+            Route::get("", fn () => view('mahasiswa.simulation'))->name("user.simulasi.table");
+            Route::get('{simulation}', fn (Simulations $simulation) => view('mahasiswa.simulation.details', ["simulation" => $simulation]))
+                ->name('user.simulasi.details');
         });
     });
 });

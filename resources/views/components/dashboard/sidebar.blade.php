@@ -43,7 +43,7 @@
     @endcan
 
     @canany([AppPermissions::REPLY_KONSULTASI_UMUM, AppPermissions::REPLY_KONSULTASI_AKADEMIK,
-        AppPermissions::TURNITIN_MANAGEMENT, AppPermissions::DELETE_SAMBAT])
+        AppPermissions::TURNITIN_MANAGEMENT, AppPermissions::DELETE_SAMBAT, AppPermissions::SIMULATION_MANAGEMENT])
         <x-dashboard.sidebar-label value="Main Feature" />
     @endcanany
 
@@ -80,7 +80,6 @@
             @endslot
         </x-dashboard.sidebar-item>
     @endcan
-
 
     @canany([AppPermissions::ANNOUNCEMENT_MANAGEMENT, AppPermissions::TIMELINE_MANAGEMENT])
         <x-dashboard.sidebar-label value="Informasi" />

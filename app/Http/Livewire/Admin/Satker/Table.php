@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Simulasi\Satker;
+namespace App\Http\Livewire\Admin\Satker;
 
 use App\Models\Satker;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
@@ -22,7 +22,7 @@ class Table extends DataTableComponent
     {
         return [
             Column::make('Action')
-                ->format(fn ($value, $column, $row) => view('admin.simulasi.satker.column.action')->with('satker', $row)),
+                ->format(fn ($value, $column, $row) => view('admin.satker.column.action')->with('satker', $row)),
             Column::make("name")
                 ->searchable()
                 ->excludeFromSelectable(),
@@ -55,7 +55,7 @@ class Table extends DataTableComponent
             
             return $this->emit('success', "Berhasil menghapus satker terpilih");
         } catch (\Exception $e) {
-            return $this->emit('error', $e->getMessage());
+            return $this->emit('error', "Gagal menghapus satker terpilih");
         }
     }
 

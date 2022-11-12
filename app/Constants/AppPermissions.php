@@ -16,7 +16,7 @@ class AppPermissions
     const DELETE_SAMBAT = 'delete_sambat_and_its_comment';
     const TIMELINE_MANAGEMENT = 'manage_timeline';
     const SIMULATION_ACCESS = 'access_simulation';
-    const SIMULATION_MANAGEMENT = "manage_simulation";
+    const SIMULATION_MANAGEMENT = 'manage_simulation';
 
     public static function allPermissions()
     {
@@ -33,7 +33,7 @@ class AppPermissions
             self::DELETE_SAMBAT => "Delete Sambat dan Komentar Sambat",
             self::TIMELINE_MANAGEMENT => 'Manage Timeline',
             self::SIMULATION_ACCESS => 'Access Simulation',
-            self::SIMULATION_MANAGEMENT => "Manage Simulation"
+            self::SIMULATION_MANAGEMENT => 'Manage Simulation'
         ];
     }
 }

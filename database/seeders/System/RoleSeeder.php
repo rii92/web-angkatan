@@ -73,6 +73,7 @@ class RoleSeeder extends Seeder
                 AppPermissions::ANNOUNCEMENT_MANAGEMENT,
                 AppPermissions::MEETING_MANAGEMENT,
                 AppPermissions::TURNITIN_MANAGEMENT,
+                AppPermissions::SIMULATION_MANAGEMENT
             ]);
 
             if (($role['name'] == AppRoles::BPH) || ($role['name'] == AppRoles::KOOR))

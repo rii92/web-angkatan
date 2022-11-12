@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Simulasi\Satker;
+namespace App\Http\Livewire\Admin\Satker;
 
 use App\Constants\AppPermissions;
 use App\Http\Livewire\GuardsAgainstAccess;
@@ -79,7 +79,7 @@ class ModalAddEdit extends ModalComponent
             $this->emit('error', "Gagal " . ($this->satker_id ? 'mengubah' : 'menambah') . " Formasi Satker");
         } finally {
             $this->emit('closeModal');
-            $this->emit('reloadComponents', 'admin.simulasi.satker.table');
+            $this->emit('reloadComponents', 'admin.satker.table');
         }
     }
 
@@ -92,6 +92,6 @@ class ModalAddEdit extends ModalComponent
             ? Location::where(DB::raw('lower(kabupaten)'), 'like', strtolower($search))->limit(3)->get()
             : [];
 
-        return view('admin.simulasi.satker.modal-add-edit');
+        return view('admin.satker.modal-add-edit');
     }
 }
