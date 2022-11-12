@@ -1,5 +1,5 @@
-<x-dashboard-layout title="Simulation">
-    <x-card.base title="Simulations List">
+<x-dashboard-layout title="Simulasi Penempatan">
+    <x-card.base title="Daftar Simulasi">
         @slot('aside')
             <div class="flex items-center">
                 <x-button.success onclick="Livewire.emit('openModal', 'admin.simulation.modal-add-edit')">

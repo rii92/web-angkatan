@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Users;
 
+use App\Constants\AppPermissions;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -35,6 +36,8 @@ class DetailNilaiSeeder extends Seeder
                 "rank_jurusan" => (int) $data[5],
                 "rank_peminatan" => (int) $data[6]
             ]);
+
+            $user->givePermissionTo(AppPermissions::SIMULATION_ACCESS);
         }
         fclose($csvFile);
     }
