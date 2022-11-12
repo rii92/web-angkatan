@@ -9,7 +9,7 @@
         <p class="mt-2 text-sm">
             <span>{{ $konsul->name }}</span>
             @if ($konsul->is_anonim)
-                <span>(Jurusan {{ $konsul->userdetails->jurusan ?? '' }})</span>
+                <span>(Jurusan {{ $konsul->userdetails->jurusan_short ?? '' }})</span>
             @else
                 <span>({{ $konsul->userdetails->nim ?? '' }}/{{ $konsul->userdetails->kelas ?? '' }})</span>
             @endif

@@ -94,7 +94,7 @@ class InputChat extends Component
 
         // send an email if the last chat was 20 minutes ago
         if ($lastChatTime < now()->subMinutes(20)) {
-            $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $this->konsul->userdetails->jurusan);
+            $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $this->konsul->userdetails->jurusan_short);
 
             $message = "Terdapat balasan pada konsultasi \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
 
