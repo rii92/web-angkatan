@@ -18,13 +18,13 @@ class CreateSatkersTable extends Migration
             $table->id();
             $table->string("name");
             $table->foreignIdFor(Location::class)->nullable();
-            $table->integer("se_formation")->default(0);
-            $table->integer("sk_formation")->default(0);
-            $table->integer("si_formation")->default(0);
-            $table->integer("sd_formation")->default(0);
-            $table->integer("d3_formation")->default(0);
-            $table->integer("ks_formation")->default(0);
-            $table->integer("st_formation")->default(0);
+            $table->integer("se_formation")->nullable()->default(0);
+            $table->integer("sk_formation")->nullable()->default(0);
+            $table->integer("si_formation")->nullable()->default(0);
+            $table->integer("sd_formation")->nullable()->default(0);
+            $table->integer("d3_formation")->nullable()->default(0);
+            $table->integer("ks_formation")->nullable()->default(0);
+            $table->integer("st_formation")->nullable()->default(0);
             $table->timestamps();
         });
     }

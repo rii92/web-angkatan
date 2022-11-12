@@ -104,7 +104,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         });
 
         Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
-            ->get("satker", fn () => view('admin.simulasi.satker'))
+            ->get("satker", fn () => view('admin.satker'))
             ->name("admin.simulasi.satker");
 
         Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
