@@ -29,9 +29,17 @@
     @endcan
 
     @canany([AppPermissions::REPLY_KONSULTASI_UMUM, AppPermissions::REPLY_KONSULTASI_AKADEMIK,
-        AppPermissions::TURNITIN_MANAGEMENT, AppPermissions::DELETE_SAMBAT])
+        AppPermissions::TURNITIN_MANAGEMENT, AppPermissions::DELETE_SAMBAT, AppPermissions::SIMULATION_MANAGEMENT])
         <x-dashboard.sidebar-label value="Main Feature" />
     @endcanany
+
+    @can(AppPermissions::SIMULATION_MANAGEMENT)
+        <x-dashboard.sidebar-item menu="Simulation" href="{{ route('admin.simulation.table') }}" :active="request()->routeIs('admin.simulation.*')">
+            @slot('icon')
+                <x-icons.building-office stroke-width="2.0" width="22" height="22" />
+            @endslot
+        </x-dashboard.sidebar-item>
+    @endcan
 
     @can(AppPermissions::REPLY_KONSULTASI_UMUM)
         <x-dashboard.sidebar-item menu="Konsultasi Umum" href="{{ route('admin.konsultasi.umum.table') }}"
@@ -66,7 +74,6 @@
             @endslot
         </x-dashboard.sidebar-item>
     @endcan
-
 
     @canany([AppPermissions::ANNOUNCEMENT_MANAGEMENT, AppPermissions::TIMELINE_MANAGEMENT])
         <x-dashboard.sidebar-label value="Informasi" />
