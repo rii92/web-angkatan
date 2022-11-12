@@ -19,6 +19,20 @@
         </x-dashboard.sidebar-item>
     @endcan
 
+    @can(AppPermissions::SIMULATION_MANAGEMENT)
+        <x-dashboard.sidebar-label value="Simulasi" />
+        <x-dashboard.sidebar-item menu="Simulasi" href="{{ route('admin.simulasi.simulasi') }}" :active="request()->routeIs('admin.simulasi.simulasi')">
+            @slot('icon')
+                <x-icons.users-x stroke-width="2.0" width="22" height="22" />
+            @endslot
+        </x-dashboard.sidebar-item>
+        <x-dashboard.sidebar-item menu="Formasi Satker" href="{{ route('admin.simulasi.satker') }}" :active="request()->routeIs('admin.simulasi.satker')">
+            @slot('icon')
+                <x-icons.briefcase />
+            @endslot
+        </x-dashboard.sidebar-item>
+    @endcan
+
     @can(AppPermissions::MEETING_MANAGEMENT)
         <x-dashboard.sidebar-label value="Administrasi" />
         <x-dashboard.sidebar-item menu="Meetings Management" href="{{ route('admin.meetings.table') }}" :active="request()->routeIs('admin.meetings.*')">

@@ -102,6 +102,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('add', AnnouncementForm::class)->name('admin.announcement.add');
             Route::get('{announcement_id}', AnnouncementForm::class)->name('admin.announcement.edit');
         });
+
+        Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
+            ->get("satker", fn () => view('admin.satker'))
+            ->name("admin.simulasi.satker");
+
+        Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
+            ->get("simulasi", fn () => view('admin.simulasi.simulasi'))
+            ->name("admin.simulasi.simulasi");
     });
 
     Route::prefix('user')->group(function () {
