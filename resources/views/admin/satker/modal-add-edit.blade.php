@@ -32,45 +32,45 @@
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.se_formation" value="{{ __('Formasi Statistik Ekonomi') }}" />
-            <x-input.text wire:model.defer="satker.se_formation" id="se_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.se_formation" />
+            <x-input.label for="satker.se" value="{{ __('Formasi Statistik Ekonomi') }}" />
+            <x-input.text wire:model.defer="satker.se" id="se" type="number" min="0" value="0" />
+            <x-input.error for="satker.se" />
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.sk_formation" value="{{ __('Formasi Statistik Kependudukan') }}" />
-            <x-input.text wire:model.defer="satker.sk_formation" id="sk_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.sk_formation" />
+            <x-input.label for="satker.sk" value="{{ __('Formasi Statistik Kependudukan') }}" />
+            <x-input.text wire:model.defer="satker.sk" id="sk" type="number" min="0" value="0" />
+            <x-input.error for="satker.sk" />
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.si_formation" value="{{ __('Formasi Sistem Informasi Statistik') }}" />
-            <x-input.text wire:model.defer="satker.si_formation" id="si_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.si_formation" />
+            <x-input.label for="satker.si" value="{{ __('Formasi Sistem Informasi Statistik') }}" />
+            <x-input.text wire:model.defer="satker.si" id="si" type="number" min="0" value="0" />
+            <x-input.error for="satker.si" />
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.sd_formation" value="{{ __('Formasi Data Science') }}" />
-            <x-input.text wire:model.defer="satker.sd_formation" id="sd_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.sd_formation" />
+            <x-input.label for="satker.sd" value="{{ __('Formasi Data Science') }}" />
+            <x-input.text wire:model.defer="satker.sd" id="sd" type="number" min="0" value="0" />
+            <x-input.error for="satker.sd" />
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.st_formation" value="{{ __('Formasi DIV Statistik') }}" />
-            <x-input.text wire:model.defer="satker.st_formation" id="st_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.st_formation" />
+            <x-input.label for="satker.st" value="{{ __('Formasi DIV Statistik') }}" />
+            <x-input.text wire:model.defer="satker.st" id="st" type="number" min="0" value="0" />
+            <x-input.error for="satker.st" />
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.ks_formation" value="{{ __('Formasi DIV Komputasi Statistik') }}" />
-            <x-input.text wire:model.defer="satker.ks_formation" id="ks_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.ks_formation" />
+            <x-input.label for="satker.ks" value="{{ __('Formasi DIV Komputasi Statistik') }}" />
+            <x-input.text wire:model.defer="satker.ks" id="ks" type="number" min="0" value="0" />
+            <x-input.error for="satker.ks" />
         </x-input.wrapper>
 
         <x-input.wrapper>
-            <x-input.label for="satker.d3_formation" value="{{ __('Formasi DIII Statistik') }}" />
-            <x-input.text wire:model.defer="satker.d3_formation" id="d3_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.d3_formation" />
+            <x-input.label for="satker.d3" value="{{ __('Formasi DIII Statistik') }}" />
+            <x-input.text wire:model.defer="satker.d3" id="d3" type="number" min="0" value="0" />
+            <x-input.error for="satker.d3" />
         </x-input.wrapper>
         
 

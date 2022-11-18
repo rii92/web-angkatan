@@ -25,16 +25,16 @@ class SatkerTable extends DataTableComponent
                     if (!$row->location) return "";
                     return $row->location->kabupaten . ", " . $row->location->provinsi;
                 }),
-            Column::make("d3", "d3_formation")
+            Column::make("d3", "d3")
                 ->excludeFromSelectable(),
-            Column::make("ks", "ks_formation")
+            Column::make("ks", "ks")
                 ->excludeFromSelectable(),
-            Column::make("st", "st_formation")
+            Column::make("st", "st")
                 ->excludeFromSelectable(),
-            Column::make("se", "se_formation"),
-            Column::make("sk", "sk_formation"),
-            Column::make("si", "si_formation"),
-            Column::make("sd", "sd_formation"),
+            Column::make("se", "se"),
+            Column::make("sk", "sk"),
+            Column::make("si", "si"),
+            Column::make("sd", "sd"),
         ];
     }
 

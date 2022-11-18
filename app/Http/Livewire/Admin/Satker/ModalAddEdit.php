@@ -32,13 +32,13 @@ class ModalAddEdit extends ModalComponent
         return [
             'satker.name' => 'required',
             'locationSearch' => 'nullable|exists:locations,kabupaten',
-            'satker.se_formation' => 'nullable|integer',
-            'satker.sk_formation' => 'nullable|integer',
-            'satker.si_formation' => 'nullable|integer',
-            'satker.sd_formation' => 'nullable|integer',
-            'satker.d3_formation' => 'nullable|integer',
-            'satker.ks_formation' => 'nullable|integer',
-            'satker.st_formation' => 'nullable|integer',
+            'satker.se' => 'nullable|integer',
+            'satker.sk' => 'nullable|integer',
+            'satker.si' => 'nullable|integer',
+            'satker.sd' => 'nullable|integer',
+            'satker.d3' => 'nullable|integer',
+            'satker.ks' => 'nullable|integer',
+            'satker.st' => 'nullable|integer',
         ];
     }
 

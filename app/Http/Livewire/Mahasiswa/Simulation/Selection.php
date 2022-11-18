@@ -34,7 +34,7 @@ class Selection extends Component
 
         $times = $this->simulation->times;
 
-        $this->session = $times[floor($this->user->details["rank_" . $this->BASED_ON] / $this->max_rank * $times->count())];
+        $this->session = $times[floor(($this->user->details["rank_" . $this->BASED_ON] - 1) / $this->max_rank * $times->count())];
     }
 
     public function render()

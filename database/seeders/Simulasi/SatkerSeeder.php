@@ -26,13 +26,13 @@ class SatkerSeeder extends Seeder
                 Satker::updateOrCreate([
                     "name" => $data[0],
                     "location_id" => $location->id,
-                    "se_formation" => $data[2],
-                    "sk_formation" => $data[3],
-                    "si_formation" => $data[4],
-                    "sd_formation" => $data[5],
-                    "d3_formation" => $data[6],
-                    "ks_formation" => $data[7],
-                    "st_formation" => $data[8]
+                    "se" => $data[2],
+                    "sk" => $data[3],
+                    "si" => $data[4],
+                    "sd" => $data[5],
+                    "d3" => $data[6],
+                    "ks" => $data[7],
+                    "st" => $data[8]
                 ]);  
             }
             $firstline = false;

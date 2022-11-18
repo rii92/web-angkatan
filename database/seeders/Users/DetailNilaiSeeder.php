@@ -29,7 +29,7 @@ class DetailNilaiSeeder extends Seeder
 
             if (!$user) continue;
 
-            $user->details->update([
+            $user->details()->update([
                 "ipk" => (float) $data[2],
                 "jurusan" => $data[3],
                 "peminatan" => $data[4],

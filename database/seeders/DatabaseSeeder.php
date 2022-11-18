@@ -15,7 +15,6 @@ use Database\Seeders\Users\DetailMahasiswaSeeder;
 use Database\Seeders\Users\DetailSkripsiSeeder;
 use Database\Seeders\Users\DetailNilaiSeeder;
 use Database\Seeders\Users\MahasiswaSeeder;
-// use Database\Seeders\Users\UsersFormationSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\App;
 
@@ -50,14 +49,13 @@ class DatabaseSeeder extends Seeder
                 DetailSkripsiSeeder::class,
                 DetailMahasiswaSeeder::class,
                 DetailNilaiSeeder::class,
-                // UsersFormationSeeder::class,
                 AnonimNameSeeder::class,
 
                 SatkerSeeder::class,
 
 
                 SambatSeeder::class,
-                KonsultasiSeeder::class
+                KonsultasiSeeder::class,
             ]);
         }
     }

@@ -12,13 +12,13 @@ class Satker extends Model
     protected $table = 'satkers';
 
     protected $attributes = [
-        'se_formation' => 0,
-        'sk_formation' => 0,
-        'si_formation' => 0,
-        'sd_formation' => 0,
-        'd3_formation' => 0,
-        'ks_formation' => 0,
-        'st_formation' => 0,
+        'se' => 0,
+        'sk' => 0,
+        'si' => 0,
+        'sd' => 0,
+        'd3' => 0,
+        'ks' => 0,
+        'st' => 0,
     ];
 
     /**
