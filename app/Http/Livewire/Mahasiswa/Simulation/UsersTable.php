@@ -26,14 +26,18 @@ class UsersTable extends DataTableComponent
 
     public function columns(): array
     {
+        $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
+
         return [
             Column::make("id"),
             Column::make("name", "user.name")
                 ->searchable(),
             Column::make(AppSimulation::BASED_ON, "based_on")
-                ->format(fn ($value) => Str::upper($value)),
-            Column::make("sesi", "session"),
+                ->format($centeredColumnFormat),
+            Column::make("sesi", "session")
+                ->format($centeredColumnFormat),
             Column::make("rank " . AppSimulation::BASED_ON, "user_rank")
+                ->format($centeredColumnFormat)
         ];
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
+use Illuminate\Support\Str;
 
 class SatkerTable extends DataTableComponent
 {
@@ -17,8 +18,6 @@ class SatkerTable extends DataTableComponent
 
     public string $defaultSortDirection = 'desc';
 
-    public bool $columnSelect = true;
-
     public array $perPageAccepted = [10, 15];
 
     public string $pageName = 'satker_table';
@@ -27,31 +26,33 @@ class SatkerTable extends DataTableComponent
 
     public function columns(): array
     {
+        $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
+
         $baseColumn = [
-            Column::make("nama", "name")
-                ->searchable()
-                ->excludeFromSelectable(),
+            Column::make("nama", "name")->searchable(),
+
             Column::make("lokasi satker", "location.full_location")
-                ->excludeFromSelectable(),
         ];
 
         if ($this->getFilter('formation')) return array_merge($baseColumn, [
-            Column::make("Formasi", $this->getFilter('formation')),
-            Column::make("Pilihan 1", "formation_1_count"),
-            Column::make("Pilihan 2", "formation_2_count"),
-            Column::make("Pilihan 3", "formation_3_count"),
-            Column::make("Final", "formation_final_count"),
+            Column::make("Formasi", $this->getFilter('formation'))
+                ->format($centeredColumnFormat),
+            Column::make("Pilihan 1", "formation_1_count")
+                ->format($centeredColumnFormat),
+            Column::make("Pilihan 2", "formation_2_count")
+                ->format($centeredColumnFormat),
+            Column::make("Pilihan 3", "formation_3_count")
+                ->format($centeredColumnFormat),
+            Column::make("Final", "formation_final_count")
+                ->format($centeredColumnFormat),
         ]);
 
-        return array_merge($baseColumn, [
-            Column::make("DIII", "d3")->excludeFromSelectable(),
-            Column::make("KS", "ks")->excludeFromSelectable(),
-            Column::make("ST", "st")->excludeFromSelectable(),
-            Column::make("SE", "se"),
-            Column::make("SK", "sk"),
-            Column::make("SI", "si"),
-            Column::make("SD", "sd"),
-        ]);
+        $formationColumns = [];
+
+        foreach (AppSimulation::BASED_ON() as $key => $value)
+            array_push($formationColumns, Column::make(Str::upper($key), $key)->format($centeredColumnFormat));
+
+        return array_merge($baseColumn, $formationColumns);
     }
 
     public function filters(): array
