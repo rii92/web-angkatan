@@ -30,4 +30,24 @@ class Satker extends Model
     {
         return $this->belongsTo(Location::class);
     }
+
+    public function formation_1()
+    {
+        return $this->hasMany(UserFormations::class, "satker_1");
+    }
+
+    public function formation_2()
+    {
+        return $this->hasMany(UserFormations::class, "satker_2");
+    }
+
+    public function formation_3()
+    {
+        return $this->hasMany(UserFormations::class, "satker_3");
+    }
+
+    public function formation_final()
+    {
+        return $this->hasMany(UserFormations::class, "satker_final");
+    }
 }

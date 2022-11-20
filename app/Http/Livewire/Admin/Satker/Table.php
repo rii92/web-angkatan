@@ -27,10 +27,7 @@ class Table extends DataTableComponent
                 ->searchable()
                 ->excludeFromSelectable(),
             Column::make("location")
-                ->format(function ($value, $column, $row) {
-                    if (!$row->location) return "";
-                    return $row->location->kabupaten . ", " . $row->location->provinsi;
-                }),
+                ->format(fn ($value, $column, $row) => $row->location ? $row->location->full_location : ""),
             Column::make("d3", "d3")
                 ->excludeFromSelectable(),
             Column::make("ks", "ks")
@@ -52,7 +49,7 @@ class Table extends DataTableComponent
             $this->selectedRowsQuery()->delete();
 
             $this->resetBulk();
-            
+
             return $this->emit('success', "Berhasil menghapus satker terpilih");
         } catch (\Exception $e) {
             return $this->emit('error', "Gagal menghapus satker terpilih");

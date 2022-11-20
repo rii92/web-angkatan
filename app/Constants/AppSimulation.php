@@ -9,13 +9,13 @@ class AppSimulation
     public static function BASED_ON(): array
     {
         return [
-            "se",
-            "sk",
-            "si",
-            "sd",
-            "d3",
-            "ks",
-            "st",
+            "ks" => "Komputasi Statistik",
+            "st" => "DIV Statistik",
+            "d3" => "DIII Statistik",
+            "si" => "Sistem Informasi",
+            "sd" => "Sains Data",
+            "se" => "Statistik Ekonomi",
+            "sk" => "Statistik Kependudukan",
         ];
     }
 }
