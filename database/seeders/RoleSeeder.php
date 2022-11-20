@@ -92,7 +92,7 @@ class RoleSeeder extends Seeder
             ],
             [
                 'name' => AppRoles::ALUMNI,
-                "description" => "Role untuk anak D3 angkatan 60 yang sudah lulus, mereka hanya bisa sambat tidak bisa konsultasi"
+                "description" => "Role untuk anak D3 Angkatan 61 yang sudah lulus, mereka hanya bisa sambat tidak bisa konsultasi"
             ],
             [
                 'name' => AppRoles::D3_61,

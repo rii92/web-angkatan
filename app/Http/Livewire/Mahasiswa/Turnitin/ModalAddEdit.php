@@ -48,7 +48,7 @@ class ModalAddEdit extends ModalComponent
             ->line("{$this->user->name} baru saja melakukan pengajuan jasa pengecekan Turnitin")
             ->action("Halaman Turnitin", route('admin.turnitin.table'))
             ->line("Regards,")
-            ->salutation("Tim TI Angkatan 60")));
+            ->salutation("Tim TI Angkatan 61")));
     }
 
     private function add()
@@ -58,7 +58,7 @@ class ModalAddEdit extends ModalComponent
         $this->turnitin->activity()->attach($this->user, [
             'title' => "<b>{$this->user->name}</b> melakukan pengajuan penggunaan jasa pengecekan Turnitin",
             'icon' => AppActivity::TYPE_PHOTO,
-            'note' => 'File yang akan dicek berada <a target="_blank" class="underline text-blue-600" href="' . $this->turnitin->link_file . '">disini</a>'
+            'note' => 'File yang akan dicek berada <a target="_blank" class="text-blue-600 underline" href="' . $this->turnitin->link_file . '">disini</a>'
         ]);
         $this->emit('success', "Success to add new turnitins submission");
         $this->sendEmailToPJTurnitin();
@@ -71,7 +71,7 @@ class ModalAddEdit extends ModalComponent
             $this->turnitin->activity()->attach($this->user, [
                 'title' => "<b>{$this->user->name}</b> merubah link file pengajuan",
                 'icon' => AppActivity::TYPE_PHOTO,
-                'note' => 'File yang akan dicek sekarang berada <a target="_blank" class="underline text-blue-600" href="' . $this->turnitin->link_file . '">disini</a>'
+                'note' => 'File yang akan dicek sekarang berada <a target="_blank" class="text-blue-600 underline" href="' . $this->turnitin->link_file . '">disini</a>'
             ]);
         }
         $this->emit('success', "Saved Changes!");

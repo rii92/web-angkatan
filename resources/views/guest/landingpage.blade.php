@@ -1,4 +1,4 @@
-<x-app-layout title="Web Angkatan 60">
+<x-app-layout title="Web Angkatan 61">
     <header class="relative">
         <x-landingpage.hero />
     </header>
@@ -79,7 +79,7 @@
             <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
                 <h2 class="text-center font-bold font-poppins tracking-wider">
                     <div class="text-3xl mb-1">TIMELINE KEGIATAN</div>
-                    <div class="md:text-xl text-lg">TINGKAT IV ANGKATAN 60 - 2021/2022 </div>
+                    <div class="md:text-xl text-lg">TINGKAT IV Angkatan 61 - 2021/2022 </div>
                 </h2>
 
                 <div class="mt-10">

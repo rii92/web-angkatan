@@ -1,2 +1,2 @@
-@props(['text' => 'Angkatan 60'])
+@props(['text' => 'Angkatan 61'])
 <span>{{ $text }}</span>

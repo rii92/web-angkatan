@@ -108,7 +108,7 @@ class InputChat extends Component
                     ->line(new HtmlString($message))
                     ->action("Discussion Room", $url)
                     ->line("Regards,")
-                    ->salutation("Tim TI Angkatan 60")));
+                    ->salutation("Tim TI Angkatan 61")));
             }
         }
     }
