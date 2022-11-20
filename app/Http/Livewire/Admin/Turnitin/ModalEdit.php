@@ -101,7 +101,7 @@ class ModalEdit extends ModalComponent
             ->line(new HtmlString("<b>Notes: {$note}</b>"))
             ->action("Hasil Pemeriksaan", route('user.turnitin.table'))
             ->line("Regards,")
-            ->salutation("Tim Turnitin Angkatan 60")));
+            ->salutation("Tim Turnitin Angkatan 61")));
     }
 
     /**

@@ -30,12 +30,12 @@ class AppProker
             [
                 'title' => "REWINDS (Share with Kindness)",
                 'src' => 'img/proker/eo_rewinds.jpeg',
-                'desc' => 'REWINDS merupakan Social Project yang diinisiasi oleh Pengurus Angkatan 60 untuk mengajak teman-teman 60 berbagi setiap bulan.'
+                'desc' => 'REWINDS merupakan Social Project yang diinisiasi oleh Pengurus Angkatan 61 untuk mengajak teman-teman 60 berbagi setiap bulan.'
             ],
             [
                 'title' => "Malam Perpisahan",
                 'src' => 'img/proker/eo_prom_night.jpeg',
-                'desc' => 'Malam perpisahan merupakan kegiatan yang menyediakan ruang bagi angkatan 60 untuk mengenang sekaligus menciptakan kenangan di akhir waktu menjadi mahasiswa Polstat STIS. Didalam acara ini kita akan bersenang senang bersama sebelum benar benar berpisah untuk mengabdi pada negeri.'
+                'desc' => 'Malam perpisahan merupakan kegiatan yang menyediakan ruang bagi Angkatan 61 untuk mengenang sekaligus menciptakan kenangan di akhir waktu menjadi mahasiswa Polstat STIS. Didalam acara ini kita akan bersenang senang bersama sebelum benar benar berpisah untuk mengabdi pada negeri.'
             ],
         ];
     }
@@ -87,17 +87,17 @@ class AppProker
             [
                 'title' => "REWINDS (Share with Kindness)",
                 'src' => 'img/proker/eo_rewinds.jpeg',
-                'desc' => 'REWINDS merupakan Social Project yang diinisiasi oleh Pengurus Angkatan 60 untuk mengajak teman-teman 60 berbagi setiap bulan.'
+                'desc' => 'REWINDS merupakan Social Project yang diinisiasi oleh Pengurus Angkatan 61 untuk mengajak teman-teman 60 berbagi setiap bulan.'
             ],
             [
                 'title' => "Ajang Kreasi Seni & Olahraga Mahasiswa (Aksioma 4.0)",
                 'src' => 'img/proker/eo_aksioma.jpeg',
-                'desc' => 'Aksioma adalah kegiatan lomba tahunan yang diselenggarakan khusus untuk mahasiswa Polstat STIS Angkatan 60 yang saat ini telah memasuki tahun keempat. Sesuai namanya, lomba ini merupakan kompetisi antar kelas yang terdiri dari berbagai macam lomba seni dan olahraga.'
+                'desc' => 'Aksioma adalah kegiatan lomba tahunan yang diselenggarakan khusus untuk mahasiswa Polstat STIS Angkatan 61 yang saat ini telah memasuki tahun keempat. Sesuai namanya, lomba ini merupakan kompetisi antar kelas yang terdiri dari berbagai macam lomba seni dan olahraga.'
             ],
             [
                 'title' => "Buku Tahunan Mahasiswa",
                 'src' => 'img/proker/eo_buku_tahunan.jpeg',
-                'desc' => 'Buku Tahunan Mahasiswa (BTM) merupakan buku yang diterbitkan sebagai kenang-kenangan selama menempuh pendidikan di Politeknik Statistika STIS. Buku ini berisikan foto-foto pribadi, kelas, dan kenangan lainnya dari seluruh mahasiswa angkatan 60.'
+                'desc' => 'Buku Tahunan Mahasiswa (BTM) merupakan buku yang diterbitkan sebagai kenang-kenangan selama menempuh pendidikan di Politeknik Statistika STIS. Buku ini berisikan foto-foto pribadi, kelas, dan kenangan lainnya dari seluruh mahasiswa Angkatan 61.'
             ],
             [
                 'title' => "Webinar Pasca Kampus",
@@ -107,7 +107,7 @@ class AppProker
             [
                 'title' => "Malam Perpisahan",
                 'src' => 'img/proker/eo_prom_night.jpeg',
-                'desc' => 'Malam perpisahan merupakan kegiatan yang menyediakan ruang bagi angkatan 60 untuk mengenang sekaligus menciptakan kenangan di akhir waktu menjadi mahasiswa Polstat STIS. Didalam acara ini kita akan bersenang senang bersama sebelum benar benar berpisah untuk mengabdi pada negeri.'
+                'desc' => 'Malam perpisahan merupakan kegiatan yang menyediakan ruang bagi Angkatan 61 untuk mengenang sekaligus menciptakan kenangan di akhir waktu menjadi mahasiswa Polstat STIS. Didalam acara ini kita akan bersenang senang bersama sebelum benar benar berpisah untuk mengabdi pada negeri.'
             ],
             [
                 'title' => "Talkshow Menuju Seminar & Sidang",

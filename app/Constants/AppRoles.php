@@ -30,7 +30,7 @@ class AppRoles
             self::AKADEMIK => 'Akademik',
             self::MEMBER => 'Pengurus Angkatan',
             self::USERS => 'Mahasiswa',
-            self::ALUMNI => 'D3 Angkatan 60 (Alumni)',
+            self::ALUMNI => 'D3 Angkatan 61 (Alumni)',
             self::D3_61 => 'D3 Angkatan 61',
         ];
     }
