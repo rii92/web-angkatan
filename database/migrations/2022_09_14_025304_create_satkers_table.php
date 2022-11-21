@@ -17,6 +17,7 @@ class CreateSatkersTable extends Migration
         Schema::create('satkers', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("kode_wilayah", 10);
             $table->foreignIdFor(Location::class)->nullable();
             $table->integer("se")->nullable()->default(0);
             $table->integer("sk")->nullable()->default(0);

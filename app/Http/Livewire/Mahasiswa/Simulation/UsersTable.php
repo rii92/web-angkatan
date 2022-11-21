@@ -4,11 +4,9 @@ namespace App\Http\Livewire\Mahasiswa\Simulation;
 
 use App\Constants\AppSimulation;
 use App\Models\UserFormations;
-use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
-use Illuminate\Support\Str;
 
 class UsersTable extends DataTableComponent
 {
@@ -16,7 +14,7 @@ class UsersTable extends DataTableComponent
 
     public string $defaultSortColumn = 'session';
 
-    public string $defaultSortDirection = 'desc';
+    public string $defaultSortDirection = 'asc';
 
     public array $perPageAccepted = [10, 15];
 
@@ -29,13 +27,12 @@ class UsersTable extends DataTableComponent
         $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
 
         return [
-            Column::make("id"),
             Column::make("name", "user.name")
                 ->searchable(),
             Column::make(AppSimulation::BASED_ON, "based_on")
                 ->format($centeredColumnFormat),
             Column::make("sesi", "session")
-                ->format($centeredColumnFormat),
+                ->format(fn ($value) => $centeredColumnFormat($value + 1)),
             Column::make("rank " . AppSimulation::BASED_ON, "user_rank")
                 ->format($centeredColumnFormat)
         ];

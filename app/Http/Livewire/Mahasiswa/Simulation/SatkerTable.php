@@ -29,9 +29,13 @@ class SatkerTable extends DataTableComponent
         $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
 
         $baseColumn = [
-            Column::make("nama", "name")->searchable(),
+            Column::make("Kode Wilayah", "kode_wilayah")
+                ->searchable()
+                ->format($centeredColumnFormat),
 
-            Column::make("lokasi satker", "location.full_location")
+            Column::make("Nama", "name")->searchable(),
+
+            Column::make("Lokasi", "location.full_location")
         ];
 
         if ($this->getFilter('formation')) return array_merge($baseColumn, [

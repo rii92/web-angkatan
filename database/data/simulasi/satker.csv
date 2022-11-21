@@ -1,3 +1,3 @@
-name,kabupaten,se_formation,sk_formation,si_formation,sd_formation,d3_formation,ks_formation,st_formation
-BPS KOTA BANDA ACEH,KOTA BANDA ACEH,0,0,0,0,1,2,3
-BPS KOTA LANGSA,KOTA LANGSA,0,0,0,0,1,2,3
+kode_wil,name,kabupaten,se_formation,sk_formation,si_formation,sd_formation,d3_formation,ks_formation,st_formation
+1701,BPS KOTA BANDA ACEH,KOTA BANDA ACEH,0,0,0,0,1,2,3
+1702,BPS KOTA LANGSA,KOTA LANGSA,0,0,0,0,1,2,3
