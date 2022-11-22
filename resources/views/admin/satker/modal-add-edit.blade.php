@@ -2,14 +2,22 @@
     <x-modal.header title="{{ $satker_id ? __('Update Satuan Kerja') : __('Buat Satuan Kerja Baru') }}" bordered />
     <x-modal.body>
         <x-input.wrapper>
-            <x-input.label for="satker.name" value="{{ __('satkers Name') }}" />
-            <x-input.text wire:model.defer="satker.name" id="name" type="text" />
+            <x-input.label for="satker.kode_wilayah" value="Kode Wilayah Satker" />
+            <x-input.text wire:model.defer="satker.kode_wilayah" id="kode_wilayah" type="number" min="0"
+                value="0" />
+            <x-input.error for="satker.kode_wilayah" />
+        </x-input.wrapper>
+
+        <x-input.wrapper>
+            <x-input.label for="satker.name" value="{{ __('Nama Satker') }}" />
+            <x-input.text wire:model.defer="satker.name" id="name" type="text" placeholder="BPS Pulang Pisau" />
             <x-input.error for="satker.name" />
         </x-input.wrapper>
 
         <x-input.wrapper class="relative" x-data="{ search: false }">
-            <x-input.label for="locationSearch" value="Kabupaten Asal" />
-            <x-input.text id="locationSearch" placeholder="Kota Metro" wire:model="locationSearch" x-on:input="search = true" />
+            <x-input.label for="locationSearch" value="Kabupaten" />
+            <x-input.text id="locationSearch" placeholder="Kota Metro" wire:model="locationSearch"
+                x-on:input="search = true" />
             {{-- dropdown auto search. limit search 3 items, because modal is overflow:hidden --}}
             @if ($locationSearch)
                 <ul x-show="search" @click.away="search = false"
@@ -31,48 +39,14 @@
 
         </x-input.wrapper>
 
-        <x-input.wrapper>
-            <x-input.label for="satker.se_formation" value="{{ __('Formasi Statistik Ekonomi') }}" />
-            <x-input.text wire:model.defer="satker.se_formation" id="se_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.se_formation" />
-        </x-input.wrapper>
-
-        <x-input.wrapper>
-            <x-input.label for="satker.sk_formation" value="{{ __('Formasi Statistik Kependudukan') }}" />
-            <x-input.text wire:model.defer="satker.sk_formation" id="sk_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.sk_formation" />
-        </x-input.wrapper>
-
-        <x-input.wrapper>
-            <x-input.label for="satker.si_formation" value="{{ __('Formasi Sistem Informasi Statistik') }}" />
-            <x-input.text wire:model.defer="satker.si_formation" id="si_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.si_formation" />
-        </x-input.wrapper>
-
-        <x-input.wrapper>
-            <x-input.label for="satker.sd_formation" value="{{ __('Formasi Data Science') }}" />
-            <x-input.text wire:model.defer="satker.sd_formation" id="sd_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.sd_formation" />
-        </x-input.wrapper>
-
-        <x-input.wrapper>
-            <x-input.label for="satker.st_formation" value="{{ __('Formasi DIV Statistik') }}" />
-            <x-input.text wire:model.defer="satker.st_formation" id="st_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.st_formation" />
-        </x-input.wrapper>
-
-        <x-input.wrapper>
-            <x-input.label for="satker.ks_formation" value="{{ __('Formasi DIV Komputasi Statistik') }}" />
-            <x-input.text wire:model.defer="satker.ks_formation" id="ks_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.ks_formation" />
-        </x-input.wrapper>
-
-        <x-input.wrapper>
-            <x-input.label for="satker.d3_formation" value="{{ __('Formasi DIII Statistik') }}" />
-            <x-input.text wire:model.defer="satker.d3_formation" id="d3_formation" type="number" min="0" value="0" />
-            <x-input.error for="satker.d3_formation" />
-        </x-input.wrapper>
-        
+        @foreach (App\Constants\AppSimulation::BASED_ON() as $key => $item)
+            <x-input.wrapper>
+                <x-input.label for="satker.{{ $key }}" value="Formasi {{ $item }}" />
+                <x-input.text wire:model.defer="satker.{{ $key }}" id="{{ $key }}" type="number" min="0"
+                    value="0" />
+                <x-input.error for="satker.{{ $key }}" />
+            </x-input.wrapper>
+        @endforeach
 
     </x-modal.body>
     <x-modal.footer>

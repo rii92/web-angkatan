@@ -16,6 +16,6 @@ class AnonimNameSeeder extends Seeder
     public function run()
     {
         foreach (UserDetails::all() as $userDetail)
-            $userDetail->update(['anonim_name' => Str::lower($userDetail->jurusan . '-' . $userDetail->user_id)]);
+            $userDetail->update(['anonim_name' => Str::lower($userDetail->jurusan_short . '-' . $userDetail->user_id)]);
     }
 }

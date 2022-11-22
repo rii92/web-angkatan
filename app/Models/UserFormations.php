@@ -12,6 +12,11 @@ class UserFormations extends Model
     protected $table = 'users_formations';
     protected $guarded = [];
 
+    public function getBasedOnAttribute($value)
+    {
+        return strtoupper($value);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

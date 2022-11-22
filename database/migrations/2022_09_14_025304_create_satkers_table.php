@@ -17,14 +17,15 @@ class CreateSatkersTable extends Migration
         Schema::create('satkers', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("kode_wilayah", 10);
             $table->foreignIdFor(Location::class)->nullable();
-            $table->integer("se_formation")->nullable()->default(0);
-            $table->integer("sk_formation")->nullable()->default(0);
-            $table->integer("si_formation")->nullable()->default(0);
-            $table->integer("sd_formation")->nullable()->default(0);
-            $table->integer("d3_formation")->nullable()->default(0);
-            $table->integer("ks_formation")->nullable()->default(0);
-            $table->integer("st_formation")->nullable()->default(0);
+            $table->integer("se")->nullable()->default(0);
+            $table->integer("sk")->nullable()->default(0);
+            $table->integer("si")->nullable()->default(0);
+            $table->integer("sd")->nullable()->default(0);
+            $table->integer("d3")->nullable()->default(0);
+            $table->integer("ks")->nullable()->default(0);
+            $table->integer("st")->nullable()->default(0);
             $table->timestamps();
         });
     }

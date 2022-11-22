@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin\Simulation;
 
 use App\Constants\AppPermissions;
 use App\Http\Livewire\GuardsAgainstAccess;
+use App\Jobs\CreateUserSimulations;
 use App\Models\Simulations;
 use App\Models\SimulationsTime;
 use Illuminate\Support\Facades\DB;
@@ -77,11 +78,14 @@ class ModalAddEdit extends ModalComponent
                 $time->save();
             }
 
+            CreateUserSimulations::dispatchSync($this->simulation);
+
             DB::commit();
             $this->emit('success', "Berhasil menambahkan simulasi baru");
         } catch (\Exception $e) {
             DB::rollBack();
-            $this->emit('error', "Gagal menambahkan simulasi baru");
+            $this->emit("error", $e->getMessage());
+            // $this->emit('error', "Gagal menambahkan simulasi baru");
         } finally {
             $this->emit('reloadComponents', 'admin.simulation.table');
             $this->emit('closeModal');

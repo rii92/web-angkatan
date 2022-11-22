@@ -19,11 +19,16 @@ class CreateUserFormationsTable extends Migration
         Schema::create('users_formations', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class);
+            $table->string("based_on", 50);
+            $table->integer("user_rank")->nullable();
+            $table->foreignIdFor(Simulations::class);
             $table->foreignIdFor(Satker::class, "satker_1")->nullable();
             $table->foreignIdFor(Satker::class, "satker_2")->nullable();
             $table->foreignIdFor(Satker::class, "satker_3")->nullable();
             $table->foreignIdFor(Satker::class, "satker_final")->nullable();
-            $table->foreignIdFor(Simulations::class);
+            $table->boolean("satker_final_completed")->default(false)->nullable();
+            $table->timestamp('satker_final_updated_at')->nullable();
+            $table->smallInteger("session");
             $table->timestamps();
         });
     }

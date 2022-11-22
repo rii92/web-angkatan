@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Satker;
 
 use App\Constants\AppPermissions;
+use App\Constants\AppSimulation;
 use App\Http\Livewire\GuardsAgainstAccess;
 use App\Models\Location;
 use App\Models\Satker;
@@ -29,17 +30,18 @@ class ModalAddEdit extends ModalComponent
 
     public function rules()
     {
-        return [
+        $baseRules = [
+            'satker.kode_wilayah' => 'required|integer|digits_between:1,4' ,
             'satker.name' => 'required',
-            'locationSearch' => 'nullable|exists:locations,kabupaten',
-            'satker.se_formation' => 'nullable|integer',
-            'satker.sk_formation' => 'nullable|integer',
-            'satker.si_formation' => 'nullable|integer',
-            'satker.sd_formation' => 'nullable|integer',
-            'satker.d3_formation' => 'nullable|integer',
-            'satker.ks_formation' => 'nullable|integer',
-            'satker.st_formation' => 'nullable|integer',
+            'locationSearch' => 'nullable|exists:locations,kabupaten'
         ];
+
+        $formationRules = [];
+
+        foreach (AppSimulation::BASED_ON() as $key => $value)
+            $formationRules["satker." . $key] = "nullable|integer";
+
+        return array_merge($baseRules, $formationRules);
     }
 
 
