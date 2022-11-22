@@ -115,7 +115,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::prefix('user')->group(function () {
 
-        Route::get('', fn () => redirect()->route('user.skripsi'))->name('user');
+        Route::get('', fn () => redirect()->route('user.simulasi.table'))->name('user');
         Route::get('skripsi', fn () => view('mahasiswa.skripsi'))->name('user.skripsi');
 
         Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)->prefix('konsultasi')->group(function () {

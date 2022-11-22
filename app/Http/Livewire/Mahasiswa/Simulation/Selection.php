@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Mahasiswa\Simulation;
 
+use App\Constants\AppSimulation;
 use App\Models\Simulations;
 use App\Models\User;
 use App\Models\UserDetails;
@@ -12,8 +13,6 @@ use Livewire\Component;
 
 class Selection extends Component
 {
-    public string $BASED_ON = "jurusan"; // jurusan or peminatan
-
     public User $user;
 
     public Simulations $simulation;
@@ -22,19 +21,17 @@ class Selection extends Component
 
     public $max_rank;
 
-    public $session;
-
     public function mount()
     {
         $this->user = User::with('details')->find(Auth::id());
 
-        $this->max_rank = Cache::rememberForever("MAX_RANK_" . $this->user->details[$this->BASED_ON], function () {
-            return UserDetails::where($this->BASED_ON, $this->user->details[$this->BASED_ON])->max("rank_" . $this->BASED_ON);
+        $this->formation = UserFormations::where('simulations_id', $this->simulation->id)
+            ->where('user_id', Auth::id())->first();
+
+        $this->max_rank = Cache::get("MAX_RANK_" . $this->user->details[AppSimulation::BASED_ON], function () {
+            return UserDetails::where(AppSimulation::BASED_ON, $this->user->details[AppSimulation::BASED_ON])
+                ->max("rank_" . AppSimulation::BASED_ON);
         });
-
-        $times = $this->simulation->times;
-
-        $this->session = $times[floor(($this->user->details["rank_" . $this->BASED_ON] - 1) / $this->max_rank * $times->count())];
     }
 
     public function render()
