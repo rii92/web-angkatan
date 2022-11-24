@@ -18,13 +18,13 @@ class ModalAddEdit extends ModalComponent
     private $permissionGuard = AppPermissions::SIMULATION_MANAGEMENT;
 
     public $sesi_count;
-    
-    public $sesi_count_prev; 
-    
-    public $simulation_id; 
-    
+
+    public $sesi_count_prev;
+
+    public $simulation_id;
+
     public $simulation_times;
-    
+
     public Simulations $simulation;
 
     public function rules()
@@ -61,7 +61,7 @@ class ModalAddEdit extends ModalComponent
 
         $this->sesi_count_prev = $this->sesi_count;
     }
-    
+
 
     public function handleForm()
     {
@@ -78,7 +78,8 @@ class ModalAddEdit extends ModalComponent
                 $time->save();
             }
 
-            CreateUserSimulations::dispatchSync($this->simulation);
+            if (!$this->simulation_id)
+                CreateUserSimulations::dispatchSync($this->simulation);
 
             DB::commit();
             $this->emit('success', "Berhasil menambahkan simulasi baru");

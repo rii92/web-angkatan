@@ -38,19 +38,25 @@ class CreateUserSimulations implements ShouldQueue
     public function handle()
     {
         $users = User::permission(AppPermissions::SIMULATION_ACCESS)->with('details')->get();
+        $simulation_times = $this->simulation->times;
+        $session_count = $simulation_times->count();
 
         foreach ($users as $user) {
-            if ($user->details["rank_". AppSimulation::BASED_ON] === 0) continue;
+            if ($user->details["rank_" . AppSimulation::BASED_ON] === 0) continue;
 
             $max_rank = Cache::rememberForever("MAX_RANK_" . $user->details[AppSimulation::BASED_ON], function () use ($user) {
                 return UserDetails::where(AppSimulation::BASED_ON, $user->details[AppSimulation::BASED_ON])->max("rank_" . AppSimulation::BASED_ON);
             });
 
-            $user->formations()->updateOrCreate([
+            $session = floor(($user->details["rank_" . AppSimulation::BASED_ON] - 1) / $max_rank * $session_count);
+
+            $user->formations()->create([
                 "based_on" => $user->details[AppSimulation::BASED_ON],
                 "user_rank" => $user->details["rank_" . AppSimulation::BASED_ON],
-                "session" => floor(($user->details["rank_" . AppSimulation::BASED_ON] - 1) / $max_rank * $this->simulation->times->count())
-            ], [ "simulations_id" => $this->simulation->id ]);
+                "session" => $session,
+                "session_id" => $simulation_times[$session]->id,
+                "simulations_id" => $this->simulation->id
+            ]);
         }
     }
 }

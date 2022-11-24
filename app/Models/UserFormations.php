@@ -46,4 +46,9 @@ class UserFormations extends Model
     {
         return $this->belongsTo(Simulations::class);
     }
+
+    public function session()
+    {
+        return  $this->belongsTo(SimulationsTime::class, 'session_id');
+    }
 }
