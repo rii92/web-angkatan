@@ -1,0 +1,917 @@
+# Webalizer V2.23-08 Incremental Data - 11/23/2022 03:54:28
+2022 11 23 3 54 28
+3091 2135 2 213 55 128 3428992458 880 258 0
+1 1 174 1 23
+88 72 246014850 1 19 14
+87 68 26426887 1 27 14
+138 114 56231114 1 22 10
+262 103 26845466 1 150 9
+52 34 42783016 1 18 8
+53 39 18336026 1 13 10
+88 66 49956178 1 19 10
+303 287 310454635 1 39 13
+291 271 550238495 1 24 11
+139 114 230069194 1 22 15
+104 81 213589862 1 22 11
+235 194 563845213 1 70 11
+99 79 22148787 1 19 10
+228 197 288476431 1 35 8
+54 35 10313972 1 15 11
+161 140 453826779 1 30 13
+34 21 3440573 1 18 10
+205 105 257280346 1 99 11
+183 88 58423639 1 50 9
+105 10 224161 2 73 16
+89 7 29976 1 52 19
+88 10 35700 1 43 17
+5 0 1158 1 1 1
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+61 38 18039290 27
+49 30 23281655 15
+34 13 772014 19
+33 14 1918593 18
+30 10 5193477 12
+165 132 937241083 25
+133 115 455214550 15
+155 130 261494019 27
+147 119 30646077 25
+45 19 34593847 25
+175 123 68281504 41
+235 203 293870946 52
+110 98 39017787 11
+158 78 46245221 30
+181 143 263276253 42
+159 60 15537570 83
+284 231 297672218 60
+90 69 36210197 25
+91 61 15963856 23
+128 92 45690450 42
+257 91 24525657 155
+162 129 247910748 37
+148 113 256569681 36
+61 24 9825765 35
+0
+0
+0
+2135
+0
+0
+0
+0
+0
+45
+0
+2
+0
+0
+103
+0
+2
+0
+0
+0
+21
+777
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+6
+0
+0
+0
+0
+0
+# -urls- 
+/Foto/Artikel 3/PELANTIKAN DPM.png
+1 12 0 1574028 0 0
+/Foto/Artikel 9/7.png
+1 11 0 1651639 0 0
+/Foto/Basket/2.jpg
+1 6 0 4031976 0 0
+/Kumpulan Artikel/Artikel 17.html
+0 11 0 19813 8 7
+/Foto/Futsal/IMG_8283-min.jpg
+1 5 0 4208155 0 0
+/Foto/Podcast/PODCAST3.png
+1 11 0 9195857 0 0
+/Foto/Artikel 2/WAWANCARA 1.png
+1 12 0 1686672 0 0
+/kompre/vendor/tinymce/plugins/lists/plugin.min.js
+0 1 0 14256 0 0
+/Foto/Artikel 10/tahun baru-01.png
+1 11 0 975986 0 0
+/Kumpulan Artikel/Artikel 6.html
+0 10 0 34302 7 9
+/Foto/Artikel 7/TRANSPARANSI 1.png
+1 12 0 1446348 0 0
+/Foto/Artikel 14/rohin.jpg
+1 5 0 812870 0 0
+/kompre/assets/images/profil/bg_merah_3.jpg
+1 1 0 60207 0 0
+/Foto/Podcast/PODCAST1.png
+1 11 0 3854697 0 0
+/Foto/Artikel 19/3.png
+1 10 0 5348890 0 0
+/kompre/vendor/midone/dist/images/bg-login-page.svg
+0 3 0 4254 0 0
+/Foto/Artikel 24/1.png
+1 11 0 16251752 0 0
+/Foto/Artikel 14/ROKRIS.jpg
+1 6 0 492840 0 0
+/Foto/Artikel 5/KETING 4.png
+1 13 0 1523249 0 0
+/Style Beranda.css
+0 56 0 348040 0 0
+/Foto/Artikel 11/Feed pemenang Quiz (1).png
+1 9 0 1445994 0 0
+/Foto/Artikel 14/doa-bersama_03.png
+1 14 0 2378857 0 0
+/Kumpulan Artikel/Artikel 24.html
+0 10 0 0 9 11
+/kompre/vendor/tinymce/plugins/wordcount/plugin.min.js
+0 1 0 10937 0 0
+/Titiktemu/js/includehtml.js
+0 12 0 11712 0 0
+/Kumpulan Artikel/Artikel 21.html
+0 2 0 9181 3 0
+/Foto/galeri2.JPG
+1 50 0 55681750 0 0
+/Foto/Artikel 14/ROHIS.jpg
+1 5 0 807515 0 0
+/kompre/vendor/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js
+0 1 0 210932 0 0
+/Foto/Futsal/IMG_8423-min.jpg
+1 5 0 4257630 0 0
+/kompre/vendor/tinymce/plugins/link/plugin.min.js
+0 1 0 8919 0 0
+/Foto/Basket/3.jpg
+1 6 0 4364868 0 0
+/Foto/Artikel 16/CMrank.jpg
+1 1 0 1234299 0 0
+/Foto/Artikel 4/Bimbel.jpg
+1 12 0 1235844 0 0
+/kompre/vendor/midone/dist/css/material-design-iconic-font.min.css
+0 1 0 70815 0 0
+/kompre/assets/images/profil/Acara_S_Sifaul_Khusna_1.jpg
+1 1 0 377139 0 0
+/Kumpulan Artikel/Artikel 11.html
+0 1 0 8906 1 1
+/Foto/Artikel 5/Foto 2.png
+1 1 0 313597 0 0
+/Gambar/BG 2.png
+1 20 0 34109700 0 0
+/Kumpulan Artikel/Artikel 10.html
+0 3 0 29094 3 2
+/Foto/Artikel 1/OPREC_04.png
+1 13 0 663897 0 0
+/kompre/vendor/tinymce/themes/modern/theme.min.js
+0 1 0 135904 0 0
+/Foto/Artikel 8/4.png
+1 9 0 1189134 0 0
+/kompre/vendor/midone/dist/images/illustration.svg
+0 3 0 100839 0 0
+/Kumpulan Artikel/Artikel 18.html
+0 4 0 28362 2 3
+/Foto/Artikel 11/Feed pemenang Quiz.png
+1 11 0 1282952 0 0
+/Audio/PODCAST WEB 3.mp3
+0 15 0 757485747 0 0
+/Kumpulan Artikel/Artikel 2.html
+0 9 0 75411 7 6
+/Kumpulan Artikel/Query.js
+0 4 0 2056 0 0
+/Kumpulan Artikel/Artikel 14.html
+0 10 0 84213 8 10
+/Foto/Artikel 16/ML.jpg
+1 1 0 1359523 0 0
+/Titiktemu/qna/qna-02.html
+0 9 0 5067 0 1
+/Foto/Artikel 3/DPM 4.png
+1 12 0 1375332 0 0
+/kompre/assets/images/profil/IMG_20211207_170304-removebg-preview.png
+1 1 0 159722 0 0
+/Kumpulan Artikel/Artikel 19.html
+0 2 0 17188 1 1
+/kompre/assets/images/icon/logo.png
+1 1 0 316531 0 0
+/Kumpulan Artikel/Artikel 5.html
+0 2 0 8369 2 1
+/Foto/galeri1.jpg
+1 50 0 39284035 0 0
+/Foto/Artikel 16/Juara Puisi.png
+1 8 0 1458736 0 0
+/kompre/
+0 24 0 1188569 5 7
+/Tentangkami/arfi.jpg
+1 11 0 248400 0 0
+/kompre/vendor/midone/dist/css/app.css
+0 7 0 18072956 0 0
+/kompre/vendor/MathJax-2.7.3/MathJax.js
+0 1 0 63347 0 0
+/Kumpulan Artikel/jQuery.js
+0 4 0 357904 0 0
+/Foto/Artikel 23/hari raya nyepi.png
+1 14 0 5847912 0 0
+/Titiktemu/qna/qna-05.html
+0 8 0 5848 0 1
+/Audio/PODCAST WEB.mp3
+0 15 0 1052343010 0 0
+/Foto/Artikel 1/OPREC_06.png
+1 14 0 961831 0 0
+/kompre/vendor/MathJax-2.7.3/config/TeX-AMS_HTML-full.js
+0 1 0 313253 0 0
+/Foto/Futsal/IMG_8429-min.jpg
+1 5 0 5481550 0 0
+/Foto/Artikel 3/DPM 5.png
+1 13 0 1650805 0 0
+/Foto/Artikel 20/1.png
+1 13 0 157158456 0 0
+/Foto/Artikel 25/Copy of RAMADAN 61-02.png
+1 35 0 25886875 0 0
+/kompre/vendor/tinymce/plugins/colorpicker/plugin.min.js
+0 1 0 1349 0 0
+/kompre/vendor/midone/dist/images/logo.png
+1 6 0 1094395 0 0
+/Foto/Basket/1.jpg
+1 6 0 3457092 0 0
+/Foto/Artikel 4/Bimbel 2.jpg
+1 3 0 1758762 0 0
+/Foto/Podcast/PODCAST2.png
+1 11 0 7657628 0 0
+/Foto/Closing/IMG_0127 (1)-min.jpg
+1 5 0 10243445 0 0
+/Audio/PODCAST WEB 2.mp3
+0 13 0 661095912 0 0
+/kompre/vendor/tinymce/plugins/table/plugin.min.js
+0 1 0 135387 0 0
+/Foto/Artikel 12/RECAP LINK VIDEO KSM ANGKATAN 61.png
+1 3 0 719364 0 0
+/kompre/vendor/datetime/jquery.datetimepicker.min.css
+0 1 0 16503 0 0
+/Foto/Futsal/IMG_8280-min.jpg
+1 6 0 4824894 0 0
+/Foto/Artikel 3/Foto 3.png
+1 4 0 819108 0 0
+/Gambar/61.png
+1 69 0 2047299 0 0
+/Foto/Artikel 1/OPREC_08.png
+1 15 0 1059990 0 0
+/Kumpulan Artikel/Artikel 20.html
+0 4 0 35252 2 2
+/Gambar/Logo angkatan.png
+1 52 0 588744 0 0
+/Foto/Artikel 13/Feed pemenang Quiz.png
+1 16 0 2387008 0 0
+/kompre/vendor/tinymce/skins/lightgray/content.min.css
+0 1 0 3782 0 0
+/Foto/Artikel 3/Foto 2.png
+1 4 0 1671064 0 0
+/Foto/Closing/IMG_5462-min.jpg
+1 5 0 8384290 0 0
+/Galeri/Style Galeri.css
+0 8 0 15352 0 0
+/Foto/Artikel 9/6.png
+1 8 0 1251688 0 0
+/Foto/Artikel 16/cover.png
+1 11 0 46421023 0 0
+/Foto/Basket/5.jpg
+1 7 0 3493154 0 0
+/kompre/vendor/MathJax-2.7.3/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff
+0 1 0 34164 0 0
+/Timeline/Timeline.html
+0 11 0 169818 4 3
+/Tentangkami/logo.png
+1 11 0 261008 0 0
+/Foto/Artikel 21/isra miraj-01.png
+1 16 0 41625015 0 0
+/Foto/Artikel 13/Feed pemenang Quiz (3).png
+1 18 0 3205316 0 0
+/Foto/Artikel 15/PKL 60-01.png
+1 20 0 4659826 0 0
+/Kumpulan Artikel/Style Khusus.css
+0 4 0 29344 0 0
+/Kumpulan Artikel/Artikel 16.html
+0 5 0 40551 2 2
+/Foto/Closing/IMG_0102 (1)-min.jpg
+1 6 0 10563972 0 0
+/Foto/Artikel 13/Feed pemenang Quiz (1).png
+1 16 0 3071264 0 0
+/Foto/Artikel 19/2.png
+1 14 0 9615112 0 0
+/kompre/vendor/MathJax-2.7.3/jax/output/HTML-CSS/fonts/TeX/fontdata.js
+0 1 0 44158 0 0
+/Gambar/BG.png
+1 29 0 29305312 0 0
+/kompre/assets/images/profil/WhatsApp_Image_2022-09-30_at_20_51_40.jpeg
+0 1 0 47872 0 0
+/Foto/Artikel 6/PELANTIKAN SEMA.png
+1 12 0 1442292 0 0
+/Titiktemu/qna/qna-04.html
+0 8 0 5616 0 0
+/Kumpulan Artikel/Artikel 26.html
+0 8 0 22392 11 14
+/Kumpulan Artikel/Artikel 13.html
+0 1 0 0 1 2
+/Timeline/gform.html
+0 4 0 9136 4 4
+/Foto/Artikel 19/1.png
+1 12 0 11121192 0 0
+/Foto/Artikel 2/Foto 2.png
+1 50 0 31679500 0 0
+/Kumpulan Artikel/Artikel 3.html
+0 19 0 201672 13 14
+/Foto/Artikel 2/Foto 3.png
+1 1 0 666526 0 0
+/kompre/vendor/countdown/countdowntime.js
+0 1 0 2004 0 0
+/Foto/Artikel 8/Feed pemenang Quiz.png
+1 10 0 1068980 0 0
+/Foto/Artikel 2/WAWANCARA 2.png
+1 12 0 1637124 0 0
+/Tentangkami/mark.jpg
+1 10 0 51030 0 0
+/Kumpulan Artikel/Artikel 1.html
+0 9 0 43340 7 9
+/Titiktemu/css/style.css
+0 10 0 23120 0 0
+/kompre/vendor/countdown/jquery.countdown.min.js
+0 1 0 5390 0 0
+/Foto/Artikel 9/5.png
+1 9 0 921825 0 0
+/kompre/vendor/midone/dist/js/jquery-3.6.0.min.js
+0 1 0 89501 0 0
+/Foto/Artikel 9/8.png
+1 10 0 1566900 0 0
+/Galeri/Galeri.html
+0 9 0 95936 6 5
+/Foto/Artikel 6/SEMA 2.png
+1 14 0 1509408 0 0
+/kompre/assets/images/profil/2020-03-19.jpg
+1 1 0 5762 0 0
+/Kumpulan Artikel/Artikel 15.html
+0 8 0 69312 7 4
+/Foto/Futsal/IMG_8300-min.jpg
+1 5 0 3607025 0 0
+/Foto/Artikel 5/KETING 2.png
+1 13 0 1646320 0 0
+/Kumpulan Artikel/Artikel 23.html
+0 4 0 15978 3 2
+/Foto/Artikel 14/doa-bersama_02.png
+1 14 0 2525656 0 0
+/Foto/Artikel 16/F3.jpg
+1 1 0 1718907 0 0
+/Foto/Artikel 18/cover.png
+1 13 0 31418803 0 0
+/Foto/Basket/6.jpg
+1 5 0 2185310 0 0
+/Kumpulan Artikel/Artikel 9.html
+0 2 0 17624 3 4
+/Foto/Artikel 11/Story Pemenang Quiz (4).png
+1 1 0 312148 0 0
+/Foto/Artikel 16/I.jpg
+1 1 0 1232995 0 0
+/Foto/Artikel 22/Feed pemenang Quiz.png
+1 15 0 19081965 0 0
+/Foto/Artikel 20/2.png
+1 2 0 33212538 0 0
+/Titiktemu/js/filter.js
+0 12 0 7644 0 0
+/Foto/Artikel 14/doa-bersama_01.png
+1 12 0 2097876 0 0
+/Foto/Artikel 3/DPM 6.png
+1 12 0 1426308 0 0
+/Foto/Artikel 19/all.png
+1 2 0 1270540 0 0
+/kompre/vendor/MathJax-2.7.3/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff
+0 1 0 5792 0 0
+/kompre/vendor/MathJax-2.7.3/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff
+0 1 0 19356 0 0
+/Kumpulan Artikel/Artikel 8.html
+0 2 0 9259 1 1
+/kompre/vendor/tinymce/tinymce.min.js
+0 1 0 350401 0 0
+/kompre/vendor/tinymce/skins/lightgray/skin.min.css
+0 1 0 43950 0 0
+/Foto/Artikel 3/Foto 1.png
+1 4 0 1071128 0 0
+/Foto/Artikel 1/OPREC_05.png
+1 12 0 855456 0 0
+/Timeline/Style Gform.css
+0 1 0 1561 0 0
+/Foto/Artikel 6/Foto 1.png
+1 2 0 690402 0 0
+/Foto/Artikel 11/Feed pemenang Quiz (2).png
+1 10 0 1467330 0 0
+/kompre/vendor/midone/dist/js/app.js
+0 8 0 60656394 0 0
+/kompre/vendor/datetime/jquery.datetimepicker.full.min.js
+0 1 0 60998 0 0
+/Foto/Artikel 2/WAWANCARA PENGURUS TINGKAT 2.png
+1 12 0 1443828 0 0
+/kompre/vendor/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css
+0 1 0 2226 0 0
+/Foto/Artikel 6/SEMA 3.png
+1 12 0 1510728 0 0
+/Kumpulan Artikel/Style Artikel.css
+0 29 0 192038 0 0
+/Kumpulan Artikel/Artikel 12.html
+0 6 0 46944 4 4
+/Titiktemu/Titiktemu.html
+0 19 0 89063 5 4
+/Foto/Artikel 13/Feed pemenang Quiz (2).png
+1 16 0 3375744 0 0
+/Kumpulan Artikel/Artikel 4.html
+0 8 0 50094 10 4
+/Gambar/Logo Youtube.png
+1 47 0 200784 0 0
+/Foto/Artikel 6/SEMA 4.png
+1 13 0 1418664 0 0
+/
+0 142 0 840850 69 59
+/Foto/Artikel 22/Feed pemenang Quiz (2).png
+1 12 0 14989344 0 0
+/kompre/vendor/tinymce/plugins/textcolor/plugin.min.js
+0 1 0 4924 0 0
+/Kumpulan Artikel/Artikel 25.html
+0 13 0 44785 12 12
+/Tentangkami/Tentangkami.html
+0 25 0 277508 11 16
+/Foto/Artikel 5/KETING 5.png
+1 12 0 1524840 0 0
+/kompre/assets/images/profil/Screenshot_(302).png
+1 1 0 137101 0 0
+/Titiktemu/qna/qna-01.html
+0 9 0 4554 0 0
+/kompre/vendor/tailselect/tail.select-full.min.js
+0 1 0 30113 0 0
+/kompre/vendor/fontawesome/all.min.js
+0 1 0 1194299 0 0
+/Foto/Artikel 8/2.png
+1 9 0 1230426 0 0
+/Foto/Artikel 5/PELANTIKAN KETING.png
+1 13 0 1512927 0 0
+/Foto/Artikel 22/Feed pemenang Quiz (3).png
+1 13 0 7056647 0 0
+/Timeline/Style Timeline.css
+0 9 0 42138 0 0
+/Foto/Basket/4.jpg
+1 6 0 2966646 0 0
+/Kabar/Kabar.html
+0 17 0 513440 5 9
+/kompre/vendor/fontawesome/all.min.css
+0 1 0 59344 0 0
+/Foto/Artikel 25/HARI KARTINI-02.png
+1 11 0 6707305 0 0
+/phpinfo
+0 5 0 473002 0 1
+/kompre/assets/images/profil/pas_foto_stis_3x4.png
+1 1 0 137721 0 0
+/Gambar/logo navbar.png
+1 72 0 7324344 0 0
+/Foto/Artikel 22/Feed pemenang Quiz (1).png
+1 12 0 10138680 0 0
+/Foto/Artikel 2/WAWANCARA 3.png
+1 13 0 1793610 0 0
+/Foto/Artikel 11/Feed pemenang Quiz (3).png
+1 9 0 1297260 0 0
+/kompre/vendor/midone/dist/js/script.js
+0 1 0 2437 0 0
+/Foto/Artikel 14/doa bersama new.png
+1 13 0 2513927 0 0
+/Foto/Basket/7.jpg
+1 5 0 2453535 0 0
+/Foto/Artikel 6/Foto 2.png
+1 51 0 21671430 0 0
+/Foto/Artikel 25/GALUNGAN-02.png
+1 16 0 4987520 0 0
+/Foto/Artikel 12/Copy of RECAP LINK VIDEO KSM ANGKATAN 61.png
+1 18 0 3416022 0 0
+/Foto/Artikel 8/3.png
+1 9 0 1316007 0 0
+/Kumpulan Artikel/Artikel 22.html
+0 3 0 26973 2 1
+/Tentangkami/Style Tentangkami.css
+0 12 0 16620 0 0
+/Foto/Artikel 13/Story Pemenang Quiz (2).png
+1 2 0 654144 0 0
+/Titiktemu/qna/qna-03.html
+0 8 0 10760 0 0
+/kompre/vendor/tinymce/plugins/paste/plugin.min.js
+0 1 0 21601 0 0
+/kompre/vendor/midone/dist/fonts/Material-Design-Iconic-Font.woff2
+0 1 0 38384 0 0
+/Foto/Artikel 19/feed.png
+1 12 0 6525984 0 0
+/Foto/Artikel 8/Story Pemenang Quiz.png
+1 1 0 227831 0 0
+/Gambar/Logo Instagram.png
+1 50 0 388129 0 0
+/Kabar/Style Kabar.css
+0 14 0 94136 0 0
+# End Of Table - urls
+# -sites- (monthly)
+10.100.244.244
+0 3090 2180 3428992256 257 1669164725
+/Kumpulan Artikel/Artikel 1.html
+cooper.stis.local
+0 1 0 202 1 1668903187
+/
+# End Of Table - sites (monthly)
+# -sites- (daily)
+10.100.244.244
+0 5 0 1158 1 1669164725
+/Kumpulan Artikel/Artikel 1.html
+# End Of Table - sites (daily)
+# -referrers- 
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 26.html
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 16.html
+0 3
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 10.html
+0 15
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 17.html
+0 4
+https://l.instagram.com/
+0 18
+https://angkatan61.stis.ac.id/Galeri/Galeri.html
+0 91
+https://angkatan61.stis.ac.id/kompre/vendor/midone/dist/css/app.css
+0 3
+https://angkatan61.stis.ac.id/kompre/
+0 12
+https://angkatan61.stis.ac.id/kompre/index.php/to
+0 4
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 5.html
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 12.html
+0 15
+https://angkatan61.stis.ac.id/kompre/vendor/midone/dist/css/material-design-iconic-font.min.css
+0 1
+https://angkatan61.stis.ac.id/kompre/test
+0 1
+https://angkatan61.stis.ac.id/kompre/index.php/partner
+0 8
+https://angkatan61.stis.ac.id/kompre/index.php/ujian/rank/9
+0 2
+www.bing.com
+0 84
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 25.html
+0 11
+https://www.google.co.id/
+0 1
+https://www.google.com/
+0 46
+- (Direct Request)
+0 994
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 20.html
+0 2
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 19.html
+0 15
+https://id.images.search.yahoo.com/search/images
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 1.html
+0 2
+https://accounts.google.com/
+0 2
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 11.html
+0 1
+https://angkatan61.stis.ac.id/Tentangkami/Tentangkami.html
+0 46
+https://www.bing.com/
+0 3
+https://www.google.com/url
+0 1
+https://www.google.com
+0 61
+https://angkatan61.stis.ac.id/kompre/index.php/auth
+0 14
+https://angkatan61.stis.ac.id/Titiktemu/Titiktemu.html
+0 75
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 2.html
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 8.html
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 14.html
+0 66
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 3.html
+0 50
+http://angkatan61.stis.ac.id
+0 5
+https://angkatan61.stis.ac.id/Kabar/Kabar.html
+0 587
+https://angkatan61.stis.ac.id/Gambar/logo navbar.png
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 6.html
+0 17
+http://angkatan61.stis.ac.id/favicon.ico
+0 5
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 22.html
+0 14
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 4.html
+0 29
+https://angkatan61.stis.ac.id/
+0 508
+https://angkatan61.stis.ac.id/index.html
+0 92
+https://angkatan61.stis.ac.id/Timeline/gform.html
+0 7
+https://angkatan61.stis.ac.id/kompre/index.php/ujian/rank/6
+0 1
+https://angkatan61.stis.ac.id/Gambar/61.png
+0 1
+https://angkatan61.stis.ac.id/Timeline/Timeline.html
+0 16
+https://www.youtube.com/
+0 1
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 9.html
+0 1
+https://angkatan61.stis.ac.id/kompre/index.php/dashboard
+0 44
+https://angkatan61.stis.ac.id/Style Beranda.css
+0 16
+https://angkatan61.stis.ac.id/Gambar/Logo angkatan.png
+0 4
+https://angkatan61.stis.ac.id/Kumpulan Artikel/Artikel 15.html
+0 86
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.110 Mobile
+0 128
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.137
+0 155
+Mozilla/5.0 (compatible;PetalBot;+https://webmaster.petalsearch.com/site/petalbot)
+0 20
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/106.0.5
+0 18
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 8
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.87 Mobile 
+0 21
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15
+0 12
+Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/227.1.470269224 Mobile/15
+0 13
+Mozilla/5.0 (Linux; Android 12; M2101K7AG Build/SKQ1.210908.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrom
+0 2
+Mozilla/5.0 (Linux; Android 11; CPH2269) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 15
+Mozilla/5.0 (Linux; Android 11; SAMSUNG SM-A507FN) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/19.0 Chrome/102.0.50
+0 9
+Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-A505F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/
+0 12
+Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)
+0 2
+Mozilla/5.0 (Linux; Android 11; RMX2193 Build/RP1A.200720.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 2
+Mozilla/5.0 (Windows NT 6.1; rv:106.0) Gecko/20100101 Firefox/106.0
+0 1
+Mozilla/5.0 (Linux; Android 11; RMX2101 Build/RKQ1.201217.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 1
+Mozilla/5.0 (Linux; Android 12; SM-A135F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 12; Redmi Note 9 Pro Build/SKQ1.211019.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.
+0 2
+com.google.android.apps.searchlite/709729 (Linux; U; Android 11; in_ID; Infinix X657B; Build/RP1A.200720.011; Cronet/107.0.53
+0 1
+Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b
+0 6
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/107.0.5304.87 Safari/537.36
+0 3
+Mozilla/5.0 (Linux; Android 11; CPH1933 Build/RKQ1.200903.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 1
+Mozilla/5.0 (Linux; Android 8.1.0; vivo 1816 Build/O11019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0
+0 15
+Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.3
+0 12
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0
+0 17
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Mobile S
+0 4
+MobileSafari/8614.1.25.0.30 CFNetwork/1390 Darwin/22.0.0
+0 5
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 PTST/221031.171424
+0 44
+Mozilla/5.0 (Linux; Android 11; Redmi Note 9 Pro Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.
+0 2
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/107.0.5304.110 Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+0 4
+Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+0 51
+Mozilla/5.0 (Linux; Android 12; SM-A528B Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 2
+cortex/1.0
+0 8
+Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)
+0 122
+Mozilla/5.0 (Linux; Android 11; CPH1969) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 9; SM-G965F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36
+0 6
+Mozilla/5.0 (Linux; Android 12; V2110) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 5
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+0 27
+Photon/1.0
+0 1
+Mozilla/5.0 (Linux; Android 12; M2012K11AG Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chro
+0 2
+Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Sa
+0 15
+Mozilla/5.0 (Linux; Android 7.1.1; SM-J250F Build/NMF26X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/105.0
+0 11
+Mozilla/5.0 (Linux; Android 10; SM-A750GN Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrom
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 OPR/91.0.4516
+0 81
+Mozilla/5.0 (Linux; Android 11; SM-A505F Build/RP1A.200720.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 17
+Mozilla/5.0 (Linux; Android 9; CPH2015) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Mobile Safari/537.36
+0 7
+python-requests/2.28.1
+0 14
+Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.168 Safari/537.36 Avast/106
+0 1
+Mozilla/5.0 (Linux; Android 12; SM-S906N Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 17
+Mozilla/5.0 (Linux; Android 11; CPH1933) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 2
+Googlebot-Image/1.0
+0 27
+Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)
+0 66
+Mozilla/5.0 (iPhone; CPU iPhone OS 15_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/236.0.484392333 Mobile/15
+0 198
+Mozilla/5.0 (Linux; Android 5.1; CPH1605 Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.89 Mobile Safa
+0 14
+wp_is_mobile
+0 71
+Mozilla/5.0 (Linux; Android 11; CPH2059) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0
+0 14
+Mozilla/5.0 (Windows; U; Windows NT 6.0; ru; rv:1.9.2) Gecko/20100105 Firefox/3.6 (.NET CLR 3.5.30729)
+0 1
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.18 Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 12; SM-A125F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 11; ONEPLUS A6013) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Mobile Safari/537.36
+0 6
+Mozilla/5.0 (X11; CrOS x86_64 8172.45.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.64 Safari/537.36
+0 129
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/103.0.50
+0 110
+Mozilla/5.0 (Linux; Android 11; V2026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36
+0 13
+Mozilla/5.0 (Linux; Android 10; RMX2030 Build/QKQ1.200209.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 2
+Mozilla/5.0 (Linux; Android 12; CPH2365) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 11; RMX2170) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 17
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15
+0 1
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.5249.119 Mobile
+0 39
+Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2226.0 Safari/537.36
+0 1
+facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
+0 13
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 Edg/107.0.141
+0 46
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.71 Safari/537.36
+0 19
+Mozilla/5.0 (Linux; Android 7.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4695.0 Mobile Safari/537.36 C
+0 77
+com.google.android.apps.searchlite/709729 (Linux; U; Android 10; in_ID; Infinix X657B; Build/QP1A.190711.020; Cronet/107.0.53
+0 1
+Mozilla/5.0 (Linux; Android 12; SM-A525F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 12
+Mozilla/5.0 (Linux; Android 11; M2007J20CG Build/RKQ1.200826.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chro
+0 2
+Mozilla/5.0 (iPhone14,3; U; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) Version/10.0 Mobile/19
+0 12
+Mozilla/5.0 (Linux; Android 11; SM-A705F Build/RP1A.200720.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome
+0 2
+Mozilla/5.0 (Linux; Android 12; CPH2235) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 35
+Mozilla/5.0 (Linux; Android 11; M2101K6G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.74 Mobile Safari/537.36
+0 17
+Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5 Plus) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36
+0 12
+Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36
+0 1
+Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5 Plus Build/OPM1.171019.019; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0
+0 1
+Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +https://help.mail.ru/webmaster/indexing/robots)
+0 2
+Mozilla/5.0 (Linux; Android 11; 2201117TY) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.85 Mobile Safari/537.36
+0 15
+Mozilla/5.0 (Linux; Android 7.0;) AppleWebKit/537.36 (KHTML, like Gecko) Mobile Safari/537.36 (compatible; PetalBot;+https://
+0 18
+Chrome Privacy Preserving Prefetch Proxy
+0 10
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 PTST/221109.215700
+0 44
+Mozilla/5.0 (Linux; Android 9; CPH1931) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Mobile Safari/537.36
+0 15
+Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)
+0 6
+Mozilla/5.0 (Linux; Android 11; CPH2059 Build/RKQ1.200903.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 2
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36
+0 10
+Webmin
+0 1
+Mozilla/5.0 (compatible; DotBot/1.2; +https://opensiteexplorer.org/dotbot; help@moz.com)
+0 33
+com.google.android.googlequicksearchbox/301187190 (Linux; U; Android 11; in_ID; CPH2239; Build/RP1A.200720.011; Cronet/100.0.
+0 1
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0
+0 2
+Mozilla/5.0 (Linux; Android 8.1.0; Redmi Note 5 Build/OPM1.171019.011; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0
+0 1
+Mozilla/5.0 (Linux; Android 10; YAL-L21 Build/HUAWEIYAL-L61; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/10
+0 2
+Mozilla/5.0 (linux; u; android 9; zh-cn; v1816a build/pkq1.180819.001) applewebkit/537.36 (khtml, like gecko) version/4.0 chr
+0 2
+Mozilla/5.0 (Linux; Android 12; SAMSUNG SM-M526BR) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/19.0 Chrome/102.0.50
+0 12
+Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/107.0.5304.101 Mobile/1
+0 2
+Mozilla/5.0 (Linux; Android 10; M2010J19SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 3
+Mozilla/5.0 (Windows NT 6.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+0 635
+Mozilla/5.0 (Linux; Android 12; SM-A037F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 17
+Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0
+0 83
+Mozilla/5.0 (iPhone; CPU iPhone OS 16_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 259.0
+0 16
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.134
+0 1
+Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+0 66
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.5304.115 Mobile
+0 7
+Mozilla/5.0 (Linux; Android 10; RMX2020 Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/
+0 2
+Mozilla/5.0 (Linux; Android 6.0.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 29
+Mozilla/5.0 (Linux; Android 8.1.0; CPH1909) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Mobile Safari/537.36
+0 3
+Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36
+0 34
+Mozilla/5.0 (Linux; Android 11; SM-A025F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 11; Lenovo YT-J706X) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+0 11
+Mozlila/5.0 (Linux; Android 7.0; SM-G892A Bulid/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/60.0.31
+0 1
+Mozilla/5.0 (Linux; Android 8.1.0; Moto G (4)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36 P
+0 66
+Mozilla/5.0 (Linux; Android 12; SM-N770F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Mobile Safari/537.36
+0 15
+Mozilla/5.0 (Linux; Android 7.0; SM-N9208 Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.83 Mobile Saf
+0 1
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+0 11
+# End Of Table - agents
+# -search strings- 
+https://angkatan61.stis.ac.id/kumpulan%20artikel/artikel%2014.html
+1
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames
