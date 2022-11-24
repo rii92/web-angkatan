@@ -8,6 +8,7 @@ use Database\Seeders\Features\KonsultasiSeeder;
 use Database\Seeders\Features\SambatSeeder;
 use Database\Seeders\Simulasi\SatkerSeeder;
 use Database\Seeders\System\LocationSeeder;
+use Database\Seeders\System\NonBPSSeeder;
 use Database\Seeders\System\PermissionSeeder;
 use Database\Seeders\System\RoleSeeder;
 use Database\Seeders\Users\AnonimNameSeeder;
@@ -36,6 +37,7 @@ class DatabaseSeeder extends Seeder
             $this->call([
                 // just run this middleware once
                 LocationSeeder::class,
+                NonBPSSeeder::class,
 
                 // this middleware just for development
                 AdminSeeder::class,
