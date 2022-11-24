@@ -23,6 +23,12 @@ class UsersTable extends DataTableComponent
 
     public string $tableName = 'users_formations';
 
+    public function configure(): void
+    {
+        // Search will wait 1 second before sending request.
+        $this->setSearchDebounce(1000);
+    }
+
     public function columns(): array
     {
         $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
@@ -52,16 +58,11 @@ class UsersTable extends DataTableComponent
 
     public function filters(): array
     {
-        $prov = Location::selectRaw('DISTINCT(provinsi)')
-            ->get()
-            ->mapWithKeys(fn ($item, $key) => [$item->provinsi => $item->provinsi])
-            ->toArray();
-
         return [
             AppSimulation::BASED_ON => Filter::make(AppSimulation::BASED_ON)
                 ->select(array_merge(['' => "All"], AppSimulation::BASED_ON())),
             'provinsi' => Filter::make('provinsi')
-                ->select(array_merge(['' => "All"], $prov)),
+                ->select(array_merge(['' => "All"], AppSimulation::PROVINSI_FILTER())),
             'status' => Filter::make('status')
                 ->select(array_merge(['' => "All"], AppSimulation::STATUS_PEMILIHAN()))
         ];

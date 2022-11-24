@@ -22,10 +22,10 @@ class Satker extends Model
     ];
 
     /**
-    * 1 on 1 realationship to Location model
-    *
-    * @var array
-    */
+     * 1 on 1 realationship to Location model
+     *
+     * @var array
+     */
     public function location()
     {
         return $this->belongsTo(Location::class);

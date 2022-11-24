@@ -2,6 +2,9 @@
 
 namespace App\Constants;
 
+use App\Models\Location;
+use Illuminate\Support\Facades\Cache;
+
 class AppSimulation
 {
     const BASED_ON = 'jurusan'; // jurusan or peminatan
@@ -36,5 +39,18 @@ class AppSimulation
             self::SUDAH_MEMILIH => self::SUDAH_MEMILIH,
             self::TIDAK_MEMILIH => self::TIDAK_MEMILIH
         ];
+    }
+
+    public static function PROVINSI_FILTER(): array
+    {
+        return Cache::rememberForever(
+            "location_filters",
+            function () {
+                return Location::selectRaw('DISTINCT(provinsi)')
+                    ->get()
+                    ->mapWithKeys(fn ($item, $key) => [$item->provinsi => $item->provinsi])
+                    ->toArray();
+            }
+        );
     }
 }
