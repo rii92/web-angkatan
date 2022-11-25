@@ -69,7 +69,7 @@ class SatkerTable extends DataTableComponent
     {
         $this->tableName = '';
         $this->defaultSortColumn = 'location_id';
-        $this->defaultSortDirection = 'desc';
+        $this->defaultSortDirection = 'asc';
 
         return Satker::with('location')
             ->when($this->getFilter('formation'), function ($query, $formation) {
@@ -122,7 +122,8 @@ class SatkerTable extends DataTableComponent
             foreach ([1, 2, 3, "final"] as $f)
                 $query->leftJoin("users_formations as formation_{$f}", function ($join) use ($f) {
                     $join->on("formation_{$f}.satker_{$f}", '=', 'locations.id')
-                        ->where("formation_{$f}.based_on", $this->getFilter('formation'));
+                        ->where("formation_{$f}.based_on", $this->getFilter('formation'))
+                        ->where("formation_{$f}.simulations_id", $this->simulation_id);
                 })
                     ->selectRaw("COUNT(DISTINCT formation_{$f}.user_id) as formation_{$f}_count");
         }
@@ -148,6 +149,13 @@ class SatkerTable extends DataTableComponent
         }
 
         return $columns;
+    }
+
+    public function getTableRowUrl($row): string
+    {
+        if ($this->getFilter('tampilan') == self::PER_KABUPATEN)
+            return route('user.simulasi.details.satker', ['simulation' => $this->simulation_id, 'satker' => $row->id]);
+        return '#';
     }
 
     public function columns(): array

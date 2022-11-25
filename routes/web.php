@@ -11,7 +11,9 @@ use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
 use App\Http\Livewire\Mahasiswa\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
+use App\Models\Satker;
 use App\Models\Simulations;
+use App\Models\UserFormations;
 use Illuminate\Database\Eloquent\Builder;
 
 /*
@@ -168,6 +170,12 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get("", fn () => view('mahasiswa.simulation'))->name("user.simulasi.table");
             Route::get('{simulation}', fn (Simulations $simulation) => view('mahasiswa.simulation.details', ["simulation" => $simulation]))
                 ->name('user.simulasi.details');
+
+            Route::get('{simulation}/{satker}', fn ($simulation, $satker) => view('mahasiswa.simulation.details-satker', [
+                'simulation' => Simulations::findOrFail($simulation),
+                'satker' => Satker::findOrFail($satker)
+            ]))
+                ->name('user.simulasi.details.satker');
         });
     });
 });

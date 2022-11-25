@@ -12,6 +12,10 @@ class UserFormations extends Model
     protected $table = 'users_formations';
     protected $guarded = [];
 
+    protected $dates = [
+        'satker_final_updated_at'
+    ];
+
     public function getBasedOnAttribute($value)
     {
         return strtoupper($value);
