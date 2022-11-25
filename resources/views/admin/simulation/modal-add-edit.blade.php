@@ -19,7 +19,7 @@
 
 
         @foreach ($simulation_times as $index => $times)
-            <div class="grid md:grid-cols-2 md:gap-x-2" wire:key="times-field-{{ $post->id ?? $index }}">
+            <div class="grid md:grid-cols-2 md:gap-x-2" wire:key="times-field-{{ $times->id ?? $index }}">
                 <x-input.wrapper>
                     <x-input.label for="simulation_times.{{ $index }}.start_time"
                         value="{{ __('Waktu Mulai Sesi ') . $index + 1 }}" />

@@ -22,10 +22,20 @@ class Satker extends Model
     ];
 
     /**
-    * 1 on 1 realationship to Location model
-    *
-    * @var array
-    */
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'full_name'
+    ];
+
+
+    /**
+     * 1 on 1 realationship to Location model
+     *
+     * @var array
+     */
     public function location()
     {
         return $this->belongsTo(Location::class);
@@ -49,5 +59,10 @@ class Satker extends Model
     public function formation_final()
     {
         return $this->hasMany(UserFormations::class, "satker_final");
+    }
+
+    public function getFullNameAttribute()
+    {
+        return $this->kode_wilayah . " - " . $this->name;
     }
 }

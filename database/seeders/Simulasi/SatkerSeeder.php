@@ -21,20 +21,21 @@ class SatkerSeeder extends Seeder
 
         while (($data = fgetcsv($csvFile, 2000, ",")) !== FALSE) {
             if (!$firstline) {
-                $location = Location::where("kabupaten", $data[2])->first();
+
+                $location = Location::where("kabupaten", $data[1])->first();
 
                 Satker::updateOrCreate([
-                    "kode_wilayah" => $data[0],
-                    "name" => $data[1],
-                    "se" => $data[3],
-                    "sk" => $data[4],
-                    "si" => $data[5],
-                    "sd" => $data[6],
-                    "d3" => $data[7],
-                    "ks" => $data[8],
-                    "st" => $data[9],
+                    "kode_wilayah" => $data[2],
+                    "name" => $data[3],
+                    "se" => $data[4],
+                    "sk" => $data[5],
+                    "si" => $data[6],
+                    "sd" => $data[7],
+                    "d3" => $data[8],
+                    "ks" => $data[9],
+                    "st" => $data[10],
                     "location_id" => $location->id,
-                ]);  
+                ]);
             }
             $firstline = false;
         }

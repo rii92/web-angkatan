@@ -20,4 +20,9 @@ class SimulationsTime extends Model
     {
         return $this->belongsTo(Simulations::class, 'simulations_id');
     }
+
+    public function user()
+    {
+        return $this->hasMany(UserFormations::class, 'session_id');
+    }
 }

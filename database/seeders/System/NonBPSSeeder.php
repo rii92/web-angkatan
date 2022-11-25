@@ -5,7 +5,7 @@ namespace Database\Seeders\System;
 use App\Models\Location;
 use Illuminate\Database\Seeder;
 
-class LocationSeeder extends Seeder
+class NonBPSSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class LocationSeeder extends Seeder
      */
     public function run()
     {
-        $csvFile = fopen(base_path("database/data/system/location.csv"), "r");
+        $csvFile = fopen(base_path("database/data/system/location_non_bps.csv"), "r");
 
         $firstline = true;
 

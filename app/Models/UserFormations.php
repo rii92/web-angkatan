@@ -12,6 +12,10 @@ class UserFormations extends Model
     protected $table = 'users_formations';
     protected $guarded = [];
 
+    protected $dates = [
+        'satker_final_updated_at'
+    ];
+
     public function getBasedOnAttribute($value)
     {
         return strtoupper($value);
@@ -22,22 +26,22 @@ class UserFormations extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function satker_1()
+    public function satker1()
     {
         return $this->belongsTo(Satker::class, "satker_1");
     }
 
-    public function satker_2()
+    public function satker2()
     {
         return $this->belongsTo(Satker::class, "satker_2");
     }
 
-    public function satker_3()
+    public function satker3()
     {
         return $this->belongsTo(Satker::class, "satker_3");
     }
 
-    public function satker_final()
+    public function satkerfinal()
     {
         return $this->belongsTo(Satker::class, "satker_final");
     }
@@ -45,5 +49,10 @@ class UserFormations extends Model
     public function simulasi()
     {
         return $this->belongsTo(Simulations::class);
+    }
+
+    public function session_time()
+    {
+        return  $this->belongsTo(SimulationsTime::class, 'session_id');
     }
 }
