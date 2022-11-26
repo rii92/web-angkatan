@@ -1,3 +1,3 @@
-<a {{ $attributes->merge(['href' => '#', 'class' => 'anchor-button bg-main hover:bg-orange-500 text-white active:bg-orange-500 focus:border-orange-500 focus:ring-orange-400']) }}>
+<a {{ $attributes->merge(['href' => '#', 'class' => 'anchor-button bg-purple-button hover:bg-activeButton text-white active:bg-activeButton focus:border-activeButton focus:ring-activeButton']) }}>
     {{ $slot }}
 </a>

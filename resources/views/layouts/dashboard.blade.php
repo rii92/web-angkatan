@@ -37,7 +37,7 @@
                 @include('components.dashboard.header')
             </div>
             <main class="z-10 h-full overflow-y-auto font-sans">
-                <div class="xl:container px-3 py-8 md:px-6 mx-auto">
+                <div class="px-3 py-8 mx-auto xl:container md:px-6">
                     {{ $slot }}
                 </div>
             </main>

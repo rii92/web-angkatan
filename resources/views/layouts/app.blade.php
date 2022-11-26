@@ -7,7 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> {{ ucfirst($title) }} | {{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="{{ asset('img/logo_angkatan.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -26,24 +25,24 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 
-<body class="font-archivo-narrow antialiased">
+<body class="antialiased font-archivo-narrow">
     <x-jet-banner />
 
     <div class="min-h-screen">
-        <nav class="font-poppins shadow mb-2" x-data="{ isMenuOpen: false }" @keydown.escape="isMenuOpen = false">
+        <nav class="mb-2 shadow font-poppins" x-data="{ isMenuOpen: false }" @keydown.escape="isMenuOpen = false">
             <!-- Primary Navigation Menu -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
                         <!-- Mobile hamburger -->
-                        <button class="p-1 mr-5 -ml-1 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800 text-gray-600" @click="isMenuOpen = !isMenuOpen" aria-label="Menu">
+                        <button class="p-1 mr-5 -ml-1 text-gray-600 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800" @click="isMenuOpen = !isMenuOpen" aria-label="Menu">
                             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd">
                                 </path>
                             </svg>
                         </button>
                         <!-- Logo -->
-                        <div class="flex-shrink-0 flex items-center lg:mr-8">
+                        <div class="flex items-center flex-shrink-0 lg:mr-8">
                             <x-logo.full />
                         </div>
                     </div>
@@ -53,13 +52,13 @@
                     <ul class="flex items-center ml-6 list-none">
                         <!-- Settings Dropdown -->
                         @auth
-                        <li class="dropdown-notification mr-3">
+                        <li class="mr-3 dropdown-notification">
                             @livewire('mahasiswa.notification')
                         </li>
                         <x-dashboard.header-profile />
                         @else
                         <div class="flex">
-                            <x-anchor.primary href="{{ route('login') }}" class=" font-semibold font-poppins">
+                            <x-anchor.primary href="{{ route('login') }}" class="font-semibold font-poppins">
                                 Login
                             </x-anchor.primary>
                         </div>
@@ -75,28 +74,35 @@
             {{ $slot }}
         </main>
 
-        <footer class="bg-white border-t shadow-md  font-poppins">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
+        <footer class="border-t shadow-md bg-main font-poppins">
+            <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 py-7">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="flex items-center justify-center lg:justify-start my-4">
+                    <div class="flex items-center justify-center my-4 lg:justify-start">
                         <!-- Logo -->
                         <x-logo.full />
                     </div>
-                    <div class="flex items-center gap-4 justify-center my-4">
-                        <!-- social -->
-                        <a class="text-main hover:text-orange-500" href="mailto:pengurus-tingkat-4@stis.ac.id" role="button" target="blank" aria-label="email">
-                            <x-icons.mail stroke-width="0" width="37" height="33" />
-                        </a>
-                        <a class="text-main hover:text-orange-500" href="https://instagram.com/stis60/" role="button" target="blank" aria-label="instagram">
-                            <x-icons.instagram stroke-width="0" width="33" height="33" />
-                        </a>
-                        <a class="text-main hover:text-orange-500" href="https://youtube.com/c/POLSTATSTIS60" role="button" target="blank" aria-label="youtube">
-                            <x-icons.youtube stroke-width="0" width="37" height="33" />
-                        </a>
+                    <div>
+                        <div class="flex items-center justify-center gap-4 my-4">
+                            <!-- social -->
+                            <a class="text-white hover:text-orange-500" href="mailto:pengurus-tingkat-4@stis.ac.id" role="button" target="blank" aria-label="email">
+                                <x-icons.mail stroke-width="0" width="37" height="33" />
+                            </a>
+                            <a class="text-white hover:text-orange-500" href="https://instagram.com/stis_61/" role="button" target="blank" aria-label="instagram">
+                                <x-icons.instagram stroke-width="0" width="33" height="33" />
+                            </a>
+                            <a class="text-white hover:text-orange-500" href="https://www.youtube.com/channel/UC7D57wz3zc3lPzbyoTYnb-w" role="button" target="blank" aria-label="youtube">
+                                <x-icons.youtube stroke-width="0" width="37" height="33" />
+                            </a>
+                        </div>
+                            <!-- copyright -->
+                            <div class="w-full text-center text-white">&copy; 2022 TI - Solen Saber</div>
                     </div>
-                    <div class="flex items-center lg:col-span-1 md:col-span-2 my-4">
+                    <div class="flex items-center my-4 lg:col-span-1 md:col-span-2">
                         <!-- copyright -->
-                        <div class="text-center lg:text-right w-full">Copyright &copy; TI - Kembang 2022</div>
+                        <div class="flex items-center mx-auto text-center lg:mr-0">
+                            <div class="w-full mr-2 text-white ">Thanks to: </div>
+                            <x-logo.full60 />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,13 +114,13 @@
         @livewire('livewire-ui-modal')
     </div>
 
-    <div class="fixed bottom-10 sm:right-10 right-5 transform sm:scale-100 scale-90" x-data="{show : false, showButton : () => document.body.scrollTop > 500 || document.documentElement.scrollTop > 500}" x-on:scroll.window="show = showButton()" x-init="show = showButton()" x-cloak>
+    <div class="fixed transform scale-90 bottom-10 sm:right-10 right-5 sm:scale-100" x-data="{show : false, showButton : () => document.body.scrollTop > 500 || document.documentElement.scrollTop > 500}" x-on:scroll.window="show = showButton()" x-init="show = showButton()" x-cloak>
         <div class="grid grid-cols-1 gap-y-1">
             @stack('bottom-menu')
 
-            <div class="h-12 w-12 bg-main rounded-full border-2 border-white" id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition x-transition.duration.600ms>
-                <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
-                    <x-icons.arrow-up class="text-white hover:text-orange-200 transition duration-150" stroke-width='3' />
+            <div class="w-12 h-12 border-2 border-black rounded-full" id="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" x-show="show" x-transition x-transition.duration.600ms>
+                <div class="relative flex items-center justify-center w-full h-full cursor-pointer">
+                    <x-icons.arrow-up class="text-black transition duration-150 hover:text-orange-200" stroke-width='3' />
                 </div>
             </div>
         </div>

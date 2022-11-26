@@ -4,17 +4,17 @@
     </x-landingpage.wrapper>
 
     @push('bottom-menu')
-        <div class="h-12 w-12 bg-main rounded-full border-2 border-white" x-data="{open : false}" x-cloak>
-            <div class="relative flex justify-center items-center h-full w-full cursor-pointer">
-                <x-icons.plus class="text-white hover:text-orange-200 transition duration-150 w-10 h-10 mx-2 my-2" stroke-width='1.5'
+        <div class="w-12 h-12 border-2 border-white rounded-full bg-main" x-data="{open : false}" x-cloak>
+            <div class="relative flex items-center justify-center w-full h-full cursor-pointer">
+                <x-icons.plus class="w-10 h-10 mx-2 my-2 text-white transition duration-150 hover:text-orange-200" stroke-width='1.5'
                     x-on:click="open = !open" />
-                <div class="absolute bg-white rounded-md py-3 -top-24 right-0 shadow-md border" x-show="open"
+                <div class="absolute right-0 py-3 bg-white border rounded-md shadow-md -top-24" x-show="open"
                     x-on:click.outside="open = false">
                     <a href="{{ route('user.konsultasi.akademik.add') }}"
-                        class="px-4 inline-block whitespace-nowrap py-1 hover:bg-gray-100">Konsul
+                        class="inline-block px-4 py-1 whitespace-nowrap hover:bg-gray-100">Konsul
                         Akademik</a>
                     <a href="{{ route('user.konsultasi.umum.add') }}"
-                        class="px-4 inline-block w-full whitespace-nowrap py-1 hover:bg-gray-100">Konsul
+                        class="inline-block w-full px-4 py-1 whitespace-nowrap hover:bg-gray-100">Konsul
                         Umum</a>
                 </div>
             </div>
