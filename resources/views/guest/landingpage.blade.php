@@ -50,7 +50,7 @@
 
             {{-- Fitur Website --}}
             <h1>
-                <div class="mt-20 text-6xl font-bold text-center text-black mt-14 font-poppins mb-28">
+                <div class="mt-20 text-6xl font-bold text-center text-black font-poppins mb-28">
                     FITUR WEBSITE
                 </div>
             </h1>
