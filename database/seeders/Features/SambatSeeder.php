@@ -18,7 +18,7 @@ class SambatSeeder extends Seeder
     public function run()
     {
         Tag::factory(10)->create();
-        Sambat::factory(20)->create()->each(function($sambat) {
+        Sambat::factory(20)->create()->each(function ($sambat) {
             $sambat->tags()->sync([rand(1, 10), rand(1, 10)]);
         });
         SambatVote::factory(50)->create();
