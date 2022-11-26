@@ -23,7 +23,8 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
                 'poppins': ['Poppins'],
                 'archivo-narrow': ['Archivo Narrow'],
-                'holiday-free': ['HolidayFree']
+                'holiday-free': ['HolidayFree'],
+                'beach-sound': ['Beach Sound']
             },
             colors: {
                 violet: colors.violet,
@@ -38,11 +39,18 @@ module.exports = {
                 sky: colors.sky,
                 fuchsia: colors.fuchsia,
                 blueGray: colors.blueGray,
-                'main': '#1B3C41',
+                'main': '#F5BE44',
                 'darker': '#0B282D',
                 'lighter': '#428893',
                 'subtle': '#BDE2E8',
-                'light-4': '#F7F2EF'
+                'light-4': '#F7F2EF',
+                'purple-button': '#1930BF',
+                'activeButton': '#F46D6C',
+                'font-color-sub': '#F46D6C',
+                'grayLink': '#6B7280',
+                'blueButton': '#A7DCFE',
+                'grayQuotes': '#D9D9D9'
+                 
             },
             maxHeight: {
                 'custom': '90vh',
