@@ -3,12 +3,15 @@
 namespace App\Http\Livewire\Mahasiswa\Simulation;
 
 use App\Constants\AppSimulation;
+use App\Exports\SatkerExport;
 use App\Models\Satker;
+use App\Models\Simulations;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
 use Illuminate\Support\Str;
+use App\Exports\Sheets\SatkerPerProv;
 
 class SatkerTable extends DataTableComponent
 {
@@ -23,6 +26,10 @@ class SatkerTable extends DataTableComponent
 
     public array $filters = [
         'tampilan' => self::SATKER
+    ];
+
+    public array $bulkActions = [
+        'exportSelected' => 'Export Excel',
     ];
 
     public function configure(): void
@@ -185,5 +192,24 @@ class SatkerTable extends DataTableComponent
             'provinsi' => Filter::make('provinsi')
                 ->select(array_merge(['' => "All"], AppSimulation::PROVINSI_FILTER())),
         ];
+    }
+
+    /**
+     * export to xlsx file
+     *
+     * @return void
+     */
+    public function exportSelected()
+    {
+        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Pilih Row Terlebih Dahulu");
+        if ($this->getFilter('tampilan') == self::PER_PROVINSI) return $this->emit('error', "Hanya bisa mengexport tampilan satuan kerja");
+
+        $simulation = Simulations::find($this->simulation_id);
+
+        try {
+            return (new SatkerExport($this->selectedRowsQuery(), $simulation))->download($simulation->title . "_Satker_" . now()->format('d-M-Y H-i') . ".xlsx");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings Wrong, I can feel It");
+        }
     }
 }
