@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Mahasiswa\Simulation;
 
 use App\Constants\AppSimulation;
+use App\Exports\UserFormationExport;
 use App\Models\Location;
+use App\Models\Simulations;
 use App\Models\UserFormations;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
@@ -22,6 +24,10 @@ class UsersTable extends DataTableComponent
     public string $pageName = 'users_table';
 
     public string $tableName = 'users_formations';
+
+    public array $bulkActions = [
+        'exportSelected' => 'Export Excel',
+    ];
 
     public function configure(): void
     {
@@ -95,5 +101,23 @@ class UsersTable extends DataTableComponent
                     $query->whereNull('satker_1')
                         ->whereHas('session_time', fn ($query) => $query->where('end_time', '<', now()));
             });
+    }
+
+    /**
+     * export to xlsx file
+     *
+     * @return void
+     */
+    public function exportSelected()
+    {
+        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Pilih Row Terlebih Dahulu");
+
+        $simulasi = Simulations::find($this->simulation_id);
+
+        try {
+            return (new UserFormationExport($this->selectedRowsQuery()))->download($simulasi->title . "_" . now()->format('d-M-Y H-i') . ".xlsx");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings Wrong, I can feel It");
+        }
     }
 }

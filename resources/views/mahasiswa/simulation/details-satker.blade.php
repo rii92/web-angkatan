@@ -56,7 +56,12 @@
             @livewire('mahasiswa.simulation.satker-detail-prov-table', ['simulation_id' => $simulation->id, 'provinsi' => $satker->provinsi])
         @endif
 
-        <div class="flex justify-end mt-2">
+        <div class="flex justify-between mt-2">
+            <div class="flex items-center text-gray-400 text-sm mt-3 leading-tight">
+                <x-badge.error text="Tidak Terpilih" /> bisa jadi dia terpilih di Satker yang lain. Untuk mengetahui dia
+                terpilih dimana silahkan klik
+                <x-button.icon.detail />
+            </div>
             <x-anchor.secondary href="{{ route('user.simulasi.details', ['simulation' => $simulation->id]) }}"
                 class="ml-2">
                 Back
