@@ -25,8 +25,10 @@ class Selection extends Component
     {
         $this->user = User::with('details')->find(Auth::id());
 
-        $this->formation = UserFormations::where('simulations_id', $this->simulation->id)
-            ->where('user_id', Auth::id())->first();
+        $this->formation = UserFormations::with(['satker1', 'satker2', 'satker3', 'satkerfinal', 'session_time'])
+            ->where('simulations_id', $this->simulation->id)
+            ->where('user_id', Auth::id())
+            ->first();
 
         $this->max_rank = Cache::get("MAX_RANK_" . $this->user->details[AppSimulation::BASED_ON], function () {
             return UserDetails::where(AppSimulation::BASED_ON, $this->user->details[AppSimulation::BASED_ON])
