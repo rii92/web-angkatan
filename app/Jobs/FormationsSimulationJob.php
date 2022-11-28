@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Constants\AppSimulation;
+use App\Models\Satker;
 use App\Models\Simulations;
 use App\Models\UserFormations;
 use Illuminate\Bus\Queueable;
@@ -23,9 +24,9 @@ class FormationsSimulationJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct(Simulations $simulation)
+    public function __construct($simulation_id)
     {
-        $this->simulation = $simulation;
+        $this->simulation = Simulations::find($simulation_id);
     }
 
     /**
@@ -38,8 +39,9 @@ class FormationsSimulationJob implements ShouldQueue
         UserFormations::where('simulations_id', $this->simulation->id)->update(['satker_final_completed' => false]);
 
         foreach (AppSimulation::BASED_ON() as $key => $value) {
+            // foreach (['ks' => 'st'] as $key => $value) {
             $users = UserFormations::where('simulations_id', $this->simulation->id)
-                ->where('satker_1', "<>", null)
+                ->whereNotNull('satker_1')
                 ->where("based_on", $key)
                 ->orderBy("user_rank", "asc")
                 ->get();
@@ -47,11 +49,31 @@ class FormationsSimulationJob implements ShouldQueue
             echo "{$value} : {$users->count()}\n";
 
             foreach ($users as $user) {
-                // satker 1
+                foreach ([1, 2, 3] as $f) {
+                    $satker = Satker::with([
+                        'formation_final' => function ($query) use ($key) {
+                            $query->where('based_on', $key)
+                                ->where('simulations_id', $this->simulation->id)
+                                ->where('satker_final_completed', true)
+                                ->orderBy('user_rank');
+                        }
+                    ])->find($user["satker_{$f}"]);
 
-                
+                    if ($satker->formation_final->count() >= $satker[$key]) continue;
+
+                    UserFormations::where('user_id', $user->user_id)
+                        ->where('simulations_id', $this->simulation->id)
+                        ->update([
+                            'satker_final' => $satker->id,
+                            'satker_final_completed' => true,
+                            'satker_final_updated_at' => now()
+                        ]);
+
+                    break;
+                }
             }
 
+            echo "{$value} completed\n";
 
         }
     }

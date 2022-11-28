@@ -53,8 +53,8 @@
 
         @if ($user->satker_final)
             <x-description-list title="Pilihan Final" class="bg-gray-50">
-                {{ $user->satker_final->kode_wilayah }} - {{ $user->satker_final->name }} -
-                {{ $user->satker_final->location->provinsi }}
+                {{ $user->satkerfinal->kode_wilayah }} - {{ $user->satkerfinal->name }} -
+                {{ $user->satkerfinal->location->provinsi }}
             </x-description-list>
         @endif
 

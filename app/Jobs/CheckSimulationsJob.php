@@ -45,7 +45,7 @@ class CheckSimulationsJob implements ShouldQueue
 
             if ($started_at < now() && $ended_at > now()) {
                 echo "Running Job for simulation with id: {$simulation->id} ({$simulation->title}) \n";
-                FormationsSimulationJob::dispatchSync($simulation);
+                FormationsSimulationJob::dispatchSync($simulation->id);
             }
         }
     }

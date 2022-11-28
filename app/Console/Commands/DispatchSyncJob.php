@@ -47,7 +47,7 @@ class DispatchSyncJob extends Command
 
         if (!class_exists($class)) return $this->error("{$class} class Not exists");
 
-        $job = is_null($this->argument('parameter')) ? new $class($this->argument('parameter')) : new $class();
+        $job = $this->argument('parameter') ? new $class($this->argument('parameter')) : new $class();
 
         dispatch_sync($job);
 

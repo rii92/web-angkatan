@@ -41,7 +41,7 @@ class UserFormations extends Model
         return $this->belongsTo(Satker::class, "satker_3");
     }
 
-    public function satker_final()
+    public function satkerfinal()
     {
         return $this->belongsTo(Satker::class, "satker_final");
     }
