@@ -3,6 +3,7 @@
 use App\Constants\AppKonsul;
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Http\Controllers\SimulationController;
 use App\Http\Livewire\Admin\Announcement\Form as AnnouncementForm;
 use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoom;
 use App\Http\Livewire\Guest\Konsultasi\Detail as KonsultasiDetail;
@@ -171,11 +172,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('{simulation}', fn (Simulations $simulation) => view('mahasiswa.simulation.details', ["simulation" => $simulation]))
                 ->name('user.simulasi.details');
 
-            Route::get('{simulation}/{satker}', fn ($simulation, $satker) => view('mahasiswa.simulation.details-satker', [
-                'simulation' => Simulations::findOrFail($simulation),
-                'satker' => Satker::findOrFail($satker)
-            ]))
-                ->name('user.simulasi.details.satker');
+            Route::get('{simulation}/{satker}', [SimulationController::class, 'detailSatkerKab'])
+                ->name('user.simulasi.details-kab.satker');
+
+            Route::get('{simulation}/prov/{provinsi}', [SimulationController::class, 'detailSatkerProv'])
+                ->name('user.simulasi.details-prov.satker');
         });
     });
 });

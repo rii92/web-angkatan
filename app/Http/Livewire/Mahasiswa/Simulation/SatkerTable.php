@@ -154,8 +154,8 @@ class SatkerTable extends DataTableComponent
     public function getTableRowUrl($row): string
     {
         if ($this->getFilter('tampilan') == self::PER_KABUPATEN)
-            return route('user.simulasi.details.satker', ['simulation' => $this->simulation_id, 'satker' => $row->id]);
-        return '#';
+            return route('user.simulasi.details-kab.satker', ['simulation' => $this->simulation_id, 'satker' => $row->id]);
+        return route('user.simulasi.details-prov.satker', ['simulation' => $this->simulation_id, 'provinsi' => $row->provinsi]);
     }
 
     public function columns(): array

@@ -53,4 +53,18 @@ class AppSimulation
             }
         );
     }
+
+    public static function KABUPATEN_FILTER($provinsi): array
+    {
+        return Cache::rememberForever(
+            "location_filters_$provinsi",
+            function () use ($provinsi) {
+                return Location::select('kabupaten')
+                    ->where('provinsi', $provinsi)
+                    ->get()
+                    ->mapWithKeys(fn ($item, $key) => [$item->kabupaten => $item->kabupaten])
+                    ->toArray();
+            }
+        );
+    }
 }
