@@ -40,14 +40,20 @@
                 @endif
             </x-description-list>
         @endif
-        @if ($formation->session_time->start_time <= now() && $formation->session_time->end_time >= now())
-            <x-description-list title="Update Pilihan" class="border-b border-gray-100">
+        <x-description-list title="Update Pilihan" class="border-b border-gray-100">
+            @if ($formation->session_time->start_time > now())
+                <x-badge.warning text="Belum Mulai" />
+            @endif
+            @if ($formation->session_time->start_time <= now() && $formation->session_time->end_time >= now())
                 <x-button.primary title="Detail Mahasiswa"
                     onclick="Livewire.emit('openModal', 'mahasiswa.simulation.modal-selection', {{ json_encode(['user_formation_id' => $formation->id]) }})">
                     <span class="text-xs">Update</span>
                 </x-button.primary>
-            </x-description-list>
-        @endif
+            @endif
+            @if ($formation->session_time->end_time < now())
+                <x-badge.error text="Sesi Habis" />
+            @endif
+        </x-description-list>
 
     </div>
 </div>
