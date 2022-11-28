@@ -40,8 +40,14 @@
                 @endif
             </x-description-list>
         @endif
-        <x-description-list title="Update Pilihan" class="border-b border-gray-100">
-            {{ $formation->user_rank }} / {{ $max_rank }}
-        </x-description-list>
+        @if ($formation->session_time->start_time <= now() && $formation->session_time->end_time >= now())
+            <x-description-list title="Update Pilihan" class="border-b border-gray-100">
+                <x-button.primary title="Detail Mahasiswa"
+                    onclick="Livewire.emit('openModal', 'mahasiswa.simulation.modal-selection', {{ json_encode(['user_formation_id' => $formation->id]) }})">
+                    <span class="text-xs">Update</span>
+                </x-button.primary>
+            </x-description-list>
+        @endif
+
     </div>
 </div>
