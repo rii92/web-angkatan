@@ -17,7 +17,7 @@ class SimulationSeeder extends Seeder
     public function run()
     {
         Simulations::factory(1)
-            ->has(SimulationsTime::factory()->count(rand(3, 8)), 'times')
+            ->has(SimulationsTime::factory()->count(rand(3, 5)), 'times')
             ->create();
     }
 }

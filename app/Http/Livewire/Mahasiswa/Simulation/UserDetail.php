@@ -27,8 +27,8 @@ class UserDetail extends ModalComponent
             'satker2.location',
             'satker3',
             'satker3.location',
-            'satkerfinal',
-            'satkerfinal.location',
+            'satker_final',
+            'satker_final.location',
             'session_time'
         ])
             ->find($user_formation_id);

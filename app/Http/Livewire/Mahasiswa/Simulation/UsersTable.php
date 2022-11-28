@@ -50,9 +50,9 @@ class UsersTable extends DataTableComponent
                     'end' => $row->session_time->end_time,
                     'pilihan_pertama' => $row->satker_1
                 ])),
-            Column::make('satker final', "satkerfinal.name")
+            Column::make('satker final', "satker_final.name")
                 ->searchable(),
-            Column::make('Provinsi', "satkerfinal.location.provinsi")
+            Column::make('Provinsi', "satker_final.location.provinsi")
         ];
     }
 
@@ -70,13 +70,13 @@ class UsersTable extends DataTableComponent
 
     public function query()
     {
-        return UserFormations::with(['user', 'satkerfinal', 'session_time', 'satkerfinal.location'])
+        return UserFormations::with(['user', 'satker_final', 'session_time', 'satker_final.location'])
             ->where("simulations_id", $this->simulation_id)
             ->when($this->getFilter(AppSimulation::BASED_ON), function ($query, $formation) {
                 $query->where("based_on", $formation);
             })
             ->when($this->getFilter('provinsi'), function ($query, $provinsi) {
-                $query->whereHas("satkerfinal.location", function ($query) use ($provinsi) {
+                $query->whereHas("satker_final.location", function ($query) use ($provinsi) {
                     $query->where('provinsi', $provinsi);
                 });
             })
@@ -84,13 +84,9 @@ class UsersTable extends DataTableComponent
                 if ($status == AppSimulation::BELUM_MEMILIH)
                     $query->whereHas('session_time', fn ($query) => $query->where('start_time', '>', now()));
 
-
                 if (in_array($status, [AppSimulation::SEDANG_MEMILIH, AppSimulation::SUDAH_MEMILIH])) {
 
-                    if ($status == AppSimulation::SEDANG_MEMILIH)
-                        $query = $query->whereNull('satker_1');
-                    else
-                        $query = $query->whereNotNull('satker_1');
+                    $query = $status == AppSimulation::SEDANG_MEMILIH ? $query->whereNull('satker_1') : $query->whereNotNull('satker_1');
 
                     $query->whereHas('session_time', fn ($query) => $query->where('start_time', '<=', now())->where('end_time', '>=', now()));
                 }
