@@ -7,6 +7,7 @@ use Database\Seeders\Dev\UsersSeeder;
 use Database\Seeders\Features\KonsultasiSeeder;
 use Database\Seeders\Features\SambatSeeder;
 use Database\Seeders\Simulasi\SatkerSeeder;
+use Database\Seeders\Simulasi\SimulationSeeder;
 use Database\Seeders\System\LocationSeeder;
 use Database\Seeders\System\NonBPSSeeder;
 use Database\Seeders\System\PermissionSeeder;
@@ -58,6 +59,8 @@ class DatabaseSeeder extends Seeder
 
                 SambatSeeder::class,
                 KonsultasiSeeder::class,
+
+                SimulationSeeder::class
             ]);
         }
     }

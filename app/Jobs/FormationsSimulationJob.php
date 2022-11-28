@@ -49,6 +49,8 @@ class FormationsSimulationJob implements ShouldQueue
             echo "{$value} : {$users->count()}\n";
 
             foreach ($users as $user) {
+                $is_aman = false;
+
                 foreach ([1, 2, 3] as $f) {
                     $satker = Satker::with([
                         'formation_final' => function ($query) use ($key) {
@@ -66,15 +68,26 @@ class FormationsSimulationJob implements ShouldQueue
                         ->update([
                             'satker_final' => $satker->id,
                             'satker_final_completed' => true,
-                            'satker_final_updated_at' => now()
+                            'satker_final_updated_at' => now(),
+                            'status_pilihan' => AppSimulation::STATUS_PILIHAN_AMAN,
+                            'satker_final_keterangan' => "Terpilih pada pilihan " . $f
                         ]);
+                    $is_aman = true;
 
                     break;
                 }
+
+                if (!$is_aman)
+                    UserFormations::where('user_id', $user->user_id)
+                        ->where('simulations_id', $this->simulation->id)
+                        ->update([
+                            'satker_final_updated_at' => now(),
+                            'status_pilihan' => AppSimulation::STATUS_PILIHAN_TIDAK_AMAN,
+                            'satker_final_keterangan' => "Ketiga pilihan tidak aman"
+                        ]);
             }
 
             echo "{$value} completed\n";
-
         }
     }
 }

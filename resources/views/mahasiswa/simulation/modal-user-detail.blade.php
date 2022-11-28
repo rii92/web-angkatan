@@ -9,12 +9,16 @@
             {{ $user->user->details->location->kabupaten ?? 'Belum diisi' }}
         </x-description-list>
 
-        <x-description-list title="Status Pemilihan" class="bg-gray-50">
-            {{ view('mahasiswa.simulation.column.status-pemilihan', [
-                'start' => $user->session_time->start_time,
-                'end' => $user->session_time->end_time,
-                'pilihan_pertama' => $user->satker_1,
-            ]) }}
+        <x-description-list title="Status Pemilihan dan Pilihan" class="bg-gray-50">
+            <div class="flex">
+                {{ view('mahasiswa.simulation.column.status-pemilihan', [
+                    'start' => $user->session_time->start_time,
+                    'end' => $user->session_time->end_time,
+                    'pilihan_pertama' => $user->satker_1,
+                ]) }}
+
+                {{ view('mahasiswa.simulation.column.status-pilihan', ['status_pilihan' => $user->status_pilihan]) }}
+            </div>
         </x-description-list>
 
         @if ($user->satker1)
@@ -51,17 +55,31 @@
             </x-description-list>
         @endif
 
+        @if ($user->user_selection_at)
+            <x-description-list title="Memilih pada" class="bg-gray-50">
+                {{ $user->user_selection_at->format('l, d-F-Y H:i:s') }}
+            </x-description-list>
+        @endif
+
         @if ($user->satker_final)
-            <x-description-list title="Pilihan Final" class="bg-gray-50">
+            <x-description-list title="Pilihan Final">
                 {{ $user->satkerfinal->kode_wilayah }} - {{ $user->satkerfinal->name }} -
                 {{ $user->satkerfinal->location->provinsi }}
             </x-description-list>
         @endif
 
-        @if ($user->satker_final)
-            <x-description-list title="Updated At">
+        @if ($user->satker_final_updated_at)
+            <x-description-list title="Satker Final Updated At" class="bg-gray-50">
                 {{ $user->satker_final_updated_at->format('l, d-F-Y H:i:s') }}
             </x-description-list>
+        @endif
+
+        @if ($user->satker_final_keterangan)
+            <b>
+                <x-description-list title="Keterangan">
+                    {{ $user->satker_final_keterangan }}
+                </x-description-list>
+            </b>
         @endif
 
     </x-modal.body>

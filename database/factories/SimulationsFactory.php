@@ -59,7 +59,8 @@ class SimulationsFactory extends Factory
                         "satker_2" => $satker2,
                         "satker_3" => $satker3,
                         "satker_final" => null,
-                        "satker_final_updated_at" => now()
+                        "satker_final_updated_at" => now(),
+                        "user_selection_at" => now(),
                     ], ["simulations_id" => $simulation->id,]);
                 };
             }

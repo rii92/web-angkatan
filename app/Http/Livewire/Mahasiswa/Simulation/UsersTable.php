@@ -46,19 +46,21 @@ class UsersTable extends DataTableComponent
                 ->searchable(),
             Column::make(AppSimulation::BASED_ON, "based_on")
                 ->format($centeredColumnFormat),
-            Column::make("sesi", "session")
-                ->format(fn ($value) => $centeredColumnFormat($value + 1)),
-            Column::make("rank " . AppSimulation::BASED_ON, "user_rank")
-                ->format($centeredColumnFormat),
-            Column::make('status')
+            Column::make('satker final', "satkerfinal.name")
+                ->searchable(),
+            Column::make('Provinsi', "satkerfinal.location.provinsi"),
+            Column::make('Status Pemilihan')
                 ->format(fn ($value, $column, $row) => view("mahasiswa.simulation.column.status-pemilihan", [
                     'start' => $row->session_time->start_time,
                     'end' => $row->session_time->end_time,
                     'pilihan_pertama' => $row->satker_1
                 ])),
-            Column::make('satker final', "satkerfinal.name")
-                ->searchable(),
-            Column::make('Provinsi', "satkerfinal.location.provinsi")
+            Column::make('Status Pilihan', 'status_pilihan')
+                ->format(fn ($value) => view("mahasiswa.simulation.column.status-pilihan", ['status_pilihan' => $value])),
+            Column::make("rank " . AppSimulation::BASED_ON, "user_rank")
+                ->format($centeredColumnFormat),
+            Column::make("sesi", "session")
+                ->format(fn ($value) => $centeredColumnFormat($value + 1)),
         ];
     }
 
@@ -69,8 +71,12 @@ class UsersTable extends DataTableComponent
                 ->select(array_merge(['' => "All"], AppSimulation::BASED_ON())),
             'provinsi' => Filter::make('provinsi')
                 ->select(array_merge(['' => "All"], AppSimulation::PROVINSI_FILTER())),
-            'status' => Filter::make('status')
-                ->select(array_merge(['' => "All"], AppSimulation::STATUS_PEMILIHAN()))
+            'status_pemilihan' => Filter::make('status_pemilihan')
+                ->select(array_merge(['' => "All"], AppSimulation::STATUS_PEMILIHAN())),
+            'sesi' => Filter::make('sesi')
+                ->select(array_merge(['' => "All"], AppSimulation::SESSION_FILTER($this->simulation_id))),
+            'status_pilihan' => Filter::make('status_pilihan')
+                ->select(array_merge(['' => "All"], AppSimulation::STATUS_PILIHAN()))
         ];
     }
 
@@ -86,7 +92,7 @@ class UsersTable extends DataTableComponent
                     $query->where('provinsi', $provinsi);
                 });
             })
-            ->when($this->getFilter('status'), function ($query, $status) {
+            ->when($this->getFilter('status_pemilihan'), function ($query, $status) {
                 if ($status == AppSimulation::BELUM_MEMILIH)
                     $query->whereHas('session_time', fn ($query) => $query->where('start_time', '>', now()));
 
@@ -100,6 +106,14 @@ class UsersTable extends DataTableComponent
                 if ($status == AppSimulation::TIDAK_MEMILIH)
                     $query->whereNull('satker_1')
                         ->whereHas('session_time', fn ($query) => $query->where('end_time', '<', now()));
+            })
+            ->when($this->getFilter('sesi'), fn ($query, $sesi) => $query->where('session', $sesi - 1))
+            ->when($this->getFilter('status_pilihan'), function ($query, $pilihan) {
+                if ($pilihan == AppSimulation::PILIHAN_AMAN) $query->where('status_pilihan', AppSimulation::STATUS_PILIHAN_AMAN);
+
+                if ($pilihan == AppSimulation::PILIHAN_TIDAK_AMAN) $query->where('status_pilihan', AppSimulation::STATUS_PILIHAN_TIDAK_AMAN);
+
+                if ($pilihan == AppSimulation::PILIHAN_MENUNGGU) $query->where('status_pilihan', AppSimulation::STATUS_PILIHAN_MENUNGGU);
             });
     }
 
