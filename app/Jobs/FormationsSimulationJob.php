@@ -39,7 +39,6 @@ class FormationsSimulationJob implements ShouldQueue
         UserFormations::where('simulations_id', $this->simulation->id)->update(['satker_final_completed' => false]);
 
         foreach (AppSimulation::BASED_ON() as $key => $value) {
-            // foreach (['ks' => 'st'] as $key => $value) {
             $users = UserFormations::where('simulations_id', $this->simulation->id)
                 ->whereNotNull('satker_1')
                 ->where("based_on", $key)

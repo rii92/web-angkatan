@@ -1,665 +1,652 @@
 nim,nama,ipk,jurusan,peminatan,rank_jurusan,rank_peminatan
-221709732,Hasran Nawira,,ks,sd,1,1
-221810117,Ahmad Azam Izudin,,ks,sd,2,2
-221810140,Alfi Nurrahmah,,ks,sd,3,3
-221810155,Almira Diva Sanya,,ks,sd,4,4
-221810213,Bernaldo Napitupulu,,ks,sd,5,5
-221810227,Cynthia As Bahri,,ks,sd,6,6
-221810259,Eko Putra Wahyuddin,,ks,sd,7,7
-221810262,Elsa Kartika Vitriani Marpaung,,ks,sd,8,8
-221810266,Emir Luthfi,,ks,sd,9,9
-221810280,Fahmi Reza Nugraha,,ks,sd,10,10
-221810293,Faradilla Anastasya,,ks,sd,11,11
-221810333,I Putu Juni Adi Widianata,,ks,sd,12,12
-221810335,Iffati Uzma,,ks,sd,13,13
-221810343,Intan Kemala,,ks,sd,14,14
-221810350,Irvan Permana Bustami,,ks,sd,15,15
-221810359,Joice Evangelista Lase,,ks,sd,16,16
-221810376,Kiran Aldi Pangumbanan Hasibuan,,ks,sd,17,17
-221810386,Lara Ayu Cahyaningtyas,,ks,sd,18,18
-221810397,M. Baital Salsabil,,ks,sd,19,19
-221810402,M. Tharif Arkandana,,ks,sd,20,20
-221810429,Muchammad Gagah Agum Fanani,,ks,sd,21,21
-221810445,Muhammad Al Fatah,,ks,sd,22,22
-221810459,Muhammad Ibrah Reynaldi Tanjung,,ks,sd,23,23
-221810479,Muhammad Zulkarnain,,ks,sd,24,24
-221810484,Nabila Bianca Putri,,ks,sd,25,25
-221810497,Natasya Afira,,ks,sd,26,26
-221810502,Nissa Silvianna Devi Nur Afni,,ks,sd,27,27
-221810548,Raka Ikmana,,ks,sd,28,28
-221810583,Rizqina Rahmati,,ks,sd,29,29
-221810596,Salwa Rizqina Putri,,ks,sd,30,30
-221810597,Sandro E. Irwansyah Pasaribu,,ks,sd,31,31
-221810630,Timotius Vincent Gunawan,,ks,sd,32,32
-221810641,Varadinya Sholaita,,ks,sd,33,33
-221810650,Wahidya Nurkarim,,ks,sd,34,34
-221810659,Xafrillah Agnes Nala Ayulia Wasa Hardiana,,ks,sd,35,35
-221810662,Yoga Cahya Putra,,ks,sd,36,36
-221810682,Zuhrotur Rofiah,,ks,sd,37,37
-221810097,Adi Habibi Harahap,,ks,sd,38,38
-221810112,Agnes Septi Dwicahayaniawan,,ks,sd,39,39
-221810126,Aisyah Nur Fahira,,ks,sd,40,40
-221810138,Aldias Irvan Nugraha,,ks,sd,41,41
-221810195,Arina Mana Sikana,,ks,sd,42,42
-221810202,Asti Desmaria Samosir,,ks,sd,43,43
-221810232,Daniel Novendri Situmorang,,ks,sd,44,44
-221810233,Daris Azhar,,ks,sd,45,45
-221810237,Desi Kristiyani,,ks,sd,46,46
-221810278,Fadila Ahmad,,ks,sd,47,47
-221810288,Fakhri Hidayat,,ks,sd,48,48
-221810291,Fani Visara,,ks,sd,49,49
-221810318,Ghitha Nurfalah,,ks,sd,50,50
-221810327,Hayun,,ks,sd,51,51
-221810336,Ihza Fikri Zaki Karunia,,ks,sd,52,52
-221810340,Inas Zaizafun Satira ,,ks,sd,53,53
-221810377,Komang Uning Sari Devi ,,ks,sd,54,54
-221810392,Lukman Dary Ilyasa,,ks,sd,55,55
-221810396,M. Aris Munandar,,ks,sd,56,56
-221810400,M. Rijalus Sholihin,,ks,sd,57,57
-221810403,M. Yasqi Imanda,,ks,sd,58,58
-221810430,Mufti Rizki Abdillah,,ks,sd,59,59
-221810452,Muhammad Fachry Nazuli,,ks,sd,60,60
-221810481,Mutia Soraya Adila,,ks,sd,61,61
-221810496,Nasiya Alifah Utami,,ks,sd,62,62
-221810499,Nensi Fitriani,,ks,sd,63,63
-221810514,Nur Ulum Rahmanulloh,,ks,sd,64,64
-221810528,Paulina Siallagan,,ks,sd,65,65
-221810557,Reyhan Saadi,,ks,sd,66,66
-221810578,Rizki Nazhif Nur,,ks,sd,67,67
-221810592,Sabriella Hafifah,,ks,sd,68,68
-221810608,Sita Dian Maretna,,ks,sd,69,69
-221810619,Talitha Nabila Saifana,,ks,sd,70,70
-221810634,Tubagus Langlang Purwasasmita,,ks,sd,71,71
-221810642,Velia Tri Marliana,,ks,sd,72,72
-221810652,Wasilah Nur Astuti,,ks,sd,73,73
-221810672,Yulia Aryani,,ks,sd,74,74
-221810116,Ahmad Arfan arsyad,,ks,si,75,1
-221810125,Ainur Rahma,,ks,si,76,2
-221810137,Aldi Hamidi Lubis,,ks,si,77,3
-221810157,Alwan Hazim,,ks,si,78,4
-221810177,Anlisa Armaryama Risardi,,ks,si,79,5
-221810183,Annisa Putri Anggraini,,ks,si,80,6
-221810196,Ariq RIzaldi Fadhlurrahman,,ks,si,81,7
-221810224,Chory Ayu Zulfaida,,ks,si,82,8
-221810234,Dedy Saputra Siregar,,ks,si,83,9
-221810256,Edo Finmansyah Akbar,,ks,si,84,10
-221810260,Ela Nuzul Rahmawati,,ks,si,85,11
-221810300,Faturrokhman,,ks,si,86,12
-221810306,Fikri Septrian Anggara,,ks,si,87,13
-221810378,Krisbana Togar Sianturi,,ks,si,88,14
-221810397,M. Irsyad Hadi,,ks,si,89,15
-221810404,M. Zikri,,ks,si,90,16
-221810407,M. Hafiz Al Ihsan,,ks,si,91,17
-221810414,Maudy Insan Tania,,ks,si,92,18
-221810418,Miftahuddin,,ks,si,93,19
-221810422,Mochamad Izza Zulfikar Sya'roni,,ks,si,94,20
-221810431,Muh. Adriansyah,,ks,si,95,21
-221810468,Muhammad Nirwansyah Adi Eka Putra,,ks,si,96,22
-221810509,Nugroho Adi Sudantoko,,ks,si,97,23
-221810522,Nurul Syifa Amalia,,ks,si,98,24
-221810540,Rafly Amanatulla,,ks,si,99,25
-221810558,Rezky Angga Pradana,,ks,si,100,26
-221810568,Rihadatulaisy Salsabila Nurudin,,ks,si,101,27
-221810576,Riva Adli Dzil Ikram,,ks,si,102,28
-221810589,Ruth Madeline,,ks,si,103,29
-221810626,Thoriq Ibadurrohman,,ks,si,104,30
-221810637,Ulya Adiwena,,ks,si,105,31
-221810660,Yenita Amelia Ika Putri,,ks,si,106,32
-221810676,Zahlul Fuadi,,ks,si,107,33
-221810104,Adyasti Ningrum,,ks,si,108,34
-221810128,Ajeng Wahyu Tri Yulinda,,ks,si,109,35
-221810129,Akhmad Fadil Mubarok,,ks,si,110,36
-221810145,Ali Akbar Championa,,ks,si,111,37
-221810178,Annisa Adytia Putri,,ks,si,112,38
-221810193,Arif Ikhwan Hendra,,ks,si,113,39
-221810198,Ashabul Kahfi Sipahutar,,ks,si,114,40
-221810220,Chairunnisa Fauzia Samu,,ks,si,115,41
-221810245,Dimas Al-khusuufi,,ks,si,116,42
-221810261,Elisa Imania,,ks,si,117,43
-221810270,Erik Rihendri Candra Adifa,,ks,si,118,44
-221810299,Fatkhul Mukhlish A,,ks,si,119,45
-221810314,Gaberiel,,ks,si,120,46
-221810354,Jafar Husaini Aziz,,ks,si,121,47
-221810360,Jona P A Siregar,,ks,si,122,48
-221810394,M Nabil Syukri,,ks,si,123,49
-221810412,Mardiningtyas Bayu Sulthani,,ks,si,124,50
-221810417,Meytry Petronella Purba,,ks,si,125,51
-221810421,Mochamad Diaz Ilyasa,,ks,si,126,52
-221810454,Muhammad Ferdi,,ks,si,127,53
-221810473,M. Rifky Naratama Susanto,,ks,si,128,54
-221810477,Muhammad Yasin Vidian,,ks,si,129,55
-221810510,Nugroho Purnomo Aji,,ks,si,130,56
-221810527,Paramitha Madelin Albright,,ks,si,131,57
-221810547,Raka Artian Prawardana,,ks,si,132,58
-221810560,Rian Alfa Nurfalah,,ks,si,133,59
-221810577,Rizka Indah Pristania,,ks,si,134,60
-221810618,Sultan Achmad Rizaldi,,ks,si,135,61
-221810622,Tasya Mina Alifia,,ks,si,136,62
-221810640,Vania Rizki Oktaviasari,,ks,si,137,63
-221810647,Viona Febriana,,ks,si,138,64
-221810670,Yudistira Elton Jhon,,ks,si,139,65
-221810673,Yully Septia Pertiwi,,ks,si,140,66
-211810093,Ach Mukhlis Sollahuddin,,st,se,1,1
-211810113,Agus Hardiyanto,,st,se,2,2
-211810139,Alfajri Hidayat,,st,se,3,3
-211810150,Alifah Muwafiqoh,,st,se,4,4
-211810170,Angel Rizky Sheren Manurung,,st,se,5,5
-211810186,Anskarius Chandra Goa,,st,se,6,6
-211810211,Bagaskoro Cahyo Laksono,,st,se,7,7
-21181015,Bintang Izzatul Fatah,,st,se,8,8
-211810238,Devani Ayuna Ningsih,,st,se,9,9
-211810255,Edmundus Alexandro,,st,se,10,10
-211810257,Edo Kurniawan,,st,se,11,11
-211810268,Endah Cahya Rizki Suhanda,,st,se,12,12
-211810297,Fariz Aprilianzah,,st,se,13,13
-211810308,Firdayanti Amir,,st,se,14,14
-211810323,Hanifa Choirunnisa,,st,se,15,15
-211810355,Jasika Lisayoana,,st,se,16,16
-211810356,Jody,,st,se,17,17
-211810368,KADEK DWI MAHARDIKA,,st,se,18,18
-211810393,M Chairul Mugti,,st,se,19,19
-211810415,Maulia Savana Putri,,st,se,20,20
-211810426,Mohamad Nur Arifin,,st,se,21,21
-211810438,Muh. Yudi Pratama,,st,se,22,22
-211810466,Muhammad Muhdlor Muttaqin,,st,se,23,23
-211810471,Muhammad Nurul Maulid,,st,se,24,24
-211810487,Nabila Wardasakina,,st,se,25,25
-211810500,Ni Made Sindu Padmayoni,,st,se,26,26
-211810511,Nur Afni Eka Sapitri,,st,se,27,27
-211810554,Renisa Maulinda Ayudiah,,st,se,28,28
-211810556,Reyhan Gesang Almuazam,,st,se,29,29
-211810594,Salsabila Latifah Putri,,st,se,30,30
-211810607,Sishilia Marestha,,st,se,31,31
-211810612,Sopo Siahaan,,st,se,32,32
-211810656,Wimmisri,,st,se,33,33
-211810657,Wirasetya Putra Hutama,,st,se,34,34
-211810674,Yunela Tania Sari,,st,se,35,35
-211810680,Zaky Imadudin Salam,,st,se,36,36
-211810681,Zidan Fakhri Zhafiri,,st,se,37,37
-211710033,Tias Arta Putra,,st,se,38,38
-211810102,Aditya Maulana Ibrahim,,st,se,39,39
-211810114,Agustien Wahyunningsih,,st,se,40,40
-211810115,Ahdiyaty Rahmi Suaib,,st,se,41,41
-211810120,AHMAD RAMADHAN. S,,st,se,42,42
-211810130,Akhmad Farkhan Hasim,,st,se,43,43
-211810144,Alfredo Abdul Aziz,,st,se,44,44
-211810171,Anggi Violita Ilham Hasibuan,,st,se,45,45
-211810187,Anugrah R.H. Marbun,,st,se,46,46
-211810189,Anzilna Luthfa Asyfya',,st,se,47,47
-211810216,Budiman Aller Silaban,,st,se,48,48
-211810228,DAFFA HENDRAWAN,,st,se,49,49
-211810239,Deviana Safitri Herlianti,,st,se,50,50
-211810277,Fadhel Imam Haichal Tanjung,,st,se,51,51
-211810281,Fahriza Rianda,,st,se,52,52
-211810319,Gresti Jelita Sari,,st,se,53,53
-211810326,Hasyimur Rusdi,,st,se,54,54
-211810341,Indah Fatimah Azzahra,,st,se,55,55
-211810351,Istu Indah Setyaningsih,,st,se,56,56
-211810357,Jofri Ardo Tiganna Sembiring,,st,se,57,57
-211810369,Kandita abdina,,st,se,58,58
-211810373,Keyat Ajriyanto,,st,se,59,59
-211810395,M Rifqi Jundullah,,st,se,60,60
-211810443,Muhamad Taufik Hidayat,,st,se,61,61
-211810455,Muhammad Ghofur,,st,se,62,62
-211810475,Muhammad Rizky Zidane,,st,se,63,63
-211810488,Nadia Ariska,,st,se,64,64
-211810508,Nugraheni Putri Istiqomah,,st,se,65,65
-211810523,Nuryanti Nurdin Abdullah,,st,se,66,66
-211810566,Rifka Fakhirah Darmawan,,st,se,67,67
-211810567,Rifki Gustiawan,,st,se,68,68
-211810573,Riris Juita Silalahi,,st,se,69,69
-211810598,Santi Maudila Putri,,st,se,70,70
-211810609,Siti Ainia Hidayati,,st,se,71,71
-211810617,Sukma Maulana,,st,se,72,72
-211810658,Witria Dasni,,st,se,73,73
-211810663,Yogi Resmana Barus,,st,se,74,74
-211709988,Rosita Pujasari,,st,se,75,75
-211810091,Abdurrahman,,st,se,76,76
-211810121,Ahmad Rifja Yansyah,,st,se,77,77
-211810122,Ahmad Satria Irmanto,,st,se,78,78
-211810143,Alfira Meilawijaya,,st,se,79,79
-211810165,Andi Alfitra Putra Fadila,,st,se,80,80
-211810175,Anis Rahmawati,,st,se,81,81
-211810200,Askar Subriandi,,st,se,82,82
-211810201,Assyifa Maretta Ilmarahma,,st,se,83,83
-211810209,Azzahra Zauza Inniswa Rahmadhana,,st,se,84,84
-211810217,Candra Kurniawan,,st,se,85,85
-211810230,Daniel Dian Pratama Siburian,,st,se,86,86
-211810252,Dwi Kartika Sari,,st,se,87,87
-211810283,Faiq Nur Huda,,st,se,88,88
-211810305,Ferry Marganda Siregar,,st,se,89,89
-211810329,Herika Sofita Putri,,st,se,90,90
-211810332,I Kadek Wijayantara,,st,se,91,91
-211810334,I Wayan Gede Angga Krismawan,,st,se,92,92
-211810345,Irama Sukma Futriani Simbolon,,st,se,93,93
-211810361,Jonathan Sitanggang,,st,se,94,94
-211810375,Khoiron Filsafat,,st,se,95,95
-211810382,Laily Nur Indah Sari,,st,se,96,96
-211810388,Lely Indah Guritno,,st,se,97,97
-211810408,M. Raja Darussalam,,st,se,98,98
-211810401,M. Sholahuddin Al'Islami,,st,se,99,99
-211810447,Muhammad Aliyasqi Akbar,,st,se,100,100
-211810462,Muhammad Iqbal,,st,se,101,101
-211810491,Nadiyah Rizqi Jihan Nabilah,,st,se,102,102
-211810520,Nurul Dwi Afifah,,st,se,103,103
-211810530,Popy Chafifah,,st,se,104,104
-211810571,Rina Dwi Octavianti,,st,se,105,105
-211810579,Rizlan Ahmad Fauzan,,st,se,106,106
-211810599,Sayyidah Fadhila Latorumo,,st,se,107,107
-211810614,Stephanie Virginia Iskandar,,st,se,108,108
-211810623,Taupiq H. Nasution,,st,se,109,109
-211810665,Yolanda Alma Fitrotunnisa,,st,se,110,110
-211810666,Yosua Wiradiputra Pangaribuan,,st,se,111,111
-211810094,Adam Nur Wahyu Wibowo,,st,se,112,112
-211810096,Adella Siti Nursaliyawati,,st,se,113,113
-211810123,Ahsan Anwar Basari,,st,se,114,114
-211810133,Akwilla Bahkti Sitindaon,,st,se,115,115
-211810153,Alivya Septiriana Putri. S,,st,se,116,116
-211810167,Andi Rafli Radjasa,,st,se,117,117
-211810207,Azmi Faisal,,st,se,118,118
-211810208,Azzahra Shyfa Dieni Islam,,st,se,119,119
-211810214,Bintang Ismiarizqi,,st,se,120,120
-211810219,Cesario Hanif Naufal,,st,se,121,121
-211810242,Dian Anggraini Julita,,st,se,122,122
-211810244,Diki Nurfaiz,,st,se,123,123
-211810286,Fajar Akhmad Anshori,,st,se,124,124
-211810292,Faradila Agustina Thalia,,st,se,125,125
-211810316,Gede Nanda Wartayana,,st,se,126,126
-211810344,Intan Kharismayanti,,st,se,127,127
-211810348,Irfan Prasetya Kamajaya,,st,se,128,128
-211810349,Irhamni Maulidah,,st,se,129,129
-211810363,Juando Siallagan,,st,se,130,130
-211810380,L.M.Rizal,,st,se,131,131
-211810384,Lana Eka Wibawa,,st,se,132,132
-211810390,Ling Lyng Fitrotun Nasiha,,st,se,133,133
-211810419,Miftahul Huda Arifandi,,st,se,134,134
-211810427,Monica Nadia Ratri,,st,se,135,135
-211810453,Muhammad Fadhilah Akbar,,st,se,136,136
-211810478,Muhammad Ziyad Ahmad,,st,se,137,137
-211810503,Noca Rahmatullah,,st,se,138,138
-211810533,Pretty Angelica Lewaherilla,,st,se,139,139
-211810550,Rangga Aji Wijaksono,,st,se,140,140
-211810586,Rohmah Dini Ayunda Mustofa,,st,se,141,141
-211810591,Ryan Zulyendri,,st,se,142,142
-211810593,Salma,,st,se,143,143
-211810600,Selvi Agustina,,st,se,144,144
-211810624,Thalita Silmi Azrani,,st,se,145,145
-211810643,Victor Robert Gusta,,st,se,146,146
-211810653,Widia sari,,st,se,147,147
-211810668,Yuda Firmansyah,,st,se,148,148
-211810098,Adi Saputra Marbun,,st,se,149,149
-211810109,Afifah Rahmah Chania,,st,se,150,150
-211810134,Albert Junior Chen,,st,se,151,151
-211810159,Alya Nur Amalia,,st,se,152,152
-211810168,Andika Roy Khian Marselino,,st,se,153,153
-211810191,Ardhan Setyo Nugroho,,st,se,154,154
-211810212,Bari Rizki Pratama,,st,se,155,155
-211810218,Caroline Ue Humble Banurea,,st,se,156,156
-211810246,Dimas Ario Yudanko,,st,se,157,157
-211810248,Dimas Rizqi Sugeng Husada,,st,se,158,158
-211810264,Elfira Nur Islamiyah,,st,se,159,159
-211810287,Fajar Berlian,,st,se,160,160
-211810303,Febriyeni Susi,,st,se,161,161
-211810311,Fiva Renas Okti Dewanti,,st,se,162,162
-211810346,Irene Savira Gabriella Sitanggang,,st,se,163,163
-211810353,Ivan Masduqi Mahfuds,,st,se,164,164
-211810366,Kadek Angga Wicaksana,,st,se,165,165
-211810387,Lasro Mangiring Tua Marbun,,st,se,166,166
-211810405,Maharani Izzaturrahma,,st,se,167,167
-211810409,Mochammad Nafi' Dzakwan,,st,se,168,168
-211810423,Monita Purba,,st,se,169,169
-211810428,Muhammad Alfaris Kurniawan,,st,se,170,170
-211810458,Muhammad Ibnu Haidar Basyir Rambe,,st,se,171,171
-211810460,Muhammad Ikhwan Agung Pamuji,,st,se,172,172
-211810493,Nafisa Qurrotul A'yuni,,st,se,173,173
-211810506,Novia Akhlaqul Karimah,,st,se,174,174
-211810542,Rafqi Ardiansyah Surya,,st,se,175,175
-211810544,Rahmah Zahidah,,st,se,176,176
-211810582,Rizqi Muzakki,,st,se,177,177
-211810587,Rouli Shan Iren Napitupulu,,st,se,178,178
-211810601,Setiawan Osi Rubianto,,st,se,179,179
-211810606,Sintya Dwi Lestari,,st,se,180,180
-211810613,Siti Hajar,,st,se,181,181
-211810629,Tiffani Ayundita Auliannisa,,st,se,182,182
-211810646,Vincentius Agra Ananta Gunito,,st,se,183,183
-211810675,Yusuf Ripani Siregar,,st,se,184,184
-211810100,Adinda Izzata Fikrat,,st,sk,185,1
-211810118,AHMAD BINTANG FA'IS ADHIBI,,st,sk,186,2
-211810127,Ajeng Nurul Komariah,,st,sk,187,3
-211810152,Alifka Putri Ashadi,,st,sk,188,4
-211810156,Alrizki Prastama Putra,,st,sk,189,5
-211810163,An Nida Fitri Al Fauziah,,st,sk,190,6
-211810182,Annisa Nur Azizah Ahmad,,st,sk,191,7
-211810221,CHAULA RAMADHANI PUTRI,,st,sk,192,8
-211810236,Denita Dwi Andiany,,st,sk,193,9
-211810243,DICKI ABDUROHMAN,,st,sk,194,10
-211810263,Elsa Nur Ismadita,,st,sk,195,11
-211810276,Etsa Primanda,,st,sk,196,12
-211810289,Fakhrurrazi Hamdani,,st,sk,197,13
-211810290,Fani Fajriani,,st,sk,198,14
-211810295,Faricha Zahara AlChasanah,,st,sk,199,15
-211810320,Habel Nitalessy,,st,sk,200,16
-211810324,Hanifah,,st,sk,201,17
-211810347,IRFAN NURHADY,,st,sk,202,18
-211810371,Keszya Graciella,,st,sk,203,19
-211810411,Mardhatilla,,st,sk,204,20
-211810416,Maymanatul Mufarrohah,,st,sk,205,21
-211810425,Moh Fahrurrosi,,st,sk,206,22
-211810435,MUH. RIFKY FAJRIN HASRIN,,st,sk,207,23
-211810450,Muhammad Bilal Dwi Apriyoga,,st,sk,208,24
-211810465,Muhammad Latif Al Banna,,st,sk,209,25
-211810467,Muhammad Muslim Shodiqi,,st,sk,210,26
-211810486,Nabila kharisma ramadhani,,st,sk,211,27
-211810492,Nadya Namirasepti Efendi,,st,sk,212,28
-211810519,Nurul Aulia Rahmi,,st,sk,213,29
-211810536,Prisilya Wulandari,,st,sk,214,30
-211810538,Putu Adi Myarsithawan,,st,sk,215,31
-211810551,Rani Aprilia Putri,,st,sk,216,32
-211810559,REZKY YAYANG YAKHAMID,,st,sk,217,33
-211810570,RIMA MAYYADAH,,st,sk,218,34
-211810585,Rofin Sumarani Bombang,,st,sk,219,35
-211810621,Tasya Aguilera Prasetia Mulyana,,st,sk,220,36
-211810655,WILLY PRADANA PUTRA,,st,sk,221,37
-211810667,Yuana Risa Prastika,,st,sk,222,38
-211810678,Zahra Rahmatika Fadilla,,st,sk,223,39
-211709938,Pischal Juandra,,st,sk,224,40
-211709953,Rafli Anderson Lapebesi,,st,sk,225,41
-211810101,Adinda Putri,,st,sk,226,42
-211810131,Akhmad Ibnu Katsir,,st,sk,227,43
-211810147,Alicia Steffanni Nadeak,,st,sk,228,44
-211810161,Amelia Tri Wahyuni,,st,sk,229,45
-211810169,Angel Mariana Sagala,,st,sk,230,46
-211810185,Annisa Wasistiana,,st,sk,231,47
-211810188,Anwar Ibrahim,,st,sk,232,48
-211810222,Chindi Prastiwi,,st,sk,233,49
-211810247,Dimas Hutomo Putro,,st,sk,234,50
-211810249,Dina Anggraena,,st,sk,235,51
-211810265,Elyza Nurul Hapsari,,st,sk,236,52
-211810279,Fadhlullah,,st,sk,237,53
-211810294,Farhan Reza Kusuma,,st,sk,238,54
-211810298,Fathanya Puja Anggaresa,,st,sk,239,55
-211810307,Fina Fauziyah ,,st,sk,240,56
-211810322,Hafizur Rahman,,st,sk,241,57
-211810337,Ika Rehulina Oktari Monita Surbakti,,st,sk,242,58
-211810358,Johansen Renaldi Hutagalung,,st,sk,243,59
-211810374,Kezia Sibuea,,st,sk,244,60
-211810413,Marina Tika Sari,,st,sk,245,61
-211810439,Muh. Robbith Dinak,,st,sk,246,62
-211810456,Muhammad Habib Rabbani,,st,sk,247,63
-211810469,Muhammad Nor Ahyandi,,st,sk,248,64
-211810470,Muhammad Nur Megantoro,,st,sk,249,65
-211810480,Mursidah Rosmalasari ,,st,sk,250,66
-211810495,Narwastu Ningthias,,st,sk,251,67
-211810501,Ni Nyoman Ria Sugiandewi,,st,sk,252,68
-211810524,Olviea Rahmayanti,,st,sk,253,69
-211810537,Priska Claudia Wredani,,st,sk,254,70
-211810564,Rif'atul Mina,,st,sk,255,71
-211810572,Rindu Trimarta Nafri,,st,sk,256,72
-211810580,Rizq Taufiq Bahtiar Razendrya,,st,sk,257,73
-211810588,Rusman Fahri,,st,sk,258,74
-211810628,Tiara Reza Sukmana,,st,sk,259,75
-211810669,Yudhistira,,st,sk,260,76
-211810677,Zahra Fatin Tanala,,st,sk,261,77
-211810679,Zakiah Rahmah,,st,sk,262,78
-211810099,Adima Lulu'atun Nabila Munawardani,,st,sk,263,79
-211810110,Afifatu Zulfa,,st,sk,264,80
-211810136,Aldi Atmalqi,,st,sk,265,81
-211810151,Alifah Zalfa Azizah,,st,sk,266,82
-211810172,Anindya Putri,,st,sk,267,83
-211810176,Anisatullaila,,st,sk,268,84
-211810179,Annisa Dea Fitri,,st,sk,269,85
-211810190,Ardelia Raras Nisreyasa,,st,sk,270,86
-211810192,Ari Mahendra,,st,sk,271,87
-211810225,Christanty Josephine,,st,sk,272,88
-211810251,Doni setiawan ,,st,sk,273,89
-211810271,Erisa,,st,sk,274,90
-211810272,Erliana Nurul Fatihah,,st,sk,275,91
-211810296,Farid Harnanto,,st,sk,276,92
-211810310,Fitri Noor Hikmah,,st,sk,277,93
-211810321,Habni Hamara Azmatiy,,st,sk,278,94
-211810328,Herbian Dwi Cahyo,,st,sk,279,95
-211810342,Indri Puspita Devi,,st,sk,280,96
-211810362,Josua Reginal N,,st,sk,281,97
-211810379,Kurniawan Tri Yulianto,,st,sk,282,98
-211810381,Laila Choirun Ni'mah,,st,sk,283,99
-211810420,Millenia Sukma Juniva Putri,,st,sk,284,100
-211810441,Muhamad Fikri Ramdhani,,st,sk,285,101
-211810461,Muhammad Imam Al-Matin,,st,sk,286,102
-211810399,Muhammad Rifky Ariyadi,,st,sk,287,103
-211810482,Nabila Anindita,,st,sk,288,104
-211810504,Nola Ramasentia,,st,sk,289,105
-211810507,Novitra Saputra,,st,sk,290,106
-211810512,Nur Maharani Putri Unisi,,st,sk,291,107
-211810529,Pinky Aulia Viradina,,st,sk,292,108
-211810552,Rd. Daffa Ivan Febrio ,,st,sk,293,109
-211810553,Rekayati Cahya Adi,,st,sk,294,110
-211810563,Ridho Illahi,,st,sk,295,111
-211810590,Ruti Tryana Telaumbanua,,st,sk,296,112
-211810602,Sevy Dyahartanti,,st,sk,297,113
-211810632,Togar Hasbalah,,st,sk,298,114
-211810633,Trinanda Yulia Putri,,st,sk,299,115
-211810671,Yuli Bagus Adriyatna,,st,sk,300,116
-211709565,Annisa Putri Ramadhanty,,st,sk,301,117
-211810092,Abyan Aziswan,,st,sk,302,118
-211810108,Afifah Dheany Putri,,st,sk,303,119
-211810111,Agmi Purnama,,st,sk,304,120
-211810148,Alif Muhammad Arrasyid,,st,sk,305,121
-211810154,Aliyya Salsabila,,st,sk,306,122
-211810180,Annisa Fitriyani,,st,sk,307,123
-211810184,Annisa Salsabila Aulia,,st,sk,308,124
-211810204,Aulia Brilliany Wibowo,,st,sk,309,125
-211810210,Azzam Majdi Asysyahida,,st,sk,310,126
-211810235,Dena Apriliana,,st,sk,311,127
-211810269,Enggar Ratna Saputra,,st,sk,312,128
-211810273,Erlyna Nurhaliza Pramesti,,st,sk,313,129
-211810274,Ersa Amoza Sita,,st,sk,314,130
-211810302,Fayadh Abiyyi,,st,sk,315,131
-211810315,Gabriela Natalie Amelia Maharanie,,st,sk,316,132
-211810330,Hijriah Nur Istifani,,st,sk,317,133
-211810331,Hussein Adi Permana,,st,sk,318,134
-211810364,Judith Rio Oloan,,st,sk,319,135
-211810365,Julia Iffah Saifullah,,st,sk,320,136
-211810385,Lara Aleva Vabian,,st,sk,321,137
-211810410,Manca Satria,,st,sk,322,138
-211810442,Muhamad Rizkiansyah,,st,sk,323,139
-211810463,Muhammad Iqbal Muharram,,st,sk,324,140
-211810483,Nabila Ardyana,,st,sk,325,141
-211810489,Nadidah Pangestika,,st,sk,326,142
-211810498,Naufal Abdul Rafi Zaqi,,st,sk,327,143
-211810505,Novalianisa Permata Sari,,st,sk,328,144
-211810513,Nur Meiliza,,st,sk,329,145
-211810531,Pratitis Nandiasoka Annisawati,,st,sk,330,146
-211810532,Prawira Yuda Husada,,st,sk,331,147
-211810555,Restijati Susantri,,st,sk,332,148
-211810561,Richardo Viery Tarigan,,st,sk,333,149
-211810605,Silvira Berliana,,st,sk,334,150
-211810610,Siti Sabrina Yuniarti,,st,sk,335,151
-211810635,Tulus Frengky Manullang ,,st,sk,336,152
-211810651,Wahyu Kartika,,st,sk,337,153
-211810683,Zulkifli,,st,sk,338,154
-211710057,Winona Bella Vannia,,st,sk,339,155
-211810103,Adryan Sapta S,,st,sk,340,156
-211810119,Ahmad kamal,,st,sk,341,157
-211810124,Aininda Rahma Mas,,st,sk,342,158
-211810142,Alfina Nurpiana,,st,sk,343,159
-211810149,Alif Rizky Rahmawan,,st,sk,344,160
-211810158,Alya Azzahra,,st,sk,345,161
-211810181,Annisa Kahmiliani,,st,sk,346,162
-211810206,Ayu Aina Nurkhaliza,,st,sk,347,163
-211810226,Claresa Ayu Dya,,st,sk,348,164
-211810240,Devo Rama,,st,sk,349,165
-211810253,Dyah Ayu Nurhayati,,st,sk,350,166
-211810282,Fahrunnisa Maharani,,st,sk,351,167
-211810284,Fairuz Afifah Reefana Poeri,,st,sk,352,168
-211810285,Faisal Siddiq,,st,sk,353,169
-211810313,Fransholy Ade Riski,,st,sk,354,170
-211810317,Ghina Rofifa Suraya,,st,sk,355,171
-211810338,Ilham Aminu Rosyid ,,st,sk,356,172
-211810367,Kadek Dwi Aditya Putri,,st,sk,357,173
-211810372,Katrin Edvirgis Beribe,,st,sk,358,174
-211810391,Lisa Agustina,,st,sk,359,175
-211810424,Mochammad Yusuf Maulana,,st,sk,360,176
-211810444,Muhammad Afiyf Besari,,st,sk,361,177
-211810451,Muhammad Daffa Rasditya,,st,sk,362,178
-211810464,Muhammad Khairi Albanna S.,,st,sk,363,179
-211810485,Nabila Isnani Farra,,st,sk,364,180
-211810490,Nadiyah Hanifah,,st,sk,365,181
-211810517,Nuricha Indar Damayanti,,st,sk,366,182
-211810534,Prido Putra Sinaga,,st,sk,367,183
-211810535,Priscilia Ervina Sihombing,,st,sk,368,184
-211810539,Radhika Arhani Siregar ,,st,sk,369,185
-211810545,Rahmat Agung Pasaribu,,st,sk,370,186
-211810562,Ridha Hanindya Witari,,st,sk,371,187
-211810584,Rofi Adnandi,,st,sk,372,188
-211810615,Suci Husnawati Amalia,,st,sk,373,189
-211810636,Ubaidillah Dhiya Ulhaq,,st,sk,374,190
-211810648,Viona Rahma Agustin,,st,sk,375,191
-211810664,Yohana Madame Hutahaean,,st,sk,376,192
-111911119,Lalu Moh. Arsal Fadila,,d3,d3,1,1
-111910964,Guruh Dewa Prataba,,d3,d3,2,2
-111911223,Advanto Siahaan,,d3,d3,3,3
-111911189,Ahmad Irsyad Agung,,d3,d3,4,4
-111911161,Aiga Biduri Amanatillah,,d3,d3,5,5
-111910899,Faiz Alwan Alharis,,d3,d3,6,6
-111910895,Ganda Marina Sinaga,,d3,d3,7,7
-111911184,Ni Wayan Antariyani Satyaning Prawerthi,,d3,d3,8,8
-111911220,Nurul Fitria,,d3,d3,9,9
-111910995,Putri Ayu Humaera,,d3,d3,10,10
-111911068,Rekha Novalina,,d3,d3,11,11
-111810565,Rifaldi,,d3,d3,12,12
-111911122,Istira Nova Triana,,d3,d3,13,13
-111911156,Resky Amelia,,d3,d3,14,14
-111911046,Elvira Naftali Anastasya Sitinjak,,d3,d3,15,15
-111911225,Alfie Syahrina Deswita,,d3,d3,16,16
-111910966,Jovanka Marya Sitompul,,d3,d3,17,17
-111910982,Mutia Hanifah,,d3,d3,18,18
-111911224,Rizeka Ramadayanti,,d3,d3,19,19
-111911207,Runi Rahmatillah Inhar,,d3,d3,20,20
-111911113,Ulul Hidayat,,d3,d3,21,21
-111911150,Wahyuni,,d3,d3,22,22
-111911105,Mira Zaniba Pratiwi,,d3,d3,23,23
-111911168,Surhaliza Aprilianti,,d3,d3,24,24
-111911171,Virginia Frafiana Orchita Bili,,d3,d3,25,25
-111911073,Elpa Heryanti,,d3,d3,26,26
-111911094,Bunga Savira Arshella,,d3,d3,27,27
-111911128,M. Aprinaldi,,d3,d3,28,28
-111911158,Septia Nur Azizah,,d3,d3,29,29
-111910930,Maula Azka Fatihah,,d3,d3,30,30
-111911116,Maximilyanus H. Kerans,,d3,d3,31,31
-111911084,Muhammad Renaldi Syarief,,d3,d3,32,32
-111910960,Prayoga Yudistyo,,d3,d3,33,33
-111911185,Amirul Hakim,,d3,d3,34,34
-111910928,Aufa Fauziyah,,d3,d3,35,35
-111910976,Hafazi Rozi,,d3,d3,36,36
-111911072,Ravinsyah Kesuma,,d3,d3,37,37
-111810135,Albert Siray,,d3,d3,38,38
-111910924,Dina Bijri,,d3,d3,39,39
-111911118,Hery Wahyu,,d3,d3,40,40
-111910952,Iqbal Maulana,,d3,d3,41,41
-111910991,Misbahul Khaira,,d3,d3,42,42
-111911165,Qonita Nabilah,,d3,d3,43,43
-111911097,Rafy Dwi Pareza,,d3,d3,44,44
-111911137,Samuelin Caroles Pandelaki,,d3,d3,45,45
-111911204,Siti Alfiah Qarimah,,d3,d3,46,46
-111911086,Wenny Sukma Nababan,,d3,d3,47,47
-111910933,Zulfikri,,d3,d3,48,48
-111911008,Aqilla Haya,,d3,d3,49,49
-111911233,Alfrid C. S. Luan,,d3,d3,50,50
-111911201,Nurul Izzah Abdullah,,d3,d3,51,51
-111911178,Reskika Rahmadani,,d3,d3,52,52
-111910932,Fadhila Dwiza Putri,,d3,d3,53,53
-111911228,Izza Annisa Ramadhani,,d3,d3,54,54
-111911236,Mefi Atalya Selan,,d3,d3,55,55
-111911182,Nadiesa Syahla Ramadhani,,d3,d3,56,56
-111910901,Novicha Haris,,d3,d3,57,57
-111911216,Rifky Mullah Syadriawan,,d3,d3,58,58
-111911230,Ririn Riana Hm,,d3,d3,59,59
-111911213,Ahmad Fauzi,,d3,d3,60,60
-111910890,M Azizul Hakim,,d3,d3,61,61
-111911152,Khaeriani Kurnia Arda,,d3,d3,62,62
-111910886,Ayu Setianingsih,,d3,d3,63,63
-111911051,Fajar Rizky Alamsyah,,d3,d3,64,64
-111910909,Irma Putri Melani,,d3,d3,65,65
-111911019,Mike Ervans Purba,,d3,d3,66,66
-111910945,Sylvia Agatha Gultom,,d3,d3,67,67
-111911162,Indawati Amiruddin,,d3,d3,68,68
-111911151,Sa'adah,,d3,d3,69,69
-111911125,Wahdania Kainta,,d3,d3,70,70
-111911044,Aprianto Manurung,,d3,d3,71,71
-111911096,Muhammad Arief Al Ghazale,,d3,d3,72,72
-111911067,Muhammad Rhevanza Kusnadi,,d3,d3,73,73
-111911155,Alvy Azhilla Azry,,d3,d3,74,74
-111911167,Risma Dwi Lestari,,d3,d3,75,75
-111910926,Dessy Kurniati,,d3,d3,76,76
-111911175,Siti Syukrika Izzatillah,,d3,d3,77,77
-111810164,Ananda Ayu Pratiwi Mahu,,d3,d3,78,78
-111910887,Dini Alfitri Zahra,,d3,d3,79,79
-111911070,Ilham Nasrullah,,d3,d3,80,80
-111911202,Khafifah,,d3,d3,81,81
-111911130,Muh. Rifki Wahyudi,,d3,d3,82,82
-111910955,Ragil Chelvin Pratama,,d3,d3,83,83
-111911133,Nurul Adhilah Busmah,,d3,d3,84,84
-111911149,Salsabila Puspita Wahyuni,,d3,d3,85,85
-111911235,Yosefina Yohana Nau Dewa,,d3,d3,86,86
-111911147,Aghnia Ussyarovi,,d3,d3,87,87
-111911215,Falentina Ifoni Seran,,d3,d3,88,88
-111911222,Gilberth Rulan David Willa,,d3,d3,89,89
-111911221,Maria Regelinda Fallo,,d3,d3,90,90
-111911144,Muhammad Rianbarenito Gunawan,,d3,d3,91,91
-111911145,Rabi'unnisa Dwi Nurdila,,d3,d3,92,92
-111911121,Tantri Retno Anasthasia,,d3,d3,93,93
-111911029,Akhyarul Kamal,,d3,d3,94,94
-111911056,Mandova Eravanza,,d3,d3,95,95
-111910959,Permata Ayunda,,d3,d3,96,96
-111910904,Nadita Riski Aulia,,d3,d3,97,97
-111911195,Anjar Dwi Prasetyo,,d3,d3,98,98
-111910961,Aulia Salsyafina,,d3,d3,99,99
-111911083,Faldo Jan Paulus Siringoringo,,d3,d3,100,100
-111910978,Jaihot Gultom,,d3,d3,101,101
-111910984,Ardini,,d3,d3,102,102
-111911126,Muhammad Asy'ari Sirat,,d3,d3,103,103
-111911176,Rindiani Rossalinda,,d3,d3,104,104
-111910884,Ira Helsa Triana,,d3,d3,105,105
-111910971,Melly Novelia Simatupang,,d3,d3,106,106
-111910897,Monica Putri,,d3,d3,107,107
-111911093,Resi Oktriza Putri,,d3,d3,108,108
-111910969,Austin Abdul Aziz Riano Junior,,d3,d3,109,109
-111911208,Rizky Kurniawan Tahir,,d3,d3,110,110
-111911102,Sarlina M Rani,,d3,d3,111,111
-111911033,Tengku Mashitah Crisanty,,d3,d3,112,112
-111910965,Aida Devanty Putri,,d3,d3,113,113
-111911142,Faslul Rahman Syahrir,,d3,d3,114,114
-111910921,Fitra Saputra,,d3,d3,115,115
-111911120,Muhammad Zainal Ilmi,,d3,d3,116,116
-111911055,Samuel Hasiholan Sihotang,,d3,d3,117,117
-111911107,Alwi Hasitah,,d3,d3,118,118
-111911092,Christ Egy Natama Pardede,,d3,d3,119,119
-111911190,La Ade,,d3,d3,120,120
-111911159,Mutia Fitri Octaviani,,d3,d3,121,121
-111911132,Nur Azizah Tadjuddin,,d3,d3,122,122
-111910993,Riska Dian Agustina,,d3,d3,123,123
-111911247,Arsita Indah Wahyuni,,d3,d3,124,124
-111911089,Elza Robasa,,d3,d3,125,125
-111911104,Firda Damayanti,,d3,d3,126,126
-111911140,Maudy Sazty Nataya,,d3,d3,127,127
-111911234,Risnawati Azali,,d3,d3,128,128
-111911001,Roby Nasution,,d3,d3,129,129
-111911173,Bertha Sani Lake,,d3,d3,130,130
-111911186,M. Aliuddin. Ap,,d3,d3,131,131
-111911106,Muhammad Hafid Septianto,,d3,d3,132,132
-111910927,Sopa Maulidia,,d3,d3,133,133
-111911028,Dini Putriani,,d3,d3,134,134
-111911136,Nurul Astuti Rahmadani,,d3,d3,135,135
-111911211,Zahra Khairunnisa,,d3,d3,136,136
-111910922,Marissa Widya Ulfa,,d3,d3,137,137
-111911237,Rahma Fitriani Ibrahim,,d3,d3,138,138
-111910915,Rahul Adha,,d3,d3,139,139
-111911239,Mario Fatma Jeronimo,,d3,d3,140,140
-111911226,Yohana Mariana Meo,,d3,d3,141,141
-111910905,Neisya Aulia Fijri,,d3,d3,142,142
-111911143,Raudhatul Jannah,,d3,d3,143,143
-111910934,Selvira Kurni Anty,,d3,d3,144,144
-111911148,Siti Kurniapati,,d3,d3,145,145
-111911242,Aulia Nurhidayah,,d3,d3,146,146
-111911040,Josse Ovelia Br Purba,,d3,d3,147,147
-111911250,Markus Yoseph Leonardo Butar Butar,,d3,d3,148,148
+211810211,BAGASKORO CAHYO LAKSONO,,st,se,1,1
+211810508,NUGRAHENI PUTRI ISTIQOMAH,,st,se,2,2
+211810379,KURNIAWAN TRI YULIANTO,,st,sk,3,1
+211810281,FAHRIZA RIANDA,,st,se,4,3
+211810096,ADELLA SITI NURSALIYAWATI,,st,se,5,4
+211810295,FARICHA ZAHARA ALCHASANAH,,st,sk,6,2
+211810399,MUHAMMAD RIFKY ARIYADI,,st,sk,7,3
+211810500,NI MADE SINDU PADMAYONI,,st,se,8,5
+211810550,RANGGA AJI WIJAKSONO,,st,se,9,6
+211810236,DENITA DWI ANDIANY,,st,sk,10,4
+211810184,ANNISA SALSABILA AULIA,,st,sk,11,5
+211810321,HABNI HAMARA AZMATIY,,st,sk,12,6
+211810677,ZAHRA FATIN TANALA,,st,sk,13,7
+211810282,FAHRUNNISA MAHARANI,,st,sk,14,8
+211810102,ADITYA MAULANA IBRAHIM,,st,se,15,7
+211810150,ALIFAH MUWAFIQOH,,st,se,16,8
+211810382,LAILY NUR INDAH SARI,,st,se,17,9
+211810279,FADHLULLAH,,st,sk,18,9
+211810498,NAUFAL ABDUL RAFI ZAQI,,st,sk,19,10
+211810667,YUANA RISA PRASTIKA,,st,sk,20,11
+211810242,DIAN ANGGRAINI JULITA,,st,se,21,10
+211810311,FIVA RENAS OKTI DEWANTI,,st,se,22,11
+211810648,VIONA RAHMA AGUSTIN,,st,sk,23,12
+211810455,MUHAMMAD GHOFUR,,st,se,24,12
+211810489,NADIDAH PANGESTIKA,,st,sk,25,13
+211810273,ERLYN NURHALIZA PRAMESTI,,st,sk,26,14
+211810559,REZKY YAYANG YAKHAMID,,st,sk,27,15
+211810121,AHMAD RIFJAYANSYAH,,st,se,28,13
+211810405,MUHAMMAD ALFARIS KURNIAWAN,,st,se,29,14
+211810501,NI NYOMAN RIA SUGIANDEWI,,st,sk,30,16
+211810249,DINA ANGGRAENA,,st,sk,31,17
+211810219,CESARIO HANIF NAUFAL,,st,se,32,15
+211810580,RIZQ TAUFIQ BAHTIAR RAZENDRYA,,st,sk,33,18
+211810255,EDMUNDUS ALEXANDRO,,st,se,34,16
+211810427,MONICA NADIA RATRI,,st,se,35,17
+211810653,WIDIA SARI,,st,se,36,18
+211810551,RANI APRILIA PUTRI,,st,sk,37,19
+211810276,ETSA PRIMANDA,,st,sk,38,20
+211810482,NABILA ANINDITA,,st,sk,39,21
+211810109,AFIFAH RAHMAH CHANIA,,st,se,40,19
+211810217,CANDRA KURNIAWAN,,st,se,41,20
+211810142,ALFINA NURPIANA,,st,sk,42,22
+211810582,RIZQI MUZAKKI,,st,se,43,21
+211810367,KADEK DWI ADITYA PUTRI,,st,sk,44,23
+211810590,RUTI TRYANA TELAUMBANUA,,st,sk,45,24
+211810099,ADIMA LU'LU'ATUN NABILA MUNAWARDANI,,st,sk,46,25
+211810119,AHMAD KAMAL,,st,sk,47,26
+211810209,AZZAHRA ZAUZA INNISWA RAHMADHANA,,st,se,48,22
+211810334,I WAYAN GEDE ANGGA KRISMAWAN,,st,se,49,23
+211810351,ISTU INDAH SETYANINGSIH,,st,se,50,24
+211810380,L.M. RIZAL,,st,se,51,25
+211810520,NURUL DWI AFIFAH,,st,se,52,26
+211810492,NADYA NAMIRASEPTI EFENDI,,st,sk,53,27
+211810490,NADIYAH HANIFAH,,st,sk,54,28
+211810248,DIMAS RIZQI SUGENG HUSADA,,st,se,55,27
+211810172,ANINDYA PUTRI,,st,sk,56,29
+211810480,MURSIDAH ROSMALASARI,,st,sk,57,30
+211810512,NUR MAHARANI PUTRI UNISI,,st,sk,58,31
+211810545,RAHMAT AGUNG PASARIBU,,st,sk,59,32
+211709565,ANNISA PUTRI RAMADHANTY,,st,sk,60,33
+211810470,MUHAMMAD NUR MEGANTORO,,st,sk,61,34
+211810462,MUHAMMAD IQBAL,,st,se,62,28
+211810416,MAYMANATUL MUFARROHAH,,st,sk,63,35
+211810191,ARDHAN SETYO NUGROHO,,st,se,64,29
+211810680,ZAKY IMADUDIN SALAM,,st,se,65,30
+211810152,ALIFKA PUTRI ASHADI,,st,sk,66,36
+211810539,RADHIKA ARHANI SIREGAR,,st,sk,67,37
+211810330,HIJRIAH NUR ISTIFANI,,st,sk,68,38
+211810410,MANCA SATRIA,,st,sk,69,39
+211810190,ARDELIA RARAS NISREYASA,,st,sk,70,40
+211810420,MILLENIA SUKMA JUNIVA PUTRI,,st,sk,71,41
+211810465,MUHAMMAD LATIF AL BANNA,,st,sk,72,42
+211810564,RIF'ATUL MINA,,st,sk,73,43
+211810161,AMELIA TRI WAHYUNI,,st,sk,74,44
+211810271,ERISA,,st,sk,75,45
+211810513,NUR MEILIZA,,st,sk,76,46
+211810435,MUH. RIFKY FAJRIN HASRIN,,st,sk,77,47
+211810664,YOHANA MADAME HUTAHAEAN,,st,sk,78,48
+211810118,AHMAD BINTANG FA'IS ADHIBI,,st,sk,79,49
+211810133,AKWILLA BAHKTI SITINDAON,,st,se,80,31
+211810171,ANGGI VIOLITA ILHAM HASIBUAN,,st,se,81,32
+211810216,BUDIMAN ALLER SILABAN,,st,se,82,33
+211810323,HANIFA CHOIRUNNISA,,st,se,83,34
+211810599,SAYYIDAH FADHILA LATORUMO,,st,se,84,35
+211810226,CLARESA AYU DYA,,st,sk,85,50
+211810108,AFIFAH DHEANY PUTRI,,st,sk,86,51
+211810298,FATHANYA PUJA ANGGARESA,,st,sk,87,52
+211810451,MUHAMMAD DAFFA RASDITYA,,st,sk,88,53
+211810091,ABDURRAHMAN,,st,se,89,36
+211810238,DEVANI AYUNA NINGSIH,,st,se,90,37
+211810287,FAJAR BERLIAN,,st,se,91,38
+211810438,MUH. YUDI PRATAMA,,st,se,92,39
+211810493,NAFISA QURROTUL A'YUNI,,st,se,93,40
+211810594,SALSABILA LATIFAH PUTRI,,st,se,94,41
+211810147,ALICIA STEFFANNI NADEAK,,st,sk,95,54
+211810149,ALIF RIZKY RAHMAWAN,,st,sk,96,55
+211810179,ANNISA DEA FITRI,,st,sk,97,56
+211810185,ANNISA WASISTIANA,,st,sk,98,57
+211810285,FAISAL SIDDIQ,,st,sk,99,58
+211810610,SITI SABRINA YUNIARTI,,st,sk,100,59
+211810385,LARA ALEVA VABIAN,,st,sk,101,60
+211810239,DEVIANA SAFITRI HERLIANTI,,st,se,102,42
+211810658,WITRIA DASNI,,st,se,103,43
+211810100,ADINDA IZZATA FIKRAT,,st,sk,104,61
+211810372,KATRIN EDVIRGIS BERIBE,,st,sk,105,62
+211810169,ANGEL MARIANA SAGALA,,st,sk,106,63
+211810182,ANNISA NUR AZIZAH AHMAD,,st,sk,107,64
+211810621,TASYA AGUILERA PRASETIA MULYANA,,st,sk,108,65
+211810192,ARI MAHENDRA,,st,sk,109,66
+211810212,BARI RIZKI PRATAMA,,st,se,110,44
+211810290,FANI FAJRIANI,,st,sk,111,67
+211810423,MOCHAMMAD NAFI' DZAKWAN,,st,se,112,45
+211810447,MUHAMMAD ALIYASQI AKBAR,,st,se,113,46
+211810600,SELVI AGUSTINA,,st,se,114,47
+211810609,SITI AINIA HIDAYATI,,st,se,115,48
+211810507,NOVITRA SAPUTRA,,st,sk,116,68
+211810269,ENGGAR RATNA SAPUTRA,,st,sk,117,69
+211810272,ERLIANA NURUL FATIHAH,,st,sk,118,70
+211810329,HERIKA SOFITA PUTRI,,st,se,119,49
+211810355,JASIKA LISAYOANA,,st,se,120,50
+211810544,RAHMAH ZAHIDAH,,st,se,121,51
+211810555,RESTIJATI SUSANTRI,,st,sk,122,71
+211810317,GHINA ROFIFA SURAYA,,st,sk,123,72
+211810538,PUTU ADI MYARSITHAWAN,,st,sk,124,73
+211810485,NABILA ISNANI FARRA,,st,sk,125,74
+211810208,AZZAHRA SHYFA DIENI ISLAM,,st,se,126,52
+211810246,DIMAS ARIO YUDANKO,,st,se,127,53
+211810277,FADHEL IMAM HAICHAL TANJUNG,,st,se,128,54
+211810363,JUANDO SIALLAGAN,,st,se,129,55
+211810506,NOVIA AKHLAQUL KARIMAH,,st,se,130,56
+211810469,MUHAMMAD NOR AHYANDI,,st,sk,131,75
+211810678,ZAHRA RAHMATIKA FADILLA,,st,sk,132,76
+211810210,AZZAM MAJDI ASYSYAHIDA,,st,sk,133,77
+211810322,HAFIZUR RAHMAN,,st,sk,134,78
+211810331,HUSSEIN ADI PERMANA,,st,sk,135,79
+211810566,RIFKA FAKHIRAH DARMAWAN,,st,se,136,57
+211810206,AYU AINA NURKHALIZA,,st,sk,137,80
+211810411,MARDHATILLA,,st,sk,138,81
+211810450,MUHAMMAD BILAL DWI APRIYOGA,,st,sk,139,82
+211810486,NABILA KHARISMA RAMADHANI,,st,sk,140,83
+211810531,PRATITIS NANDIASOKA ANNISAWATI,,st,sk,141,84
+211810324,HANIFAH,,st,sk,142,85
+211810365,JULIA IFFAH SAIFULLAH,,st,sk,143,86
+211810495,NARWASTU NINGTHIAS,,st,sk,144,87
+211810094,ADAM NUR WAHYU WIBOWO,,st,se,145,58
+211810215,BINTANG IZZATUL FATAH,,st,se,146,59
+211810332,I KADEK WIJAYANTARA,,st,se,147,60
+211810491,NADIYAH RIZQI JIHAN NABILAH,,st,se,148,61
+211810503,NOCA RAHMATULLAH,,st,se,149,62
+211810681,ZIDAN FAKHRI ZHAFIRI,,st,se,150,63
+211810683,ZULKIFLI,,st,sk,151,88
+211810180,ANNISA FITRIYANI,,st,sk,152,89
+211810570,RIMA MAYYADAH,,st,sk,153,90
+211810201,ASSYIFA MARETTA ILMARAHMA,,st,se,154,64
+211810235,DENA APRILIANA,,st,sk,155,91
+211810519,NURUL AULIA RAHMI,,st,sk,156,92
+211810679,ZAKIAH RAHMAH,,st,sk,157,93
+211810294,FARHAN REZA KUSUMA,,st,sk,158,94
+211810460,MUHAMMAD IKHWAN AGUNG PAMUJI,,st,se,159,65
+211810554,RENISA MAULINDA AYUDIAH,,st,se,160,66
+211810556,REYHAN GESANG ALMUAZAM,,st,se,161,67
+211810586,ROHMAH DINI AYUNDA MUSTOFA,,st,se,162,68
+211810225,CHRISTANTY JOSEPHINE,,st,sk,163,95
+211810243,DICKI ABDUROHMAN,,st,sk,164,96
+211810274,ERSA AMOZA SITA,,st,sk,165,97
+211810585,ROFIN SUMARANI BOMBANG,,st,sk,166,98
+211810537,PRISKA CLAUDIA WREDANI,,st,sk,167,99
+211810302,FAYADH ABIYYI,,st,sk,168,100
+211810319,GRESTI JELITA SARI,,st,se,169,69
+211810326,HASYIMUR RUSDI,,st,se,170,70
+211810623,TAUPIQ HIDAYA TULLAH NASUTION,,st,se,171,71
+211810666,YOSUA WIRADIPUTRA PANGARIBUAN,,st,se,172,72
+211810151,ALIFAH ZALFA AZIZAH,,st,sk,173,101
+211810158,ALYA AZZAHRA,,st,sk,174,102
+211810633,TRINANDA YULIA PUTRI,,st,sk,175,103
+211810115,AHDIYATY RAHMI A. SUAIB,,st,se,176,73
+211810218,CAROLINE UE HUMBLE BANUREA,,st,se,177,74
+211810368,KADEK DWI MAHARDIKA,,st,se,178,75
+211810629,TIFFANI AYUNDITA AULIANNISA,,st,se,179,76
+211810328,HERBIAN DWI CAHYO,,st,sk,180,104
+211810655,WILLY PRADANA PUTRA,,st,sk,181,105
+211810374,KEZIA SIBUEA,,st,sk,182,106
+211810371,KESZYA GRACIELLA,,st,sk,183,107
+211810120,AHMAD RAMADHAN. S,,st,se,184,77
+211810143,ALFIRA MEILAWIJAYA,,st,se,185,78
+211810511,NUR AFNI EKA SAPITRI,,st,se,186,79
+211810542,RAFQI ARDIANSYAH SURYA,,st,se,187,80
+211810657,WIRASETYA PUTRA HUTAMA,,st,se,188,81
+211810675,YUSUF RIPANI SIREGAR,,st,se,189,82
+211810536,PRISILYA WULANDARI,,st,sk,190,108
+211810240,DEVO RAMA,,st,sk,191,109
+211810357,JOFRI ARDO TIGANNA SEMBIRING,,st,se,192,83
+211810606,SINTYA DWI LESTARI,,st,se,193,84
+211810615,SUCI HUSNAWATI AMALIA,,st,sk,194,110
+211810424,MOCHAMMAD YUSUF MAULANA,,st,sk,195,111
+211810253,DYAH AYU NURHAYATI,,st,sk,196,112
+211810320,HABEL NITALESSY,,st,sk,197,113
+211810441,MUHAMAD FIKRI RAMDHANI,,st,sk,198,114
+211810369,KANDITA ABDINA,,st,se,199,85
+211810530,POPY CHAFIFAH,,st,se,200,86
+211810222,CHINDI PRASTIWI,,st,sk,201,115
+211810200,ASKAR SUBRIANDI,,st,se,202,87
+211810257,EDO KURNIAWAN,,st,se,203,88
+211810607,SISHILIA MARESTHA,,st,se,204,89
+211810136,ALDI ATMALQI,,st,sk,205,116
+211810505,NOVALIANISA PERMATA SARI,,st,sk,206,117
+211810413,MARINA TIKA SARI,,st,sk,207,118
+211810464,MUHAMMAD KHAIRI ALBANNA S.,,st,sk,208,119
+211810170,ANGEL RIZKY SHEREN MANURUNG,,st,se,209,90
+211810388,LELY INDAH GURITNO,,st,se,210,91
+211810614,STEPHANIE VIRGINIA ISKANDAR,,st,se,211,92
+211810307,FINA FAUZIYAH,,st,sk,212,120
+211810315,GABRIELA NATALIE AMELIA MAHARANIE,,st,sk,213,121
+211810475,MUHAMMAD RIZKY ZIDANE,,st,se,214,93
+211810247,DIMAS HUTOMO PUTRO,,st,sk,215,122
+211810263,ELSA NUR ISMADITA,,st,sk,216,123
+211810124,AININDA RAHMA MAS,,st,sk,217,124
+211810393,M CHAIRUL MUGTI,,st,se,218,94
+211810646,VINCENTIUS AGRA ANANTA GUNITO,,st,se,219,95
+211810562,RIDHA HANINDYA W,,st,sk,220,125
+211810632,TOGAR HASBALAH,,st,sk,221,126
+211810111,AGMI PURNAMA,,st,sk,222,127
+211810284,FAIRUZ AFIFAH REEFANA POERI,,st,sk,223,128
+211810122,AHMAD SATRIA IRMANTO,,st,se,224,96
+211810308,FIRDAYANTI AMIR,,st,se,225,97
+211810384,LANA EKA WIBAWA,,st,se,226,98
+211810617,SUKMA MAULANA,,st,se,227,99
+211810517,NURICHA INDAR DAMAYANTI,,st,sk,228,129
+211810221,CHAULA RAMADHANI PUTRI,,st,sk,229,130
+211810181,ANNISA KAHMILIANI,,st,sk,230,131
+211810442,MUHAMAD RIZKIANSYAH,,st,sk,231,132
+211810154,ALIYYA SALSABILA,,st,sk,232,133
+211810204,AULIA BRILLIANY WIBOWO,,st,sk,233,134
+211810535,PRISCILIA ERVINA SIHOMBING,,st,sk,234,135
+211810356,JODY,,st,se,235,100
+211810361,JONATHAN SITANGGANG,,st,se,236,101
+211810366,KADEK ANGGA WICAKSANA,,st,se,237,102
+211810375,KHOIRON FILSAFAT,,st,se,238,103
+211810553,REKAYATI CAHYA ADI,,st,sk,239,136
+211810338,ILHAM AMINU ROSYID,,st,sk,240,137
+211810605,SILVIRA BERLIANA,,st,sk,241,138
+211810252,DWI KARTIKA SARI,,st,se,242,104
+211810483,NABILA ARDYANA,,st,sk,243,139
+211810297,FARIZ APRILIANZAH,,st,se,244,105
+211810230,DANIEL DIAN PRATAMA SIBURIAN,,st,se,245,106
+211810346,IRENE SAVIRA GABRIELLA SITANGGANG,,st,se,246,107
+211810602,SEVY DYAHARTANTI,,st,sk,247,140
+211810628,TIARA REZA SUKMANA,,st,sk,248,141
+211810524,OLVIEA RAHMAYANTI,,st,sk,249,142
+211810461,MUHAMMAD IMAM AL MATIN,,st,sk,250,143
+211810529,PINKY AULIA VIRADINA,,st,sk,251,144
+211810244,DIKI NURFAIZ,,st,se,252,108
+211810387,LASRO MANGIRING TUA MARBUN,,st,se,253,109
+211810668,YUDA FIRMANSYAH,,st,se,254,110
+211810103,ADRYAN SAPTA SETYADINATA,,st,sk,255,145
+211810651,WAHYU KARTIKA,,st,sk,256,146
+211810156,ALRIZKI PRASTAMA PUTRA,,st,sk,257,147
+211810467,MUHAMMAD MUSLIM SHODIQI,,st,sk,258,148
+211810148,ALIF MUHAMMAD ARRASYID,,st,sk,259,149
+211810131,AKHMAD IBNU KATSIR,,st,sk,260,150
+211810310,FITRI NOOR HIKMAH,,st,sk,261,151
+211810347,IRFAN NURHADY,,st,sk,262,152
+211810358,JOHANSEN RENALDI HUTAGALUNG,,st,sk,263,153
+211810362,JOSUA REGINAL NAPITUPULU,,st,sk,264,154
+211810409,MAHARANI IZZATURRAHMA,,st,se,265,111
+211810567,RIFKI GUSTIAWAN,,st,se,266,112
+211810588,RUSMAN FAHRI,,st,sk,267,155
+211810188,ANWAR IBRAHIM,,st,sk,268,156
+211810364,JUDITH RIO OLOAN,,st,sk,269,157
+211810443,MUHAMAD TAUFIK HIDAYAT,,st,se,270,113
+211810453,MUHAMMAD FADHILAH AKBAR,,st,se,271,114
+211709953,RAFLI ANDERSON LAPEBESI,,st,sk,272,158
+211810504,NOLA RAMASENTIA,,st,sk,273,159
+211810163,AN NIDA FITRI AL FAUZIAH,,st,sk,274,160
+211810572,RINDU TRIMARTA NAFRI,,st,sk,275,161
+211810134,ALBERT JUNIOR CHEN,,st,se,276,115
+211810187,ANUGRAH. R.H. MARBUN,,st,se,277,116
+211810624,THALITA SILMI AZRANI,,st,se,278,117
+211710032,TIAS ARTA PUTRA,,st,se,279,118
+211810391,LISA AGUSTINA,,st,sk,280,162
+211810110,AFIFATU ZULFA,,st,sk,281,163
+211810342,INDRI PUSPITA DEVI,,st,sk,282,164
+211810296,FARID HARNANTO,,st,sk,283,165
+211810337,IKA REHULINA OKTARI MONITA SURBAKTI,,st,sk,284,166
+211810167,ANDI RAFLI RADJASA,,st,se,285,119
+211810344,INTAN KHARISMAYANTI,,st,se,286,120
+211810127,AJENG NURUL KOMARIAH,,st,sk,287,167
+211810534,PRIDO PUTRA SINAGA,,st,sk,288,168
+211810635,TULUS FRENGKY MANULLANG,,st,sk,289,169
+211810373,KEYAT AJRIYANTO,,st,se,290,121
+211810533,PRETTY ANGELICA LEWAHERILLA,,st,se,291,122
+211810228,DAFFA HENDRAWAN,,st,se,292,123
+211810283,FAIQ NUR HUDA,,st,se,293,124
+211810591,RYAN ZULYENDRI,,st,se,294,125
+211810251,DONI SETIAWAN,,st,sk,295,170
+211810144,ALFREDO ABDUL AZIZ,,st,se,296,126
+211810401,MUHAMMAD SHOLAHUDDIN AL’ISLAMI,,st,se,297,127
+211810478,MUHAMMAD ZIYAD AHMAD,,st,se,298,128
+211810439,MUH.ROBBITH DINAK,,st,sk,299,171
+211810303,FEBRIYENI SUSI,,st,se,300,129
+211810348,IRFAN PRASETYA KAMAJAYA,,st,se,301,130
+211810579,RIZLAN AHMAD FAUZAN,,st,se,302,131
+211810598,SANTI MAUDILA PUTRI,,st,se,303,132
+211710057,WINONA BELLA VANNIA,,st,sk,304,172
+211810098,ADI SAPUTRA MARBUN,,st,se,305,133
+211810123,AHSAN ANWAR BASARI,,st,se,306,134
+211810426,MOHAMAD NUR ARIFIN,,st,se,307,135
+211810488,NADIA ARISKA,,st,se,308,136
+211810101,ADINDA PUTRI,,st,sk,309,173
+211810153,ALIVYA SEPTIRIANA PUTRI. S,,st,se,310,137
+211810286,FAJAR AKHMAD ANSHORI,,st,se,311,138
+211810353,IVAN MASDUQI MAHFUDS,,st,se,312,139
+211810587,ROULI SHAN IREN NAPITUPULU,,st,se,313,140
+211810612,SOPO SIAHAAN,,st,se,314,141
+211810313,FRANSHOLY ADE RISKI,,st,sk,315,174
+211810381,LAILA CHOIRUN NI'MAH,,st,sk,316,175
+211810552,RD. DAFFA IVAN FEBRIO,,st,sk,317,176
+211810189,ANZILNA LUTHFA ASYFIYA',,st,se,318,142
+211810523,NURYANTI NURDIN ABDULLAH,,st,se,319,143
+211810643,VICTOR ROBERT GUSTA,,st,se,320,144
+211810456,MUHAMMAD HABIB RABBANI,,st,sk,321,177
+211810463,MUHAMMAD IQBAL MUHARRAM,,st,sk,322,178
+211810292,FARADILA AGUSTINA THALIA,,st,se,323,145
+211810532,PRAWIRA YUDA HUSADA,,st,sk,324,179
+211810601,SETIAWAN OSI RUBIANTO,,st,se,325,146
+211810613,SITI HAJAR,,st,se,326,147
+211810165,ANDI ALFITRA PUTRA FADILA,,st,se,327,148
+211810663,YOGI RESMANA BARUS,,st,se,328,149
+211810665,YOLANDA ALMA FITROTUNNISA,,st,se,329,150
+211810186,ANSKARIUS CHANDRA GOA,,st,se,330,151
+211810471,MUHAMMAD NURUL MAULID,,st,se,331,152
+211810093,ACH MUKHLIS SOLLAHUDDIN,,st,se,332,153
+211810113,AGUS HARDIYANTO,,st,se,333,154
+211810207,AZMI FAISAL,,st,se,334,155
+211810571,RINA DWI OCTAVIANTI,,st,se,335,156
+211810289,FAKHRURRAZI HAMDANI,,st,sk,336,180
+211810444,MUHAMMAD AFIYF BESARI,,st,sk,337,181
+211810425,MOH FAHRURROSI,,st,sk,338,182
+211810428,MONITA,,st,se,339,157
+211810466,MUHAMMAD MUHDLOR MUTTAQIN,,st,se,340,158
+211810584,ROFI ADNANDI,,st,sk,341,183
+211810561,RICHARDO VIERY TARIGAN,,st,sk,342,184
+211810419,MIFTAHUL HUDA ARIFANDI,,st,se,343,159
+211810268,ENDAH CAHYA RIZKI SUHANDA,,st,se,344,160
+211810458,MUHAMMAD IBNU HAIDAR B,,st,se,345,161
+211810176,ANISATULLAILA,,st,sk,346,185
+211810114,AGUSTIEN WAHYUNINGSIH,,st,se,347,162
+211810159,ALYA NUR AMALIA,,st,se,348,163
+211810573,RIRIS JUITA SILALAHI,,st,se,349,164
+211810345,IRAMA SUKMA FUTRIANI SIMBOLON,,st,se,350,165
+211810168,ANDIKA ROY KHIAN MARSELINO,,st,se,351,166
+211810341,INDAH FATIMAH AZZAHRA,,st,se,352,167
+211810390,LING LYNG FITROTUN NASIHA,,st,se,353,168
+211810487,NABILA WARDASAKINA,,st,se,354,169
+211810130,AKHMAD FARKHAN HAZIM,,st,se,355,170
+211810305,FERRY MARGANDA SIREGAR,,st,se,356,171
+211810674,YUNELA TANIA SARI,,st,se,357,172
+211810175,ANIS RAHMAWATI,,st,se,358,173
+211810395,M RIFQI JUNDULLAH,,st,se,359,174
+211810415,MAULIA SAVANA PUTRI,,st,se,360,175
+211810264,ELFIRA NUR ISLAMIYAH,,st,se,361,176
+211810593,SALMA,,st,se,362,177
+211709988,ROSITA PUJASARI,,st,se,363,178
+211810214,BINTANG ISMIARIZQI,,st,se,364,179
+211810349,IRHAMNI MAULIDAH,,st,se,365,180
+211810316,GEDE NANDA WARTAYANA,,st,se,366,181
+211709938,PISCHAL JUANDRA,,st,sk,367,186
+211810563,RIDHO ILLAHI,,st,sk,368,187
+221810259,EKO PUTRA WAHYUDDIN,,ks,sd,1,1
+221810195,ARINA MANA SIKANA,,ks,sd,2,2
+221810630,TIMOTIUS VINCENT GUNAWAN,,ks,sd,3,3
+221810496,NASIYA ALIFAH UTAMI,,ks,sd,4,4
+221810452,MUHAMMAD FACHRY NAZULI,,ks,sd,5,5
+221810596,SALWA RIZQINA PUTRI,,ks,sd,6,6
+221810354,JAFAR HUSAINI AZIZ,,ks,si,7,1
+221810137,ALDI HAMIDI LUBIS,,ks,si,8,2
+221810403,MUHAMMAD YASQI IMANDA,,ks,sd,9,7
+221810514,NUR ULUM RAHMANULLOH,,ks,sd,10,8
+221810640,VANIA RIZKI OKTAVIASARI,,ks,si,11,3
+221810126,AISYAH NUR FAHIRA,,ks,sd,12,9
+221810497,NATASYA AFIRA,,ks,sd,13,10
+221810414,MAUDY INSAN TANIA,,ks,si,14,4
+221810459,MUHAMMAD IBRAH REYNALDI TANJUNG,,ks,sd,15,11
+221810359,JOICE EVANGELISTA LASE,,ks,sd,16,12
+221810557,REYHAN SAADI,,ks,sd,17,13
+221810608,SITA DIAN MARETNA,,ks,sd,18,14
+221810327,HAYUN,,ks,sd,19,15
+221810350,IRVAN PERMANA BUSTAMI,,ks,sd,20,16
+221810270,ERIK RIHENDRI CANDRA ADIFA,,ks,si,21,5
+221810392,LUKMAN DARY ILYASA,,ks,sd,22,17
+221810479,MUHAMMAD ZULKARNAIN,,ks,sd,23,18
+221810129,AKHMAD FADIL MUBAROK,,ks,si,24,6
+221810300,FATURROKHMAN,,ks,si,25,7
+221810261,ELISA IMANIA,,ks,si,26,8
+221810140,ALFI NURRAHMAH,,ks,sd,27,19
+221810260,ELA NUZUL RAHMAWATI,,ks,si,28,9
+221810407,M. HAFIZ AL IHSAN,,ks,si,29,10
+221810429,MUCHAMMAD GAGAH AGUM FANANI,,ks,sd,30,20
+221810548,RAKA IKMANA,,ks,sd,31,21
+221810314,GABERIEL,,ks,si,32,11
+221810237,DESI KRISTIYANI,,ks,sd,33,22
+221810592,SABRIELLA HAFIFAH,,ks,sd,34,23
+221810278,FADILA AHMAD,,ks,sd,35,24
+221810473,M. RIFKY NARATAMA SUSANTO,,ks,si,36,12
+221810662,YOGA CAHYA PUTRA,,ks,sd,37,25
+221810568,RIHADATULAISY SALSABILA NURUDIN,,ks,si,38,13
+221810233,DARIS AZHAR,,ks,sd,39,26
+221810626,THORIQ IBADURROHMAN,,ks,si,40,14
+221810112,AGNES SEPTI DWICAHAYANIAWAN,,ks,sd,41,27
+221810333,I PUTU JUNI ADI WIDIANATA,,ks,sd,42,28
+221810245,DIMAS AL-KHUSUUFI,,ks,si,43,15
+221810335,IFFATI UZMA,,ks,sd,44,29
+221810178,ANNISA ADYTIA PUTRI,,ks,si,45,16
+221810202,ASTI DESMARIA SAMOSIR,,ks,sd,46,30
+221810224,CHORY AYU ZULFAIDA,,ks,si,47,17
+221810676,ZAHLUL FUADI,,ks,si,48,18
+221810306,FIKRI SEPTRIAN ANGGARA,,ks,si,49,19
+221810647,VIONA FEBRIANA,,ks,si,50,20
+221810659,XAFRILLAH AGNES NALA AYULIA WASA HARDIANA,,ks,sd,51,31
+221810117,AHMAD AZAM IZUDIN,,ks,sd,52,32
+221810336,IHZA FIKRI ZAKI KARUNIA,,ks,sd,53,33
+221810412,MARDININGTYAS BAYU SULTHANI,,ks,si,54,21
+221810445,MUHAMMAD AL FATAH,,ks,sd,55,34
+221810213,BERNALDO NAPITUPULU,,ks,sd,56,35
+221810386,LARA AYU CAHYANINGTYAS,,ks,sd,57,36
+221810502,NISSA SILVIANNA DEVI NUR AFNI,,ks,sd,58,37
+221810318,GHITHA NURFALAH,,ks,sd,59,38
+221810198,ASHABUL KAHFI SIPAHUTAR,,ks,si,60,22
+221810138,ALDIAS IRVAN NUGRAHA,,ks,sd,61,39
+221810343,INTAN KEMALA,,ks,sd,62,40
+221810682,ZUHROTUR ROFIAH,,ks,sd,63,41
+221810262,ELSA KARTIKA VITRIANI MARPAUNG,,ks,sd,64,42
+221810299,FATKHUL MUKHLISH AL-HAQ,,ks,si,65,23
+221810672,YULIA ARYANI,,ks,sd,66,43
+221810597,SANDRO E. IRWANSYAH PASARIBU,,ks,sd,67,44
+221810641,VARADINYA SHOLAITA,,ks,sd,68,45
+221810642,VELIA TRI MARLIANA,,ks,sd,69,46
+221810422,MOCHAMAD IZZA ZULFIKAR SYA'RONI,,ks,si,70,24
+221810660,YENITA AMELIA IKA PUTRI,,ks,si,71,25
+221810400,M. RIJALUS SHOLIHIN,,ks,sd,72,47
+221810397,MUHAMMAD BAITAL SALSABIL,,ks,sd,73,48
+221810430,MUFTI RIZKI ABDILLAH,,ks,sd,74,49
+221810280,FAHMI REZA NUGRAHA,,ks,sd,75,50
+221810652,WASILAH NUR ASTUTI,,ks,sd,76,51
+221810499,NENSI FITRIANI,,ks,sd,77,52
+221810293,FARADILLA ANASTASYA,,ks,sd,78,53
+221810578,RIZKI NAZHIF NUR,,ks,sd,79,54
+221810266,EMIR LUTHFI,,ks,sd,80,55
+221810234,DEDY SAPUTRA SIREGAR,,ks,si,81,26
+221810634,TUBAGUS LANGLANG PURWASASMITA,,ks,sd,82,56
+221810196,ARIQ RIZALDI FADHLURRAHMAN,,ks,si,83,27
+221810291,FANI VISARA,,ks,sd,84,57
+221810155,ALMIRA DIVA SANYA,,ks,sd,85,58
+221810618,SULTAN ACHMAD RIZALDI,,ks,si,86,28
+221810509,NUGROHO ADI SUDANTOKO,,ks,si,87,29
+221810227,CYNTHIA AS BAHRI,,ks,sd,88,59
+221810528,PAULINA SIALLAGAN,,ks,sd,89,60
+221810481,MUTIA SORAYA ADILA,,ks,sd,90,61
+221810619,TALITHA NABILA SAIFANA,,ks,sd,91,62
+221810527,PARAMITHA MADELIN ALBRIGHT,,ks,si,92,30
+221810650,WAHIDYA NURKARIM,,ks,sd,93,63
+221810421,MOCHAMAD DIAZ ILYASA,,ks,si,94,31
+221810670,YUDISTIRA ELTON JHON,,ks,si,95,32
+221810402,M. THARIF ARKANDANA,,ks,sd,96,64
+221810673,YULLY SEPTIA PERTIWI,,ks,si,97,33
+221810097,ADI HABIBI HARAHAP,,ks,sd,98,65
+221810104,ADYASTI NINGRUM,,ks,si,99,34
+221810288,FAKHRI HIDAYAT,,ks,sd,100,66
+221810232,DANIEL NOVENDRI SITUMORANG,,ks,sd,101,67
+221810340,INAS ZAIZAFUN SATIRA,,ks,sd,102,68
+221810583,RIZQINA RAHMATI,,ks,sd,103,69
+221810125,AINUR RAHMA,,ks,si,104,35
+221810560,RIAN ALFA NURFALAH,,ks,si,105,36
+221810576,RIVA ADLI DZIL IKRAM,,ks,si,106,37
+221810418,MIFTAHUDDIN,,ks,si,107,38
+221810377,KOMANG UNING SARI DEVI,,ks,sd,108,70
+221810157,ALWAN HAZIM,,ks,si,109,39
+221810622,TASYA MINA ALIFIA,,ks,si,110,40
+221810398,M. IRSYAD HADI,,ks,si,111,41
+221810577,RIZKA INDAH PRISTANIA,,ks,si,112,42
+221810454,MUHAMMAD FERDI,,ks,si,113,43
+221810177,ANLISA ARMARYAMA R,,ks,si,114,44
+221810510,NUGROHO PURNOMO AJI,,ks,si,115,45
+221810220,CHAIRUNNISA FAUZIA SAMU,,ks,si,116,46
+221810394,M NABIL SYUKRI,,ks,si,117,47
+221810417,MEYTRY PETRONELLA PURBA,,ks,si,118,48
+221810547,RAKA ARTIAN PRAWARDANA,,ks,si,119,49
+221810558,REZKY ANGGA PRADANA,,ks,si,120,50
+221810589,RUTH MADELINE,,ks,si,121,51
+221810484,NABILA BIANCA PUTRI,,ks,sd,122,71
+221810637,ULYA ADIWENA,,ks,si,123,52
+221810404,M. ZIKRI,,ks,si,124,53
+221810145,ALI AKBAR CHAMPIONA,,ks,si,125,54
+221810540,RAFLY AMANATULLA,,ks,si,126,55
+221810256,EDO FINMANSYAH AKBAR,,ks,si,127,56
+221810522,NURUL SYIFA AMALIA,,ks,si,128,57
+221810378,KRISBANA TOGAR SIANTURI,,ks,si,129,58
+221810183,ANNISA PUTRI ANGGRAINI,,ks,si,130,59
+221810376,KIRAN ALDI PANGUMBANAN HASIBUAN,,ks,sd,131,72
+221810128,AJENG WAHYU TRI YULINDA,,ks,si,132,60
+221810396,M. ARIS MUNANDAR,,ks,sd,133,73
+221810468,MUHAMMAD NIRWANSYAH ADI EKA PUTRA,,ks,si,134,61
+221810360,JONA P A SIREGAR,,ks,si,135,62
+221709732,HASRAN NAWIRA,,ks,sd,136,74
+221810431,MUH. ADRIANSYAH,,ks,si,137,63
+221810116,AHMAD ARFAN ARSYAD,,ks,si,138,64
+111910965,AIDA DEVANTY PUTRI,,d3,d3,1,1
+111910945,SYLVIA AGATHA GULTOM,,d3,d3,2,2
+111910933,ZULFIKRI,,d3,d3,3,3
+111910955,RAGIL CHELVIN PRATAMA,,d3,d3,4,4
+111910964,GURUH DEWA PRATABA,,d3,d3,5,5
+111911237,RAHMA FITRIANI IBRAHIM,,d3,d3,6,6
+111911086,WENNY SUKMA NABABAN,,d3,d3,7,7
+111911140,MAUDY SAZTY NATAYA,,d3,d3,8,8
+111911033,TENGKU MASHITAH CRISANTY,,d3,d3,9,9
+111911019,MIKE ERVANS PURBA,,d3,d3,10,10
+111911072,RAVINSYAH KESUMA,,d3,d3,11,11
+111910926,DESSY KURNIATI,,d3,d3,12,12
+111911211,ZAHRA KHAIRUNNISA,,d3,d3,13,13
+111911235,YOSEFINA YOHANA NAU DEWA,,d3,d3,14,14
+111911122,ISTIRA NOVA TRIANA,,d3,d3,15,15
+111911159,MUTIA FITRI OCTAVIANI,,d3,d3,16,16
+111911175,SITI SYUKRIKA IZZATILLAH,,d3,d3,17,17
+111911145,RABI'UNNISA DWI NURDILA,,d3,d3,18,18
+111911001,ROBY NASUTION,,d3,d3,19,19
+111911089,ELZA ROBASA,,d3,d3,20,20
+111911156,RESKY AMELIA,,d3,d3,21,21
+111911119,LALU MOH. ARSAL FADILA,,d3,d3,22,22
+111910991,MISBAHUL KHAIRA,,d3,d3,23,23
+111911150,WAHYUNI,,d3,d3,24,24
+111911147,AGHNIA USSYAROVI,,d3,d3,25,25
+111911130,MUH. RIFKI WAHYUDI,,d3,d3,26,26
+111910901,NOVICHA HARIS,,d3,d3,27,27
+111911189,AHMAD IRSYAD AGUNG,,d3,d3,28,28
+111911118,HERY WAHYU,,d3,d3,29,29
+111910995,PUTRI AYU HUMAERA,,d3,d3,30,30
+111911168,SURHALIZA APRILIANTI,,d3,d3,31,31
+111911224,RIZEKA RAMADAYANTI,,d3,d3,32,32
+111910904,NADITA RISKI AULIA,,d3,d3,33,33
+111911008,AQILLA HAYA,,d3,d3,34,34
+111910984,ARDINI,,d3,d3,35,35
+111911113,ULUL HIDAYAT,,d3,d3,36,36
+111911133,NURUL ADHILAH BUSMAH,,d3,d3,37,37
+111911208,RIZKY KURNIAWAN TAHIR,,d3,d3,38,38
+111911105,MIRA ZANIBA PRATIWI,,d3,d3,39,39
+111911149,SALSABILA PUSPITA WAHYUNI,,d3,d3,40,40
+111910915,RAHUL ADHA,,d3,d3,41,41
+111910886,AYU SETIANINGSIH,,d3,d3,42,42
+111911120,MUHAMMAD ZAINAL ILMI,,d3,d3,43,43
+111911230,RIRIN RIANA HASHUNATILMAR'AH,,d3,d3,44,44
+111910982,MUTIA HANIFAH,,d3,d3,45,45
+111911182,NADIESA SYAHLA RAMADHANI,,d3,d3,46,46
+111911184,NI WAYAN ANTARIYANI SATYANING PRAWERTHI,,d3,d3,47,47
+111910921,FITRA SAPUTRA,,d3,d3,48,48
+111911121,TANTRI RETNO ANASTHASIA,,d3,d3,49,49
+111910934,SELVIRA KURNI ANTY,,d3,d3,50,50
+111910928,AUFA FAUZIYAH,,d3,d3,51,51
+111911234,RISNAWATI AZALI,,d3,d3,52,52
+111911136,NURUL ASTUTI RAHMADANI,,d3,d3,53,53
+111911216,RIFKY MULLAH SYADRIAWAN,,d3,d3,54,54
+111910927,SOPA MAULIDIA,,d3,d3,55,55
+111911247,ARSITA INDAH WAHYUNI,,d3,d3,56,56
+111911233,ALFRID CRISTO S. LUAN,,d3,d3,57,57
+111911190,LA ADE,,d3,d3,58,58
+111911195,ANJAR DWI PRASETYO,,d3,d3,59,59
+111911158,SEPTIA NUR AZIZAH,,d3,d3,60,60
+111911097,RAFY DWI PAREZA,,d3,d3,61,61
+111911151,SA'ADAH,,d3,d3,62,62
+111911167,RISMA DWI LESTARI,,d3,d3,63,63
+111911204,SITI ALFIAH QARIMAH,,d3,d3,64,64
+111911202,KHAFIFAH,,d3,d3,65,65
+111910897,MONICA PUTRI,,d3,d3,66,66
+111910905,NEISYA AULIA FIJRI,,d3,d3,67,67
+111911186,M. ALIUDDIN. AP,,d3,d3,68,68
+111910922,MARISSA WIDYA ULFA,,d3,d3,69,69
+111911228,IZZA ANNISA RAMADHANI,,d3,d3,70,70
+111910969,AUSTIN ABDUL AZIZ RIANO JUNIOR,,d3,d3,71,71
+111911092,CHRIST EGY NATAMA PARDEDE,,d3,d3,72,72
+111910887,DINI ALFITRI ZAHRA,,d3,d3,73,73
+111910899,FAIZ ALWAN ALHARIS,,d3,d3,74,74
+111910966,JOVANKA MARYA SITOMPUL,,d3,d3,75,75
+111911152,KHAERIANI KURNIA ARDA,,d3,d3,76,76
+111910960,PRAYOGA YUDISTYO,,d3,d3,77,77
+111911171,VIRGINIA FRAFIANA ORCHITA BILI,,d3,d3,78,78
+111911161,AIGA BIDURI AMANATILLAH,,d3,d3,79,79
+111911148,SITI KURNIAPATI,,d3,d3,80,80
+111911084,MUHAMMAD RENALDI SYARIEF,,d3,d3,81,81
+111911143,RAUDHATUL JANNAH,,d3,d3,82,82
+111911239,MARIO FATMA JERONIMO,,d3,d3,83,83
+111911215,FALENTINA IFONI SERAN,,d3,d3,84,84
+111910959,PERMATA AYUNDA,,d3,d3,85,85
+111910890,M AZIZUL HAKIM,,d3,d3,86,86
+111910932,FADHILA DWIZA PUTRI,,d3,d3,87,87
+111911040,JOSSE OVELIA BR PURBA,,d3,d3,88,88
+111911070,ILHAM NASRULLAH,,d3,d3,89,89
+111911144,MUHAMMAD RIANBARENITO GUNAWAN,,d3,d3,90,90
+111911155,ALVY AZHILLA AZRY,,d3,d3,91,91
+111911165,QONITA NABILAH,,d3,d3,92,92
+111910976,HAFAZI ROZI,,d3,d3,93,93
+111911106,MUHAMMAD HAFID SEPTIANTO,,d3,d3,94,94
+111911162,INDAWATI AMIRUDDIN,,d3,d3,95,95
+111910952,IQBAL MAULANA,,d3,d3,96,96
+111911178,RESKIKA RAHMADANI,,d3,d3,97,97
+111911055,SAMUEL HASIHOLAN SIHOTANG,,d3,d3,98,98
+111911056,MANDOVA ERAVANZA,,d3,d3,99,99
+111911132,NUR AZIZAH TADJUDDIN,,d3,d3,100,100
+111910895,GANDA MARINA SINAGQ,,d3,d3,101,101
+111911125,WAHDANIA KAINTA,,d3,d3,102,102
+111911083,FALDO JAN PAULUS SIRINGORINGO,,d3,d3,103,103
+111911044,APRIANTO MANURUNG,,d3,d3,104,104
+111911126,MUHAMMAD ASY'ARI SIRAT,,d3,d3,105,105
+111910978,JAIHOT GULTOM,,d3,d3,106,106
+111911067,MUHAMMAD RHEVANZA KUSNADI,,d3,d3,107,107
+111911220,NURUL FITRIA,,d3,d3,108,108
+111911068,REKHA NOVALINA,,d3,d3,109,109
+111910971,MELLY NOVELIA SIMATUPANG,,d3,d3,110,110
+111911128,M. APRINALDI,,d3,d3,111,111
+111911029,AKHYARUL KAMAL,,d3,d3,112,112
+111910993,RISKA DIAN AGUSTINA,,d3,d3,113,113
+111911236,MEFI ATALYA SELAN,,d3,d3,114,114
+111911028,DINI PUTRIANI,,d3,d3,115,115
+111911104,FIRDA DAMAYANTI,,d3,d3,116,116
+111810565,RIFALDI,,d3,d3,117,117
+111911221,MARIA REGELINDA FALLO,,d3,d3,118,118
+111911094,BUNGA SAVIRA ARSHELLA,,d3,d3,119,119
+111910930,MAULA AZKA FATIHAH,,d3,d3,120,120
+111911096,MUHAMMAD ARIEF AL GHAZALE,,d3,d3,121,121
+111911137,SAMUELIN CAROLES PANDELAKI,,d3,d3,122,122
+111911116,MAXIMILYANUS H KERANS,,d3,d3,123,123
+111911207,RUNI RAHMATILLAH INHAR,,d3,d3,124,124
+111911225,ALFIE SYAHRINA DESWITA,,d3,d3,125,125
+111911142,FASLUL RAHMAN SYAHRIR,,d3,d3,126,126
+111910924,DINA BIJRI,,d3,d3,127,127
+111911176,RINDIANI ROSSALINDA,,d3,d3,128,128
+111911201,NURUL IZZAH ABDULLAH,,d3,d3,129,129
+111911107,ALWI HASITAH,,d3,d3,130,130
+111911051,FAJAR RISKI ALAMSYAH,,d3,d3,131,131
+111911185,AMIRUL HAKIM,,d3,d3,132,132
+111911173,BERTHA SANI LAKE,,d3,d3,133,133
+111911046,ELVIRA NAFTALI ANASTASYA SITINJAK,,d3,d3,134,134
+111910884,IRA HELSA TRIANA,,d3,d3,135,135
+111910961,AULIA SALSYAFINA,,d3,d3,136,136
+111911226,YOHANA MARIANA MEO,,d3,d3,137,137
+111911102,SARLINA M RANI,,d3,d3,138,138
+111911093,RESY OKTRIZA PUTRI,,d3,d3,139,139
+111810164,ANANDA AYU PRATIWI MAHU,,d3,d3,140,140
+111911222,GILBERTH RULAN DAVID WILLA,,d3,d3,141,141
+111911223,ADVANTO SIAHAAN,,d3,d3,142,142
+111911250,MARKUS Y L BUTAR BUTAR,,d3,d3,143,143
+111911242,AULIA NURHIDAYAH,,d3,d3,144,144
+111910909,IRMA PUTRI MELANI,,d3,d3,145,145
