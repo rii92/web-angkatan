@@ -128,8 +128,8 @@ class UsersTable extends DataTableComponent
 
         $simulasi = Simulations::find($this->simulation_id);
 
+        return (new UserFormationExport($this->selectedRowsQuery()))->download($simulasi->title . "_" . now()->format('d-M-Y H-i') . ".xlsx");
         try {
-            return (new UserFormationExport($this->selectedRowsQuery()))->download($simulasi->title . "_" . now()->format('d-M-Y H-i') . ".xlsx");
         } catch (\Throwable $th) {
             return $this->emit('error', "Somethings Wrong, I can feel It");
         }

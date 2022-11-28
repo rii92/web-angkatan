@@ -42,14 +42,26 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
 
     private function status_pilihan($row)
     {
-        if (!$row->satker_1) return 'Tidak Memilih';
-        if (!$row->satker_final) return 'Pilihan Tidak Aman';
-        return 'Pilihan Aman';
+        if ($row->status_pilihan == AppSimulation::STATUS_PILIHAN_AMAN) return AppSimulation::PILIHAN_AMAN;
+        if ($row->status_pilihan == AppSimulation::STATUS_PILIHAN_TIDAK_AMAN) return AppSimulation::PILIHAN_TIDAK_AMAN;
+        if ($row->status_pilihan == AppSimulation::STATUS_PILIHAN_MENUNGGU) return AppSimulation::PILIHAN_MENUNGGU;
+        return '';
     }
 
     private function status_pemilihan($row)
     {
-        return $row->satker_1 ? 'Memilih' : 'Tidak Memilih';
+        $start = $row->session_time->start_time;
+        $end = $row->session_time->end;
+        $pilihan_pertama = $row->satker_1;
+
+        if ($start > now()) return AppSimulation::BELUM_MEMILIH;
+        elseif ($start <= now() && $end >= now()) {
+            if ($pilihan_pertama) return AppSimulation::SUDAH_MEMILIH;
+            return AppSimulation::SEDANG_MEMILIH;
+        } else {
+            if ($pilihan_pertama) return AppSimulation::SUDAH_MEMILIH;
+            return AppSimulation::TIDAK_MEMILIH;
+        }
     }
 
     public function map($row): array
@@ -57,8 +69,6 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
         return [
             $row->user->details->nim,
             $row->user->name,
-            $row->user->details->location->kabupaten ?? '',
-            $row->user->details->location->provinsi ?? '',
 
             $row->user->details->kelas,
             $row->based_on,
@@ -66,6 +76,7 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
 
             $this->status_pemilihan($row),
             $this->status_pilihan($row),
+            $row->user_selection_at ?? '',
 
             $row->satker1->kode_wilayah ?? '',
             $row->satker1->name ?? '',
@@ -82,7 +93,11 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
             $row->satkerfinal->kode_wilayah ?? '',
             $row->satkerfinal->name ?? '',
             $row->satkerfinal->location->provinsi ?? '',
-            $row->satker_final_updated_at,
+            $row->satker_final_updated_at ?? '',
+            $row->satker_final_keterangan ?? '',
+
+            $row->user->details->location->kabupaten ?? '',
+            $row->user->details->location->provinsi ?? '',
 
             $row->session + 1,
             $row->session_time->start_time,
@@ -95,8 +110,6 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
         return [
             "NIM",
             "Nama",
-            "Kabupaten Asal",
-            "Provinsi Asal",
 
             "Kelas",
             "Jurusan",
@@ -104,6 +117,7 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
 
             "Status Pemilihan",
             "Status Pilihan",
+            "Memilih Pada",
 
             "Pilihan Pertama_Kode Wilayah",
             "Pilihan Pertama_Satker",
@@ -121,6 +135,10 @@ class UserFormationExport implements FromQuery, WithHeadings, WithMapping, Shoul
             "Pilihan Final_Satker",
             "Pilihan Final_Provinsi",
             "Pilihan Final_Updated At",
+            "Pilihan Final_Keterangan",
+
+            "Kabupaten Asal",
+            "Provinsi Asal",
 
             "Sesi",
             "Sesi Start Time",
