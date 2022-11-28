@@ -1246,14 +1246,14 @@ select{
 .mb-16{
 	margin-bottom: 4rem;
 }
-.mt-14{
-	margin-top: 3.5rem;
+.mt-20{
+	margin-top: 5rem;
 }
 .mb-28{
 	margin-bottom: 7rem;
 }
-.mt-20{
-	margin-top: 5rem;
+.mt-40{
+	margin-top: 10rem;
 }
 .ml-5{
 	margin-left: 1.25rem;
@@ -1296,9 +1296,6 @@ select{
 }
 .ml-7{
 	margin-left: 1.75rem;
-}
-.mt-40{
-	margin-top: 10rem;
 }
 .block{
 	display: block;
@@ -1747,11 +1744,11 @@ select{
 .rounded-none{
 	border-radius: 0px;
 }
-.rounded-sm{
-	border-radius: 0.125rem;
-}
 .rounded-3xl{
 	border-radius: 1.5rem;
+}
+.rounded-sm{
+	border-radius: 0.125rem;
 }
 .rounded-xl{
 	border-radius: 0.75rem;
@@ -1932,17 +1929,13 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 190, 68, var(--tw-bg-opacity));
 }
-.bg-blue-700{
+.bg-grayQuotes{
 	--tw-bg-opacity: 1;
-	background-color: rgba(29, 78, 216, var(--tw-bg-opacity));
+	background-color: rgba(217, 217, 217, var(--tw-bg-opacity));
 }
 .bg-orange-300{
 	--tw-bg-opacity: 1;
 	background-color: rgba(253, 186, 116, var(--tw-bg-opacity));
-}
-.bg-lighter{
-	--tw-bg-opacity: 1;
-	background-color: rgba(66, 136, 147, var(--tw-bg-opacity));
 }
 .bg-blueButton{
 	--tw-bg-opacity: 1;
@@ -1951,6 +1944,10 @@ select{
 .bg-light-4{
 	--tw-bg-opacity: 1;
 	background-color: rgba(247, 242, 239, var(--tw-bg-opacity));
+}
+.bg-yellow-solen{
+	--tw-bg-opacity: 1;
+	background-color: rgba(245, 190, 68, var(--tw-bg-opacity));
 }
 .bg-red-500{
 	--tw-bg-opacity: 1;
@@ -1972,9 +1969,9 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
 }
-.bg-subtle{
+.bg-font-color-sub{
 	--tw-bg-opacity: 1;
-	background-color: rgba(189, 226, 232, var(--tw-bg-opacity));
+	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
 }
 .bg-blue-50{
 	--tw-bg-opacity: 1;
@@ -1991,6 +1988,10 @@ select{
 .bg-orange-500{
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 115, 22, var(--tw-bg-opacity));
+}
+.bg-background-dashboard{
+	--tw-bg-opacity: 1;
+	background-color: rgba(235, 235, 235, var(--tw-bg-opacity));
 }
 .bg-blue-200{
 	--tw-bg-opacity: 1;
@@ -2019,10 +2020,6 @@ select{
 .bg-black{
 	--tw-bg-opacity: 1;
 	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-}
-.bg-grayQuotes{
-	--tw-bg-opacity: 1;
-	background-color: rgba(217, 217, 217, var(--tw-bg-opacity));
 }
 .bg-opacity-25{
 	--tw-bg-opacity: 0.25;
@@ -2436,6 +2433,10 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
+.text-font-color-sub{
+	--tw-text-opacity: 1;
+	color: rgba(244, 109, 108, var(--tw-text-opacity));
+}
 .text-subtle{
 	--tw-text-opacity: 1;
 	color: rgba(189, 226, 232, var(--tw-text-opacity));
@@ -2460,10 +2461,6 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(217, 119, 6, var(--tw-text-opacity));
 }
-.text-lighter{
-	--tw-text-opacity: 1;
-	color: rgba(66, 136, 147, var(--tw-text-opacity));
-}
 .text-orange-600{
 	--tw-text-opacity: 1;
 	color: rgba(234, 88, 12, var(--tw-text-opacity));
@@ -2476,6 +2473,10 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(129, 140, 248, var(--tw-text-opacity));
 }
+.text-lighter{
+	--tw-text-opacity: 1;
+	color: rgba(66, 136, 147, var(--tw-text-opacity));
+}
 .text-red-700{
 	--tw-text-opacity: 1;
 	color: rgba(185, 28, 28, var(--tw-text-opacity));
@@ -2483,10 +2484,6 @@ select{
 .text-orange-700{
 	--tw-text-opacity: 1;
 	color: rgba(194, 65, 12, var(--tw-text-opacity));
-}
-.text-font-color-sub{
-	--tw-text-opacity: 1;
-	color: rgba(244, 109, 108, var(--tw-text-opacity));
 }
 .text-darker{
 	--tw-text-opacity: 1;
@@ -2702,6 +2699,13 @@ html {
 
 .hero {
   background-image: url("../img/hero-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero2 {
+  background-image: url("../img/hero-background2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -3314,6 +3318,11 @@ html {
 	background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
 }
 
+.hover\:bg-grayLink:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
+}
+
 .hover\:bg-activeButton:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
@@ -3352,6 +3361,11 @@ html {
 .hover\:bg-indigo-400:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(129, 140, 248, var(--tw-bg-opacity));
+}
+
+.hover\:bg-font-color-sub:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-500:hover{

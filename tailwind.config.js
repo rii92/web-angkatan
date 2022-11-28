@@ -44,12 +44,16 @@ module.exports = {
                 'lighter': '#428893',
                 'subtle': '#BDE2E8',
                 'light-4': '#F7F2EF',
+                
+                //Tambahan
                 'purple-button': '#1930BF',
                 'activeButton': '#F46D6C',
                 'font-color-sub': '#F46D6C',
                 'grayLink': '#6B7280',
                 'blueButton': '#A7DCFE',
-                'grayQuotes': '#D9D9D9'
+                'grayQuotes': '#D9D9D9',
+                'yellow-solen': '#F5BE44',
+                'background-dashboard': '#EBEBEB'
                  
             },
             maxHeight: {
