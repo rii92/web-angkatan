@@ -51,14 +51,14 @@
             </x-description-list>
         @endif
 
-        @if ($user->satkerfinal)
+        @if ($user->satker_final)
             <x-description-list title="Pilihan Final" class="bg-gray-50">
                 {{ $user->satkerfinal->kode_wilayah }} - {{ $user->satkerfinal->name }} -
                 {{ $user->satkerfinal->location->provinsi }}
             </x-description-list>
         @endif
 
-        @if ($user->satkerfinal)
+        @if ($user->satker_final)
             <x-description-list title="Updated At">
                 {{ $user->satker_final_updated_at->format('l, d-F-Y H:i:s') }}
             </x-description-list>
