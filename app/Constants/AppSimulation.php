@@ -43,14 +43,10 @@ class AppSimulation
 
     public static function PROVINSI_FILTER(): array
     {
-        return Cache::rememberForever(
-            "location_filters",
-            function () {
-                return Location::selectRaw('DISTINCT(provinsi)')
-                    ->get()
-                    ->mapWithKeys(fn ($item, $key) => [$item->provinsi => $item->provinsi])
-                    ->toArray();
-            }
+        return Cache::rememberForever( "location_filters", fn () => Location::selectRaw('DISTINCT(provinsi)')
+                ->get()
+                ->mapWithKeys(fn ($item, $key) => [$item->provinsi => $item->provinsi])
+                ->toArray()
         );
     }
 

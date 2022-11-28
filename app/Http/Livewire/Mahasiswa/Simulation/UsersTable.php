@@ -84,13 +84,9 @@ class UsersTable extends DataTableComponent
                 if ($status == AppSimulation::BELUM_MEMILIH)
                     $query->whereHas('session_time', fn ($query) => $query->where('start_time', '>', now()));
 
-
                 if (in_array($status, [AppSimulation::SEDANG_MEMILIH, AppSimulation::SUDAH_MEMILIH])) {
 
-                    if ($status == AppSimulation::SEDANG_MEMILIH)
-                        $query = $query->whereNull('satker_1');
-                    else
-                        $query = $query->whereNotNull('satker_1');
+                    $query = $status == AppSimulation::SEDANG_MEMILIH ? $query->whereNull('satker_1') : $query->whereNotNull('satker_1');
 
                     $query->whereHas('session_time', fn ($query) => $query->where('start_time', '<=', now())->where('end_time', '>=', now()));
                 }

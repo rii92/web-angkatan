@@ -18,11 +18,12 @@ class SatkerTable extends DataTableComponent
 
     public string $pageName = 'satker_table';
 
-    private const PER_KABUPATEN = 'Per Kabupaten';
+    private const PER_SATKER = 'Per Satuan Kerja';
+
     private const PER_PROVINSI = 'Per Provinsi';
 
     public array $filters = [
-        'tampilan' => self::PER_KABUPATEN
+        'views' => self::PER_SATKER
     ];
 
     public function configure(): void
@@ -31,44 +32,16 @@ class SatkerTable extends DataTableComponent
         $this->setSearchDebounce(1000);
     }
 
-    private function columns_kabupaten(): array
-    {
-        $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
 
-        $baseColumn = [
-            Column::make("Nama", "name")
-                ->format(fn ($value, $column, $row) => $row->kode_wilayah . " - " . $value)
-                ->searchable(),
-
-            Column::make("Provinsi", "location.provinsi")
-        ];
-
-        if ($this->getFilter('formation'))
-            return array_merge($baseColumn, [
-                Column::make("Formasi " . $this->getFilter('formation'), $this->getFilter('formation'))
-                    ->format($centeredColumnFormat),
-                Column::make("Pilihan 1", "formation_1_count")
-                    ->format($centeredColumnFormat),
-                Column::make("Pilihan 2", "formation_2_count")
-                    ->format($centeredColumnFormat),
-                Column::make("Pilihan 3", "formation_3_count")
-                    ->format($centeredColumnFormat),
-                Column::make("Final", "formation_final_count")
-                    ->format($centeredColumnFormat),
-            ]);
-
-        $formationColumns = [];
-
-        foreach (AppSimulation::BASED_ON() as $key => $value)
-            array_push($formationColumns, Column::make("Formation " . Str::upper($key), $key)->format($centeredColumnFormat));
-
-        return array_merge($baseColumn, $formationColumns);
-    }
-
-    private function query_kabupaten()
+    /**
+     * get result for all satker
+     */
+    private function query_satker()
     {
         $this->tableName = '';
+
         $this->defaultSortColumn = 'location_id';
+
         $this->defaultSortDirection = 'asc';
 
         return Satker::with('location')
@@ -99,10 +72,15 @@ class SatkerTable extends DataTableComponent
             });
     }
 
+    /**
+     * custom query to get result by provinces
+     */
     private function query_provinsi()
     {
         $this->tableName = 'locations';
+
         $this->defaultSortColumn = 'locations.provinsi';
+
         $this->defaultSortDirection = 'asc';
 
         $query =  Satker::select('locations.provinsi')
@@ -116,7 +94,6 @@ class SatkerTable extends DataTableComponent
             foreach (AppSimulation::BASED_ON() as $key => $value)
                 $query->selectRaw("SUM(satkers." . $key . ") as " . $key);
         else {
-
             $query->selectRaw("SUM(satkers." . $this->getFilter('formation') . ") as " . $this->getFilter('formation'));
 
             foreach ([1, 2, 3, "final"] as $f)
@@ -131,25 +108,39 @@ class SatkerTable extends DataTableComponent
         return $query;
     }
 
-    private function columns_provinsi(): array
+
+    /**
+     * Column Table
+     */
+    public function columns(): array
     {
         $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
 
-        $columns = [Column::make("Nama", "provinsi")->searchable()];
+        $baseColumn = $this->getFilter('views') !== self::PER_SATKER
+            ? [Column::make("Nama", "provinsi")->searchable()]
+            : [
+                Column::make("Nama", "name")
+                    ->format(fn ($value, $column, $row) => $row->full_name)
+                    ->searchable(),
 
-        if (!$this->getFilter('formation'))
-            foreach (AppSimulation::BASED_ON() as $key => $value)
-                array_push($columns, Column::make("Formasi " . Str::upper($key), $key)->format($centeredColumnFormat));
-        else {
-            array_push($columns, Column::make(Str::upper("Formasi " . $this->getFilter('formation')), $this->getFilter('formation'))
-                ->format($centeredColumnFormat));
+                Column::make("Provinsi", "location.provinsi")
+            ];
 
-            foreach ([1, 2, 3, "final"] as $f)
-                array_push($columns, Column::make("Formasi {$f}", "formation_{$f}_count")->format($centeredColumnFormat));
-        }
+        if ($this->getFilter('formation'))
+            return array_merge($baseColumn, [
+                Column::make("Formasi " . $this->getFilter('formation'), $this->getFilter('formation'))
+                    ->format($centeredColumnFormat),
+                Column::make("Pilihan 1", "formation_1_count")
+                    ->format($centeredColumnFormat),
+                Column::make("Pilihan 2", "formation_2_count")
+                    ->format($centeredColumnFormat),
+                Column::make("Pilihan 3", "formation_3_count")
+                    ->format($centeredColumnFormat),
+                Column::make("Final", "formation_final_count")
+                    ->format($centeredColumnFormat),
+            ]);
 
-        return $columns;
-    }
+        $formationColumns = [];
 
     public function getTableRowUrl($row): string
     {
@@ -158,27 +149,25 @@ class SatkerTable extends DataTableComponent
         return route('user.simulasi.details-prov.satker', ['simulation' => $this->simulation_id, 'provinsi' => $row->provinsi]);
     }
 
-    public function columns(): array
+    public function getTableRowUrl($row): string
     {
-        if ($this->getFilter('tampilan') == self::PER_KABUPATEN)
-            return $this->columns_kabupaten();
-        return $this->columns_provinsi();
+        if ($this->getFilter('views') !== self::PER_SATKER) return '#';
+        return route('user.simulasi.details.satker', ['simulation' => $this->simulation_id, 'satker' => $row->id]);
     }
 
     public function query()
     {
-        if ($this->getFilter('tampilan') == self::PER_KABUPATEN)
-            return $this->query_kabupaten();
+        if ($this->getFilter('views') == self::PER_SATKER) return $this->query_satker();
         return $this->query_provinsi();
     }
 
     public function filters(): array
     {
         return [
-            'tampilan' => Filter::make('tampilan')
+            'views' => Filter::make('views')
                 ->select([
                     self::PER_PROVINSI => "Provinsi",
-                    self::PER_KABUPATEN => "Kabupaten"
+                    self::PER_SATKER => "Satuan Kerja"
                 ]),
             'formation' => Filter::make('formation')
                 ->select(array_merge(['' => "All"], AppSimulation::BASED_ON())),
