@@ -17,7 +17,7 @@ class ModalAddEdit extends ModalComponent
 
     private $permissionGuard = AppPermissions::SIMULATION_MANAGEMENT;
 
-    public $sesi_count;
+    public $sesi_count = 4;
 
     public $sesi_count_prev;
 
@@ -30,7 +30,7 @@ class ModalAddEdit extends ModalComponent
     public function rules()
     {
         $rules['simulation.title'] = 'required';
-        $rules['sesi_count'] = 'integer|gt:0';
+        // $rules['sesi_count'] = 'integer|gt:0';
         $rules['simulation_times.*.start_time'] = 'required|date';
         $rules['simulation_times.*.end_time'] = 'required|date|after:simulation_times.*.start_time';
 
@@ -43,24 +43,29 @@ class ModalAddEdit extends ModalComponent
 
         $this->simulation_times = $this->simulation_id ? $this->simulation->times : new Collection();
 
-        $this->sesi_count = $this->simulation_id ? $this->simulation_times->count() : 0;
+        // $this->sesi_count = $this->simulation_id ? $this->simulation_times->count() : 0;
 
-        $this->sesi_count_prev = $this->sesi_count;
-    }
+        $selisih = 4;
 
-    public function updated()
-    {
-        $selisih = ((int) $this->sesi_count) - ((int) $this->sesi_count_prev);
-
-        if ($selisih >= 0)
-            for ($i = 0; $i < $selisih; $i++)
-                $this->simulation_times->push(new SimulationsTime());
-        else
-            for ($i = 0; $i < -1 * $selisih; $i++)
-                $this->simulation_times->pop();
+        for ($i = 0; $i < $selisih; $i++)
+            $this->simulation_times->push(new SimulationsTime());
 
         $this->sesi_count_prev = (int)$this->sesi_count;
     }
+
+    // public function updated()
+    // {
+    //     $selisih = $this->sesi_count - $this->sesi_count_prev;
+
+    //     if ($selisih >= 0)
+    //         for ($i = 0; $i < $selisih; $i++)
+    //             $this->simulation_times->push(new SimulationsTime());
+    //     else
+    //         for ($i = 0; $i < -1 * $selisih; $i++)
+    //             $this->simulation_times->pop();
+
+    //     $this->sesi_count_prev = $this->sesi_count;
+    // }
 
 
     public function handleForm()

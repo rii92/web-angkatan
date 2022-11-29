@@ -8,14 +8,14 @@
             <x-input.error for="simulation.title" />
         </x-input.wrapper>
 
-        @if (!$simulation_id)
+        {{-- @if (!$simulation_id)
             <x-input.wrapper>
                 <x-input.label for="sesi_count" value="{{ __('Jumlah Sesi') }}" />
                 <x-input.caption>Jumlah sesi tidak bisa diubah lagi setelah ditambahkan</x-input.caption>
                 <x-input.text wire:model.lazy="sesi_count" id="sesi_count" type="number" min=0 />
                 <x-input.error for="sesi_count" />
             </x-input.wrapper>
-        @endif
+        @endif --}}
 
 
         @foreach ($simulation_times as $index => $times)
