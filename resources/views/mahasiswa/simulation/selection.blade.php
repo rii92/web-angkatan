@@ -28,18 +28,29 @@
         @endforeach
         @if ($formation->satker_1)
             <x-description-list title="Status" class="border-b border-gray-100">
-                @if (!$formation->satker_final)
-                    <x-badge.error text="Tidak Aman" />
-                @else
-                    <x-badge.success text="Aman" />
+                {{ view('mahasiswa.simulation.column.status-pilihan', ['status_pilihan' => $formation->status_pilihan]) }}
+
+                @if ($formation->user_selection_at)
+                    <div class="italic">
+                        memilih pada {{ $formation->user_selection_at->format('d-M-Y H:i:s') }}
+                    </div>
                 @endif
+
                 @if ($formation->satker_final_updated_at)
-                    <span class="italic">
-                        diupdate pada {{ $formation->satker_final_updated_at->format('d-M-Y H:i:s') }}
-                    </span>
+                    <div class="italic">
+                        hasil diupdate pada {{ $formation->satker_final_updated_at->format('d-M-Y H:i:s') }}
+                    </div>
                 @endif
+
             </x-description-list>
         @endif
+
+        @if ($formation->satker_final_keterangan)
+            <x-description-list title="Keterangan" class="border-b border-gray-100">
+                {{ $formation->satker_final_keterangan }}
+            </x-description-list>
+        @endif
+
         <x-description-list title="Update Pilihan" class="border-b border-gray-100">
             @if ($formation->session_time->start_time > now())
                 <x-badge.warning text="Belum Mulai" />

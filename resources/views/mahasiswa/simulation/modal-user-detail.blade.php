@@ -1,8 +1,8 @@
 <form wire:submit.prevent="handleForm">
-    <x-modal.header title="Pilihan {{ $user->user->name }}" bordered />
+    <x-modal.header title="Pilihan {{ $user->user->name }} ({{ $user->user->details->nim }})" bordered />
     <x-modal.body>
         <x-description-list title="Kelas" class="bg-gray-50">
-            {{ $user->user->details->kelas }}
+            {{ $user->user->details->kelas }} - {{ strtoupper($user->based_on) }} - Ranking {{ $user->user_rank }}
         </x-description-list>
 
         <x-description-list title="Asal">
