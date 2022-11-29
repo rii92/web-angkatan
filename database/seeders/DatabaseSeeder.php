@@ -63,5 +63,15 @@ class DatabaseSeeder extends Seeder
                 SimulationSeeder::class
             ]);
         }
+
+        if (App::environment(['production'])) {
+            // preparing simulation
+            $this->call([
+                NonBPSSeeder::class,
+                DetailNilaiSeeder::class,
+                
+                SatkerSeeder::class,
+            ]);
+        }
     }
 }
