@@ -30,8 +30,8 @@ class SatkerExport implements WithMultipleSheets
     {
         $sheets = [new SatkerSummary($this->selectedRowQuery->clone(), $this->simulation)];
 
-        foreach (AppSimulation::PROVINSI_FILTER() as $prov => $value)
-            $sheets[]  = new SatkerPerProv($this->selectedRowQuery->clone(), $prov, $this->simulation);
+        // foreach (AppSimulation::PROVINSI_FILTER() as $prov => $value)
+        //     $sheets[]  = new SatkerPerProv($this->selectedRowQuery->clone(), $prov, $this->simulation);
 
         return $sheets;
     }
