@@ -50,7 +50,7 @@ class ModalAddEdit extends ModalComponent
 
     public function updated()
     {
-        $selisih = $this->sesi_count - $this->sesi_count_prev;
+        $selisih = ((int) $this->sesi_count) - ((int) $this->sesi_count_prev);
 
         if ($selisih >= 0)
             for ($i = 0; $i < $selisih; $i++)
@@ -59,7 +59,7 @@ class ModalAddEdit extends ModalComponent
             for ($i = 0; $i < -1 * $selisih; $i++)
                 $this->simulation_times->pop();
 
-        $this->sesi_count_prev = $this->sesi_count;
+        $this->sesi_count_prev = (int)$this->sesi_count;
     }
 
 
