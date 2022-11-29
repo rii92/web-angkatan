@@ -3,12 +3,15 @@
 namespace App\Http\Livewire\Mahasiswa\Simulation;
 
 use App\Constants\AppSimulation;
+use App\Exports\SatkerExport;
 use App\Models\Satker;
+use App\Models\Simulations;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
 use Illuminate\Support\Str;
+use App\Exports\Sheets\SatkerPerProv;
 
 class SatkerTable extends DataTableComponent
 {
@@ -18,12 +21,15 @@ class SatkerTable extends DataTableComponent
 
     public string $pageName = 'satker_table';
 
-    private const PER_SATKER = 'Per Satuan Kerja';
-
+    private const SATKER = 'Satuan Kerja';
     private const PER_PROVINSI = 'Per Provinsi';
 
     public array $filters = [
-        'views' => self::PER_SATKER
+        'tampilan' => self::SATKER
+    ];
+
+    public array $bulkActions = [
+        'exportSelected' => 'Export Excel',
     ];
 
     public function configure(): void
@@ -32,16 +38,44 @@ class SatkerTable extends DataTableComponent
         $this->setSearchDebounce(1000);
     }
 
-    
-    /**
-     * get result for all satker
-     */
-    private function query_satker()
+    private function columns_kabupaten(): array
+    {
+        $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
+
+        $baseColumn = [
+            Column::make("Nama", "name")
+                ->format(fn ($value, $column, $row) => $row->kode_wilayah . " - " . $value)
+                ->searchable(),
+
+            Column::make("Provinsi", "location.provinsi")
+        ];
+
+        if ($this->getFilter('formation'))
+            return array_merge($baseColumn, [
+                Column::make("Formasi " . $this->getFilter('formation'), $this->getFilter('formation'))
+                    ->format($centeredColumnFormat),
+                Column::make("Pilihan 1", "formation_1_count")
+                    ->format($centeredColumnFormat),
+                Column::make("Pilihan 2", "formation_2_count")
+                    ->format($centeredColumnFormat),
+                Column::make("Pilihan 3", "formation_3_count")
+                    ->format($centeredColumnFormat),
+                Column::make("Final", "formation_final_count")
+                    ->format($centeredColumnFormat),
+            ]);
+
+        $formationColumns = [];
+
+        foreach (AppSimulation::BASED_ON() as $key => $value)
+            array_push($formationColumns, Column::make("Formation " . Str::upper($key), $key)->format($centeredColumnFormat));
+
+        return array_merge($baseColumn, $formationColumns);
+    }
+
+    private function query_kabupaten()
     {
         $this->tableName = '';
-
         $this->defaultSortColumn = 'location_id';
-
         $this->defaultSortDirection = 'asc';
 
         return Satker::with('location')
@@ -72,15 +106,10 @@ class SatkerTable extends DataTableComponent
             });
     }
 
-    /**
-     * custom query to get result by provinces
-     */
     private function query_provinsi()
     {
         $this->tableName = 'locations';
-
         $this->defaultSortColumn = 'locations.provinsi';
-
         $this->defaultSortDirection = 'asc';
 
         $query =  Satker::select('locations.provinsi')
@@ -94,6 +123,7 @@ class SatkerTable extends DataTableComponent
             foreach (AppSimulation::BASED_ON() as $key => $value)
                 $query->selectRaw("SUM(satkers." . $key . ") as " . $key);
         else {
+
             $query->selectRaw("SUM(satkers." . $this->getFilter('formation') . ") as " . $this->getFilter('formation'));
 
             foreach ([1, 2, 3, "final"] as $f)
@@ -108,70 +138,78 @@ class SatkerTable extends DataTableComponent
         return $query;
     }
 
-
-    /**
-     * Column Table
-     */
-    public function columns(): array
+    private function columns_provinsi(): array
     {
         $centeredColumnFormat = fn ($value) => view("mahasiswa.simulation.column.center", ['value' => $value]);
 
-        $baseColumn = $this->getFilter('views') !== self::PER_SATKER
-            ? [Column::make("Nama", "provinsi")->searchable()]
-            : [
-                Column::make("Nama", "name")
-                    ->format(fn ($value, $column, $row) => $row->full_name)
-                    ->searchable(),
+        $columns = [Column::make("Nama", "provinsi")->searchable()];
 
-                Column::make("Provinsi", "location.provinsi")
-            ];
+        if (!$this->getFilter('formation'))
+            foreach (AppSimulation::BASED_ON() as $key => $value)
+                array_push($columns, Column::make("Formasi " . Str::upper($key), $key)->format($centeredColumnFormat));
+        else {
+            array_push($columns, Column::make(Str::upper("Formasi " . $this->getFilter('formation')), $this->getFilter('formation'))
+                ->format($centeredColumnFormat));
 
-        if ($this->getFilter('formation'))
-            return array_merge($baseColumn, [
-                Column::make("Formasi " . $this->getFilter('formation'), $this->getFilter('formation'))
-                    ->format($centeredColumnFormat),
-                Column::make("Pilihan 1", "formation_1_count")
-                    ->format($centeredColumnFormat),
-                Column::make("Pilihan 2", "formation_2_count")
-                    ->format($centeredColumnFormat),
-                Column::make("Pilihan 3", "formation_3_count")
-                    ->format($centeredColumnFormat),
-                Column::make("Final", "formation_final_count")
-                    ->format($centeredColumnFormat),
-            ]);
+            foreach ([1, 2, 3, "final"] as $f)
+                array_push($columns, Column::make("Formasi {$f}", "formation_{$f}_count")->format($centeredColumnFormat));
+        }
 
-        $formationColumns = [];
-
-        foreach (AppSimulation::BASED_ON() as $key => $value)
-            array_push($formationColumns, Column::make("Formation " . Str::upper($key), $key)->format($centeredColumnFormat));
-
-        return array_merge($baseColumn, $formationColumns);
+        return $columns;
     }
 
     public function getTableRowUrl($row): string
     {
-        if ($this->getFilter('views') !== self::PER_SATKER) return '#';
-        return route('user.simulasi.details.satker', ['simulation' => $this->simulation_id, 'satker' => $row->id]);
+        if ($this->getFilter('tampilan') == self::SATKER)
+            return route('user.simulasi.details-kab.satker', ['simulation' => $this->simulation_id, 'satker' => $row->id]);
+        return route('user.simulasi.details-prov.satker', ['simulation' => $this->simulation_id, 'provinsi' => $row->provinsi]);
+    }
+
+    public function columns(): array
+    {
+        if ($this->getFilter('tampilan') == self::SATKER)
+            return $this->columns_kabupaten();
+        return $this->columns_provinsi();
     }
 
     public function query()
     {
-        if ($this->getFilter('views') == self::PER_SATKER) return $this->query_satker();
+        if ($this->getFilter('tampilan') == self::SATKER)
+            return $this->query_kabupaten();
         return $this->query_provinsi();
     }
 
     public function filters(): array
     {
         return [
-            'views' => Filter::make('views')
+            'tampilan' => Filter::make('tampilan')
                 ->select([
                     self::PER_PROVINSI => "Provinsi",
-                    self::PER_SATKER => "Satuan Kerja"
+                    self::SATKER => "Satuan Kerja"
                 ]),
             'formation' => Filter::make('formation')
                 ->select(array_merge(['' => "All"], AppSimulation::BASED_ON())),
             'provinsi' => Filter::make('provinsi')
                 ->select(array_merge(['' => "All"], AppSimulation::PROVINSI_FILTER())),
         ];
+    }
+
+    /**
+     * export to xlsx file
+     *
+     * @return void
+     */
+    public function exportSelected()
+    {
+        if ($this->selectedRowsQuery->count() == 0) return $this->emit('error', "Pilih Row Terlebih Dahulu");
+        if ($this->getFilter('tampilan') == self::PER_PROVINSI) return $this->emit('error', "Hanya bisa mengexport tampilan satuan kerja");
+
+        $simulation = Simulations::find($this->simulation_id);
+
+        try {
+            return (new SatkerExport($this->selectedRowsQuery(), $simulation))->download($simulation->title . "_Satker_" . now()->format('d-M-Y H-i') . ".xlsx");
+        } catch (\Throwable $th) {
+            return $this->emit('error', "Somethings Wrong, I can feel It");
+        }
     }
 }

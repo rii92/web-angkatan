@@ -13,7 +13,8 @@ class UserFormations extends Model
     protected $guarded = [];
 
     protected $dates = [
-        'satker_final_updated_at'
+        'satker_final_updated_at',
+        'user_selection_at'
     ];
 
     public function getBasedOnAttribute($value)

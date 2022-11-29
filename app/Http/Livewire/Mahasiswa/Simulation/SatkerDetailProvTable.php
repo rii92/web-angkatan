@@ -3,18 +3,15 @@
 namespace App\Http\Livewire\Mahasiswa\Simulation;
 
 use App\Constants\AppSimulation;
-use App\Models\Satker;
 use App\Models\UserFormations;
-use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
-use Illuminate\Support\Str;
 
-class SatkerDetailTable extends DataTableComponent
+class SatkerDetailProvTable extends DataTableComponent
 {
     public int $simulation_id;
-    public int $satker_id;
+    public string $provinsi;
 
     public array $perPageAccepted = [10, 15];
 
@@ -26,32 +23,46 @@ class SatkerDetailTable extends DataTableComponent
         return [
             Column::make('action')
                 ->format(fn ($value, $column, $row) => view('mahasiswa.simulation.column.detail-user', ['user_formation' => $row])),
+            Column::make('status', 'is_final')
+                ->format(fn ($value) => view('mahasiswa.simulation.column.status-terpilih', ['terpilih' => $value, 'tag' => 'div'])),
             Column::make('Nama', 'user.name')->searchable(),
             Column::make('Pilihan Ke', 'pilihan_ke')
                 ->format($centeredColumnFormat),
+            Column::make('Kabupaten')
+                ->format(function ($value, $column, $row) {
+                    if ($row->pilihan_ke == 'Pilihan 1') return $row->satker1->name;
+                    if ($row->pilihan_ke == 'Pilihan 2') return $row->satker2->name;
+                    return $row->satker3->name;
+                }),
             Column::make('Kelas', 'user.details.kelas')
                 ->format($centeredColumnFormat),
             Column::make('jurusan', 'based_on')
                 ->format($centeredColumnFormat),
             Column::make('Rank ' . AppSimulation::BASED_ON, "user_rank")
-                ->format($centeredColumnFormat),
-            Column::make('status', 'is_final')
-                ->format(fn ($value) => view('mahasiswa.simulation.column.status-terpilih', ['terpilih' => $value, 'tag' => 'div']))
+                ->format($centeredColumnFormat)
         ];
     }
 
     private function getPilihanKe($pilihanKe)
     {
-        return UserFormations::with(['user', 'user.details'])
+        return UserFormations::with(['user', 'user.details', 'satker1', 'satker2', 'satker3'])
             ->select('*')
             ->selectRaw("'Pilihan {$pilihanKe}' as pilihan_ke")
             ->selectRaw("satker_{$pilihanKe} = satker_final as is_final")
             ->where('simulations_id', $this->simulation_id)
-            ->where("satker_{$pilihanKe}", $this->satker_id)
+            ->whereHas("satker{$pilihanKe}.location", fn ($query) => $query->where('provinsi', $this->provinsi))
             ->when(
                 $this->getFilter('status'),
                 fn ($query, $status) => $query->whereRaw('satker_final ' . $status . " satker_{$pilihanKe}")
-            )->when($this->getFilter('jurusan'), fn ($query, $jurusan) => $query->where('based_on', $jurusan));
+            )->when(
+                $this->getFilter('jurusan'),
+                fn ($query, $jurusan) => $query->where('based_on', $jurusan)
+            )->when(
+                $this->getFilter('kabupaten'),
+                function ($query, $kabupaten) use ($pilihanKe) {
+                    $query->whereHas("satker{$pilihanKe}.location", fn ($query) => $query->where('kabupaten', $kabupaten));
+                }
+            );
     }
 
     public function query()
@@ -86,7 +97,9 @@ class SatkerDetailTable extends DataTableComponent
                     1 => 'Pertama',
                     2 => 'Kedua',
                     3 => 'Ketiga'
-                ])
+                ]),
+            'kabupaten' => Filter::make('kabupaten')
+                ->select(array_merge(['' => 'All'], AppSimulation::KABUPATEN_FILTER($this->provinsi)))
         ];
     }
 }
