@@ -43,7 +43,7 @@ class CheckSimulationsJob implements ShouldQueue
 
             $ended_at = $simulation->times[$totalSessions - 1]->end_time;
 
-            if ($started_at < now() && $ended_at > now()) {
+            if ($started_at < now() && $ended_at > now()->addMinutes(-5)) {
                 echo "Running Job for simulation with id: {$simulation->id} ({$simulation->title}) \n";
                 FormationsSimulationJob::dispatchSync($simulation->id);
             }
