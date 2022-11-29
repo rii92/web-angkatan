@@ -58,6 +58,7 @@ class UsersTable extends DataTableComponent
             Column::make('Status Pilihan', 'status_pilihan')
                 ->format(fn ($value) => view("mahasiswa.simulation.column.status-pilihan", ['status_pilihan' => $value])),
             Column::make("rank " . AppSimulation::BASED_ON, "user_rank")
+                ->sortable()
                 ->format($centeredColumnFormat),
             Column::make("sesi", "session")
                 ->format(fn ($value) => $centeredColumnFormat($value + 1)),
