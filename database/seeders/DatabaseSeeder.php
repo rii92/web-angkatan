@@ -64,14 +64,14 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        if (App::environment(['production'])) {
+        // if (App::environment(['production'])) {
             // preparing simulation
-            $this->call([
+            // $this->call([
                 // NonBPSSeeder::class,
-                DetailNilaiSeeder::class,
+                // DetailNilaiSeeder::class,
                 
                 // SatkerSeeder::class,
-            ]);
-        }
+            // ]);
+        // }
     }
 }
