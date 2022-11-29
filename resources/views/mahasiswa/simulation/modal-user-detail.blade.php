@@ -38,7 +38,7 @@
         @endif
 
         @if ($user->satker2)
-            <x-description-list title="Pilihan Kedua" class="bg-gray-50">
+            <x-description-list title="Pilihan Kedua " class="bg-gray-50">
                 <x-link target="_blank"
                     href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $user->simulations_id, 'satker' => $user->satker_2]) }}">
 
