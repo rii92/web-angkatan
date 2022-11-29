@@ -36,7 +36,10 @@ class FormationsSimulationJob implements ShouldQueue
      */
     public function handle()
     {
-        UserFormations::where('simulations_id', $this->simulation->id)->update(['satker_final_completed' => false]);
+        UserFormations::where('simulations_id', $this->simulation->id)->update([
+            'satker_final_completed' => false,
+            'satker_final' => null
+        ]);
 
         foreach (AppSimulation::BASED_ON() as $key => $value) {
             $users = UserFormations::where('simulations_id', $this->simulation->id)
@@ -71,6 +74,7 @@ class FormationsSimulationJob implements ShouldQueue
                             'status_pilihan' => AppSimulation::STATUS_PILIHAN_AMAN,
                             'satker_final_keterangan' => "Terpilih pada pilihan " . $f
                         ]);
+
                     $is_aman = true;
 
                     break;
