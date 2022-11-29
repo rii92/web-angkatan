@@ -41,6 +41,9 @@
                         Hasil dari simulasi ini, diharapkan dapat memberikan gambaran alokasi CPNS dari
                         Biro SDM BPS RI, dan tidak menutup kemungkinan hasil akhir akan berubah dari hasil simulasi.
                     </li>
+                    <li>
+                        Jangan Lupa SIPMEN guys, hehe
+                    </li>
                 </ul>
             </div>
         </x-card.base>
