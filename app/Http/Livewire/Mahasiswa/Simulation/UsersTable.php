@@ -46,9 +46,15 @@ class UsersTable extends DataTableComponent
                 ->searchable(),
             Column::make(AppSimulation::BASED_ON, "based_on")
                 ->format($centeredColumnFormat),
-            Column::make('satker final', "satkerfinal.name")
+            Column::make('satker final')
+                ->format(function ($value, $column, $row) {
+                    return view('mahasiswa.simulation.column.kabupaten', ['kabupaten' => $row->satkerfinal->name, 'satker_id' => $row->satker_final, 'simulations_id' => $row->simulations_id]);
+                })
                 ->searchable(),
-            Column::make('Provinsi', "satkerfinal.location.provinsi"),
+            Column::make('Provinsi')
+                ->format(function ($value, $column, $row) {
+                    return view('mahasiswa.simulation.column.provinsi', ['provinsi' => $row->satkerfinal->location->provinsi, 'simulations_id' => $row->simulations_id]);
+                }),
             Column::make('Status Pemilihan')
                 ->format(fn ($value, $column, $row) => view("mahasiswa.simulation.column.status-pemilihan", [
                     'start' => $row->session_time->start_time,
