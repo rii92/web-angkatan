@@ -12,7 +12,7 @@
             <div class="grid md:grid-cols-2 md:gap-x-2" wire:key="times-field-{{ $times->id ?? $index }}">
                 <x-input.wrapper>
                     <x-input.label for="simulation_times.{{ $index }}.start_time"
-                        value="Waktu mulai sesi {{ $index }}" />
+                        value="Waktu mulai sesi  {{ $index }}" />
                     <x-input.text wire:model.defer="simulation_times.{{ $index }}.start_time"
                         id="simulation_times.{{ $index }}.start_time" type="datetime-local" />
                     <x-input.error for="simulation_times.{{ $index }}.start_time" />
