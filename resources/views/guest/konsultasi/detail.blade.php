@@ -1,7 +1,7 @@
 <x-landingpage.wrapper title="Konsultasi">
     @php
         $photoUser = $konsul->is_anonim ? url('img/user-avatar.svg') : $konsul->user->profile_photo_url;
-        $nameUser = $konsul->is_anonim ? 'Anonim ' . $konsul->userdetails->jurusan : $konsul->user->name;
+        $nameUser = $konsul->is_anonim ? 'Anonim ' . $konsul->userdetails->jurusan_short : $konsul->user->name;
 
         $photoAdmin = 'https://ui-avatars.com/api/?name=Admin&color=7F9CF5&background=EBF4FF';
     @endphp
@@ -15,7 +15,7 @@
                     <b>
                         {{ $nameUser }}
                         @if ($konsul->is_anonim)
-                            (Jurusan {{ $konsul->userdetails->jurusan }})
+                            (Jurusan {{ $konsul->userdetails->jurusan_short }})
                         @else
                             ({{ $konsul->userdetails->nim }}/{{ $konsul->userdetails->kelas }})
                         @endif

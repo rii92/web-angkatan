@@ -122,7 +122,7 @@ class Form extends Component
     {
         $penanya = User::find($this->konsul->user_id);
 
-        $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan);
+        $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan_short);
 
         $message = "Terdapat konsultasi baru berjudul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
 

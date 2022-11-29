@@ -60,3 +60,18 @@ Just notify `$user` with `EmailNotifications` with `MailMessage` object. All ema
 For complete function, you can see at [SimpleMessage](./vendor/laravel/framework/src/Illuminate/Notifications/Messages/SimpleMessage.php). If you want to add custom email, you can extends `EmailNotification` class and add your format to it.
 
 > For subject, please use this format "`PA60 - Email Subject`"
+
+
+## Docker User
+
+for docker user, set PHPUSER and PHPGROUP on environment and then run this command to setup project
+
+```bash
+docker compose up -d
+
+docker compose run --user ${UID}:${GID} composer install --ignore-platform-reqs
+
+docker compose run --user ${UID}:${GID} artisan migrate:fresh --seed
+
+docker compose run --user ${UID}:${GID} artisan key:generate
+```

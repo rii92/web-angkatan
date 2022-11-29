@@ -43,6 +43,21 @@ services:
         networks:
             - laravel
 
+    pgweb:
+        image: "sosedoff/pgweb"
+        container_name: pgweb
+        ports:
+            - "8082:8081"
+        restart: always
+        networks:
+            - laravel
+        environment:
+            - SESSIONS=1
+            - LOCK_SESSION=TRUE
+            - DATABASE_URL=postgres://${DB_USERNAME:-postgres}:${DB_PASSWORD:-secret}@postgres:5432/${DB_DATABASE:-laravel}?sslmode=disable
+        depends_on:
+            - postgres
+
     php:
         build:
             context: .docker/php

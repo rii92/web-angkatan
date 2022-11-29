@@ -245,6 +245,7 @@ return [
         'AppKonsul' => App\Constants\AppKonsul::class,
         'AppTurnitins' => App\Constants\AppTurnitins::class,
         'AppActivity' => App\Constants\AppActivity::class,
+        'AppSimulation' => App\Constants\AppSimulation::class,
 
         // debug bar
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
