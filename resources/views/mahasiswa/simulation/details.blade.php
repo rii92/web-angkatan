@@ -1,7 +1,7 @@
 <x-dashboard-layout title="{{ $simulation->title }}">
     <div class="flex flex-col md:flex-row mb-4">
         <x-card.base class="flex-1">
-            <div>
+            <div class="text-sm">
                 <h3 class="font-bold">Mekanisme Simulasi Penempatan</h3>
                 <ul class="list-disc ml-4">
                     <li>
@@ -25,16 +25,17 @@
                     </li>
                 </ul>
             </div>
-            <div class=" mt-2">
+
+            <div class=" mt-2 text-sm">
                 <h3 class="font-bold">Harap Perhatian</h3>
                 <ul class="list-disc ml-4">
                     <li>
-                        Pilihan Satuan Kerja anda akan berpengaruh pada kehidupan anda beberapa tahun kedepan. 
+                        Pilihan Satuan Kerja anda akan berpengaruh pada kehidupan anda beberapa tahun kedepan.
                         Oleh karena itu, pertimbangkan dengan baik satuan kerja yang anda pilih.
                     </li>
                     <li>
                         Banyak faktor yang dapat menjadi pertimbangan pada saat memilih Satuan Kerja, misalnya:
-                        biaya pulang kampung, pasangan (kalo punya :D, kalo ngga skip), biaya hidup, lingkungan 
+                        biaya pulang kampung, pasangan (kalo punya :D, kalo ngga skip), biaya hidup, lingkungan
                         Satker, dan lain sebagainya.
                     </li>
                     <li>
@@ -42,16 +43,56 @@
                         Biro SDM BPS RI, dan tidak menutup kemungkinan hasil akhir akan berubah dari hasil simulasi.
                     </li>
                     <li>
-                        Jangan Lupa SIPMEN guys, hehe
+                        <b>Jangan Lupa SIPMEN guys, hehe</b>
+                    </li>
+                </ul>
+            </div>
+
+            <div class=" mt-2 text-sm">
+                <h3 class="font-bold">Link Penting</h3>
+                <ul class="list-disc ml-4">
+                    <li>
+                        <x-link target="_blank"
+                            href="https://docs.google.com/document/d/15lW5TVQ3j3mXWex0Y-D3MAK5fUEaeepZkdh7821MiSY/edit?usp=sharing">
+                            Panduan Simulasi
+                        </x-link>
+                    </li>
+                    <li>
+                        <x-link
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSefcpAIOmIYsaJh3qOzLvkyQa9-tiCa8jAU_bExjChxC9nTJA/viewform">
+                            Form QnA
+                        </x-link>
+                    </li>
+                    <li>
+                        <x-link
+                            href="https://docs.google.com/spreadsheets/d/1l2euR3QnAhD-nBN9oza-pgXQtYBoPDzValmmzZ086qU/edit#gid=1720344264">
+                            Jawaban QnA
+                        </x-link>
+                    </li>
+                    <li>
+                        <x-link
+                            href="https://docs.google.com/spreadsheets/d/1DWSsUBkspLo_MttE3_15sBRrgzs0nt8K/edit?rtpof=true&sd=true#gid=1932214716">
+                            List Sesi
+                        </x-link>
                     </li>
                 </ul>
             </div>
         </x-card.base>
         @livewire('mahasiswa.simulation.selection', ['simulation' => $simulation])
     </div>
+
     <x-card.base title="Daftar Satker">
         @livewire('mahasiswa.simulation.satker-table', ['simulation_id' => $simulation->id])
+        <p class="text-gray-400 text-sm mt-3 leading-tight">
+            Silahkan klik nama Satker atau Provinsi untuk mengetahui siapa saja yang memilih di Satker atau Provinsi
+            tersebut. <b>Untuk tampilan Provinsi masih terdapat kesalahan penghitungan jumlah yang memilih pada provinsi
+                tersebut. Hal ini masih kami coba perbaiki. Untuk sekarang silahkan klik saja nama provinsi untuk
+                melihat dengan lebih detail siapa saja yang memilih disana</b>
+        </p>
+
     </x-card.base>
+
+
     <x-card.base title="Peserta Simulasi">
         @livewire('mahasiswa.simulation.users-table', ['simulation_id' => $simulation->id])
     </x-card.base>

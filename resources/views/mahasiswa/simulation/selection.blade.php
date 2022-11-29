@@ -17,7 +17,12 @@
         @foreach ([1, 2, 3] as $f)
             <x-description-list title="Pilihan {{ $f }}" class="border-b border-gray-100">
                 @if ($formation["satker{$f}"])
-                    <span>{{ $formation["satker{$f}"]->full_name }}</span>
+                    <x-link target="_blank"
+                        href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $formation->simulations_id, 'satker' => $formation['satker_' . $f]]) }}">
+
+                        <span>{{ $formation["satker{$f}"]->full_name }} -
+                            {{ $formation["satker{$f}"]->location->provinsi }}</span>
+                    </x-link>
                     @if ($formation["satker_{$f}"] === $formation->satker_final)
                         <x-badge.success text="Terpilih" />
                     @endif
@@ -56,10 +61,17 @@
                 <x-badge.warning text="Belum Mulai" />
             @endif
             @if ($formation->session_time->start_time <= now() && $formation->session_time->end_time >= now())
-                <x-button.primary title="Detail Mahasiswa"
-                    onclick="Livewire.emit('openModal', 'mahasiswa.simulation.modal-selection', {{ json_encode(['user_formation_id' => $formation->id]) }})">
-                    <span class="text-xs">Update</span>
-                </x-button.primary>
+                <div class="flex items-center">
+                    <x-button.primary title="Detail Mahasiswa"
+                        onclick="Livewire.emit('openModal', 'mahasiswa.simulation.modal-selection', {{ json_encode(['user_formation_id' => $formation->id]) }})">
+                        <span class="text-xs">Update</span>
+                    </x-button.primary>
+
+                    <x-icons.refresh
+                        class="text-gray-500 ml-2 cursor-pointer transform transition-transform duration-1000 hover:rotate-180 mr-2"
+                        onclick="Livewire.emit('reloadComponents', 'mahasiswa.simulation.selection')" />
+
+                </div>
             @endif
             @if ($formation->session_time->end_time < now())
                 <x-badge.error text="Sesi Habis" />

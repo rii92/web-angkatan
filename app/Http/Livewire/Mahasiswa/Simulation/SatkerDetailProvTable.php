@@ -30,9 +30,12 @@ class SatkerDetailProvTable extends DataTableComponent
                 ->format($centeredColumnFormat),
             Column::make('Kabupaten')
                 ->format(function ($value, $column, $row) {
-                    if ($row->pilihan_ke == 'Pilihan 1') return $row->satker1->name;
-                    if ($row->pilihan_ke == 'Pilihan 2') return $row->satker2->name;
-                    return $row->satker3->name;
+                    if ($row->pilihan_ke == 'Pilihan 1')
+                        return view('mahasiswa.simulation.column.kabupaten', ['kabupaten' => $row->satker1->name, 'satker_id' => $row->satker_1, 'simulations_id' => $row->simulations_id]);
+                    if ($row->pilihan_ke == 'Pilihan 2')
+                        return view('mahasiswa.simulation.column.kabupaten', ['kabupaten' => $row->satker2->name, 'satker_id' => $row->satker_2, 'simulations_id' => $row->simulations_id]);
+
+                    return view('mahasiswa.simulation.column.kabupaten', ['kabupaten' => $row->satker3->name, 'satker_id' => $row->satker_3, 'simulations_id' => $row->simulations_id]);
                 }),
             Column::make('Kelas', 'user.details.kelas')
                 ->format($centeredColumnFormat),

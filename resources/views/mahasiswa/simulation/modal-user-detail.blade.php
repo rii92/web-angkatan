@@ -23,8 +23,12 @@
 
         @if ($user->satker1)
             <x-description-list title="Pilihan Pertama">
-                {{ $user->satker1->kode_wilayah }} - {{ $user->satker1->name }} -
-                {{ $user->satker1->location->provinsi }}
+                <x-link target="_blank"
+                    href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $user->simulations_id, 'satker' => $user->satker_1]) }}">
+
+                    {{ $user->satker1->kode_wilayah }} - {{ $user->satker1->name }} -
+                    {{ $user->satker1->location->provinsi }}
+                </x-link>
 
                 @if ($user->satker_1 == $user->satker_final)
                     {{ view('mahasiswa.simulation.column.status-terpilih', ['terpilih' => true, 'tag' => 'span']) }}
@@ -35,8 +39,13 @@
 
         @if ($user->satker2)
             <x-description-list title="Pilihan Kedua" class="bg-gray-50">
-                {{ $user->satker2->kode_wilayah }} - {{ $user->satker2->name }} -
-                {{ $user->satker2->location->provinsi }}
+                <x-link target="_blank"
+                    href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $user->simulations_id, 'satker' => $user->satker_2]) }}">
+
+                    {{ $user->satker2->kode_wilayah }} - {{ $user->satker2->name }} -
+                    {{ $user->satker2->location->provinsi }}
+                </x-link>
+
 
                 @if ($user->satker_2 == $user->satker_final)
                     {{ view('mahasiswa.simulation.column.status-terpilih', ['terpilih' => true, 'tag' => 'span']) }}
@@ -46,8 +55,13 @@
 
         @if ($user->satker3)
             <x-description-list title="Pilihan Ketiga">
-                {{ $user->satker3->kode_wilayah }} - {{ $user->satker3->name }} -
-                {{ $user->satker3->location->provinsi }}
+                <x-link target="_blank"
+                    href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $user->simulations_id, 'satker' => $user->satker_3]) }}">
+
+                    {{ $user->satker3->kode_wilayah }} - {{ $user->satker3->name }} -
+                    {{ $user->satker3->location->provinsi }}
+                </x-link>
+
 
                 @if ($user->satker_3 == $user->satker_final)
                     {{ view('mahasiswa.simulation.column.status-terpilih', ['terpilih' => true, 'tag' => 'span']) }}
@@ -63,8 +77,13 @@
 
         @if ($user->satker_final)
             <x-description-list title="Pilihan Final">
-                {{ $user->satkerfinal->kode_wilayah }} - {{ $user->satkerfinal->name }} -
-                {{ $user->satkerfinal->location->provinsi }}
+                <x-link target="_blank"
+                    href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $user->simulations_id, 'satker' => $user->satker_final]) }}">
+
+                    {{ $user->satkerfinal->kode_wilayah }} - {{ $user->satkerfinal->name }} -
+                    {{ $user->satkerfinal->location->provinsi }}
+                </x-link>
+
             </x-description-list>
         @endif
 

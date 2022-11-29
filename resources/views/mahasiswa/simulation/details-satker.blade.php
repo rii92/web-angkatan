@@ -53,6 +53,10 @@
         @if ($type == 'kab')
             @livewire('mahasiswa.simulation.satker-detail-kab-table', ['simulation_id' => $simulation->id, 'satker_id' => $satker->id])
         @else
+            <p class="text-gray-400 text-sm mb-3 leading-tight">
+                Selain isian kolom formasi masih ada kesalahan penghitungan jumlahnya. Hal ini sedang kami perbaiki.
+            </p>
+
             @livewire('mahasiswa.simulation.satker-detail-prov-table', ['simulation_id' => $simulation->id, 'provinsi' => $satker->provinsi])
         @endif
 
