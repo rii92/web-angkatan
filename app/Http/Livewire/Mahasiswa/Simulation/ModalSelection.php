@@ -39,6 +39,7 @@ class ModalSelection extends ModalComponent
             'satker3.location',
             'satkerfinal',
             'satkerfinal.location',
+            'session_time'
         ])
             ->find($user_formation_id);
 
@@ -48,6 +49,14 @@ class ModalSelection extends ModalComponent
 
     public function handleForm()
     {
+        if (!($this->userFormation->session_time->start_time <= now() && $this->userFormation->session_time->end_time >= now())) {
+            $this->emit('error', "Waktu telah habis");
+
+            $this->emit('closeModal');
+
+            return $this->emit('reloadComponents', 'mahasiswa.simulation.selection');
+        }
+
         $this->validate();
 
         try {
