@@ -17,6 +17,8 @@ class ModalAddEdit extends ModalComponent
 
     private $permissionGuard = AppPermissions::SIMULATION_MANAGEMENT;
 
+    public $sesi_count;
+
     public $sesi_count_prev;
 
     public $simulation_id;
@@ -28,6 +30,7 @@ class ModalAddEdit extends ModalComponent
     public function rules()
     {
         $rules['simulation.title'] = 'required';
+        $rules['sesi_count'] = 'integer|gt:0';
         $rules['simulation_times.*.start_time'] = 'required|date';
         $rules['simulation_times.*.end_time'] = 'required|date|after:simulation_times.*.start_time';
 
@@ -38,25 +41,26 @@ class ModalAddEdit extends ModalComponent
     {
         $this->simulation = $this->simulation_id ? Simulations::find($this->simulation_id) : new Simulations();
 
-        $this->simulation_times = new Collection();
+        $this->simulation_times = $this->simulation_id ? $this->simulation->times : new Collection();
 
-        for ($i = 0; $i < 4; $i++)
-            $this->simulation_times->push(new SimulationsTime());
+        $this->sesi_count = $this->simulation_id ? $this->simulation_times->count() : 0;
+
+        $this->sesi_count_prev = $this->sesi_count;
     }
 
-    // public function updated()
-    // {
-    //     $selisih = $this->sesi_count - $this->sesi_count_prev;
+    public function updated()
+    {
+        $selisih = $this->sesi_count - $this->sesi_count_prev;
 
-    //     if ($selisih >= 0)
-    //         for ($i = 0; $i < $selisih; $i++)
-    //             $this->simulation_times->push(new SimulationsTime());
-    //     else
-    //         for ($i = 0; $i < -1 * $selisih; $i++)
-    //             $this->simulation_times->pop();
+        if ($selisih >= 0)
+            for ($i = 0; $i < $selisih; $i++)
+                $this->simulation_times->push(new SimulationsTime());
+        else
+            for ($i = 0; $i < -1 * $selisih; $i++)
+                $this->simulation_times->pop();
 
-    //     $this->sesi_count_prev = $this->sesi_count;
-    // }
+        $this->sesi_count_prev = $this->sesi_count;
+    }
 
 
     public function handleForm()
@@ -81,8 +85,8 @@ class ModalAddEdit extends ModalComponent
             $this->emit('success', "Berhasil menambahkan simulasi baru");
         } catch (\Exception $e) {
             DB::rollBack();
-            // $this->emit("error", $e->getMessage());
-            $this->emit('error', "Gagal menambahkan simulasi baru");
+            $this->emit("error", $e->getMessage());
+            // $this->emit('error', "Gagal menambahkan simulasi baru");
         } finally {
             $this->emit('reloadComponents', 'admin.simulation.table');
             $this->emit('closeModal');

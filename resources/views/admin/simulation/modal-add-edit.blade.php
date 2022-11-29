@@ -8,6 +8,16 @@
             <x-input.error for="simulation.title" />
         </x-input.wrapper>
 
+        @if (!$simulation_id)
+            <x-input.wrapper>
+                <x-input.label for="sesi_count" value="{{ __('Jumlah Sesi') }}" />
+                <x-input.caption>Jumlah sesi tidak bisa diubah lagi setelah ditambahkan</x-input.caption>
+                <x-input.text wire:model.lazy="sesi_count" id="sesi_count" type="number" min=0 />
+                <x-input.error for="sesi_count" />
+            </x-input.wrapper>
+        @endif
+
+
         @foreach ($simulation_times as $index => $times)
             <div class="grid md:grid-cols-2 md:gap-x-2" wire:key="times-field-{{ $times->id ?? $index }}">
                 <x-input.wrapper>
