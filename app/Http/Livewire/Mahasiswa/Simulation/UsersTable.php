@@ -48,11 +48,15 @@ class UsersTable extends DataTableComponent
                 ->format($centeredColumnFormat),
             Column::make('satker final')
                 ->format(function ($value, $column, $row) {
+                    if (!$row->satkerfinal)
+                        return '';
                     return view('mahasiswa.simulation.column.kabupaten', ['kabupaten' => $row->satkerfinal->name, 'satker_id' => $row->satker_final, 'simulations_id' => $row->simulations_id]);
                 })
                 ->searchable(),
             Column::make('Provinsi')
                 ->format(function ($value, $column, $row) {
+                    if (!$row->satkerfinal)
+                        return '';
                     return view('mahasiswa.simulation.column.provinsi', ['provinsi' => $row->satkerfinal->location->provinsi, 'simulations_id' => $row->simulations_id]);
                 }),
             Column::make('Status Pemilihan')

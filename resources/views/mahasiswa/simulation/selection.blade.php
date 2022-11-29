@@ -17,8 +17,10 @@
         @foreach ([1, 2, 3] as $f)
             <x-description-list title="Pilihan {{ $f }}" class="border-b border-gray-100">
                 @if ($formation["satker{$f}"])
+                    <?php $satker = "satker_{$f}"; ?>
+
                     <x-link target="_blank"
-                        href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $formation->simulations_id, 'satker' => $formation['satker_' . $f]]) }}">
+                        href="{{ route('user.simulasi.details-kab.satker', ['simulation' => $formation->simulations_id, 'satker' => $formation->{$satker}]) }}">
 
                         <span>{{ $formation["satker{$f}"]->full_name }} -
                             {{ $formation["satker{$f}"]->location->provinsi }}</span>
