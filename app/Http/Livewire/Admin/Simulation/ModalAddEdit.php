@@ -38,7 +38,7 @@ class ModalAddEdit extends ModalComponent
     {
         $this->simulation = $this->simulation_id ? Simulations::find($this->simulation_id) : new Simulations();
 
-        $this->simulation_times = $this->simulation_id ? $this->simulation->times : new Collection();
+        $this->simulation_times = new Collection();
 
         for ($i = 0; $i < 4; $i++)
             $this->simulation_times->push(new SimulationsTime());
