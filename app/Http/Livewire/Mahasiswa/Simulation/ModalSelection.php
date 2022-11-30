@@ -44,9 +44,12 @@ class ModalSelection extends ModalComponent
         ])
             ->find($user_formation_id);
 
+        $userFormation = $this->userFormation;
+
         $this->satkers = Satker::withCount([
-            'formation_final' => function (Builder $query) use ($user_formation_id) {
-                $query->where('simulations_id', $user_formation_id);
+            'formation_final' => function (Builder $query) use ($userFormation) {
+                $query->where('simulations_id', $userFormation->simulations_id);
+                $query->where('based_on', strtolower($this->userFormation->based_on));
             }
         ])
             ->where(strtolower($this->userFormation->based_on), '!=', 0)->get();
