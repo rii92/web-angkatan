@@ -23,8 +23,9 @@
                         <option value="">Pilih Satuan Kerja</option>
                         @foreach ($satkers as $satker)
                             <option value="{{ $satker->id }}">
-                                <span>{{ $satker->full_name }}</span> 
-                                <span>( {{ $satker->formation_final_count }} / {{ $satker[strtolower($userFormation->based_on)] }} )</span>
+                                <span>{{ $satker->full_name }}</span>
+                                <span>( {{ $satker->formation_final_count }} /
+                                    {{ $satker[strtolower($userFormation->based_on)] }} )</span>
                             </option>
                         @endforeach
                     </x-input.select>
@@ -33,6 +34,12 @@
             </div>
         @endforeach
 
+        <div class="mb-6 mx-6">
+            <x-input.wrapper>
+                <x-input.checkbox wire:model.defer="confirm" text="Saya yakin pilihan ini sudah fix dan final"></x-input.checkbox>
+                <x-input.error for="confirm" />
+            </x-input.wrapper>
+        </div>
 
     </x-modal.body>
     <x-modal.footer>
