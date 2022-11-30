@@ -27,26 +27,29 @@
             </div>
 
             <div class=" mt-2 text-sm">
-                <h3 class="font-bold">Harap Perhatian</h3>
+                <h3 class="font-bold">⚠️ Harap Perhatian ⚠️</h3>
                 <ul class="list-disc ml-4">
                     <li>
-                        Pilihan Satuan Kerja anda akan berpengaruh pada kehidupan anda beberapa tahun kedepan.
+                        Pilihan Satuan Kerja anda akan berpengaruh pada kehidupan anda <b>beberapa tahun kedepan</b>.
                         Oleh karena itu, pertimbangkan dengan baik satuan kerja yang anda pilih.
                     </li>
                     <li>
                         Banyak faktor yang dapat menjadi pertimbangan pada saat memilih Satuan Kerja, misalnya:
                         biaya pulang kampung, pasangan (kalo punya :D, kalo ngga skip), biaya hidup, lingkungan
-                        Satker, dan lain sebagainya.
+                        Satker, akses ke luar-masuk, ongkir Shopee, dan lain sebagainya.
                     </li>
                     <li>
                         Hasil dari simulasi ini, diharapkan dapat memberikan gambaran alokasi CPNS dari
                         Biro SDM BPS RI, dan tidak menutup kemungkinan hasil akhir akan berubah dari hasil simulasi.
                     </li>
                     <li>
-                        <b>Pilihlah dengan bijak, dan sadar diri 😉. Pilihan anda bisa berpengaruh terhadap pilihan orang lain</b>
+                        Bagi yang memiliki "priviledge" gunakan sebaik-baiknya, dan diharapkan untuk mengisi lebih cepat
                     </li>
                     <li>
-                        Jangan lupa buat CKP guys
+                        <b>Pilihlah dengan bijak, dan sadar diri 😉, pilihan anda bisa berpengaruh terhadap pilihan orang lain.</b>
+                    </li>
+                    <li>
+                        🎝 You only get one shot, do not miss your chance to blow. This opportunity comes once in a lifetime, yo 🎜
                     </li>
                 </ul>
             </div>
