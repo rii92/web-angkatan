@@ -21,10 +21,13 @@ class ModalSelection extends ModalComponent
 
     public $satkers;
 
+    public $confirm;
+
     public $rules = [
         'userFormation.satker_1' => 'required|numeric|different:userFormation.satker_2|different:userFormation.satker_3',
         'userFormation.satker_2' => 'required|numeric|different:userFormation.satker_1|different:userFormation.satker_3',
         'userFormation.satker_3' => 'required|numeric|different:userFormation.satker_1|different:userFormation.satker_2',
+        'confirm' => 'accepted',
     ];
 
     public function mount($user_formation_id)
