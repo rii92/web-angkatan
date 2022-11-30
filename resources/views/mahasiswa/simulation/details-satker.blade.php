@@ -7,47 +7,35 @@
             <h1 class="font-bold mb-2">Provinsi {{ $satker->provinsi }}</h1>
         @endif
 
-        <div class="flex flex-col mb-2">
-            <div class="overflow-x-auto">
-                <div class="inline-block min-w-full">
-                    <div class="overflow-hidden">
-                        <table class="min-w-full text-center">
-                            <thead class="border-b bg-gray-50">
-                                <tr>
-                                    @foreach (AppSimulation::BASED_ON() as $key => $value)
-                                        <th scope="col" class="text-sm font-medium text-gray-900 px-2 py-2 border"
-                                            colspan="5">
-                                            {{ strtoupper($key) }}
-                                        </th>
-                                    @endforeach
-                                </tr>
-                                <tr>
-                                    @foreach (AppSimulation::BASED_ON() as $key => $value)
-                                        @foreach (['Formasi', 'Final', 'P1', 'P2', 'P3'] as $c)
-                                            <th scope="col"
-                                                class="text-sm font-medium text-gray-900 px-2 py-2 border {{ in_array($c, ['Formasi', 'Final']) ? 'bg-yellow-100' : '' }}">
-                                                {{ $c }}
-                                            </th>
-                                        @endforeach
-                                    @endforeach
-                                </tr>
-                            </thead class="border-b">
-                            <tbody>
-                                <tr class="bg-white border-b">
-                                    @foreach (AppSimulation::BASED_ON() as $key => $value)
-                                        @foreach ([$key, "formation_final_$key", "formation_1_$key", "formation_2_$key", "formation_3_$key"] as $key2)
-                                            <td
-                                                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border">
-                                                {{ $satker->{$key2} }}
-                                            </td>
-                                        @endforeach
-                                    @endforeach
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <div class="lg:flex">
+            @foreach (AppSimulation::BASED_ON() as $key => $value)
+                <table class="w-full lg:w-auto lg:flex-1 text-center mb-4">
+                    <thead class="border-b bg-gray-50">
+                        <tr>
+                            <th scope="col" class="text-sm font-medium text-gray-900 px-2 py-2 border" colspan="5">
+                                {{ strtoupper($key) }}
+                            </th>
+                        </tr>
+                        <tr>
+                            @foreach (['Formasi', 'Final', 'P1', 'P2', 'P3'] as $c)
+                                <th scope="col"
+                                    class="text-sm font-medium text-gray-900 px-2 py-2 border {{ in_array($c, ['Formasi', 'Final']) ? 'bg-yellow-100' : '' }}">
+                                    {{ $c }}
+                                </th>
+                            @endforeach
+                        </tr>
+                    </thead class="border-b">
+                    <tbody>
+                        <tr class="bg-white border-b">
+                            @foreach ([$key, "formation_final_$key", "formation_1_$key", "formation_2_$key", "formation_3_$key"] as $key2)
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 border">
+                                    {{ $satker->{$key2} }}
+                                </td>
+                            @endforeach
+                        </tr>
+                    </tbody>
+                </table>
+            @endforeach
         </div>
 
         @if ($type == 'kab')
