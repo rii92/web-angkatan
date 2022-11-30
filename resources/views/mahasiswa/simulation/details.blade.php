@@ -43,7 +43,10 @@
                         Biro SDM BPS RI, dan tidak menutup kemungkinan hasil akhir akan berubah dari hasil simulasi.
                     </li>
                     <li>
-                        <b>Jangan Lupa SIPMEN guys, hehe</b>
+                        <b>Pilihlah dengan bijak, dan sadar diri 😉. Pilihan anda bisa berpengaruh terhadap pilihan orang lain</b>
+                    </li>
+                    <li>
+                        Jangan lupa buat CKP guys
                     </li>
                 </ul>
             </div>

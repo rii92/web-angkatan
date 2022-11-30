@@ -37,32 +37,40 @@ class SimulationController extends Controller
 
     public function detailSatkerProv(Simulations $simulation, $provinsi)
     {
-        $query =  Satker::select('locations.provinsi')
-            ->join('locations', 'locations.id', '=', 'satkers.location_id')
-            ->groupbyRaw('locations.provinsi, ks, st, d3')
-            ->where('locations.provinsi', $provinsi);
+        $countAttr = [];
 
-        foreach (AppSimulation::BASED_ON() as $formation => $value) {
-
-            $query->selectRaw("(SELECT SUM($formation) FROM satkers WHERE EXISTS (SELECT 1 FROM locations WHERE locations.id = satkers.location_id AND locations.provinsi = '$provinsi')) as $formation");
-
-            foreach ([1, 2, 3, "final"] as $pilihan)
-                $query->leftJoin("users_formations as formation_{$pilihan}_{$formation}", function ($join) use ($formation, $pilihan, $simulation) {
-                    $join->on("formation_{$pilihan}_{$formation}.satker_{$pilihan}", '=', 'locations.id')
-                        ->where("formation_{$pilihan}_{$formation}.based_on", $formation)
-                        ->where("formation_{$pilihan}_{$formation}.simulations_id", $simulation->id);
-                })
-                    ->selectRaw("COUNT(DISTINCT formation_{$pilihan}_{$formation}.user_id) as formation_{$pilihan}_{$formation}");
+        foreach ([1, 2, 3, 'final'] as $p) {
+            foreach (AppSimulation::BASED_ON() as $key => $value) {
+                $countAttr["formation_{$p} as formation_{$p}_{$key}"] = function (Builder $query) use ($key) {
+                    $query->where('based_on', $key);
+                };
+            }
         }
 
-        $satker = $query->get();
+        $allSatkers = Satker::withCount($countAttr)
+            ->whereRelation('location', 'provinsi', $provinsi)->get();
 
-        if (!count($satker))
-            return abort(404);
 
+        if (!count($allSatkers)) return abort(404);
+
+        $result = [
+            "provinsi" => $provinsi
+        ];
+
+        foreach (AppSimulation::BASED_ON() as $key => $value) {
+            $result[$key] = $allSatkers->sum($key);
+
+            foreach ([1, 2, 3, 'final'] as $p) {
+
+                $result["formation_{$p}_{$key}"] = $allSatkers->sum("formation_{$p}_{$key}");
+            }
+        }
+
+        $result = (object) $result;
+        
         return view('mahasiswa.simulation.details-satker', [
             'simulation' => $simulation,
-            'satker' => $satker[0],
+            'satker' => $result,
             'type' => 'prov'
         ]);
     }
