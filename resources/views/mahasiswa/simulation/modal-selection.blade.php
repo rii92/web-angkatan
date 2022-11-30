@@ -22,7 +22,10 @@
                     <x-input.select wire:model.defer="userFormation.satker_{{ $f }}">
                         <option value="">Pilih Satuan Kerja</option>
                         @foreach ($satkers as $satker)
-                            <option value="{{ $satker->id }}">{{ $satker->full_name }}</option>
+                            <option value="{{ $satker->id }}">
+                                <span>{{ $satker->full_name }}</span> 
+                                <span>( {{ $satker->formation_final_count }} / {{ $satker[strtolower($userFormation->based_on)] }} )</span>
+                            </option>
                         @endforeach
                     </x-input.select>
                     <x-input.error for="userFormation.satker_{{ $f }}" />

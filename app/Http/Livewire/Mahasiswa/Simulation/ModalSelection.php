@@ -7,6 +7,7 @@ use App\Constants\AppSimulation;
 use App\Http\Livewire\GuardsAgainstAccess;
 use App\Models\Satker;
 use App\Models\UserFormations;
+use Illuminate\Database\Eloquent\Builder;
 use LivewireUI\Modal\ModalComponent;
 
 
@@ -43,7 +44,12 @@ class ModalSelection extends ModalComponent
         ])
             ->find($user_formation_id);
 
-        $this->satkers = Satker::where(strtolower($this->userFormation->based_on), '!=', 0)->get();
+        $this->satkers = Satker::withCount([
+            'formation_final' => function (Builder $query) use ($user_formation_id) {
+                $query->where('simulations_id', $user_formation_id);
+            }
+        ])
+            ->where(strtolower($this->userFormation->based_on), '!=', 0)->get();
     }
 
 

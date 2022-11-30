@@ -41,8 +41,9 @@ class SimulationController extends Controller
 
         foreach ([1, 2, 3, 'final'] as $p) {
             foreach (AppSimulation::BASED_ON() as $key => $value) {
-                $countAttr["formation_{$p} as formation_{$p}_{$key}"] = function (Builder $query) use ($key) {
-                    $query->where('based_on', $key);
+                $countAttr["formation_{$p} as formation_{$p}_{$key}"] = function (Builder $query) use ($key, $simulation) {
+                    $query->where('based_on', $key)
+                        ->where('simulations_id', $simulation->id);
                 };
             }
         }
@@ -67,7 +68,7 @@ class SimulationController extends Controller
         }
 
         $result = (object) $result;
-        
+
         return view('mahasiswa.simulation.details-satker', [
             'simulation' => $simulation,
             'satker' => $result,
