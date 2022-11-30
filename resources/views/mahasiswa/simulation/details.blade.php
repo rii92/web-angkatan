@@ -49,7 +49,7 @@
                         <b>Pilihlah dengan bijak, dan sadar diri 😉, pilihan anda bisa berpengaruh terhadap pilihan orang lain.</b>
                     </li>
                     <li>
-                        🎝 You only get one shot, do not miss your chance to blow. This opportunity comes once in a lifetime, yo 🎜
+                        🎝 You only get one shot, do not miss your chance to blow. This opportunity comes once in a lifetime, yo
                     </li>
                 </ul>
             </div>
@@ -73,12 +73,6 @@
                         <x-link
                             href="https://docs.google.com/spreadsheets/d/1l2euR3QnAhD-nBN9oza-pgXQtYBoPDzValmmzZ086qU/edit#gid=1720344264">
                             Jawaban QnA
-                        </x-link>
-                    </li>
-                    <li>
-                        <x-link
-                            href="https://docs.google.com/spreadsheets/d/1DWSsUBkspLo_MttE3_15sBRrgzs0nt8K/edit?rtpof=true&sd=true#gid=1932214716">
-                            List Sesi
                         </x-link>
                     </li>
                 </ul>
