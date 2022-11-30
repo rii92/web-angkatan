@@ -53,14 +53,19 @@ class SatkerTable extends DataTableComponent
         if ($this->getFilter('formation'))
             return array_merge($baseColumn, [
                 Column::make("Formasi " . $this->getFilter('formation'), $this->getFilter('formation'))
+                    ->sortable()
                     ->format($centeredColumnFormat),
                 Column::make("Pilihan 1", "formation_1_count")
+                    ->sortable()
                     ->format($centeredColumnFormat),
                 Column::make("Pilihan 2", "formation_2_count")
+                    ->sortable()
                     ->format($centeredColumnFormat),
                 Column::make("Pilihan 3", "formation_3_count")
+                    ->sortable()
                     ->format($centeredColumnFormat),
                 Column::make("Final", "formation_final_count")
+                    ->sortable()
                     ->format($centeredColumnFormat),
             ]);
 
