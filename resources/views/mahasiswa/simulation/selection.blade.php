@@ -46,6 +46,9 @@
                 @if ($formation->satker_final_updated_at)
                     <div class="italic">
                         hasil diupdate pada {{ $formation->satker_final_updated_at->format('d-M-Y H:i:s') }}
+                        @if (!$formation->satker_final_completed)
+                            <x-badge.warning text="Job is Running" />
+                        @endif
                     </div>
                 @endif
 
