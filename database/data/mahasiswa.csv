@@ -1,12 +1,427 @@
 kelas,nama,nim,dosbing,pa_divisi,pa_jabatan,angkatan
-4SR1,Patrick,221910300,"Farid Ridho. SST., M.T.",Akademik,Anggota,60
-4SR1,Patrick,221910392,"Dr. Ernawati Pasaribu, S.Si., M.E.",BPH,Wakil Ketua KS,60
-4SR1,Patrick,221910568,"Farid Ridho. SST., M.T.",BPH,Sekretaris I,60
-4SR1,Patrick,221910291,Dr. Nucke Widowati Kusumo Projo,Danus,Anggota,60
-4SR1,Patrick,221910502,"Yuliagnis Transver Wijaya, S.ST, M.Sc",EO,Anggota,60
-4SR1,Patrick,221910558,Dr. Yuliana Ria Uli Sitanggang,Humas,Anggota,60
-4SR1,Patrick,221910484,"Yuliagnis Transver Wijaya, S.ST, M.Sc",Pubdok,Anggota,60
-4SR1,Patrick,221910670,"Lutfi Rahmatuti Maghfiroh, SST, MT",Pubdok,Koordinator,60
-4SR1,Patrick,221910116,"Nori Wilantika, S.S.T., M.T.I.",TI,Anggota,60
-4SR1,Patrick,221910259,"Robert Kurniawan, SST, M Si",TI,Koordinator,60
-4SR1,Patrick,221911111,"Robert Kurniawan, SST, M Si",,,60
+4SD1,S. Sifa'ul Khusna Malikhatul Mutmainah,221910689,,,,61
+4SD1,Amna Ismawati,221910693,,,,61
+4SD1,Fidya Adiningtias,221910709,,,,61
+4SD1,Salwa Anisa Luthfi ,221910715,,,,61
+4SD1,Hanivianisa Hamson,221910721,,,,61
+4SD1,Zubaidah Pangestika ,221910723,,BPH,Sekretaris 1,61
+4SD1,Muhamad Al Hafidz Sani,221910726,,,,61
+4SD1,Dinda Pusparahmi Sholawatunnisa,221910740,,,,61
+4SD1,Hardi Dwi Susanto,221910754,,,,61
+4SD1,Faiz Syafiq Osdimansyah,221910760,,PSDM,Anggota,61
+4SD1,Vivi Cantika Permata Haji,221910769,,,,61
+4SD1,Anisa Rahma Subagio,221910781,,DPK,Anggota,61
+4SD1,Dodik Setyawan,221910788,,,,61
+4SD1,Athoillah Zakky Ramdhani,221910792,,,,61
+4SD1,Zulhan Andika Asyraf,221910827,,,,61
+4SD1,Fitri Nurul Fadliah,221910834,,,,61
+4SD1,Dinda Fahrani ,221910859,,,,61
+4SD1,Muamar Khadafi,221910864,,,,61
+4SD1,M.Apriesya Wastu Nirbhaya,221910876,,,,61
+4SD1,Dian Azizah,221910880,,,,61
+4SD1,Putri Kurnia Fadellah,221910894,,,,61
+4SD1,Rumayani Nur Rohmatus Sa'Diyah ,221910903,,,,61
+4SD1,M. Robith Hasymi Ananda,221910912,,,,61
+4SD1,Wildannissa Pinasti,221910931,,,,61
+4SD1,Hady Rizaldy Gunawan ,221910974,,,,61
+4SD1,Iftitah Athiyyah Rahma,221910989,,,,61
+4SD1,Ratih Rodliyah,221910990,,,,61
+4SD1,Shally Nabila,221911007,,Fundraising,Anggota,61
+4SD1,Resi Ramadani,221911022,,,,61
+4SD1,Josya Ryan Alexandro Purba,221911023,,,,61
+4SD1,Fathonah Illia,221911038,,,,61
+4SD1,Muhammad Hafizh Eka Putra,221911048,,PSDM,Anggota,61
+4SD1,Billy Aufa Alfarisy ,221911058,,,,61
+4SD1,Afnita Rahma Auliya Putri,221911091,,,,61
+4SD1,Dian Rahmawati Salis ,221911153,,,,61
+4SD1,Eliana Putri Ramadani,221911174,,,,61
+4SD1,Siti Armanisa,221911180,,,,61
+4SD1,Alfonsius Berly,221911193,,,,61
+4SD2,Nazzala Qinthara Nafi,221910692,,Fundraising,Koordinator,61
+4SD2,Azahra Dwi Putri,221910697,,,,61
+4SD2,M. Daffa Taufiq Hadikara,221910705,,,,61
+4SD2,Sita Aliya Rutba,221910717,,,,61
+4SD2,Farhan Satria Aditama,221910757,,,,61
+4SD2,Muhamad Ridwan,221910782,,,,61
+4SD2,Sarah Mutia,221910787,,,,61
+4SD2,Defi Nurshaleha,221910795,,,,61
+4SD2,Rifky Hidayattullah,221910799,,DPK,Anggota,61
+4SD2,Fauzan Faldy Anggita ,221910808,,,,61
+4SD2,Raflizal Fikrar Odriansyah,221910812,,,,61
+4SD2,Astrinariswari Rahmadian P,221910835,,,,61
+4SD2,Amanda Firdaus Putri Sadikin ,221910839,,,,61
+4SD2,Dita Dwi Wulan Sari ,221910853,,,,61
+4SD2,Apriliyanti Eka Putri ,221910879,,,,61
+4SD2,Wilda Azka Adifasany,221910881,,,,61
+4SD2,Risang Ayu Siwi Eka Putri,221910888,,,,61
+4SD2,Vania Tresa Ramanel,221910906,,,,61
+4SD2,Mohamad Choirul Zamzami ,221910908,,,,61
+4SD2,Windy Rahmatul Azizah ,221910914,,,,61
+4SD2,Pratitya Siwapatra ,221910949,,,,61
+4SD2,Nauval Yusuf Retsigam S,221910951,,,,61
+4SD2,Albert Assidiq,221910956,,,,61
+4SD2,Umi Maisyuroh ,221910968,,,,61
+4SD2,Fizqi Alfairuz,221911014,,,,61
+4SD2,Jamilatul Fitriya Kumala,221911025,,,,61
+4SD2,Riduwan Nurkolis,221911030,,Akademik,Anggota,61
+4SD2,Nurul Azizah,221911049,,,,61
+4SD2,Trigels Archelia Br Barus,221911061,,,,61
+4SD2,Amoreta Luvena Adamash Br,221911075,,,,61
+4SD2,Renata Putri Henessa,221911079,,,,61
+4SD2,Muhammad Al-Fath Fisabilillah ,221911087,,,,61
+4SD2,Apriyani Maristella Sinurat ,221911090,,EO,Anggota,61
+4SD2,Kharisma Ayu Pradani ,221911095,,,,61
+4SD2,Muhammad Muawwad Ms,221911123,,,,61
+4SD2,Sheyla Berlianti ,221911134,,,,61
+4SD2,Dwi Karunia Syaputri,221911164,,,,61
+4SD2,Nora Dzulvawan ,221911179,,Akademik,Anggota,61
+4SE1,Aegidius Cloudyo Nadi,211810105,,,,60
+4SE1,Fourlantino Ikhsanuddin,211810312,,,,60
+4SE1,Auliya' Jami'Atus Saufi,211910687,,,,61
+4SE1,Azim Naila Fadhlillah ,211910691,,,,61
+4SE1,Aqsal Rizky Ramadhani,211910703,,,,61
+4SE1,Bella Pradiana,211910706,,,,61
+4SE1,Milan Puji Astuti,211910707,,,,61
+4SE1,Auliya Nujumul Laily,211910708,,,,61
+4SE1,Pikata Aselnino,211910712,,,,61
+4SE1,Athaya Salwa Syahirah,211910714,,,,61
+4SE1,Rahmania Nur Chasanah,211910727,,,,61
+4SE1,Hawa Dwi Nur Arandita,211910735,,BPH,Sekretaris 2,61
+4SE1,Muhammad Azhari,211910756,,,,61
+4SE1,Eugenius Darryl Sundjaja,211910759,,,,61
+4SE1,Nafisatul Faridah,211910768,,,,61
+4SE1,Fasyina Tsurayya Nisyah,211910771,,,,61
+4SE1,Khairunnissa Fadillah,211910773,,,,61
+4SE1,Bagus Rohmad,211910793,,,,61
+4SE1,Kharisma Pandu Utama,211910794,,,,61
+4SE1,Yama Risnaldi Putra,211910811,,,,61
+4SE1,Bernica Tiyas Belantika,211910856,,,,61
+4SE1,Gabriella Deby Laura,211910865,,,,61
+4SE1,Frederick Yehezkiel Mangatur Sitorus,211910866,,,,61
+4SE1,Siti Alifah Rahma Inas,211910872,,,,61
+4SE1,Andri Prasetyo,211910875,,,,61
+4SE1,Vifi Yusnita Purba,211910917,,,,61
+4SE1,Suci Fadhila Rahma,211910967,,BPH,Bendahara 2,61
+4SE1,Kurnia Anisya Fitri,211910973,,,,61
+4SE1,Rani Adila,211910988,,,,61
+4SE1,Muhammad Raqi Tama,211910998,,DPK,Anggota,61
+4SE1,Lamtutur Sri Paulina Pasaribu,211911015,,,,61
+4SE1,David R. Hutasoit,211911054,,,,61
+4SE1,Martha Christin Sulistyani Zalukhu,211911071,,,,61
+4SE1,Nursalam,211911100,,,,61
+4SE1,Ni Kadek Ayu Purnami Sari Dewi,211911183,,,,61
+4SE2,M. Raja Darussalam ,211810408,,,,60
+4SE2,Intan Puspaning Pertiwi,211910704,,,,61
+4SE2,Rahadian Budi Kusumah,211910713,,,,61
+4SE2,Aisyah Nur Afifah,211910716,,,,61
+4SE2,Arsdhewani Maria Vianey,211910719,,,,61
+4SE2,Lora Vernita,211910734,,EO,Anggota,61
+4SE2,Raina Rega,211910744,,,,61
+4SE2,Sukma Kurnia Wijayanti,211910748,,,,61
+4SE2,Arief Budiman Ahmad,211910764,,,,61
+4SE2,Yualita Surya Asri,211910776,,,,61
+4SE2,Aulia Syefani,211910777,,,,61
+4SE2,Galih Prima Putra,211910783,,,,61
+4SE2,Nur Dina Camalia,211910813,,,,61
+4SE2,Anas Rulloh Budi Alamsyah,211910822,,,,61
+4SE2,Elsa Dwiteana,211910831,,,,61
+4SE2,Khomsatun Chasanah,211910869,,,,61
+4SE2,Ashita Setyaningtyas ,211910877,,,,61
+4SE2,Yogi Ramadhan,211910885,,,,61
+4SE2,Resda Aninditya Audina,211910935,,,,61
+4SE2,Radithya Agung Purwanto ,211910950,,,,61
+4SE2,Elva Dwi Kristiani,211910953,,,,61
+4SE2,Nurzikri Saputra,211910958,,,,61
+4SE2,Fidya Alhayu,211910962,,,,61
+4SE2,Ervione Mahala Zulfitri,211910972,,,,61
+4SE2,Elisaro Perdamaian Baeha,211911002,,,,61
+4SE2,Pramudya Ferdy Dwi Irianto,211911027,,,,61
+4SE2,Lidya Zhafirah,211911074,,,,61
+4SE2,Anisa Nur Jannah,211911078,,,,61
+4SE2,Aldi Firmansyah,211911114,,,,61
+4SE2,Putu Yoga Kurniawan,211911138,,,,61
+4SE2,Siti Fenisha Indah Puteri,211911154,,BPH,Wakil Ketua 1,61
+4SE2,Luh Putu Intan Krisnadewi,211911166,,,,61
+4SE2,Dhea Prawidia,211911181,,DPK,Anggota,61
+4SE2,Muhardi Wansyah,211911238,,,,61
+4SE2,Fahra Permata Sari,211911240,,Fundraising,Anggota,61
+4SE3,Alfajri Hidayat,211810139,,,,60
+4SE3,Dian Anggriani.G,211910694,,,,61
+4SE3,Suci Utami Adi Luhung ,211910711,,,,61
+4SE3,Lika Zuyyina Fuaida,211910728,,,,61
+4SE3,Firda Lailatun Naafi,211910729,,PSDM,Anggota,61
+4SE3,Hana Fauziyah,211910767,,,,61
+4SE3,Kirana Anindya,211910780,,DPK,Anggota,61
+4SE3,Sitta Auliya Salsabila,211910789,,,,61
+4SE3,Kananda Rafi Pradana,211910791,,,,61
+4SE3,Amalia Nurrachma Firdha ,211910803,,Fundraising,Anggota,61
+4SE3,Ressa Isnaini Arumnisaa’,211910805,,,,61
+4SE3,Sunu Kun Aziz,211910819,,,,61
+4SE3,Hilman Zakaria,211910824,,,,61
+4SE3,Rizki Aji Prasetyo ,211910832,,,,61
+4SE3,Patimah Zahra,211910837,,EO,Anggota,61
+4SE3,Dadang Nasution,211910841,,,,61
+4SE3,Novan Adi Nugroho,211910848,,,,61
+4SE3,Khotibul Umam,211910868,,,,61
+4SE3,Nurul Isna ,211910873,,,,61
+4SE3,Nissa Shahadah Q ,211910910,,,,61
+4SE3,Damar Jaluprakasa,211910919,,,,61
+4SE3,Rani Mardiyah Ishak,211910985,,,,61
+4SE3,Salsabila Nur Azizah,211910996,,,,61
+4SE3,Asa Bharatiya Cahyalalita ,211910997,,Akademik,Anggota,61
+4SE3,Syaikhul 'Ibad,211911004,,,,61
+4SE3,Siti Nur Wulan Sha Bana,211911009,,BPH,Sekretaris Utama,61
+4SE3,Annisa Firnanda,211911031,,,,61
+4SE3,Munifah Zuhra Almasah ,211911036,,,,61
+4SE3,Farah Amira Firdausia,211911041,,,,61
+4SE3,Naufal Anhar,211911141,,,,61
+4SE3,Ira Nurhanifa,211911163,,,,61
+4SE3,Sari Asnuri,211911172,,,,61
+4SE3,Rifdah Zhahiirah,211911196,,,,61
+4SE3,Hanifah Putri Rosanti,211911229,,,,61
+4SE3,Taufiqqur Ramadhan ,211911243,,,,61
+4SE4,Laurenzia Ayu Laura,211910699,,,,61
+4SE4,Santika Isnaeni Agustin,211910745,,,,61
+4SE4,Dani Setyawan,211910765,,,,61
+4SE4,Sarafina Fadlillah,211910775,,,,61
+4SE4,Angie Almira Manurung,211910786,,,,61
+4SE4,Syafira Karunia Sari,211910798,,PSDM,Anggota,61
+4SE4,Adham Malay Japany,211910817,,,,61
+4SE4,Annisa Yuniarti Susanto,211910821,,,,61
+4SE4,Hilda Kurniawati,211910849,,,,61
+4SE4,Shafira Nuraulia,211910854,,,,61
+4SE4,Rania Humaira,211910882,,BPH,Bendahara 1,61
+4SE4,Erdi Fakhriandi,211910891,,EO,Anggota,61
+4SE4,Salbila Anandia Ramadanti,211910896,,,,61
+4SE4,Evelyn Dwinatasia Lumban Gaol,211910942,,,,61
+4SE4,Trah Umi Afifah,211910946,,,,61
+4SE4,Amanda Putri Azzahrah,211910947,,,,61
+4SE4,Wifa Darma Aulia,211910948,,,,61
+4SE4,Diza Potenza,211910980,,,,61
+4SE4,Immanuel Keral Bayu Laksana,211910999,,,,61
+4SE4,Lailatus Syifa Aulianisa,211911010,,EO,Anggota,61
+4SE4,Marsandhi Evan Dino Pardede,211911011,,,,61
+4SE4,Qorinul Huda ,211911012,,,,61
+4SE4,Muhammad Ahasvaros Dar'El Sutrawhana ,211911016,,,,61
+4SE4,Marvela Alfarosa Pardede,211911021,,DPK,Anggota,61
+4SE4,Benget Silitonga ,211911047,,,,61
+4SE4,Levina Bernika,211911088,,EO,Koordinator,61
+4SE4,Muhammad Sukra Azamy ,211911127,,,,61
+4SE4,Anak Agung Ketut Agung Dharma Putra,211911131,,,,61
+4SE4,Calvino Pablo Dinova,211911146,,Pubmedkraf,Anggota,61
+4SE4,Puput Handayani,211911169,,,,61
+4SE4,Tri Andreas Sianturi,211911197,,,,61
+4SE4,Musfia,211911203,,,,61
+4SE4,Kurnia Fadilah,211911217,,EO,Anggota,61
+4SE4,Siti Sulhiyati,211911219,,EO,Anggota,61
+4SE4,Patrisia Gabriela ,211911248,,,,61
+4SI1,Muhammad Yasin Vidian,221810477,,,,60
+4SI1,Dwi Joko Purnomo ,221910685,,,,61
+4SI1,Marya Zahra Aliffio Krisfianda,221910730,,Pubmedkraf,Anggota,61
+4SI1,Hariyo Adi Sakti,221910755,,,,61
+4SI1,Habibullah Hibatul Wafi,221910761,,,,61
+4SI1,Choirunnisa Jati Safitri,221910766,,,,61
+4SI1,Rahmanda Surya ,221910809,,,,61
+4SI1,Alif Wira Bayu,221910814,,TI,Anggota,61
+4SI1,Daffa Fadhila Hidayat ,221910825,,BPH,Ketua,61
+4SI1,Haryuningtyas Ramadhani Putri,221910826,,,,61
+4SI1,Muhammad Abdurrofi,221910857,,,,61
+4SI1,Muhamad Arya Fitra,221910858,,,,61
+4SI1,Ardian Fajri Saputra,221910862,,DPK,Anggota,61
+4SI1,I Wayan Chandra Purwatmaja ,221910870,,,,61
+4SI1,Alya Safadella Putri Akca,221910892,,,,61
+4SI1,Alfina Julianti,221910918,,,,61
+4SI1,Muhammad Arya Septa K,221910940,,,,61
+4SI1,Alya Faradila,221910944,,,,61
+4SI1,Allif Maulana Sakti ,221910981,,,,61
+4SI1,Ilham Alifian Firmansyah,221911018,,BPH,Wakil Ketua 2,61
+4SI1,Denisa Hilmy Atiqah,221911050,,,,61
+4SI1,Muhammad Syibli,221911062,,,,61
+4SI1,Latifa Ramadhani Jamal,221911099,,,,61
+4SI1,Bagus Almahenzar,221911108,,,,61
+4SI1,Urwatil Hasna,221911115,,,,61
+4SI1,Sandya Muti Audina,221911170,,,,61
+4SI1,Kuh Latersya Tarigan ,221911177,,,,61
+4SI1,Putri Fitrah Insani,221911205,,,,61
+4SI1,Andi Muhammad Rosyidin Hidayat,221911210,,TI,Anggota,61
+4SI1,Anlin Pradana,221911212,,,,61
+4SI1,Muhammad Ighfar Saputra,221911241,,Akademik,Anggota,61
+4SI1,Teungku Muhammad Siddiq ,221911245,,,,61
+4SI2,Arif Ikhwan Hendra,221810193,,,,60
+4SI2,Dyah Ayu Pitaloka Sujangi,221810254,,,,60
+4SI2,Syahrul Toha Saputra ,221910696,,,,61
+4SI2,Migunani Puspita Eugenia,221910737,,DPK,Anggota,61
+4SI2,Berliana Vera Prasetyaningrum,221910750,,,,61
+4SI2,Ardita Khoirunnisa,221910785,,,,61
+4SI2,Fahmi Muhammad Sahal,221910796,,,,61
+4SI2,Dhiya Ulkhaq Alauddin,221910820,,,,61
+4SI2,Michellia Cempaka Salsabila,221910833,,,,61
+4SI2,Rakai Abilawa,221910842,,,,61
+4SI2,Emanuel Lega,221910843,,TI,Anggota,61
+4SI2,Yoka Prasetia,221910846,,TI,Anggota,61
+4SI2,Jennie Maheswari Primazera,221910851,,,,61
+4SI2,Adielia Amanda,221910874,,,,61
+4SI2,Maulyta Noer Fadilla,221910938,,,,61
+4SI2,Richard Putra Rahmat Zega,221910943,,,,61
+4SI2,Gestyan Ramadhan,221911003,,,,61
+4SI2,Farah Adiba Hutami,221911024,,,,61
+4SI2,Aulia Rido Salsabila,221911026,,,,61
+4SI2,Agung Dika Wilantara ,221911059,,PSDM,Anggota,61
+4SI2,Bill Van Ricardo Zalukhu ,221911069,,Akademik,Koordinator,61
+4SI2,Rifki Arya Farezi,221911077,,,,61
+4SI2,Nelson Mordehai Samosir,221911080,,,,61
+4SI2,Novril Ihza Razenda,221911111,,Pubmedkraf,Anggota,61
+4SI2,Hijri Rif'Ani Rafiq,221911129,,,,61
+4SI2,Rizka Julianisa Asri,221911157,,,,61
+4SI2,Riofebri Prasetia,221911192,,TI,Koordinator,61
+4SI2,Ilman Maulana,221911194,,,,61
+4SI2,Muhammad Sabri Ekie,221911200,,,,61
+4SI2,Nadhira Annisa Dwi Dharviyanti ,221911206,,Akademik,Anggota,61
+4SI2,M. Ramadhan Putra Fajar,221911249,,,,61
+4SK1,Ubaidillah Dhiya Ulhaq,211810636,,,,60
+4SK1,Alfath Dias Farras,211910684,,,,61
+4SK1,Meilisa Indahsari,211910690,,,,61
+4SK1,Hanifah Vida Indrasari ,211910724,,,,61
+4SK1,Fadia Almayda,211910731,,,,61
+4SK1,Delvina Nur Rahmawati ,211910739,,,,61
+4SK1,Gian Ananta Nalom ,211910751,,,,61
+4SK1,Vania Putri Ardiningrum,211910772,,Pubmedkraf,Anggota,61
+4SK1,Wildan Miftah Alfarid,211910779,,DPK,Anggota,61
+4SK1,Naily Malichah,211910800,,,,61
+4SK1,Nur Hidayat,211910807,,,,61
+4SK1,I Gede Apta Sandi Prayuda Utama,211910828,,,,61
+4SK1,Olivia Dyta Marhadika,211910836,,,,61
+4SK1,Ria Candrawati ,211910860,,,,61
+4SK1,Siti Sa'Adaturrobi'Ah,211910861,,,,61
+4SK1,Kania Wilinda Sari,211910889,,,,61
+4SK1,Guntur Nugroho,211910920,,,,61
+4SK1,M. Irfan Fauzi,211910929,,,,61
+4SK1,Zulfaning Tyas Hanafi,211910941,,,,61
+4SK1,Ezha Sekar Kedaton ,211910954,,,,61
+4SK1,Sahnas Aisyiah Maha,211910963,,,,61
+4SK1,Ghita Setiaji Putra,211910977,,,,61
+4SK1,Wafi Safira Firdaus,211910992,,,,61
+4SK1,Viery Zanki Kurniaffandi,211910994,,,,61
+4SK1,Alisia Firdaus,211911005,,,,61
+4SK1,Devilta Restu Fanesha,211911013,,,,61
+4SK1,Evry Mayli,211911035,,,,61
+4SK1,Putri Dhinda,211911037,,Fundraising,Anggota,61
+4SK1,Fiona Sri Clarissa,211911039,,,,61
+4SK1,Adisya Riski Angraini ,211911045,,,,61
+4SK1,Moreno Kay Boy Simanjuntak,211911066,,,,61
+4SK1,Muhammad Ghufran Rusydi,211911101,,,,61
+4SK1,Muh Khonata Efendi ,211911135,,,,61
+4SK1,Eduard Manuel Fernandez,211911187,,,,61
+4SK1,Aditiya Esa Prasetyo,211911199,,,,61
+4SK1,Marinus Oskarito Badj,211911209,,,,61
+4SK1,Nabila Putri Lestari,211911218,,,,61
+4SK2,Abyan Aziswan,211810092,,,,60
+4SK2,Rizqi Abimanyu Brilian Wiguna,211810581,,,,60
+4SK2,Salma Dafia Milatina ,211910686,,Pubmedkraf,Anggota,61
+4SK2,Aprilia Putri Sariningrum,211910695,,,,61
+4SK2,Nabilla Salwa Nur Fauziyah,211910698,,,,61
+4SK2,Desi Puspitasari,211910725,,,,61
+4SK2,Abdul Rasyid Faqih,211910738,,,,61
+4SK2,Nuansa Maulida R,211910743,,,,61
+4SK2,Verga Herviana Lucya Hariani,211910747,,,,61
+4SK2,Agus Setiawan Ahmad,211910753,,,,61
+4SK2,Hasna Hanuni Zhafira ,211910758,,,,61
+4SK2,Amirul Falah Mustaqim ,211910770,,,,61
+4SK2,Mega Hardika Octaviana Putri,211910774,,DPK,Anggota,61
+4SK2,Salsabilla Hardeas Ramadhina,211910801,,,,61
+4SK2,Zainika Ichtarona,211910844,,,,61
+4SK2,Krisna Yanuar,211910847,,,,61
+4SK2,Muhammad Syahrul Faizin,211910855,,,,61
+4SK2,Arini Alva Syaadah,211910902,,,,61
+4SK2,Pratama Puspalita,211910911,,,,61
+4SK2,Ahmad Fathur Rahman,211910913,,,,61
+4SK2,Rahma Mutiara Sari,211910923,,,,61
+4SK2,Brian Wicaksono ,211910925,,,,61
+4SK2,Iqbal Asrafi,211910936,,,,61
+4SK2,Vidya Lixy Puspita Sari ,211910957,,,,61
+4SK2,Rasya Khalil Gibran ,211911020,,,,61
+4SK2,Helen Cantika Lar ,211911032,,,,61
+4SK2,Risalah Hikmah Hidayatillah,211911034,,,,61
+4SK2,M. Aflah Hidayatullah,211911043,,,,61
+4SK2,Nurathiyah Naimah ,211911052,,,,61
+4SK2,Muhammad Arfi Wahyudi ,211911053,,PSDM,Anggota,61
+4SK2,Lestyana Ningrum ,211911076,,,,61
+4SK2,Bellia Mega Sari,211911085,,,,61
+4SK2,Nadia Arsyta Putri,211911098,,,,61
+4SK2,Annisa Nur Salsabila ,211911103,,Pubmedkraf,Koordinator,61
+4SK2,Lalu Muhamad Winadi Darundiye ,211911112,,Akademik,Anggota,61
+4SK2,Kevin Leonard Christian Tanzil,211911160,,,,61
+4SK2,Mikael Purba,211911231,,,,61
+4SK3,Arief Priambudi,211810194,,,,60
+4SK3,Yuli Bagus Adriyatna,211810671,,,,60
+4SK3,Adisti Fakhrijani Rizqia,211910700,,,,61
+4SK3,Safira Fauziana Thahar,211910710,,,,61
+4SK3,Shodaidah Ika Mardani,211910722,,,,61
+4SK3,Fadel Maulana Nur Aziz Siswanto,211910746,,,,61
+4SK3,Maziyyatul Mufiedah ,211910752,,,,61
+4SK3,Farchany Achmad,211910762,,,,61
+4SK3,Rieke Adinda Pramaichita,211910763,,,,61
+4SK3,Denok Ragil Safitri,211910784,,,,61
+4SK3,Hary Rhomadon ,211910797,,,,61
+4SK3,Marta Desna Fitria Lumban Gaol,211910802,,,,61
+4SK3,Habibah Dayana Anggrekalista,211910804,,,,61
+4SK3,Ayham Majdy Muyassar,211910806,,,,61
+4SK3,Fredika Angling Maulana,211910810,,,,61
+4SK3,Afif Haidar Erdiansyah,211910818,,,,61
+4SK3,Virginia Madina,211910823,,,,61
+4SK3,Nur Amalina Fauzi,211910838,,,,61
+4SK3,Alicia Dwi Syafitri,211910852,,,,61
+4SK3,Hamada Syafia,211910871,,,,61
+4SK3,Syairila Muthia Ramadhan,211910878,,,,61
+4SK3,Putri Nurhilwa Salsabila,211910883,,,,61
+4SK3,Muhammad Fathu Rahman,211910893,,,,61
+4SK3,Sya'Adatul Maf Ula,211910898,,,,61
+4SK3,Nur Azizah Amini,211910939,,,,61
+4SK3,Baiq Alifia Shintia Azzahra,211910970,,,,61
+4SK3,Finer Mayland Sirait,211911017,,,,61
+4SK3,Zukhrufiyah Mei Santika,211911042,,,,61
+4SK3,Ridson Al Farizal P,211911057,,,,61
+4SK3,Shindy Bangun Pratiwi,211911065,,,,61
+4SK3,Leandro Pandapotan Marpaung,211911082,,DPK,Anggota,61
+4SK3,Muhammad Rafie Ananda,211911109,,,,61
+4SK3,Eross Wahyu Pamungkas ,211911110,,,,61
+4SK3,Moh. Ridza Aryanata ,211911117,,,,61
+4SK3,Arif Hermawan,211911139,,,,61
+4SK3,Ziadatu Rochma,211911198,,,,61
+4SK3,Muhammad Faturahman Kasim,211911214,,,,61
+4SK4,Elyza Nurul Hapsari,211810265,,,,60
+4SK4,Yudhistira,211810669,,,,60
+4SK4,Fatikha Maulida Izzati,211910688,,,,61
+4SK4,Restituta Ema Berlian Sekarputri,211910718,,,,61
+4SK4,Dwi Ayu Andriani,211910732,,,,61
+4SK4,Athiyya Eka Dewanti,211910733,,,,61
+4SK4,Diah Aisyah,211910736,,,,61
+4SK4,Rahmi Maulina Alwi,211910741,,,,61
+4SK4,Ilham Ardiansyah,211910742,,,,61
+4SK4,Destiana Nur Safitri ,211910749,,,,61
+4SK4,Hafsha Daffa Dhiaulhaq,211910778,,,,61
+4SK4,Eka Defri Nur Yulianto,211910790,,,,61
+4SK4,Sofian Ramdani,211910815,,DPK,Anggota,61
+4SK4,Ananda Fortuna,211910816,,,,61
+4SK4,Tera Tangkas Kurnialisdya  ,211910829,,,,61
+4SK4,Maissy Arshella ,211910830,,PSDM,Koordinator,61
+4SK4,Ghifari Khairul Hakim,211910840,,,,61
+4SK4,Naufal Kharisma Akbar ,211910845,,,,61
+4SK4,Muhamad Zidan Nuralifian,211910863,,,,61
+4SK4,Muhammad Riza Fakhrulrizqi,211910867,,,,61
+4SK4,Geus Rama Syarief,211910900,,,,61
+4SK4,Umi Syafiyah ,211910907,,,,61
+4SK4,Dina Marizka,211910937,,,,61
+4SK4,Ainun Jariah ,211910975,,,,61
+4SK4,Arifa Nissa Prahesti,211910979,,,,61
+4SK4,Dita Putri Puspitasari,211910983,,,,61
+4SK4,Sabrina Syayidatul Insyiroh,211910987,,,,61
+4SK4,Firdaus Adam Smartiano Abdul Aziz,211911000,,,,61
+4SK4,Anissa Nurullya Fernanda,211911060,,Pubmedkraf,Anggota,61
+4SK4,Agil Priyovi Yonanda,211911063,,EO,Anggota,61
+4SK4,Jetspeed ,211911064,,,,61
+4SK4,Ine Cahyani ,211911081,,,,61
+4SK4,Ahmad Fauzan ,211911124,,,,61
+4SK4,Nina Anestasia ,211911188,,,,61
+4SK4,Mohamad Aldi Ilham Madjid,211911232,,,,61
+4SK4,Ahmad Kelfin Florianto ,211911246,,,,61
