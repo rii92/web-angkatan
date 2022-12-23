@@ -61,7 +61,7 @@ class ModalDelete extends ModalComponent
         // email notification
         $name = $sambat->is_anonim ?  $user->details->anonim_name_value : $user->name;
         $user->notify(new EmailNotifications((new MailMessage)
-            ->subject("PA60 - Sambatanmu di-takedown")
+            ->subject("PA61 - Sambatanmu di-takedown")
             ->greeting("Halo {$name},")
             ->line(new HtmlString($message))
             ->line(new HtmlString("<small><i>Untuk kedepannya diharapkan lebih memperhatikan sambatan yang dibuat. Sambatan yang  akan ditake down adalah sambatan yang mengandung<b>kebencian, hoax, sara, dan pornografi</b></i></small>"))

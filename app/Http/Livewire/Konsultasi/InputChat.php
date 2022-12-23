@@ -78,7 +78,7 @@ class InputChat extends Component
             $url = route("user.konsultasi.{$this->konsul->category}.room", $this->konsul->id);
 
             $penanya->notify(new EmailNotifications((new MailMessage)
-                ->subject("PA60 - Pesan Baru pada Konsultasi")
+                ->subject("PA61 - Pesan Baru pada Konsultasi")
                 ->greeting("Halo {$penanya->name},")
                 ->line(new HtmlString($message))
                 ->action("Discussion Room", $url)
@@ -103,7 +103,7 @@ class InputChat extends Component
             foreach ($konselor as $nim) {
                 $user  = User::where('email', $nim . '@stis.ac.id')->first();
                 $user->notify(new EmailNotifications((new MailMessage)
-                    ->subject("PA60 - Pesan Baru pada Konsultasi")
+                    ->subject("PA61 - Pesan Baru pada Konsultasi")
                     ->greeting("Halo {$user->name},")
                     ->line(new HtmlString($message))
                     ->action("Discussion Room", $url)

@@ -51,16 +51,23 @@ class AppKonsul
     public static function getKonselor($dayInWeek, $jurusan)
     {
         $konselor = [
-            [self::JURUSAN_SE => "211810211", self::JURUSAN_SK => "211810119", self::JURUSAN_SI => "221810306", self::JURUSAN_SD => "221810377"],
-            [self::JURUSAN_SE => "211810423", self::JURUSAN_SK => "211810379", self::JURUSAN_SI => "221810560", self::JURUSAN_SD => "221810333"],
-            [self::JURUSAN_SE => "211810423", self::JURUSAN_SK => "211810379", self::JURUSAN_SI => "221810560", self::JURUSAN_SD => "221810333"],
-            [self::JURUSAN_SE => "211810471", self::JURUSAN_SK => "211810435", self::JURUSAN_SI => "221810560", self::JURUSAN_SD => "221810333"],
-            [self::JURUSAN_SE => "211810471", self::JURUSAN_SK => "211810435", self::JURUSAN_SI => "221810560", self::JURUSAN_SD => "221810333"],
-            [self::JURUSAN_SE => "211810471", self::JURUSAN_SK => "211810119", self::JURUSAN_SI => "221810306", self::JURUSAN_SD => "221810377"],
-            [self::JURUSAN_SE => "211810211", self::JURUSAN_SK => "211810119", self::JURUSAN_SI => "221810306", self::JURUSAN_SD => "221810377"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
         ];
 
-        return [$konselor[$dayInWeek][$jurusan], "211810500"];
+        return [$konselor[$dayInWeek][$jurusan], "221910300"];
+    }
+
+    public static function getPSDM($dayInWeek)
+    {
+        $konselor = [self::TYPE_UMUM => ["221910300","221910300","221910300","221910300","221910300","221910300","221910300"]];
+
+        return [$konselor['umum'][$dayInWeek], "221910300"];
     }
 
     public static function allJurusan($returnAssocArray = false)
