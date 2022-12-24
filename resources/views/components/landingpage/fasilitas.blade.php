@@ -1,6 +1,7 @@
 @props(['title', 'href' => '#'])
 
-<div data-aos="fade-up" data-aos-duration="1000" class="p-10 text-center border border-gray-300 rounded-md">
+{{-- <div data-aos="fade-up" data-aos-duration="1000" class="p-10 text-center border border-gray-300 rounded-md"> --}}
+<div class="p-10 text-center border border-gray-300 rounded-md">
     <div class="flex justify-center mb-6">
         {{ $icon }}
     </div>
