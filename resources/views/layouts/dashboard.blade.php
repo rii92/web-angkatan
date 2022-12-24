@@ -26,7 +26,7 @@
 </head>
 
 <body class="antialiased ">
-    <div class="flex h-screen bg-background-dashboard hero2" :class="{ 'overflow-hidden': isSideMenuOpen }">
+    <div class="flex h-screen bg-background-dashboard" :class="{ 'overflow-hidden': isSideMenuOpen }">
         @if (strpos(\Request::route()->getName(), 'admin.') === 0)
             @include('components.dashboard.sidebar')
         @else

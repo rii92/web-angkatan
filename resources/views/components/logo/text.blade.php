@@ -1,2 +1,2 @@
 @props(['text' => 'Angkatan 61'])
-<span>{{ $text }}</span>
+<span class="text-white">{{ $text }}</span>

@@ -1,14 +1,14 @@
 <x-app-layout title="{{ $announcement->title }}">
-  <div class="py-6 bg-light-4 bg-gradient-to-t from-light-4 to-white min-h-screen">
-    <div class="max-w-5xl mx-auto px-1 sm:px-6 lg:px-8">
-      <article class="shadow-lg rounded-lg bg-darker py-6 px-4 lg:px-8 relative">
+  <div class="min-h-screen py-6 bg-light-4 bg-gradient-to-t from-light-4 to-white">
+    <div class="max-w-5xl px-1 mx-auto sm:px-6 lg:px-8">
+      <article class="relative px-4 py-6 rounded-lg shadow-lg bg-blue-sidebar lg:px-8">
         <header class="mb-5">
-          <h1 class="mb-2 mt-5 font-archivo-narrow font-bold lg:text-5xl text-2xl md:text-4xl text-center text-subtle">
+          <h1 class="mt-5 mb-2 text-2xl font-bold text-center text-black font-archivo-narrow lg:text-5xl md:text-4xl">
             {{ $announcement->title }}
           </h1>
-          <div class="text-center text-orange-300">{{$announcement->published_at->format('M j, Y . h:i A')}}</div>
+          <div class="text-center text-black">{{$announcement->published_at->format('M j, Y . h:i A')}}</div>
         </header>
-        <div class="announcement prose lg:prose-lg max-w-none">
+        <div class="prose announcement lg:prose-lg max-w-none">
           {!! Str::markdown($announcement->content) !!}
         </div>
       </article>

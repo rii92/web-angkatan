@@ -1,3 +1,3 @@
-<div class="px-6 pb-2 py-3 font-semibold text-xs text-lighter">
+<div class="px-6 py-3 pb-2 text-xs font-semibold text-black">
     {{ $value }}
 </div>
