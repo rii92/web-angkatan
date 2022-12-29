@@ -48,26 +48,31 @@ class AppKonsul
         ];
     }
 
-    public static function getKonselor($dayInWeek, $jurusan)
+    // public static function getKonselor($dayInWeek, $jurusan)
+    public static function getKonselor()
     {
-        $konselor = [
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-            [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
-        ];
+        // $konselor = [
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        //     [self::JURUSAN_SE => "221910300", self::JURUSAN_SK => "221910300", self::JURUSAN_SI => "221910300", self::JURUSAN_SD => "221910300"],
+        // ];
 
-        return [$konselor[$dayInWeek][$jurusan], "221910300"];
+        // return [$konselor[$dayInWeek][$jurusan], "221910300"];
+        $konselor = ["221911030","221911179","211910997","221911241","221911069","221911206","211911112"];
+        return $konselor;
     }
 
-    public static function getPSDM($dayInWeek)
+    public static function getPSDM()
     {
-        $konselor = [self::TYPE_UMUM => ["221910300","221910300","221910300","221910300","221910300","221910300","221910300"]];
+        // $konselor = [self::TYPE_UMUM => ["221910300","221910300","221910300","221910300","221910300","221910300","221910300"]];
 
-        return [$konselor['umum'][$dayInWeek], "221910300"];
+        // return [$konselor['umum'][$dayInWeek], "221910300"];
+        $konselor = ["221910760","221911048","211910729","211910798","221911059","221911206","211910830"];
+        return $konselor;
     }
 
     public static function allJurusan($returnAssocArray = false)

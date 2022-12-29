@@ -1,12 +1,12 @@
 @props(['menu' => 'Menu Item', 'active' => false])
 
 <li @class([
-    'bg-lighter text-white' => $active,
-    'hover:bg-gray-200 hover:text-gray-800' => !$active,
+    'bg-blueButton text-font-color-sub' => $active,
+    'hover:bg-grayLink hover:text-white' => !$active,
     'relative ml-5 flex items-center transition rounded-tl-md rounded-bl-md my-2',
 ])>
     <a class="inline-flex items-center w-full px-5 py-3 text-sm font-semibold" {{ $attributes->merge(['href']) }}>
-        <div class="w-6 flex justify-center">
+        <div class="flex justify-center w-6">
             {{ $icon }}
         </div>
         <span class="ml-4">{{ $menu }}</span>

@@ -1,15 +1,15 @@
 <!-- Desktop sidebar -->
 <aside
-    class="z-20 hidden w-72 font-poppins overflow-y-auto bg-white xl:block flex-shrink-0 border-r border-gray-100 shadow-md">
+    class="z-20 flex-shrink-0 hidden overflow-y-auto border-r border-gray-100 shadow-md w-72 font-poppins bg-yellow-solen xl:block">
     <div class="pb-5 text-gray-500">
         <div class="flex items-center h-16">
             <x-logo.full class="ml-5" />
         </div>
 
-        <div class="flex items-center bg-subtle rounded-tr-lg rounded-br-lg px-5 py-3 mr-5 mt-3 mb-5">
-            <img class="h-8 w-8 rounded-full object-cover bg-lighter mr-3" src="{{ Auth::user()->profile_photo_url }}"
+        <div class="flex items-center px-5 py-3 mt-3 mb-5 mr-5 rounded-tr-lg rounded-br-lg bg-font-color-sub">
+            <img class="object-cover w-8 h-8 mr-3 rounded-full bg-blueButton" src="{{ Auth::user()->profile_photo_url }}"
                 alt="{{ Auth::user()->name }}" />
-            <span class="font-semibold text-lighter text-base">Halo
+            <span class="text-base font-semibold text-black">Halo
                 {{ Str::of(Auth::user()->name)->explode(' ')->first() }}</span>
         </div>
 
@@ -21,7 +21,7 @@
 </aside>
 <!-- Mobile sidebar -->
 <aside
-    class="fixed inset-y-0 z-20 flex-shrink-0 w-72 font-poppins mt-16 overflow-y-auto bg-white xl:hidden border-r-2 border-gray-100 shadow-md"
+    class="fixed inset-y-0 z-20 flex-shrink-0 mt-16 overflow-y-auto bg-white border-r-2 border-gray-100 shadow-md w-72 font-poppins xl:hidden"
     x-show="isSideMenuOpen" x-transition:enter="transition ease-in-out duration-150"
     x-transition:enter-start="opacity-0 transform -translate-x-20" x-transition:enter-end="opacity-100"
     x-transition:leave="transition ease-in-out duration-150" x-transition:leave-start="opacity-100"

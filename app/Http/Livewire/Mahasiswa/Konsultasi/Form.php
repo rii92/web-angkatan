@@ -126,7 +126,7 @@ class Form extends Component
         // $penanya = User::find($this->konsul->user_id);
 
         // $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan);
-        $konselor = AppKonsul::getKonselor(now()->dayOfWeek, 'SI');
+        $konselor = AppKonsul::getKonselor();
 
         $message = "Anda menerima email nih karena ada yang sedang berkonsultasi dengan judul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
 
@@ -146,7 +146,7 @@ class Form extends Component
 
     private function sendNotificationToPSDM()
     {
-        $konselor = AppKonsul::getPSDM(now()->dayOfWeek);
+        $konselor = AppKonsul::getPSDM();
         
         $url = route("admin.konsultasi.{$this->category}.room", $this->konsul->id);
 
