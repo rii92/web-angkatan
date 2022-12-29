@@ -1453,13 +1453,13 @@ select{
 .min-w-0{
 	min-width: 0px;
 }
-.min-w-full{
-	min-width: 100%;
-}
 .min-w-max{
 	min-width: -webkit-max-content;
 	min-width: -moz-max-content;
 	min-width: max-content;
+}
+.min-w-full{
+	min-width: 100%;
 }
 .max-w-screen-xl{
 	max-width: 1280px;
@@ -1983,10 +1983,6 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 190, 68, var(--tw-bg-opacity));
 }
-.bg-green-500{
-	--tw-bg-opacity: 1;
-	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
-}
 .bg-gray-700{
 	--tw-bg-opacity: 1;
 	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
@@ -1994,6 +1990,10 @@ select{
 .bg-grayQuotes{
 	--tw-bg-opacity: 1;
 	background-color: rgba(217, 217, 217, var(--tw-bg-opacity));
+}
+.bg-blueGray-50{
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
 }
 .bg-black{
 	--tw-bg-opacity: 1;
@@ -2018,10 +2018,6 @@ select{
 .bg-orange-500{
 	--tw-bg-opacity: 1;
 	background-color: rgba(249, 115, 22, var(--tw-bg-opacity));
-}
-.bg-blueGray-50{
-	--tw-bg-opacity: 1;
-	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
 }
 .bg-yellow-400{
 	--tw-bg-opacity: 1;
@@ -3340,9 +3336,9 @@ html {
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
-.hover\:bg-green-400:hover{
+.hover\:bg-font-color-sub:hover{
 	--tw-bg-opacity: 1;
-	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
 }
 
 .hover\:bg-gray-500:hover{
@@ -3355,6 +3351,11 @@ html {
 	background-color: rgba(199, 210, 254, var(--tw-bg-opacity));
 }
 
+.hover\:bg-green-400:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
+
 .hover\:bg-white:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
@@ -3363,11 +3364,6 @@ html {
 .hover\:bg-grayLink:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(107, 114, 128, var(--tw-bg-opacity));
-}
-
-.hover\:bg-font-color-sub:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
 }
 
 .hover\:bg-yellow-300:hover{
@@ -3735,14 +3731,14 @@ html {
 	.md\:col-span-1{
 		grid-column: span 1 / span 1;
 	}
-	.md\:col-span-8{
-		grid-column: span 8 / span 8;
-	}
 	.md\:col-span-3{
 		grid-column: span 3 / span 3;
 	}
 	.md\:col-span-4{
 		grid-column: span 4 / span 4;
+	}
+	.md\:col-span-8{
+		grid-column: span 8 / span 8;
 	}
 	.md\:mx-0{
 		margin-left: 0px;

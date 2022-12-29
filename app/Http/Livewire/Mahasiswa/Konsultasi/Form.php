@@ -13,7 +13,6 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use App\Mail\EmailBroadcast;
 use Illuminate\Support\Facades\Mail;
 
 class Form extends Component
