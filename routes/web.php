@@ -26,9 +26,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 
 /** Route landing page */
+// Note : jika ingin mengaktifkan lagi fitur sambat silahkan ikuti silahkan di comment route any sambat
+Route::any('/sambat', fn () => view('guest.landingpage'))->name('home'); // yang ini
 Route::get('/', fn () => view('guest.landingpage'))->name('home');
 Route::get('/proker', fn () => view('guest.proker'))->name('proker');
-Route::get('/sambat', fn () => view('guest.sambat'))->name('sambat');
+Route::get('/sambat', fn () => view('guest.landingpage'))->name('sambat'); // dan mengubah guest.landingpage menjadi guest.sambat 
 
 Route::prefix('konsultasi')->group(function () {
     Route::get('', fn () => view('guest.konsultasi'))->name('konsultasi.list');
@@ -153,6 +155,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('', fn () => view('mahasiswa.sambat'))->name('user.sambat.table');
             Route::get('add', SambatForm::class)->name('user.sambat.add');
             Route::get('{sambat_id}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
-        });
+        });   
     });
 });

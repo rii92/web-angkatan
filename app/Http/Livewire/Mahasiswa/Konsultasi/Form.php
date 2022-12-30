@@ -7,13 +7,10 @@ use Livewire\Component;
 use App\Models\Konsul;
 use App\Models\Tag;
 use App\Models\User;
-use App\Notifications\BellNotification;
 use App\Notifications\EmailNotifications;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Mail;
 
 class Form extends Component
 {
@@ -116,7 +113,7 @@ class Form extends Component
             return redirect()->route($redirectRoute, $this->konsul->id)->with('message', 'Success to add new konsultasi');
         } catch (\Exception $e) {
             DB::rollBack();
-            $this->emit('error', "Somethings Wrong, I can feel it");
+            $this->emit('error', $e->getMessage());
         }
     }
 
