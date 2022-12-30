@@ -39,7 +39,7 @@ If you want send email notifications, use like this
 
 ```php
 $user->notify(new EmailNotifications((new MailMessage)
-            ->subject("PA60 - Title")
+            ->subject("PA61 - Title")
             ->greeting("Halloo Name")
             ->line('The to the notification.')
             ->action('Notification Action', route('home'))
@@ -59,4 +59,4 @@ Just notify `$user` with `EmailNotifications` with `MailMessage` object. All ema
 
 For complete function, you can see at [SimpleMessage](./vendor/laravel/framework/src/Illuminate/Notifications/Messages/SimpleMessage.php). If you want to add custom email, you can extends `EmailNotification` class and add your format to it.
 
-> For subject, please use this format "`PA60 - Email Subject`"
+> For subject, please use this format "`PA61 - Email Subject`"

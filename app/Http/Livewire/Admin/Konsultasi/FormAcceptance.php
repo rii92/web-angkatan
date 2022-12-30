@@ -61,12 +61,12 @@ class FormAcceptance extends Component
 
         if ($penanya->details && $penanya->details->setting_send_email_accept_konsultasi)
             $penanya->notify(new EmailNotifications((new MailMessage)
-                ->subject("PA60 - {$subject}")
+                ->subject("PA61 - {$subject}")
                 ->greeting("Halo {$penanya->name},")
                 ->line(new HtmlString($message))
                 ->action("Discussion Room", $url)
                 ->line("Regards,")
-                ->salutation("Tim Akademik 60")));
+                ->salutation("Tim Akademik 61")));
     }
 
     public function submitForm($note)
