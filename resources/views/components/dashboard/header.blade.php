@@ -1,4 +1,4 @@
-<header class="h-16 bg-yellow-solen font-poppins">
+<header class="h-16 bg-blue-young-appbar font-poppins">
     <div class="flex items-center justify-between h-full px-6 mx-auto xl:container ">
         <!-- Mobile hamburger -->
         <button class="p-1 mr-5 -ml-1 text-gray-600 rounded-md xl:hidden focus:outline-none focus:text-purple-800 hover:text-purple-800" x-on:click="toggleSideMenu" aria-label="Menu">
@@ -8,7 +8,7 @@
             </svg>
         </button>
         <div>
-            <h2 class="px-0 text-lg font-semibold text-gray-600 lg:text-xl">
+            <h2 class="px-0 text-lg font-semibold text-black lg:text-xl">
                 {{ $title }}
             </h2>
         </div>

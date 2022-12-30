@@ -1927,7 +1927,11 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
-.bg-red-200{
+.bg-blueGray-50{
+	--tw-bg-opacity: 1;
+	background-color: rgba(248, 250, 252, var(--tw-bg-opacity));
+}
+.bg-darker{
 	--tw-bg-opacity: 1;
 	background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
 }
@@ -1947,7 +1951,11 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
 }
-.bg-background-dashboard{
+.bg-activeButton{
+	--tw-bg-opacity: 1;
+	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
+}
+.bg-blueButton{
 	--tw-bg-opacity: 1;
 	background-color: rgba(235, 235, 235, var(--tw-bg-opacity));
 }
@@ -1955,13 +1963,17 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(25, 48, 191, var(--tw-bg-opacity));
 }
+.bg-black{
+	--tw-bg-opacity: 1;
+	background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+}
 .bg-light-4{
 	--tw-bg-opacity: 1;
 	background-color: rgba(247, 242, 239, var(--tw-bg-opacity));
 }
-.bg-blue-50{
+.bg-blue-young-appbar{
 	--tw-bg-opacity: 1;
-	background-color: rgba(239, 246, 255, var(--tw-bg-opacity));
+	background-color: rgba(226, 243, 255, var(--tw-bg-opacity));
 }
 .bg-blue-100{
 	--tw-bg-opacity: 1;
@@ -1983,7 +1995,11 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 190, 68, var(--tw-bg-opacity));
 }
-.bg-gray-700{
+.bg-blue-sidebar{
+	--tw-bg-opacity: 1;
+	background-color: rgba(108, 125, 255, var(--tw-bg-opacity));
+}
+.bg-font-color-sub{
 	--tw-bg-opacity: 1;
 	background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
 }
@@ -2015,17 +2031,13 @@ select{
 	--tw-bg-opacity: 1;
 	background-color: rgba(11, 40, 45, var(--tw-bg-opacity));
 }
-.bg-orange-500{
+.bg-red-200{
 	--tw-bg-opacity: 1;
-	background-color: rgba(249, 115, 22, var(--tw-bg-opacity));
+	background-color: rgba(254, 202, 202, var(--tw-bg-opacity));
 }
 .bg-yellow-400{
 	--tw-bg-opacity: 1;
 	background-color: rgba(251, 191, 36, var(--tw-bg-opacity));
-}
-.bg-green-400{
-	--tw-bg-opacity: 1;
-	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
 }
 .bg-opacity-25{
 	--tw-bg-opacity: 0.25;
@@ -2339,11 +2351,11 @@ select{
 .leading-none{
 	line-height: 1;
 }
-.leading-snug{
-	line-height: 1.375;
-}
 .leading-normal{
 	line-height: 1.5;
+}
+.leading-snug{
+	line-height: 1.375;
 }
 .tracking-widest{
 	letter-spacing: 0.1em;
@@ -2434,11 +2446,7 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
-.text-font-color-sub{
-	--tw-text-opacity: 1;
-	color: rgba(244, 109, 108, var(--tw-text-opacity));
-}
-.text-blue-600{
+.text-subtle{
 	--tw-text-opacity: 1;
 	color: rgba(37, 99, 235, var(--tw-text-opacity));
 }
@@ -2497,6 +2505,10 @@ select{
 .text-orange-300{
 	--tw-text-opacity: 1;
 	color: rgba(253, 186, 116, var(--tw-text-opacity));
+}
+.text-font-color-sub{
+	--tw-text-opacity: 1;
+	color: rgba(244, 109, 108, var(--tw-text-opacity));
 }
 .text-darker{
 	--tw-text-opacity: 1;
@@ -3331,12 +3343,7 @@ html {
 	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
 }
 
-.hover\:bg-gray-200:hover{
-	--tw-bg-opacity: 1;
-	background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
-}
-
-.hover\:bg-font-color-sub:hover{
+.hover\:bg-activeButton:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(244, 109, 108, var(--tw-bg-opacity));
 }
@@ -3379,6 +3386,11 @@ html {
 .hover\:bg-main:hover{
 	--tw-bg-opacity: 1;
 	background-color: rgba(245, 190, 68, var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-sidebar:hover{
+	--tw-bg-opacity: 1;
+	background-color: rgba(108, 125, 255, var(--tw-bg-opacity));
 }
 
 .hover\:text-gray-500:hover{
@@ -3736,6 +3748,9 @@ html {
 	}
 	.md\:col-span-4{
 		grid-column: span 4 / span 4;
+	}
+	.md\:col-span-3{
+		grid-column: span 3 / span 3;
 	}
 	.md\:col-span-8{
 		grid-column: span 8 / span 8;

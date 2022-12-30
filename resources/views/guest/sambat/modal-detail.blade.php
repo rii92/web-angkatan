@@ -5,7 +5,7 @@
         </div>
 
         <div class="lg:col-span-5">
-            <div class="md:pl-3 md:mx-0 mx-2">
+            <div class="mx-2 md:pl-3 md:mx-0">
 
                 <x-sambat.comments :comments="$comments" :sambat="$sambat" />
                 
@@ -20,7 +20,7 @@
                     </form>
                 @endauth
 
-                <div class="flex justify-between items-center mt-3">
+                <div class="flex items-center justify-between mt-3">
                     <div>
                         @auth
                             <x-input.checkbox id="isAnonim" wire:model.defer="isAnonim" text="Anonim" />
@@ -33,11 +33,11 @@
                         </x-button.secondary>
 
                         @auth
-                            <x-button.success type="submit" form="add-comment" class="ml-2 order-3">
+                            <x-button.success type="submit" form="add-comment" class="order-3 ml-2">
                                 Kirim
                             </x-button.success>
                         @else
-                            <p class="text-center text-sm italic mr-2 order-1">Login dulu biar bisa ikut komentar...</p>
+                            <p class="order-1 mr-2 text-sm italic text-center">Login dulu biar bisa ikut komentar...</p>
                         @endauth
                     </div>
                 </div>

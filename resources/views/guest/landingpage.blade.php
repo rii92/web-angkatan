@@ -58,7 +58,7 @@
                 <x-landingpage.fasilitas href="{{ route('konsultasi.list') }}" title="Konsultasi">
                     <x-slot name="icon">
                         {{-- <x-icons.chat stroke-width=".5" width="70" height="70" /> --}}
-                        <img src="/img/konsultasi.png" width="70" height="70" alt="">
+                        <img src="/img/konsultasi.png" stroke-width=".5" width="70" height="70" alt="">
                     </x-slot>
                     <x-slot name="description">Kamu kenapa beb? Ayo cerita sini!</x-slot>
                 </x-landingpage.fasilitas>
@@ -66,7 +66,7 @@
                 <x-landingpage.fasilitas href="{{ route('sambat') }}" title="Sambat">
                     <x-slot name="icon">
                         {{-- <x-icons.emoji-sad stroke-width=".5" width="70" height="70" /> --}}
-                        <img src="/img/konten.png" width="70" height="70" alt="">
+                        <img src="/img/konten.png" stroke-width=".5" width="70" height="70" alt="">
                     </x-slot>
                     <x-slot name="description">Anjazz kelazz! Sini lihat konten gua</x-slot>
                 </x-landingpage.fasilitas>
@@ -74,7 +74,7 @@
                 <x-landingpage.fasilitas href="{{ route('announcement') }}" title="Informasi">
                     <x-slot name="icon">
                         {{-- <x-icons.speakerphone stroke-width=".5" width="70" height="70" /> --}}
-                        <img src="/img/informasi.png" width="70" height="70" alt="">
+                        <img src="/img/informasi.png" stroke-width=".5" width="70" height="70" alt="">
                     </x-slot>
                     <x-slot name="description">Kamu nenyee? Sini ingpo maszzehh</x-slot>
                 </x-landingpage.fasilitas>

@@ -53,8 +53,9 @@ module.exports = {
                 'blueButton': '#A7DCFE',
                 'grayQuotes': '#D9D9D9',
                 'yellow-solen': '#F5BE44',
-                'background-dashboard': '#EBEBEB'
-                 
+                'background-dashboard': '#EBEBEB',
+                'blue-sidebar': '#6C7DFF',
+                'blue-young-appbar': '#E2F3FF'
             },
             maxHeight: {
                 'custom': '90vh',
