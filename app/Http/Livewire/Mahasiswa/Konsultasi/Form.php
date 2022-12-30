@@ -119,9 +119,6 @@ class Form extends Component
 
     private function sendNotificationToConselor()
     {
-        // $penanya = User::find($this->konsul->user_id);
-
-        // $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan);
         $konselor = AppKonsul::getKonselor();
 
         $message = "Anda menerima email nih karena ada yang sedang berkonsultasi dengan judul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
