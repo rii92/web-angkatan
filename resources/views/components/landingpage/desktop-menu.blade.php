@@ -6,9 +6,9 @@
         <x-landingpage.nav-link href="{{ route('konsultasi.list') }}" :active="request()->routeIs('konsultasi.*')">
             Konsultasi
         </x-landingpage.nav-link>
-        <x-landingpage.nav-link href="{{ route('sambat') }}" :active="request()->routeIs('sambat')">
+        <!-- <x-landingpage.nav-link href="{{ route('sambat') }}" :active="request()->routeIs('sambat')">
             Sambat
-        </x-landingpage.nav-link>
+        </x-landingpage.nav-link> -->
         <x-landingpage.nav-link href="{{ route('announcement') }}"
             :active="request()->routeIs('announcement')||request()->routeIs('announcement.*')">
             Informasi

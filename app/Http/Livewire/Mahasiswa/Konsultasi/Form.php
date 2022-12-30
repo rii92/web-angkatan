@@ -7,12 +7,10 @@ use Livewire\Component;
 use App\Models\Konsul;
 use App\Models\Tag;
 use App\Models\User;
-use App\Notifications\BellNotification;
 use App\Notifications\EmailNotifications;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\HtmlString;
-use Illuminate\Support\Str;
 
 class Form extends Component
 {
@@ -111,27 +109,45 @@ class Form extends Component
             // jika membuat konsultasi akademik baru, kirim bell notifikasi ke konselor yang bertugas
             if ($this->konsul->category == AppKonsul::TYPE_AKADEMIK) $this->sendNotificationToConselor();
 
+            if ($this->konsul->category != AppKonsul::TYPE_AKADEMIK) $this->sendNotificationToPSDM();            
             return redirect()->route($redirectRoute, $this->konsul->id)->with('message', 'Success to add new konsultasi');
         } catch (\Exception $e) {
             DB::rollBack();
-            $this->emit('error', "Somethings Wrong, I can feel it");
+            $this->emit('error', $e->getMessage());
         }
     }
 
     private function sendNotificationToConselor()
     {
-        $penanya = User::find($this->konsul->user_id);
+        $konselor = AppKonsul::getKonselor();
 
-        $konselor = AppKonsul::getKonselor(now()->dayOfWeek, $penanya->details->jurusan);
-
-        $message = "Terdapat konsultasi baru berjudul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
+        $message = "Anda menerima email nih karena ada yang sedang berkonsultasi dengan judul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
 
         $url = route("admin.konsultasi.{$this->category}.room", $this->konsul->id);
 
         foreach ($konselor as $nim) {
             $user  = User::where('email', $nim . '@stis.ac.id')->first();
             $user->notify(new EmailNotifications((new MailMessage)
-                ->subject("PA60 - Terdapat Konsultasi Baru")
+                ->subject("PA61 - Terdapat Konsultasi Baru")
+                ->greeting("Halo {$user->name},")
+                ->line(new HtmlString($message))
+                ->action("Discussion Room", $url)
+                ->line("Regards,")
+                ->salutation("Tim TI Angkatan 61")));
+        }
+    }
+
+    private function sendNotificationToPSDM()
+    {
+        $konselor = AppKonsul::getPSDM();
+        
+        $url = route("admin.konsultasi.{$this->category}.room", $this->konsul->id);
+
+        $message = "Anda menerima email nih karena ada yang sedang berkonsultasi dengan judul \"<b>{$this->konsul->title}</b>\" Yuk segera ditanggapi!!";
+        foreach ($konselor as $nim) {
+            $user = User::where('email', $nim . '@stis.ac.id')->first();
+            $user->notify(new EmailNotifications((new MailMessage)
+                ->subject("PA61 - Terdapat Konsultasi Baru")
                 ->greeting("Halo {$user->name},")
                 ->line(new HtmlString($message))
                 ->action("Discussion Room", $url)

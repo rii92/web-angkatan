@@ -43,7 +43,7 @@ class ModalAddEdit extends ModalComponent
         $user  = User::where('email', $nimPJ . '@stis.ac.id')->first();
 
         $user->notify(new EmailNotifications((new MailMessage)
-            ->subject("PA60 - Terdapat Pengajuan Turnitin Baru")
+            ->subject("PA61 - Terdapat Pengajuan Turnitin Baru")
             ->greeting("Halo {$user->name},")
             ->line("{$this->user->name} baru saja melakukan pengajuan jasa pengecekan Turnitin")
             ->action("Halaman Turnitin", route('admin.turnitin.table'))

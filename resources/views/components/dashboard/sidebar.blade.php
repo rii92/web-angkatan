@@ -59,13 +59,13 @@
         </x-dashboard.sidebar-item>
     @endcan
 
-    @can(AppPermissions::DELETE_SAMBAT)
+    <!-- @can(AppPermissions::DELETE_SAMBAT)
         <x-dashboard.sidebar-item menu="Sambat" href="{{ route('admin.sambat') }}" :active="request()->routeIs('admin.sambat')">
             @slot('icon')
                 <x-icons.emoji-sad stroke-width="2.0" width="22" height="22" />
             @endslot
         </x-dashboard.sidebar-item>
-    @endcan
+    @endcan -->
 
 
     @canany([AppPermissions::ANNOUNCEMENT_MANAGEMENT, AppPermissions::TIMELINE_MANAGEMENT])
