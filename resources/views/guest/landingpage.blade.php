@@ -3,7 +3,13 @@
         <x-landingpage.hero />
     </header>
 
-    <!-- program kerja -->
+    <section class="h-20 py-2 bg-yellow-500">
+                <div class="text-6xl font-bold text-center text-black font-poppins">
+                    WELCOME
+                </div>
+    </section>
+
+    {{-- <!-- program kerja -->
     <section>
         <div class="py-16 bg-main">
             <div class="px-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -42,7 +48,7 @@
             </div>
         </div>
     </section>
-    <!-- akhir program kerja -->
+    <!-- akhir program kerja --> --}}
 
     {{-- Fasilitas --}}
     <section class="hero61">
