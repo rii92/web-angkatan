@@ -9,7 +9,7 @@
             <div class="px-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <h2 class="font-bold tracking-wider text-center text-white font-poppins mb-14">
                     <div class="mb-1 text-3xl">PROGRAM KERJA</div>
-                    <div class="text-lg md:text-xl">PENGURUS TINGKAT IV - 2021/2022
+                    <div class="text-lg md:text-xl">PENGURUS TINGKAT IV - 2022/2023
                 </h2>
                 <div class="swiper prokerImgSwiper">
                     <div class="mb-16 swiper-wrapper">
@@ -54,7 +54,8 @@
                     FITUR WEBSITE
                 </div>
             </h1>
-            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+            {{-- <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"> --}}
                 <x-landingpage.fasilitas href="{{ route('konsultasi.list') }}" title="Konsultasi">
                     <x-slot name="icon">
                         {{-- <x-icons.chat stroke-width=".5" width="70" height="70" /> --}}
@@ -63,13 +64,13 @@
                     <x-slot name="description">Kamu kenapa beb? Ayo cerita sini!</x-slot>
                 </x-landingpage.fasilitas>
 
-                <x-landingpage.fasilitas href="{{ route('sambat') }}" title="Sambat">
-                    <x-slot name="icon">
+                {{-- <x-landingpage.fasilitas href="{{ route('sambat') }}" title="Sambat">
+                    <x-slot name="icon"> --}}
                         {{-- <x-icons.emoji-sad stroke-width=".5" width="70" height="70" /> --}}
-                        <img src="/img/konten.png" stroke-width=".5" width="70" height="70" alt="">
+                        {{-- <img src="/img/konten.png" stroke-width=".5" width="70" height="70" alt="">
                     </x-slot>
                     <x-slot name="description">Anjazz kelazz! Sini lihat konten gua</x-slot>
-                </x-landingpage.fasilitas>
+                </x-landingpage.fasilitas> --}}
 
                 <x-landingpage.fasilitas href="{{ route('announcement') }}" title="Informasi">
                     <x-slot name="icon">
