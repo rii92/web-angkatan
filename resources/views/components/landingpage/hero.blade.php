@@ -1,4 +1,4 @@
-@props(['title' => 'SOLEN SABER', 'description' => 'Solidaritas Enam Satu Beraksi'])
+@props(['title' => 'MELAJU BERSAMA', 'description' => 'Polstat STIS Angkatan 61'])
 
 <div class="mt-16 hero md:pb-80 pb-60 pt-36 lg:h-screen">
     <div class="animate fadeInUp">

@@ -95,7 +95,7 @@
                             </a>
                         </div>
                             <!-- copyright -->
-                            <div class="w-full text-center text-white">&copy; 2022 TI - Solen Saber</div>
+                            <div class="w-full text-center text-white">&copy; 2022 TI - Melaju Bersama</div>
                     </div>
                     <div class="flex items-center my-4 lg:col-span-1 md:col-span-2">
                         <!-- copyright -->

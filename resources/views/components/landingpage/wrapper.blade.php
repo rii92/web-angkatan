@@ -8,7 +8,7 @@
             </div>
             <hr class="max-w-lg mx-auto border-2 border-black w-60 md:w-2/4" />
             <div class="mb-2 text-3xl font-extrabold text-center text-font-color-sub font-beach-sound">
-                Solidaritas Enam Satu Beraksi
+                Polstat STIS Angkatan 61
             </div>
         </h1>
         {{ $slot }}

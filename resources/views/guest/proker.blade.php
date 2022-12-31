@@ -9,7 +9,7 @@
                 </h1>
                 <hr class="max-w-lg mx-auto border-2 border-black w-80 md:w-2/4" />
                 <p class="px-5 mx-auto text-3xl font-extrabold text-center font-beach-sound text-font-color-sub">
-                    Solidaritas Enam Satu Beraksi
+                    Polstat STIS Angkatan 61
                 </p>
             </div>
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 fadeInUp animate">
