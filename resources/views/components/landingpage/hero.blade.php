@@ -1,6 +1,6 @@
 @props(['title' => 'MELAJU BERSAMA', 'description' => 'Polstat STIS Angkatan 61'])
 
-<div class="mt-16 hero md:pb-80 pb-60 pt-36 lg:h-screen">
+<div class="mt-16 hero md:pb-80 pt-36 lg:h-screen">
     <div class="animate fadeInUp">
         <h1>
             <div class="text-6xl font-bold text-center text-black font-poppins">

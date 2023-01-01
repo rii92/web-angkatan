@@ -1150,6 +1150,10 @@ select{
 	margin-left: 0.75rem;
 	margin-right: 0.75rem;
 }
+.my-auto{
+	margin-top: auto;
+	margin-bottom: auto;
+}
 .ml-3{
 	margin-left: 0.75rem;
 }
@@ -1282,6 +1286,9 @@ select{
 .mr-auto{
 	margin-right: auto;
 }
+.-mt-px{
+	margin-top: -1px;
+}
 .mb-14{
 	margin-bottom: 3.5rem;
 }
@@ -1296,9 +1303,6 @@ select{
 }
 .ml-7{
 	margin-left: 1.75rem;
-}
-.-mt-px{
-	margin-top: -1px;
 }
 .block{
 	display: block;
@@ -1371,6 +1375,9 @@ select{
 }
 .h-screen{
 	height: 100vh;
+}
+.h-36{
+	height: 9rem;
 }
 .max-h-96{
 	max-height: 24rem;
@@ -1863,6 +1870,10 @@ select{
 	--tw-border-opacity: 1;
 	border-color: rgba(249, 115, 22, var(--tw-border-opacity));
 }
+.border-gray-400{
+	--tw-border-opacity: 1;
+	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+}
 .border-light-4{
 	--tw-border-opacity: 1;
 	border-color: rgba(247, 242, 239, var(--tw-border-opacity));
@@ -1874,10 +1885,6 @@ select{
 .border-orange-400{
 	--tw-border-opacity: 1;
 	border-color: rgba(251, 146, 60, var(--tw-border-opacity));
-}
-.border-gray-400{
-	--tw-border-opacity: 1;
-	border-color: rgba(156, 163, 175, var(--tw-border-opacity));
 }
 .bg-white{
 	--tw-bg-opacity: 1;
@@ -2218,6 +2225,9 @@ select{
 .pr-3{
 	padding-right: 0.75rem;
 }
+.pt-8{
+	padding-top: 2rem;
+}
 .pb-10{
 	padding-bottom: 2.5rem;
 }
@@ -2232,9 +2242,6 @@ select{
 }
 .pr-7{
 	padding-right: 1.75rem;
-}
-.pt-8{
-	padding-top: 2rem;
 }
 .text-left{
 	text-align: left;
@@ -2471,6 +2478,10 @@ select{
 	--tw-text-opacity: 1;
 	color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
+.text-gray-200{
+	--tw-text-opacity: 1;
+	color: rgba(229, 231, 235, var(--tw-text-opacity));
+}
 .text-red-700{
 	--tw-text-opacity: 1;
 	color: rgba(185, 28, 28, var(--tw-text-opacity));
@@ -2494,10 +2505,6 @@ select{
 .text-green-700{
 	--tw-text-opacity: 1;
 	color: rgba(4, 120, 87, var(--tw-text-opacity));
-}
-.text-gray-200{
-	--tw-text-opacity: 1;
-	color: rgba(229, 231, 235, var(--tw-text-opacity));
 }
 .underline{
 	text-decoration: underline;
@@ -3761,6 +3768,12 @@ html {
 	}
 	.md\:hidden{
 		display: none;
+	}
+	.md\:h-80{
+		height: 20rem;
+	}
+	.md\:h-96{
+		height: 24rem;
 	}
 	.md\:w-auto{
 		width: auto;

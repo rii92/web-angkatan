@@ -3,11 +3,23 @@
         <x-landingpage.hero />
     </header>
 
-    <section class="h-20 py-2 bg-yellow-500">
-                <div class="text-6xl font-bold text-center text-black font-poppins">
-                    WELCOME
+    <!-- timeline -->
+    <section>
+        <div class="py-16 bg-main">
+            <div class="px-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <h2 class="font-bold tracking-wider text-center font-poppins">
+                    <div class="mb-1 text-3xl">TIMELINE KEGIATAN</div>
+                    <div class="text-lg md:text-xl">TINGKAT IV ANGKATAN 61 - 2022/2023 </div>
+                </h2>
+
+                <div class="mt-10">
+                    @livewire('guest.landing.timeline')
                 </div>
+            </div>
+        </div>
+        </div>
     </section>
+    <!-- akhir timeline -->
 
     {{-- <!-- program kerja -->
     <section>
