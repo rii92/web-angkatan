@@ -51,13 +51,15 @@ class AppKonsul
     // public static function getKonselor($dayInWeek, $jurusan)
     public static function getKonselor()
     {
-        $konselor = ["221911030","221911179","211910997","221911241","221911069","221911206","211911112"];
+        // $konselor = ["221911030", "221911179", "211910997", "221911241", "221911069", "221911206", "211911112"];
+        $konselor = ["221911030", "221911179"];
         return $konselor;
     }
 
     public static function getPSDM()
     {
-        $konselor = ["221910760","221911048","211910729","211910798","221911059","221911206","211910830"];
+        // $konselor = ["221910760", "221911048", "211910729", "211910798", "221911059", "221911206", "211910830"];
+        $konselor = ["221910760", "221911048"];
         return $konselor;
     }
 
