@@ -93,6 +93,9 @@
                             <a class="text-white hover:text-orange-500" href="https://www.youtube.com/channel/UC7D57wz3zc3lPzbyoTYnb-w" role="button" target="blank" aria-label="youtube">
                                 <x-icons.youtube stroke-width="0" width="37" height="33" />
                             </a>
+                            <a class="text-white hover:text-orange-500" href="https://twitter.com/enamsantuy?t=nRZ4Fv056TIGzFhzRe-xWA&s=08" role="button" target="blank" aria-label="twitter">
+                                <x-icons.twitter stroke-width="0" width="37" height="33" />
+                            </a>
                         </div>
                             <!-- copyright -->
                             <div class="w-full text-center text-white">&copy; 2022 TI - Melaju Bersama</div>
