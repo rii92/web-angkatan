@@ -3,6 +3,7 @@
 use App\Constants\AppKonsul;
 use Illuminate\Support\Facades\Route;
 use App\Constants\AppPermissions;
+use App\Http\Controllers\SimulationController;
 use App\Http\Livewire\Admin\Announcement\Form as AnnouncementForm;
 use App\Http\Livewire\Admin\Konsultasi\DiscussionRoom as KonsultasiDiscussionRoom;
 use App\Http\Livewire\Guest\Konsultasi\Detail as KonsultasiDetail;
@@ -11,6 +12,9 @@ use App\Http\Livewire\Mahasiswa\Konsultasi\Form;
 use App\Http\Livewire\Mahasiswa\Sambat\Form as SambatForm;
 use App\Models\Announcement;
 use App\Models\Meeting;
+use App\Models\Satker;
+use App\Models\Simulations;
+use App\Models\UserFormations;
 use Illuminate\Database\Eloquent\Builder;
 
 /*
@@ -30,7 +34,7 @@ use Illuminate\Database\Eloquent\Builder;
 Route::any('/sambat', fn () => view('guest.landingpage'))->name('home'); // yang ini
 Route::get('/', fn () => view('guest.landingpage'))->name('home');
 Route::get('/proker', fn () => view('guest.proker'))->name('proker');
-Route::get('/sambat', fn () => view('guest.landingpage'))->name('sambat'); // dan mengubah guest.landingpage menjadi guest.sambat 
+Route::get('/sambat', fn () => view('guest.landingpage'))->name('sambat'); // dan mengubah guest.landingpage menjadi guest.sambat
 
 Route::prefix('konsultasi')->group(function () {
     Route::get('', fn () => view('guest.konsultasi'))->name('konsultasi.list');
@@ -104,11 +108,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('add', AnnouncementForm::class)->name('admin.announcement.add');
             Route::get('{announcement_id}', AnnouncementForm::class)->name('admin.announcement.edit');
         });
+
+        Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
+            ->get("satker", fn () => view('admin.satker'))
+            ->name("admin.simulasi.satker");
+
+        Route::middleware("permission:" . AppPermissions::SIMULATION_MANAGEMENT)
+            ->get("simulasi", fn () => view('admin.simulation'))
+            ->name("admin.simulasi.simulasi");
     });
 
     Route::prefix('user')->group(function () {
 
-        Route::get('', fn () => redirect()->route('user.skripsi'))->name('user');
+        Route::get('', fn () => redirect()->route('user.simulasi.table'))->name('user');
         Route::get('skripsi', fn () => view('mahasiswa.skripsi'))->name('user.skripsi');
 
         Route::middleware("permission:" . AppPermissions::MAKE_KONSULTASI)->prefix('konsultasi')->group(function () {
@@ -155,6 +167,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             Route::get('', fn () => view('mahasiswa.sambat'))->name('user.sambat.table');
             Route::get('add', SambatForm::class)->name('user.sambat.add');
             Route::get('{sambat_id}', SambatForm::class)->name('user.sambat.edit')->middleware('edit.sambat');
-        });   
+        });
+
+        Route::prefix("simulasi")->middleware("permission:" . AppPermissions::SIMULATION_ACCESS)->group(function () {
+            Route::get("", fn () => view('mahasiswa.simulation'))->name("user.simulasi.table");
+            Route::get('{simulation}', fn (Simulations $simulation) => view('mahasiswa.simulation.details', ["simulation" => $simulation]))
+                ->name('user.simulasi.details');
+
+            Route::get('{simulation}/{satker}', [SimulationController::class, 'detailSatkerKab'])
+                ->name('user.simulasi.details-kab.satker');
+
+            Route::get('{simulation}/prov/{provinsi}', [SimulationController::class, 'detailSatkerProv'])
+                ->name('user.simulasi.details-prov.satker');
+        });
     });
 });

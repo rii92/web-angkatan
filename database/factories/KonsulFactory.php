@@ -9,7 +9,6 @@ use App\Models\KonsulChat;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use PDO;
 use Illuminate\Support\Str;
 
 class KonsulFactory extends Factory
@@ -24,13 +23,10 @@ class KonsulFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Konsul $konsul) {
-            // attach user
-            $user = User::role(AppRoles::USERS)->inRandomOrder()->first();
-            $admin = User::role($konsul->category == AppKonsul::TYPE_AKADEMIK ? AppRoles::AKADEMIK : AppRoles::HUMAS)
-                ->inRandomOrder()->first();
 
-            $konsul->name = $konsul->is_anonim ? 'Anonim_' . $konsul->id : $user->name;
-            $konsul->user()->associate($user);
+            $admin = User::role($konsul->category == AppKonsul::TYPE_AKADEMIK ? AppRoles::AKADEMIK : AppRoles::HUMAS)->inRandomOrder()->first();
+
+            $konsul->name = $konsul->is_anonim ? 'Anonim_' . $konsul->id : $konsul->user->name;
 
             Tag::inRandomOrder()
                 ->limit(rand(1, 5))
@@ -39,10 +35,8 @@ class KonsulFactory extends Factory
 
             if (in_array($konsul->status, [AppKonsul::STATUS_PROGRESS, AppKonsul::STATUS_DONE])) {
                 $lastUpdate = KonsulChat::factory(rand(10, 30))
-                    ->make([
-                        'konsul_id' => $konsul->id
-                    ])
-                    ->each(fn ($chat) => $chat->user_id = $chat->is_admin ? $admin->id : $user->id)
+                    ->make(['konsul_id' => $konsul->id])
+                    ->each(fn ($chat) => $chat->user_id = $chat->is_admin ? $admin->id : $konsul->user->id)
                     ->sortBy('created_at')
                     ->each(fn ($chat) => $konsul->chats()->save($chat))
                     ->last()->created_at;
@@ -53,6 +47,7 @@ class KonsulFactory extends Factory
             }
 
             $konsul->updated_at = $lastUpdate;
+
             $konsul->save();
         });
     }
@@ -66,28 +61,36 @@ class KonsulFactory extends Factory
     public function definition()
     {
         $status = $this->faker->randomElement(AppKonsul::allStatus());
+
         $created_at = $this->faker->dateTimeBetween('-50 days', '-20 days');
+
         $title = $this->faker->sentence(rand(10, 20));
+
+        $user = User::role(AppRoles::USERS)->has('details')->inRandomOrder()->first();
 
         if ($status != AppKonsul::STATUS_WAIT) {
             $accepted_at = $this->faker->dateTimeBetween($created_at, '-3 days');
-            if ($status != AppKonsul::STATUS_REJECT) {
-                if ($status != AppKonsul::STATUS_PROGRESS) {
-                    $done_at = $this->faker->dateTimeBetween($accepted_at, '-1 days');
-                    $isPublish = $this->faker->boolean();
-                    if ($isPublish) {
-                        $published_at = $this->faker->dateTimeBetween($done_at);
-                        $randomInt = $this->faker->numerify(' #####');
-                        $slug = Str::slug(Str::limit($title, 60, '') . $randomInt);
-                    }
+
+            if ($status == AppKonsul::STATUS_REJECT) $note = $this->faker->paragraph(rand(7, 15));
+
+            if ($status != AppKonsul::STATUS_REJECT && $status != AppKonsul::STATUS_PROGRESS) {
+                $done_at = $this->faker->dateTimeBetween($accepted_at, '-1 days');
+
+                $isPublish = $this->faker->boolean();
+
+                if ($isPublish) {
+                    $published_at = $this->faker->dateTimeBetween($done_at);
+
+                    $randomInt = $this->faker->numerify(' #####');
+
+                    $slug = Str::slug(Str::limit($title, 60, '') . $randomInt);
                 }
-            } else {
-                $note = $this->faker->paragraph(rand(7, 15));
             }
         }
 
         return [
             'title' => $title,
+            'user_id' => $user->id,
             'category' => $this->faker->randomElement([AppKonsul::TYPE_AKADEMIK, AppKonsul::TYPE_UMUM]),
             'status' => $status,
             'is_anonim' => $this->faker->boolean(),

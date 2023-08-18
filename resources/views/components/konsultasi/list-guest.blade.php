@@ -3,7 +3,7 @@
 @php
     $photo = $konsul->is_anonim ? url('img/user-avatar.svg') : $konsul->user->profile_photo_url;
     $name = $konsul->is_anonim ? 'Anonim' : $konsul->user->name;
-    $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan}" : "{$konsul->userdetails->nim}/{$konsul->userdetails->kelas}";
+    $kelas = $konsul->is_anonim ? "Jurusan {$konsul->userdetails->jurusan_short}" : "{$konsul->userdetails->nim}/{$konsul->userdetails->kelas}";
 @endphp
 
 <div class="mb-8">

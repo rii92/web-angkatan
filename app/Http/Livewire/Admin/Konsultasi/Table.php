@@ -29,7 +29,7 @@ class Table extends DataTableComponent
         if ($user->hasRole(AppRoles::AKADEMIK) and $user->email != "211810500@stis.ac.id")
             $this->filters  += [
                 'jurusan' => [
-                    $user->details->jurusan
+                    $user->details->jurusan_short
                 ],
             ];
 
