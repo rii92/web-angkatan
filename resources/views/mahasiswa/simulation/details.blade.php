@@ -1,9 +1,9 @@
 <x-dashboard-layout title="{{ $simulation->title }}">
-    <div class="flex flex-col md:flex-row mb-4">
+    <div class="flex flex-col mb-4 md:flex-row">
         <x-card.base class="flex-1">
             <div class="text-sm">
                 <h3 class="font-bold">Mekanisme Simulasi Penempatan</h3>
-                <ul class="list-disc ml-4">
+                <ul class="ml-4 list-disc">
                     <li>
                         Alokasi penempatan sesuai pilihan mahasiswa dengan mempertimbangkan ranking, dan
                         rangking diperoleh dari Biro SDM BPS RI (no debat).
@@ -26,9 +26,9 @@
                 </ul>
             </div>
 
-            <div class=" mt-2 text-sm">
+            <div class="mt-2 text-sm ">
                 <h3 class="font-bold">⚠️ Harap Perhatian ⚠️</h3>
-                <ul class="list-disc ml-4">
+                <ul class="ml-4 list-disc">
                     <li>
                         Pilihan Satuan Kerja anda akan berpengaruh pada kehidupan anda <b>beberapa tahun kedepan</b>.
                         Oleh karena itu, pertimbangkan dengan baik satuan kerja yang anda pilih.
@@ -54,9 +54,9 @@
                 </ul>
             </div>
 
-            <div class=" mt-2 text-sm">
+            <div class="mt-2 text-sm ">
                 <h3 class="font-bold">Link Penting</h3>
-                <ul class="list-disc ml-4">
+                <ul class="ml-4 list-disc">
                     <li>
                         <x-link target="_blank"
                             href="https://docs.google.com/document/d/15lW5TVQ3j3mXWex0Y-D3MAK5fUEaeepZkdh7821MiSY/edit?usp=sharing">
@@ -83,7 +83,7 @@
 
     <x-card.base title="Daftar Satker">
         @livewire('mahasiswa.simulation.satker-table', ['simulation_id' => $simulation->id])
-        <p class="text-gray-400 text-sm mt-3 leading-tight">
+        <p class="mt-3 text-sm leading-tight text-gray-400">
             Silahkan klik nama Satker atau Provinsi untuk mengetahui siapa saja yang memilih di Satker atau Provinsi
             tersebut. <b>Untuk tampilan Provinsi masih terdapat kesalahan penghitungan jumlah yang memilih pada provinsi
                 tersebut. Hal ini masih kami coba perbaiki. Untuk sekarang silahkan klik saja nama provinsi untuk
