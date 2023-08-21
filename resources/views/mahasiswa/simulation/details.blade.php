@@ -59,11 +59,11 @@
                 <ul class="ml-4 list-disc">
                     <li>
                         <x-link target="_blank"
-                            href="https://docs.google.com/document/d/15lW5TVQ3j3mXWex0Y-D3MAK5fUEaeepZkdh7821MiSY/edit?usp=sharing">
+                            href="https://docs.google.com/document/d/1jZm7ScExj33NNXwfKE-3f7wA2nG3rDT_bokMxROOMwo/edit?usp=sharing">
                             Panduan Simulasi
                         </x-link>
                     </li>
-                    <li>
+                    {{-- <li>
                         <x-link
                             href="https://docs.google.com/forms/d/e/1FAIpQLSefcpAIOmIYsaJh3qOzLvkyQa9-tiCa8jAU_bExjChxC9nTJA/viewform">
                             Form QnA
@@ -74,7 +74,7 @@
                             href="https://docs.google.com/spreadsheets/d/1l2euR3QnAhD-nBN9oza-pgXQtYBoPDzValmmzZ086qU/edit#gid=1720344264">
                             Jawaban QnA
                         </x-link>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </x-card.base>
