@@ -1,30 +1,31 @@
 provinsi,kabupaten,kode_wilayah,name,se_formation,sk_formation,si_formation,sd_formation,d3_formation,ks_formation,st_formation
-BPS Pusat / KL lain,BPS Pusat / KL lain,00,BPS Pusat,0,0,0,0,0,17,26
-Aceh,Aceh,11,Aceh,0,0,0,0,0,5,18
-Sumatera Utara,Sumatera Utara,12,Sumatera Utara,0,0,0,0,0,7,20
-Sumatera Barat,Sumatera Barat,13,Sumatera Barat,0,0,0,0,0,5,13
-Riau,Riau,14,Riau,0,0,0,0,0,4,5
-Jambi,Jambi,15,Jambi,0,0,0,0,0,4,10
-Sumatera Selatan,Sumatera Selatan,16,Sumatera Selatan,0,0,0,0,0,5,5
-Bengkulu,Bengkulu,17,Bengkulu,0,0,0,0,0,3,9
-Lampung,Lampung,18,Lampung,0,0,0,0,1,4,10
-Kep.Bangka Belitung,Kep.Bangka Belitung,19,Kep.Bangka Belitung,0,0,0,0,0,3,8
-Kep. Riau,Kep. Riau,21,Kep. Riau,0,0,0,0,0,3,5
-Bali,Bali,51,Bali,0,0,0,0,0,3,8
-Nusa Tenggara Barat,Nusa Tenggara Barat,52,Nusa Tenggara Barat,0,0,0,0,0,4,5
-Nusa Tenggara Timur,Nusa Tenggara Timur,53,Nusa Tenggara Timur,0,0,0,0,0,5,15
-Kalimantan Barat,Kalimantan Barat,61,Kalimantan Barat,0,0,0,0,0,4,5
-Kalimantan Tengah,Kalimantan Tengah,62,Kalimantan Tengah,0,0,0,0,11,4,5
-Kalimantan Selatan,Kalimantan Selatan,63,Kalimantan Selatan,0,0,0,0,0,5,5
-Kalimantan Timur,Kalimantan Timur,64,Kalimantan Timur,0,0,0,0,11,4,8
-Kalimantan Utara,Kalimantan Utara,65,Kalimantan Utara,0,0,0,0,11,3,5
-Sulawesi Utara,Sulawesi Utara,71,Sulawesi Utara,0,0,0,0,8,5,8
-Sulawesi Tengah,Sulawesi Tengah,72,Sulawesi Tengah,0,0,0,0,9,5,8
-Sulawesi Selatan,Sulawesi Selatan,73,Sulawesi Selatan,0,0,0,0,0,5,18
-Sulawesi Tenggara,Sulawesi Tenggara,74,Sulawesi Tenggara,0,0,0,0,0,5,5
-Gorontalo,Gorontalo,75,Gorontalo,0,0,0,0,0,3,5
-Sulawesi Baral,Sulawesi Baral,76,Sulawesi Baral,0,0,0,0,0,4,7
-Maluku,Maluku,81,Maluku,0,0,0,0,8,3,7
-Maluku Utara,Maluku Utara,82,Maluku Utara,0,0,0,0,0,3,7
-Papua Barat,Papua Barat,91,Papua Barat,0,0,0,0,1,5,13
-Papua,Papua,94,Papua,0,0,0,0,7,6,20
+BPS Pusat,BPS Pusat,0,BPS Pusat,0,0,0,0,0,10,10
+K/L/Pemda,K/L/Pemda,0,K/L/Pemda,0,0,0,0,0,7,16
+Aceh,ACEH,11,Aceh,0,0,0,0,0,5,18
+Sumatera Utara,SUMATERA UTARA,12,Sumatera Utara,0,0,0,0,0,7,20
+Sumatera Barat,SUMATERA BARAT,13,Sumatera Barat,0,0,0,0,0,5,13
+Riau,RIAU,14,Riau,0,0,0,0,0,4,5
+Jambi,JAMBI,15,Jambi,0,0,0,0,0,4,10
+Sumatera Selatan,SUMATERA SELATAN,16,Sumatera Selatan,0,0,0,0,0,5,5
+Bengkulu,BENGKULU,17,Bengkulu,0,0,0,0,0,3,9
+Lampung,LAMPUNG,18,Lampung,0,0,0,0,1,4,10
+Kep.Bangka Belitung,KEP.BANGKA BELITUNG,19,Kep.Bangka Belitung,0,0,0,0,0,3,8
+Kep. Riau,KEP. RIAU,21,Kep. Riau,0,0,0,0,0,3,5
+Bali,BALI,51,Bali,0,0,0,0,0,3,8
+Nusa Tenggara Barat,NUSA TENGGARA BARAT,52,Nusa Tenggara Barat,0,0,0,0,0,4,5
+Nusa Tenggara Timur,NUSA TENGGARA TIMUR,53,Nusa Tenggara Timur,0,0,0,0,0,5,15
+Kalimantan Barat,KALIMANTAN BARAT,61,Kalimantan Barat,0,0,0,0,0,4,5
+Kalimantan Tengah,KALIMANTAN TENGAH,62,Kalimantan Tengah,0,0,0,0,11,4,5
+Kalimantan Selatan,KALIMANTAN SELATAN,63,Kalimantan Selatan,0,0,0,0,0,5,5
+Kalimantan Timur,KALIMANTAN TIMUR,64,Kalimantan Timur,0,0,0,0,11,4,8
+Kalimantan Utara,KALIMANTAN UTARA,65,Kalimantan Utara,0,0,0,0,11,3,5
+Sulawesi Utara,SULAWESI UTARA,71,Sulawesi Utara,0,0,0,0,8,5,8
+Sulawesi Tengah,SULAWESI TENGAH,72,Sulawesi Tengah,0,0,0,0,9,5,8
+Sulawesi Selatan,SULAWESI SELATAN,73,Sulawesi Selatan,0,0,0,0,0,5,18
+Sulawesi Tenggara,SULAWESI TENGGARA,74,Sulawesi Tenggara,0,0,0,0,0,5,5
+Gorontalo,GORONTALO,75,Gorontalo,0,0,0,0,0,3,5
+Sulawesi Baral,SULAWESI BARAL,76,Sulawesi Baral,0,0,0,0,0,4,7
+Maluku,MALUKU,81,Maluku,0,0,0,0,8,3,7
+Maluku Utara,MALUKU UTARA,82,Maluku Utara,0,0,0,0,0,3,7
+Papua Barat,PAPUA BARAT,91,Papua Barat,0,0,0,0,1,5,13
+Papua,PAPUA,94,Papua,0,0,0,0,7,6,20
