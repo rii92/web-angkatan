@@ -1,31 +1,281 @@
 provinsi,kabupaten,kode_wilayah,name,se_formation,sk_formation,si_formation,sd_formation,d3_formation,ks_formation,st_formation
 BPS Pusat,BPS Pusat,0,BPS Pusat,0,0,0,0,0,10,10
 K/L/Pemda,K/L/Pemda,0,K/L/Pemda,0,0,0,0,0,7,16
-Aceh,ACEH,11,Aceh,0,0,0,0,0,5,18
-Sumatera Utara,SUMATERA UTARA,12,Sumatera Utara,0,0,0,0,0,7,20
-Sumatera Barat,SUMATERA BARAT,13,Sumatera Barat,0,0,0,0,0,5,13
-Riau,RIAU,14,Riau,0,0,0,0,0,4,5
-Jambi,JAMBI,15,Jambi,0,0,0,0,0,4,10
-Sumatera Selatan,SUMATERA SELATAN,16,Sumatera Selatan,0,0,0,0,0,5,5
-Bengkulu,BENGKULU,17,Bengkulu,0,0,0,0,0,3,9
-Lampung,LAMPUNG,18,Lampung,0,0,0,0,1,4,10
-Kep.Bangka Belitung,KEP.BANGKA BELITUNG,19,Kep.Bangka Belitung,0,0,0,0,0,3,8
-Kep. Riau,KEP. RIAU,21,Kep. Riau,0,0,0,0,0,3,5
-Bali,BALI,51,Bali,0,0,0,0,0,3,8
-Nusa Tenggara Barat,NUSA TENGGARA BARAT,52,Nusa Tenggara Barat,0,0,0,0,0,4,5
-Nusa Tenggara Timur,NUSA TENGGARA TIMUR,53,Nusa Tenggara Timur,0,0,0,0,0,5,15
-Kalimantan Barat,KALIMANTAN BARAT,61,Kalimantan Barat,0,0,0,0,0,4,5
-Kalimantan Tengah,KALIMANTAN TENGAH,62,Kalimantan Tengah,0,0,0,0,11,4,5
-Kalimantan Selatan,KALIMANTAN SELATAN,63,Kalimantan Selatan,0,0,0,0,0,5,5
-Kalimantan Timur,KALIMANTAN TIMUR,64,Kalimantan Timur,0,0,0,0,11,4,8
-Kalimantan Utara,KALIMANTAN UTARA,65,Kalimantan Utara,0,0,0,0,11,3,5
-Sulawesi Utara,SULAWESI UTARA,71,Sulawesi Utara,0,0,0,0,8,5,8
-Sulawesi Tengah,SULAWESI TENGAH,72,Sulawesi Tengah,0,0,0,0,9,5,8
-Sulawesi Selatan,SULAWESI SELATAN,73,Sulawesi Selatan,0,0,0,0,0,5,18
-Sulawesi Tenggara,SULAWESI TENGGARA,74,Sulawesi Tenggara,0,0,0,0,0,5,5
-Gorontalo,GORONTALO,75,Gorontalo,0,0,0,0,0,3,5
-Sulawesi Baral,SULAWESI BARAL,76,Sulawesi Baral,0,0,0,0,0,4,7
-Maluku,MALUKU,81,Maluku,0,0,0,0,8,3,7
-Maluku Utara,MALUKU UTARA,82,Maluku Utara,0,0,0,0,0,3,7
-Papua Barat,PAPUA BARAT,91,Papua Barat,0,0,0,0,1,5,13
-Papua,PAPUA,94,Papua,0,0,0,0,7,6,20
+Aceh,Aceh,11,BPS Provinsi Aceh,0,0,0,0,0,0,0
+Aceh,Aceh Singkil,1102,Aceh Singkil,0,0,0,0,0,0,1
+Aceh,Aceh Selatan,1103,Aceh Selatan,0,0,0,0,0,0,1
+Aceh,Aceh Tenggara,1104,Aceh Tenggara,0,0,0,0,0,0,1
+Aceh,Aceh Timur,1105,Aceh Timur,0,0,0,0,0,0,1
+Aceh,Aceh Barat,1107,Aceh Barat,0,0,0,0,0,1,0
+Aceh,Bireuen,1110,Bireuen,0,0,0,0,0,0,1
+Aceh,Aceh Utara,1111,Aceh Utara,0,0,0,0,0,1,1
+Aceh,Aceh Barat Daya,1112,Aceh Barat Daya,0,0,0,0,0,1,1
+Aceh,Gayo Lues,1113,Gayo Lues,0,0,0,0,0,0,1
+Aceh,Aceh Tamiang,1114,Aceh Tamiang,0,0,0,0,0,0,2
+Aceh,Nagan Raya,1115,Nagan Raya,0,0,0,0,0,1,1
+Aceh,Aceh Jaya,1116,Aceh Jaya,0,0,0,0,0,1,1
+Aceh,Pidie Jaya,1118,Pidie Jaya,0,0,0,0,0,0,2
+Aceh,Sabang,1172,Sabang,0,0,0,0,0,0,1
+Aceh,Lhokseumawe,1174,Lhokseumawe,0,0,0,0,0,0,1
+Aceh,Subulussalam,1175,Subulussalam,0,0,0,0,0,0,2
+Sumatera Utara,Sumatera Utara,12,BPS Provinsi Sumatera Utara,0,0,0,0,0,0,0
+Sumatera Utara,Kabupaten Nias,1201,BPS Kabupaten Nias,0,0,0,0,0,2,0
+Sumatera Utara,Kabupaten Mandailing Natal,1202,BPS Kabupaten Mandailing Natal,0,0,0,0,0,0,2
+Sumatera Utara,Kabupaten Tapanuli Selatan,1203,BPS Kabupaten Tapanuli Selatan,0,0,0,0,0,0,2
+Sumatera Utara,Kabupaten Tapanuli Tengah,1204,BPS Kabupaten Tapanuli Tengah,0,0,0,0,0,0,1
+Sumatera Utara,Kabupaten Dairi,1210,BPS Kabupaten Dairi,0,0,0,0,0,0,1
+Sumatera Utara,Kabupaten Nias Selatan,1214,BPS Kabupaten Nias Selatan,0,0,0,0,0,2,0
+Sumatera Utara,Kabupaten Humbang Hasundutan,1215,BPS Kabupaten Humbang Hasundutan,0,0,0,0,0,0,2
+Sumatera Utara,Kabupaten Pakpak Bharat,1216,BPS Kabupaten Pakpak Bharat,0,0,0,0,0,0,2
+Sumatera Utara,Kabupaten Samosir,1217,BPS Kabupaten Samosir,0,0,0,0,0,1,0
+Sumatera Utara,Kabupaten Padang Lawas Utara,1220,BPS Kabupaten Padang Lawas Utara,0,0,0,0,0,0,2
+Sumatera Utara,Kabupaten Padang Lawas,1221,BPS Kabupaten Padang Lawas,0,0,0,0,0,0,2
+Sumatera Utara,Kabupaten Labuhan Batu Selatan,1222,BPS Kabupaten Labuhan Batu Selatan,0,0,0,0,0,1,0
+Sumatera Utara,Kabupaten Nias Utara,1224,BPS Kabupaten Nias Utara,0,0,0,0,0,0,3
+Sumatera Utara,Kota Sibolga,1271,BPS Kota Sibolga,0,0,0,0,0,0,2
+Sumatera Utara,Kota Padangsidimpuan,1277,BPS Kota Padangsidimpuan,0,0,0,0,0,0,1
+Sumatera Utara,Kota Gunungsitoli,1278,BPS Kota Gunungsitoli,0,0,0,0,0,1,0
+Sumatera Barat,Sumatera Barat,13,BPS Provinsi Sumatera Barat,0,0,0,0,0,0,0
+Sumatera Barat,Kepulauan Mentawai,1301,Kepulauan Mentawai,0,0,0,0,0,1,0
+Sumatera Barat,Pesisir Selatan,1302,Pesisir Selatan,0,0,0,0,0,1,3
+Sumatera Barat,Solok,1303,Solok,0,0,0,0,0,0,2
+Sumatera Barat,Sijunjung,1304,Sijunjung,0,0,0,0,0,0,2
+Sumatera Barat,Agam,1307,Agam,0,0,0,0,0,1,0
+Sumatera Barat,Solok Selatan,1310,Solok Selatan,0,0,0,0,0,1,2
+Sumatera Barat,Dharmasraya,1311,Dharmasraya,0,0,0,0,0,1,2
+Sumatera Barat,Sawah Lunto,1373,Sawah Lunto,0,0,0,0,0,0,1
+Sumatera Barat,Bukittinggi,1375,Bukittinggi,0,0,0,0,0,0,1
+Riau,Riau,14,BPS Provinsi Riau,0,0,0,0,0,0,0
+Riau,Kuantan Singingi,1401,Kuantan Singingi,0,0,0,0,0,1,0
+Riau,Indragiri Hulu,1402,Indragiri Hulu,0,0,0,0,0,1,0
+Riau,Indragiri Hilir,1403,Indragiri Hilir,0,0,0,0,0,0,1
+Riau,Pelalawan,1404,Pelalawan,0,0,0,0,0,0,1
+Riau,Siak,1405,Siak,0,0,0,0,0,1,0
+Riau,Rokan Hilir,1409,Rokan Hilir,0,0,0,0,0,0,1
+Riau,Kepulauan Meranti,1410,Kepulauan Meranti,0,0,0,0,0,1,1
+Riau,Dumai,1473,Dumai,0,0,0,0,0,0,1
+Jambi,Jambi,15,BPS Provinsi Jambi,0,0,0,0,0,0,0
+Jambi,Kerinci,1501,Kerinci,0,0,0,0,0,1,2
+Jambi,Merangin,1502,Merangin,0,0,0,0,0,1,1
+Jambi,Sarolangun,1503,Sarolangun,0,0,0,0,0,0,4
+Jambi,Tebo,1508,Tebo,0,0,0,0,0,1,1
+Jambi,Sungai Penuh,1572,Sungai Penuh,0,0,0,0,0,1,2
+Sumatera Selatan,Sumatera Selatan,16,BPS Provinsi Sumatera Selatan,0,0,0,0,0,0,0
+Sumatera Selatan,Musi Rawas,1605,Musi Rawas,0,0,0,0,0,1,0
+Sumatera Selatan,Musi Banyuasin,1606,Musi Banyuasin,0,0,0,0,0,1,1
+Sumatera Selatan,Ogan Komering Ulu Selatan,1608,Ogan Komering Ulu Selatan,0,0,0,0,0,1,1
+Sumatera Selatan,Empat Lawang,1611,Empat Lawang,0,0,0,0,0,1,2
+Sumatera Selatan,Lubuklinggau,1674,Lubuklinggau,0,0,0,0,0,1,1
+Bengkulu,Bengkulu,17,BPS Provinsi Bengkulu,0,0,0,0,0,0,0
+Bengkulu,Kab. Bengkulu Selatan,1701,BPS Kab. Bengkulu Selatan,0,0,0,0,0,0,1
+Bengkulu,Kab. Rejang Lebong,1702,BPS Kab. Rejang Lebong,0,0,0,0,0,1,1
+Bengkulu,Kab. Bengkulu Utara,1703,BPS Kab. Bengkulu Utara,0,0,0,0,0,1,0
+Bengkulu,Kab. Kaur,1704,BPS Kab. Kaur,0,0,0,0,0,0,2
+Bengkulu,Kab. Seluma,1705,BPS Kab. Seluma,0,0,0,0,0,1,0
+Bengkulu,Kab. Mukomuko,1706,BPS Kab. Mukomuko,0,0,0,0,0,0,1
+Bengkulu,Kab. Lebong,1707,BPS Kab. Lebong,0,0,0,0,0,0,1
+Bengkulu,Kab. Kepahiang,1708,BPS Kab. Kepahiang,0,0,0,0,0,0,1
+Bengkulu,Kab. Bengkulu Tengah,1709,BPS Kab. Bengkulu Tengah,0,0,0,0,0,0,1
+Bengkulu,Kota Bengkulu,1771,BPS Kota Bengkulu,0,0,0,0,0,0,1
+Lampung,Lampung,18,BPS Provinsi Lampung,0,0,0,0,0,0,0
+Lampung,Lampung Barat,1801,Lampung Barat,0,0,0,0,0,1,0
+Lampung,Tanggamus,1802,Tanggamus,0,0,0,0,0,0,1
+Lampung,Lampung Selatan,1803,Lampung Selatan,0,0,0,0,0,0,2
+Lampung,Lampung Tengah,1805,Lampung Tengah,0,0,0,0,0,0,1
+Lampung,Way Kanan,1807,Way Kanan,0,0,0,0,1,1,1
+Lampung,Tulangbawang,1808,Tulangbawang,0,0,0,0,0,0,1
+Lampung,Mesuji,1811,Mesuji,0,0,0,0,0,1,2
+Lampung,Tulang Bawang Barat,1812,Tulang Bawang Barat,0,0,0,0,0,1,2
+Kep. Babel,Kep. Babel,19,BPS Provinsi Kep. Babel,0,0,0,0,0,0,0
+Kep. Babel,Bangka,1901,Bangka,0,0,0,0,0,0,1
+Kep. Babel,Belitung,1902,Belitung,0,0,0,0,0,0,1
+Kep. Babel,Bangka Barat,1903,Bangka Barat,0,0,0,0,0,0,1
+Kep. Babel,Bangka Tengah,1904,Bangka Tengah,0,0,0,0,0,1,1
+Kep. Babel,Bangka Selatan,1905,Bangka Selatan,0,0,0,0,0,1,1
+Kep. Babel,Belitung Timur,1906,Belitung Timur,0,0,0,0,0,1,2
+Kep. Babel,Pangkal Pinang,1971,Pangkal Pinang,0,0,0,0,0,0,1
+Kepri,Kepri,21,BPS Provinsi Kepri,0,0,0,0,0,0,0
+Kepri,Kab. Karimun,2101,BPS Kab. Karimun,0,0,0,0,0,1,0
+Kepri,Kab.Natuna,2103,BPS Kab.Natuna,0,0,0,0,0,0,2
+Kepri,Kab.Lingga,2104,BPS Kab.Lingga,0,0,0,0,0,0,2
+Kepri,Kab.Kepulauan Anambas,2105,BPS Kab.Kepulauan Anambas,0,0,0,0,0,0,1
+Kepri,Kota Batam,2171,BPS Kota Batam,0,0,0,0,0,1,0
+Kepri,Kota Tanjungpinang,2172,BPS Kota Tanjungpinang,0,0,0,0,0,1,0
+Bali,Bali,51,BPS Provinsi Bali,0,0,0,0,0,0,0
+Bali,Jembrana,5101,Jembrana,0,0,0,0,0,0,1
+Bali,Badung,5103,Badung,0,0,0,0,0,0,1
+Bali,Klungkung,5105,Klungkung,0,0,0,0,0,0,1
+Bali,Bangli,5106,Bangli,0,0,0,0,0,0,2
+Bali,Karangasem,5107,Karangasem,0,0,0,0,0,1,2
+Bali,Buleleng,5108,Buleleng,0,0,0,0,0,1,1
+Bali,Denpasar,5171,Denpasar,0,0,0,0,0,1,0
+Nusa Tenggara Barat,Nusa Tenggara Barat,52,BPS Provinsi Nusa Tenggara Barat,0,0,0,0,0,0,0
+Nusa Tenggara Barat,Kabupaten Lombok Tengah,5202,BPS Kabupaten Lombok Tengah,0,0,0,0,0,1,0
+Nusa Tenggara Barat,Kabupaten Lombok Timur,5203,BPS Kabupaten Lombok Timur,0,0,0,0,0,1,0
+Nusa Tenggara Barat,Kabupaten Sumbawa,5204,BPS Kabupaten Sumbawa,0,0,0,0,0,1,1
+Nusa Tenggara Barat,Kabupaten Dompu,5205,BPS Kabupaten Dompu,0,0,0,0,0,0,1
+Nusa Tenggara Barat,Kabupaten Bima,5206,BPS Kabupaten Bima,0,0,0,0,0,1,1
+Nusa Tenggara Barat,Kabupaten Lombok Utara,5208,BPS Kabupaten Lombok Utara,0,0,0,0,0,0,1
+Nusa Tenggara Barat,Kota Bima,5272,BPS Kota Bima,0,0,0,0,0,0,1
+Nusa Tenggara Timur,Nusa Tenggara Timur,53,BPS Provinsi Nusa Tenggara Timur,0,0,0,0,0,0,0
+Nusa Tenggara Timur,Sumba Barat,5301,Sumba Barat,0,0,0,0,0,0,2
+Nusa Tenggara Timur,Timor Tengah Utara,5305,Timor Tengah Utara,0,0,0,0,0,1,0
+Nusa Tenggara Timur,Alor,5307,Alor,0,0,0,0,0,1,0
+Nusa Tenggara Timur,Lembata,5308,Lembata,0,0,0,0,0,0,1
+Nusa Tenggara Timur,Sikka,5310,Sikka,0,0,0,0,0,1,0
+Nusa Tenggara Timur,Ngada,5312,Ngada,0,0,0,0,0,0,1
+Nusa Tenggara Timur,Rote Ndao,5314,Rote Ndao,0,0,0,0,0,0,4
+Nusa Tenggara Timur,Manggarai Barat,5315,Manggarai Barat,0,0,0,0,0,0,1
+Nusa Tenggara Timur,Sumba Barat Daya,5317,Sumba Barat Daya,0,0,0,0,0,0,1
+Nusa Tenggara Timur,Nagekeo,5318,Nagekeo,0,0,0,0,0,0,3
+Nusa Tenggara Timur,Manggarai Timur,5319,Manggarai Timur,0,0,0,0,0,1,0
+Nusa Tenggara Timur,Sabu Raijua,5320,Sabu Raijua,0,0,0,0,0,1,2
+Kalimantan Barat,Kalimantan Barat,61,BPS Provinsi Kalimantan Barat,0,0,0,0,0,0,0
+Kalimantan Barat,Sambas,6101,Sambas,0,0,0,0,0,1,0
+Kalimantan Barat,Landak,6103,Landak,0,0,0,0,0,0,1
+Kalimantan Barat,Sanggau,6105,Sanggau,0,0,0,0,0,1,0
+Kalimantan Barat,Kapuas Hulu,6108,Kapuas Hulu,0,0,0,0,0,1,1
+Kalimantan Barat,Kubu Raya,6112,Kubu Raya,0,0,0,0,0,0,1
+Kalimantan Barat,Pontianak,6171,Pontianak,0,0,0,0,0,1,1
+Kalimantan Barat,Singkawang,6172,Singkawang,0,0,0,0,0,0,1
+Kalimantan Tengah,Kalimantan Tengah,62,BPS Provinsi Kalimantan Tengah,0,0,0,0,0,0,0
+Kalimantan Tengah,Kotawaringin Barat,6201,Kotawaringin Barat,0,0,0,0,0,1,0
+Kalimantan Tengah,Kotawaringin Timur,6202,Kotawaringin Timur,0,0,0,0,0,0,1
+Kalimantan Tengah,Barito Selatan,6204,Barito Selatan,0,0,0,0,1,0,0
+Kalimantan Tengah,Barito Utara,6205,Barito Utara,0,0,0,0,1,0,0
+Kalimantan Tengah,Sukamara,6206,Sukamara,0,0,0,0,1,0,1
+Kalimantan Tengah,Lamandau,6207,Lamandau,0,0,0,0,1,1,0
+Kalimantan Tengah,Seruyan,6208,Seruyan,0,0,0,0,1,1,0
+Kalimantan Tengah,Katingan,6209,Katingan,0,0,0,0,2,0,1
+Kalimantan Tengah,Pulang Pisau,6210,Pulang Pisau,0,0,0,0,1,0,1
+Kalimantan Tengah,Gunung Mas,6211,Gunung Mas,0,0,0,0,1,0,0
+Kalimantan Tengah,Barito Timur,6212,Barito Timur,0,0,0,0,1,1,0
+Kalimantan Tengah,Murung Raya,6213,Murung Raya,0,0,0,0,0,0,1
+Kalimantan Tengah,Palangka Raya,6271,Palangka Raya,0,0,0,0,1,0,0
+Kalimantan Selatan,Kalimantan Selatan,63,BPS Provinsi Kalimantan Selatan,0,0,0,0,0,0,0
+Kalimantan Selatan,Tanah Laut,6301,Tanah Laut,0,0,0,0,0,0,1
+Kalimantan Selatan,Kota Baru,6302,Kota Baru,0,0,0,0,0,1,0
+Kalimantan Selatan,Hulu Sungai Tengah,6307,Hulu Sungai Tengah,0,0,0,0,0,1,1
+Kalimantan Selatan,Hulu Sungai Utara,6308,Hulu Sungai Utara,0,0,0,0,0,1,0
+Kalimantan Selatan,Tabalong,6309,Tabalong,0,0,0,0,0,1,1
+Kalimantan Selatan,Tanah Bumbu,6310,Tanah Bumbu,0,0,0,0,0,1,1
+Kalimantan Selatan,Balangan,6311,Balangan,0,0,0,0,0,0,1
+Kalimantan Timur,Kalimantan Timur,64,BPS Provinsi Kalimantan Timur,0,0,0,0,0,0,0
+Kalimantan Timur,Kab. Paser,6401,Kab. Paser,0,0,0,0,1,0,1
+Kalimantan Timur,Kab. Kutai Barat,6402,Kab. Kutai Barat,0,0,0,0,1,1,1
+Kalimantan Timur,Kab. Kutai Kartanegara,6403,Kab. Kutai Kartanegara,0,0,0,0,1,0,1
+Kalimantan Timur,Kab. Kutai Timur,6404,Kab. Kutai Timur,0,0,0,0,2,1,1
+Kalimantan Timur,Kab. Berau,6405,Kab. Berau,0,0,0,0,1,0,1
+Kalimantan Timur,Kab. Penajam Paser Utara,6409,Kab. Penajam Paser Utara,0,0,0,0,1,1,1
+Kalimantan Timur,Kab. Mahakam Ulu,6411,Kab. Mahakam Ulu,0,0,0,0,2,1,1
+Kalimantan Timur,Kota Samarinda,6472,Kota Samarinda,0,0,0,0,1,0,0
+Kalimantan Timur,Kota Bontang,6474,Kota Bontang,0,0,0,0,1,0,1
+Kalimantan Utara,Kalimantan Utara,65,BPS Provinsi Kalimantan Utara,0,0,0,0,0,0,0
+Kalimantan Utara,Malinau,6501,Malinau,0,0,0,0,3,0,2
+Kalimantan Utara,Bulungan,6502,Bulungan,0,0,0,0,2,1,1
+Kalimantan Utara,Tana Tidung,6503,Tana Tidung,0,0,0,0,2,1,1
+Kalimantan Utara,Nunukan,6504,Nunukan,0,0,0,0,4,1,1
+Sulawesi Utara,Sulawesi Utara,71,BPS Provinsi Sulawesi Utara,0,0,0,0,0,0,0
+Sulawesi Utara,Bolaang Mongondow,7101,Bolaang Mongondow,0,0,0,0,0,1,2
+Sulawesi Utara,Minahasa,7102,Minahasa,0,0,0,0,0,0,2
+Sulawesi Utara,Kepulauan Sangihe,7103,Kepulauan Sangihe,0,0,0,0,0,0,2
+Sulawesi Utara,Kepulauan Talaud,7104,Kepulauan Talaud,0,0,0,0,1,1,1
+Sulawesi Utara,Minahasa Selatan,7105,Minahasa Selatan,0,0,0,0,0,1,0
+Sulawesi Utara,Bolaang Mongondow Utara,7107,Bolaang Mongondow Utara,0,0,0,0,2,0,0
+Sulawesi Utara,Siau Tagulandang Biaro,7108,Siau Tagulandang Biaro,0,0,0,0,2,1,0
+Sulawesi Utara,Bitung,7172,Bitung,0,0,0,0,0,1,0
+Sulawesi Utara,Kotamobagu,7174,Kotamobagu,0,0,0,0,3,0,1
+Sulawesi Tengah,Sulawesi Tengah,72,BPS Provinsi Sulawesi Tengah,0,0,0,0,0,0,0
+Sulawesi Tengah,Banggai Kepulauan,7201,Banggai Kepulauan,0,0,0,0,0,1,2
+Sulawesi Tengah,Banggai,7202,Banggai,0,0,0,0,2,0,1
+Sulawesi Tengah,Morowali,7203,Morowali,0,0,0,0,0,0,2
+Sulawesi Tengah,Poso,7204,Poso,0,0,0,0,1,1,0
+Sulawesi Tengah,Donggala,7205,Donggala,0,0,0,0,0,0,1
+Sulawesi Tengah,Tolitoli,7206,Tolitoli,0,0,0,0,2,0,1
+Sulawesi Tengah,Buol,7207,Buol,0,0,0,0,0,1,0
+Sulawesi Tengah,Parigi Moutong,7208,Parigi Moutong,0,0,0,0,0,1,1
+Sulawesi Tengah,Tojo UnaUna,7209,Tojo UnaUna,0,0,0,0,2,1,0
+Sulawesi Tengah,Sigi,7210,Sigi,0,0,0,0,1,0,0
+Sulawesi Tengah,Palu,7271,Palu,0,0,0,0,1,0,0
+Sulawesi Selatan,Sulawesi Selatan,73,BPS Provinsi Sulawesi Selatan,0,0,0,0,0,0,0
+Sulawesi Selatan,Kepulauan Selayar,7301,Kepulauan Selayar,0,0,0,0,0,1,1
+Sulawesi Selatan,Bulukumba,7302,Bulukumba,0,0,0,0,0,0,1
+Sulawesi Selatan,Bantaeng,7303,Bantaeng,0,0,0,0,0,1,1
+Sulawesi Selatan,Jeneponto,7304,Jeneponto,0,0,0,0,0,1,1
+Sulawesi Selatan,Takalar,7305,Takalar,0,0,0,0,0,0,1
+Sulawesi Selatan,Sinjai,7307,Sinjai,0,0,0,0,0,0,1
+Sulawesi Selatan,Pangkajene Kepulauan,7309,Pangkajene Kepulauan,0,0,0,0,0,0,1
+Sulawesi Selatan,Barru,7310,Barru,0,0,0,0,0,0,2
+Sulawesi Selatan,Soppeng,7312,Soppeng,0,0,0,0,0,1,1
+Sulawesi Selatan,Wajo,7313,Wajo,0,0,0,0,0,0,1
+Sulawesi Selatan,Enrekang,7316,Enrekang,0,0,0,0,0,0,2
+Sulawesi Selatan,Luwu,7317,Luwu,0,0,0,0,0,0,1
+Sulawesi Selatan,Luwu Utara,7322,Luwu Utara,0,0,0,0,0,0,1
+Sulawesi Selatan,Luwu Timur,7325,Luwu Timur,0,0,0,0,0,0,1
+Sulawesi Selatan,Parepare,7372,Parepare,0,0,0,0,0,0,1
+Sulawesi Selatan,Palopo,7373,Palopo,0,0,0,0,0,1,1
+Sulawesi Tenggara,Sulawesi Tenggara,74,BPS Provinsi Sulawesi Tenggara,0,0,0,0,0,0,0
+Sulawesi Tenggara,Muna,7402,Muna,0,0,0,0,0,0,1
+Sulawesi Tenggara,Konawe Selatan,7405,Konawe Selatan,0,0,0,0,0,1,0
+Sulawesi Tenggara,Wakatobi,7407,Wakatobi,0,0,0,0,0,0,1
+Sulawesi Tenggara,Kolaka Utara,7408,Kolaka Utara,0,0,0,0,0,0,1
+Sulawesi Tenggara,Buton Utara,7409,Buton Utara,0,0,0,0,0,1,0
+Sulawesi Tenggara,Konawe Utara,7410,Konawe Utara,0,0,0,0,0,1,0
+Sulawesi Tenggara,Buton Selatan,7415,Buton Selatan,0,0,0,0,0,1,2
+Sulawesi Tenggara,Baubau,7472,Baubau,0,0,0,0,0,1,0
+Gorontalo,Gorontalo,75,BPS Provinsi Gorontalo,0,0,0,0,0,0,0
+Gorontalo,Boalemo,7501,Boalemo,0,0,0,0,0,1,0
+Gorontalo,Gorontalo,7502,Gorontalo,0,0,0,0,0,0,2
+Gorontalo,Pohuwato,7503,Pohuwato,0,0,0,0,0,0,2
+Gorontalo,Bone Bolango,7504,Bone Bolango,0,0,0,0,0,1,0
+Gorontalo,Gorontalo Utara,7505,Gorontalo Utara,0,0,0,0,0,1,1
+Sulawesi Barat,Sulawesi Barat,76,BPS Provinsi Sulawesi Barat,0,0,0,0,0,0,0
+Sulawesi Barat,Majene,7601,Majene,0,0,0,0,0,1,0
+Sulawesi Barat,Polewali Mandar,7602,Polewali Mandar,0,0,0,0,0,1,1
+Sulawesi Barat,Mamasa,7603,Mamasa,0,0,0,0,0,1,2
+Sulawesi Barat,Mamuju,7604,Mamuju,0,0,0,0,0,0,1
+Sulawesi Barat,Pasangkayu,7605,Pasangkayu,0,0,0,0,0,0,1
+Sulawesi Barat,Kabupaten Mamuju Tengah,7606,Kabupaten Mamuju Tengah,0,0,0,0,0,1,2
+Maluku,Maluku,81,BPS Provinsi Maluku,0,0,0,0,0,0,0
+Maluku,Kepulauan Tanimbar,8101,Kepulauan Tanimbar,0,0,0,0,1,0,2
+Maluku,Maluku Tenggara,8102,Maluku Tenggara,0,0,0,0,0,0,1
+Maluku,Maluku Tengah,8103,Maluku Tengah,0,0,0,0,0,1,0
+Maluku,Kepulauan Aru,8105,Kepulauan Aru,0,0,0,0,2,1,0
+Maluku,Seram Bagian Timur,8107,Seram Bagian Timur,0,0,0,0,0,1,0
+Maluku,Maluku Barat Daya,8108,Maluku Barat Daya,0,0,0,0,1,0,1
+Maluku,Buru Selatan,8109,Buru Selatan,0,0,0,0,2,0,2
+Maluku,Kota Tual,8172,Kota Tual,0,0,0,0,2,0,1
+Maluku Utara,Maluku Utara,82,BPS Provinsi Maluku Utara,0,0,0,0,0,0,0
+Maluku Utara,Halmahera Barat,8201,Halmahera Barat,0,0,0,0,0,1,2
+Maluku Utara,Kepulauan Sula,8203,Kepulauan Sula,0,0,0,0,0,1,1
+Maluku Utara,Halmahera Selatan,8204,Halmahera Selatan,0,0,0,0,0,0,1
+Maluku Utara,Halmahera Utara,8205,Halmahera Utara,0,0,0,0,0,0,1
+Maluku Utara,Pulau Morotai,8207,Pulau Morotai,0,0,0,0,0,1,2
+Papua Barat,Papua Barat,91,BPS Provinsi Papua Barat,0,0,0,0,0,0,0
+Papua Barat,Kabupaten Fakfak,9101,BPS Kabupaten Fakfak,0,0,0,0,0,0,1
+Papua Barat,Kabupaten Kaimana,9102,BPS Kabupaten Kaimana,0,0,0,0,0,1,0
+Papua Barat,Kabupaten Teluk Bintuni,9104,BPS Kabupaten Teluk Bintuni,0,0,0,0,0,0,2
+Papua Barat,Kabupaten Manokwari,9105,BPS Kabupaten Manokwari,0,0,0,0,0,1,2
+Papua Barat,Kabupaten Sorong Selatan,9106,BPS Kabupaten Sorong Selatan,0,0,0,0,0,0,1
+Papua Barat,Kabupaten Sorong,9107,BPS Kabupaten Sorong,0,0,0,0,0,1,2
+Papua Barat,Kabupaten Raja Ampat,9108,BPS Kabupaten Raja Ampat,0,0,0,0,0,0,1
+Papua Barat,Kota Sorong,9171,BPS Kota Sorong,0,0,0,0,0,1,2
+Papua Barat,Kabupaten Maybrat,9110,BPS Kabupaten Maybrat,0,0,0,0,1,1,2
+Papua,Papua,94,BPS Provinsi Papua,0,0,0,0,0,0,0
+Papua,Jayawijaya,9402,Jayawijaya,0,0,0,0,1,0,2
+Papua,Nabire,9404,Nabire,0,0,0,0,1,0,1
+Papua,Biak Numfor,9409,Biak Numfor,0,0,0,0,0,1,0
+Papua,Paniai,9410,Paniai,0,0,0,0,0,1,1
+Papua,Puncak Jaya,9411,Puncak Jaya,0,0,0,0,1,1,1
+Papua,Mimika,9412,Mimika,0,0,0,0,0,0,1
+Papua,Boven Digoel,9413,Boven Digoel,0,0,0,0,0,1,1
+Papua,Mappi,9414,Mappi,0,0,0,0,1,0,1
+Papua,Asmat,9415,Asmat,0,0,0,0,0,0,2
+Papua,Yahukimo,9416,Yahukimo,0,0,0,0,0,1,1
+Papua,Pegunungan Bintang,9417,Pegunungan Bintang,0,0,0,0,1,0,1
+Papua,Tolikara,9418,Tolikara,0,0,0,0,0,1,1
+Papua,Sarmi,9419,Sarmi,0,0,0,0,0,0,1
+Papua,Supiori,9427,Supiori,0,0,0,0,0,0,2
+Papua,Kabupaten Mamberamo Raya,9428,BPS Kabupaten Mamberamo Raya,0,0,0,0,1,0,2
+Papua,Kabupaten Lanny Jaya,9430,BPS Kabupaten Lanny Jaya,0,0,0,0,1,0,1
+Papua,Puncak,9433,Puncak,0,0,0,0,0,0,1
