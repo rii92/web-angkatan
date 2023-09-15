@@ -97,7 +97,7 @@
         dd($simulation->id)
     @endphp --}}
 
-    {{-- <x-card.base title="Peserta Simulasi">
+    <x-card.base title="Peserta Simulasi">
         @livewire('mahasiswa.simulation.users-table', ['simulation_id' => $simulation->id])
-    </x-card.base> --}}
+    </x-card.base>
 </x-dashboard-layout>
